@@ -18,21 +18,26 @@ const featureIcons = [
   Zap,
 ];
 
-const iconColors = [
-  "#8b5cf6", // purple
-  "#10b981", // green
-  "#f59e0b", // orange
-  "#06b6d4", // cyan
-  "#f97316", // orange
-  "#22c55e", // green
+const iconGradients = [
+  "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", // purple
+  "linear-gradient(135deg, #10b981 0%, #059669 100%)", // green
+  "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)", // orange
+  "linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)", // cyan
+  "linear-gradient(135deg, #f97316 0%, #ea580c 100%)", // orange
+  "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)", // green
 ];
 
 export default function FeaturesSection() {
-  const { getArray } = useCopy();
+  const { getArray, get } = useCopy();
   const features = getArray("home.features.items");
 
   return (
     <section className={styles.features}>
+      <div className={styles.sectionHeader}>
+        <h2 className={styles.sectionTitle}>{get("home.features.title")}</h2>
+        <p className={styles.sectionSubtitle}>{get("home.features.subtitle")}</p>
+        <p className={styles.sectionSubtitleEn}>{get("home.features.subtitleEn")}</p>
+      </div>
       <div className={styles.featuresGrid}>
         {features.map((feature, index) => {
           const Icon = featureIcons[index];
@@ -40,9 +45,9 @@ export default function FeaturesSection() {
             <div key={index} className={styles.featureCard}>
               <div
                 className={styles.featureIcon}
-                style={{ backgroundColor: iconColors[index] + '20' }}
+                style={{ background: iconGradients[index] }}
               >
-                <Icon size={28} color={iconColors[index]} strokeWidth={2} />
+                <Icon size={28} color="white" strokeWidth={2} />
               </div>
               <h3 className={styles.featureTitle}>{feature.title}</h3>
               <p className={styles.featureDescription}>{feature.description}</p>

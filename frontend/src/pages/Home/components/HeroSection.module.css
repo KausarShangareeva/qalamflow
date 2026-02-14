@@ -63,6 +63,7 @@
   font-size: var(--fs-lg);
   max-width: 64rem; /* 640px - updated for new rem scale */
   line-height: 1.7;
+  text-align: center;
 }
 
 .cta {

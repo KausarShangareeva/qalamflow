@@ -4,6 +4,34 @@
   padding: var(--space-3xl) var(--space-xl);
 }
 
+.sectionHeader {
+  text-align: center;
+  max-width: 90rem; /* 900px */
+  margin: 0 auto var(--space-3xl);
+}
+
+.sectionTitle {
+  font-size: var(--fs-4xl);
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+}
+
+.sectionSubtitle {
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-xs);
+}
+
+.sectionSubtitleEn {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
 .featuresGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); /* 280px */
@@ -15,7 +43,7 @@
 .featureCard {
   background: var(--color-bg-card);
   border-radius: 1.6rem; /* 16px */
-  padding: var(--space-xl);
+  padding: var(--space-md);
   transition:
     transform var(--transition-fast),
     box-shadow var(--transition-fast);

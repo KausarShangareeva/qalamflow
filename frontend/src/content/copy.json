@@ -35,7 +35,9 @@
       "ctaSecondary": "Узнать больше"
     },
     "features": {
-      "title": "Почему QalamFlow?",
+      "title": "Что Вас Ждет / What Awaits You",
+      "subtitle": "Полный набор инструментов для эффективного и приятного изучения арабского языка.",
+      "subtitleEn": "A complete set of tools for effective and enjoyable Arabic learning.",
       "items": [
         {
           "title": "Персональный Roadmap",
