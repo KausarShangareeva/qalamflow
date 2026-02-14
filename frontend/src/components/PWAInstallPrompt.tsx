@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useCopy } from "../hooks/useCopy";
 import styles from "./PWAInstallPrompt.module.css";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -7,6 +8,7 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export default function PWAInstallPrompt() {
+  const { get } = useCopy();
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showPrompt, setShowPrompt] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
@@ -62,15 +64,15 @@ export default function PWAInstallPrompt() {
           <div className={styles.content}>
             <div className={styles.icon}>📱</div>
             <div className={styles.text}>
-              <strong>Install QalamFlow</strong>
-              <p>Install our app for a better experience!</p>
+              <strong>{get("pwa.install.banner.title")}</strong>
+              <p>{get("pwa.install.banner.description")}</p>
             </div>
             <div className={styles.actions}>
               <button className={styles.installBtn} onClick={handleInstallClick}>
-                Install
+                {get("pwa.install.banner.installButton")}
               </button>
               <button className={styles.dismissBtn} onClick={handleDismiss}>
-                ✕
+                {get("pwa.install.banner.dismissButton")}
               </button>
             </div>
           </div>
@@ -81,7 +83,7 @@ export default function PWAInstallPrompt() {
         <div className={styles.overlay} onClick={() => setShowInstructions(false)}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
-              <h2>Install QalamFlow</h2>
+              <h2>{get("pwa.install.modal.title")}</h2>
               <button className={styles.closeBtn} onClick={() => setShowInstructions(false)}>
                 ✕
               </button>
@@ -89,43 +91,43 @@ export default function PWAInstallPrompt() {
 
             <div className={styles.modalBody}>
               <section className={styles.section}>
-                <h3>📱 On Mobile (iOS)</h3>
+                <h3>{get("pwa.install.modal.ios.title")}</h3>
                 <ol>
-                  <li>Open QalamFlow in <strong>Safari</strong></li>
-                  <li>Tap the <strong>Share</strong> button (square with arrow)</li>
-                  <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
-                  <li>Tap <strong>"Add"</strong> to confirm</li>
+                  <li>{get("pwa.install.modal.ios.step1")}<strong>{get("pwa.install.modal.ios.safari")}</strong></li>
+                  <li>{get("pwa.install.modal.ios.step2")}<strong>{get("pwa.install.modal.ios.shareButton")}</strong>{get("pwa.install.modal.ios.step2b")}</li>
+                  <li>{get("pwa.install.modal.ios.step3")}<strong>{get("pwa.install.modal.ios.addToHomeScreen")}</strong></li>
+                  <li>{get("pwa.install.modal.ios.step4")}<strong>{get("pwa.install.modal.ios.tapAdd")}</strong>{get("pwa.install.modal.ios.step4b")}</li>
                 </ol>
               </section>
 
               <section className={styles.section}>
-                <h3>📱 On Mobile (Android)</h3>
+                <h3>{get("pwa.install.modal.android.title")}</h3>
                 <ol>
-                  <li>Open QalamFlow in <strong>Chrome</strong></li>
-                  <li>Tap the <strong>menu</strong> (three dots)</li>
-                  <li>Tap <strong>"Add to Home screen"</strong> or <strong>"Install app"</strong></li>
-                  <li>Tap <strong>"Install"</strong> to confirm</li>
+                  <li>{get("pwa.install.modal.android.step1")}<strong>{get("pwa.install.modal.android.chrome")}</strong></li>
+                  <li>{get("pwa.install.modal.android.step2")}<strong>{get("pwa.install.modal.android.menu")}</strong>{get("pwa.install.modal.android.step2b")}</li>
+                  <li>{get("pwa.install.modal.android.step3")}<strong>{get("pwa.install.modal.android.addToHome")}</strong>{get("pwa.install.modal.android.step3b")}<strong>{get("pwa.install.modal.android.installApp")}</strong></li>
+                  <li>{get("pwa.install.modal.android.step4")}<strong>{get("pwa.install.modal.android.install")}</strong>{get("pwa.install.modal.android.step4b")}</li>
                 </ol>
               </section>
 
               <section className={styles.section}>
-                <h3>💻 On Desktop (Chrome/Edge)</h3>
+                <h3>{get("pwa.install.modal.desktop.title")}</h3>
                 <ol>
-                  <li>Look for the <strong>install icon</strong> in the address bar</li>
-                  <li>Or click the <strong>menu</strong> (three dots)</li>
-                  <li>Select <strong>"Install QalamFlow"</strong> or <strong>"Create shortcut"</strong></li>
-                  <li>Click <strong>"Install"</strong> to confirm</li>
+                  <li>{get("pwa.install.modal.desktop.step1")}<strong>{get("pwa.install.modal.desktop.installIcon")}</strong>{get("pwa.install.modal.desktop.step1b")}</li>
+                  <li>{get("pwa.install.modal.desktop.step2")}<strong>{get("pwa.install.modal.desktop.menu")}</strong>{get("pwa.install.modal.desktop.step2b")}</li>
+                  <li>{get("pwa.install.modal.desktop.step3")}<strong>{get("pwa.install.modal.desktop.installQalamFlow")}</strong>{get("pwa.install.modal.desktop.step3b")}<strong>{get("pwa.install.modal.desktop.createShortcut")}</strong></li>
+                  <li>{get("pwa.install.modal.desktop.step4")}<strong>{get("pwa.install.modal.desktop.install")}</strong>{get("pwa.install.modal.desktop.step4b")}</li>
                 </ol>
               </section>
 
               <div className={styles.benefits}>
-                <h4>✨ Benefits of Installing:</h4>
+                <h4>{get("pwa.install.modal.benefits.title")}</h4>
                 <ul>
-                  <li>✅ Faster loading times</li>
-                  <li>✅ Works offline</li>
-                  <li>✅ Native app experience</li>
-                  <li>✅ Quick access from home screen</li>
-                  <li>✅ No app store required</li>
+                  <li>✅ {get("pwa.install.modal.benefits.fastLoading")}</li>
+                  <li>✅ {get("pwa.install.modal.benefits.worksOffline")}</li>
+                  <li>✅ {get("pwa.install.modal.benefits.nativeExperience")}</li>
+                  <li>✅ {get("pwa.install.modal.benefits.quickAccess")}</li>
+                  <li>✅ {get("pwa.install.modal.benefits.noAppStore")}</li>
                 </ul>
               </div>
             </div>
