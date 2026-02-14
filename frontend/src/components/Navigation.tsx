@@ -26,13 +26,13 @@ export default function Navigation() {
 
         <nav className={styles.navone}>
           <div className={styles.links}>
-            <Link to="/login" className={styles.navLink}>
+            <Link to="#" className={styles.navLink}>
               Главная
             </Link>
-            <Link to="/register" className={styles.navLink}>
+            <Link to="#" className={styles.navLink}>
               Как это работает
             </Link>
-            <Link to="/register" className={styles.navLink}>
+            <Link to="#" className={styles.navLink}>
               Возможности
             </Link>
           </div>
@@ -76,7 +76,7 @@ export default function Navigation() {
                   href="https://t.me/kausarsh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.navLink}
+                  className={styles.contactLink}
                 >
                   {get("nav.contact")}
                 </a>

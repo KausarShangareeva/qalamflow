@@ -63,6 +63,21 @@
   background-color: var(--color-bg-hover);
 }
 
+.contactLink {
+  color: var(--color-text-muted);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 10rem; /* Pill shape */
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.contactLink:hover {
+  color: var(--color-text);
+  background-color: var(--color-bg-hover);
+}
+
 .contactBtn {
   background: var(--color-text);
   color: var(--color-text-inverse);
