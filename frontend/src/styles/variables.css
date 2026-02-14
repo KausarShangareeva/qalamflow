@@ -13,20 +13,20 @@
   --color-secondary-dark: #d97706;
   --color-secondary-subtle: rgba(245, 158, 11, 0.1);
 
-  /* Colors - Backgrounds */
+  /* Colors - Backgrounds - Dark Theme */
   --color-bg: #0f172a;
   --color-bg-card: #1e293b;
   --color-bg-elevated: #273549;
   --color-bg-input: #1e293b;
   --color-bg-hover: #334155;
 
-  /* Colors - Text */
+  /* Colors - Text - Dark Theme */
   --color-text: #f1f5f9;
   --color-text-muted: #94a3b8;
   --color-text-inverse: #0f172a;
   --color-text-secondary: #cbd5e1;
 
-  /* Colors - Borders */
+  /* Colors - Borders - Dark Theme */
   --color-border: #334155;
   --color-border-light: #475569;
   --color-border-dark: #1e293b;
@@ -43,7 +43,7 @@
 
   /* Typography */
   --font-sans:
-    "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "Fira Code", "Cascadia Code", monospace;
 
   --fs-xs: 0.75rem;
@@ -90,4 +90,25 @@
   /* Layout */
   --max-width: 1200px;
   --header-height: 4rem;
+}
+
+/* ===== Light Theme ===== */
+[data-theme="light"] {
+  /* Colors - Backgrounds - Light Theme */
+  --color-bg: #f8f9fa;
+  --color-bg-card: #ffffff;
+  --color-bg-elevated: #ffffff;
+  --color-bg-input: #ffffff;
+  --color-bg-hover: #f1f3f5;
+
+  /* Colors - Text - Light Theme */
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-text-inverse: #ffffff;
+  --color-text-secondary: #4b5563;
+
+  /* Colors - Borders - Light Theme */
+  --color-border: #e5e7eb;
+  --color-border-light: #d1d5db;
+  --color-border-dark: #9ca3af;
 }
