@@ -53,18 +53,18 @@ export function generateSchedulePDF(items: ScheduleItem[], userName: string = "U
   // === MOTIVATIONAL QUOTE ===
   doc.setFontSize(9);
   doc.setTextColor(COLORS.secondary);
-  doc.setFont(undefined, "italic");
+  doc.setFont("helvetica", "italic");
   const quote = '"The ink of a scholar is more precious than the blood of a martyr."';
   doc.text(quote, pageWidth / 2, yPos, { align: "center" });
-  doc.setFont(undefined, "normal");
+  doc.setFont("helvetica", "normal");
   yPos += 10;
 
   // === WEEKLY SCHEDULE TABLE ===
   doc.setFontSize(14);
   doc.setTextColor(COLORS.text);
-  doc.setFont(undefined, "bold");
+  doc.setFont("helvetica", "bold");
   doc.text("Weekly Schedule", margin, yPos);
-  doc.setFont(undefined, "normal");
+  doc.setFont("helvetica", "normal");
   yPos += 8;
 
   // Group items by day
@@ -85,10 +85,10 @@ export function generateSchedulePDF(items: ScheduleItem[], userName: string = "U
 
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(11);
-  doc.setFont(undefined, "bold");
+  doc.setFont("helvetica", "bold");
   doc.text("Day", margin + 3, yPos + 8);
   doc.text("Sessions", margin + colWidth + 3, yPos + 8);
-  doc.setFont(undefined, "normal");
+  doc.setFont("helvetica", "normal");
   yPos += rowHeight;
 
   // Table rows
@@ -110,9 +110,9 @@ export function generateSchedulePDF(items: ScheduleItem[], userName: string = "U
     doc.rect(margin + colWidth, yPos, colWidth, rowHeight);
 
     // Day name
-    doc.setFont(undefined, "bold");
+    doc.setFont("helvetica", "bold");
     doc.text(day.charAt(0).toUpperCase() + day.slice(1), margin + 3, yPos + 8);
-    doc.setFont(undefined, "normal");
+    doc.setFont("helvetica", "normal");
 
     // Sessions
     if (sessions.length === 0) {
