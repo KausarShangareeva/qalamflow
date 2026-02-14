@@ -1,0 +1,5 @@
+/* Entry point — import order matters */
+@import "./styles/variables.css";
+@import "./styles/reset.css";
+@import "./styles/global.css";
+@import "./styles/responsive.css";
