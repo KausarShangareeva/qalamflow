@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { api } from "../api/client";
 import type { ScheduleItem, Book } from "../api/types";
 import { useAuth } from "../context/AuthContext";
+import { useCopy } from "../hooks/useCopy";
 import { generateSchedulePDF } from "../utils/pdfGenerator";
 import styles from "./Schedule.module.css";
 
@@ -18,6 +19,7 @@ const EMPTY_FORM: ScheduleForm = { dayOfWeek: "monday", time: "09:00", activity:
 
 export default function Schedule() {
   const { user } = useAuth();
+  const { get } = useCopy();
   const [items, setItems] = useState<ScheduleItem[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
@@ -87,33 +89,32 @@ export default function Schedule() {
 
   const byDay = (day: string) => items.filter((i) => i.dayOfWeek === day);
 
-  if (loading) return <p>Loading schedule...</p>;
+  if (loading) return <p>{get("common.loading")}</p>;
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <h1>My Weekly Schedule</h1>
+        <h1>{get("schedule.title")}</h1>
         <div className={styles.headerActions}>
           {items.length > 0 && (
             <button className={styles.pdfButton} onClick={handleExportPDF}>
-              📄 Export to PDF
+              {get("schedule.exportPDF")}
             </button>
           )}
-          <button className={styles.addButton} onClick={() => openAdd()}>+ Add Session</button>
+          <button className={styles.addButton} onClick={() => openAdd()}>{get("schedule.addSession")}</button>
         </div>
       </div>
 
       {items.length === 0 ? (
         <p className={styles.empty}>
-          No study sessions planned yet.<br />
-          Organize your week — consistency is the path to mastery!
+          {get("schedule.emptyState")}
         </p>
       ) : (
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>Day</th>
-              <th>Sessions</th>
+              <th>{get("schedule.table.day")}</th>
+              <th>{get("schedule.table.sessions")}</th>
             </tr>
           </thead>
           <tbody>
@@ -121,7 +122,7 @@ export default function Schedule() {
               const sessions = byDay(day);
               return (
                 <tr key={day}>
-                  <td className={styles.dayLabel}>{day}</td>
+                  <td className={styles.dayLabel}>{get(`schedule.days.${day}`)}</td>
                   <td>
                     {sessions.length === 0 ? (
                       <span style={{ color: "var(--color-text-muted)", fontSize: "var(--fs-xs)" }}>—</span>
@@ -131,7 +132,7 @@ export default function Schedule() {
                           <span className={styles.sessionTime}>{s.time}</span>
                           <span className={styles.sessionActivity}>{s.activity}</span>
                           <span className={styles.chipActions}>
-                            <button className={styles.chipBtn} onClick={() => openEdit(s)}>edit</button>
+                            <button className={styles.chipBtn} onClick={() => openEdit(s)}>{get("common.editLower")}</button>
                             <button className={styles.chipBtn} onClick={() => handleDelete(s._id)}>x</button>
                           </span>
                         </span>
@@ -150,24 +151,24 @@ export default function Schedule() {
         <div className={styles.overlay} onClick={() => setShowForm(false)}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <h2 className={styles.modalTitle}>
-              {editingId ? "Edit Session" : "Add Study Session"}
+              {editingId ? get("schedule.modal.titleEdit") : get("schedule.modal.titleAdd")}
             </h2>
             {error && <p className={styles.error}>{error}</p>}
             <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.formRow}>
                 <label className={styles.label}>
-                  Day
+                  {get("schedule.form.day")}
                   <select
                     value={form.dayOfWeek}
                     onChange={(e) => setForm({ ...form, dayOfWeek: e.target.value })}
                   >
                     {DAYS.map((d) => (
-                      <option key={d} value={d}>{d}</option>
+                      <option key={d} value={d}>{get(`schedule.days.${d}`)}</option>
                     ))}
                   </select>
                 </label>
                 <label className={styles.label}>
-                  Time
+                  {get("schedule.form.time")}
                   <input
                     type="time"
                     value={form.time}
@@ -177,22 +178,22 @@ export default function Schedule() {
                 </label>
               </div>
               <label className={styles.label}>
-                Activity
+                {get("schedule.form.activity")}
                 <input
                   type="text"
-                  placeholder="e.g. Read Nahw chapter 3"
+                  placeholder={get("schedule.form.activityPlaceholder")}
                   value={form.activity}
                   onChange={(e) => setForm({ ...form, activity: e.target.value })}
                   required
                 />
               </label>
               <label className={styles.label}>
-                Linked Book (optional)
+                {get("schedule.form.linkedBook")}
                 <select
                   value={form.bookId}
                   onChange={(e) => setForm({ ...form, bookId: e.target.value })}
                 >
-                  <option value="">— None —</option>
+                  <option value="">{get("schedule.form.noneOption")}</option>
                   {books.map((b) => (
                     <option key={b._id} value={b._id}>{b.title}</option>
                   ))}
@@ -200,10 +201,10 @@ export default function Schedule() {
               </label>
               <div className={styles.formActions}>
                 <button type="submit" className={styles.saveBtn}>
-                  {editingId ? "Save Changes" : "Add Session"}
+                  {editingId ? get("schedule.form.saveChanges") : get("schedule.form.addSession")}
                 </button>
                 <button type="button" className={styles.cancelBtn} onClick={() => setShowForm(false)}>
-                  Cancel
+                  {get("common.cancel")}
                 </button>
               </div>
             </form>

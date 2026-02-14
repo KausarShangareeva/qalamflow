@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useCopy } from "../hooks/useCopy";
 import styles from "./Home.module.css";
 
 export default function Home() {
   const { user } = useAuth();
+  const { get } = useCopy();
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Your Path to Knowledge Starts Here</h1>
+      <h1 className={styles.title}>{get("home.title")}</h1>
       <p className={styles.subtitle}>
-        QalamFlow helps you organize your Islamic studies — track the books you're reading,
-        plan your weekly schedule, and see a clear roadmap to completing your courses.
-        Every page you read brings you closer to your goals.
+        {get("home.subtitle")}
       </p>
       {user ? (
-        <Link to="/dashboard" className={styles.cta}>Go to Dashboard</Link>
+        <Link to="/dashboard" className={styles.cta}>{get("home.cta.dashboard")}</Link>
       ) : (
-        <Link to="/register" className={styles.cta}>Start Your Journey</Link>
+        <Link to="/register" className={styles.cta}>{get("home.cta.register")}</Link>
       )}
     </div>
   );

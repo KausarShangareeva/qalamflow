@@ -5,6 +5,12 @@
     "copyright": "QalamFlow"
   },
   "home": {
+    "title": "Your Path to Knowledge Starts Here",
+    "subtitle": "QalamFlow helps you organize your Islamic studies — track the books you're reading, plan your weekly schedule, and see a clear roadmap to completing your courses. Every page you read brings you closer to your goals.",
+    "cta": {
+      "dashboard": "Go to Dashboard",
+      "register": "Start Your Journey"
+    },
     "hero": {
       "title": "QalamFlow: Your Path to Islamic Knowledge",
       "subtitle": "Structured learning without chaos or burnout. Build your roadmap today!",
@@ -39,23 +45,27 @@
   },
   "auth": {
     "login": {
-      "title": "Welcome Back",
+      "title": "Login",
       "subtitle": "Continue your journey to knowledge",
       "emailPlaceholder": "Email",
       "passwordPlaceholder": "Password",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
       "submitButton": "Sign In",
       "noAccount": "Don't have an account?",
-      "registerLink": "Create one now"
+      "registerLink": "Register"
     },
     "register": {
-      "title": "Join QalamFlow",
+      "title": "Register",
       "subtitle": "Begin your structured journey to Islamic knowledge",
-      "namePlaceholder": "Full Name",
+      "namePlaceholder": "Name",
       "emailPlaceholder": "Email",
-      "passwordPlaceholder": "Password (min 6 characters)",
+      "passwordPlaceholder": "Password",
+      "submit": "Create Account",
+      "submitting": "Creating account...",
       "submitButton": "Create My Account",
       "hasAccount": "Already have an account?",
-      "loginLink": "Sign in",
+      "loginLink": "Login",
       "welcomeMessage": "Welcome to QalamFlow, {name}! Your journey to knowledge starts now."
     }
   },
@@ -103,23 +113,32 @@
     "title": "My Books",
     "subtitle": "Track all your Islamic texts in one place",
     "empty": "No books yet. Add your first book to begin tracking your progress!",
-    "addButton": "Add New Book",
+    "emptyState": "You haven't added any books yet.\nStart your journey — add your first book!",
+    "addButton": "+ Add Book",
+    "deleteConfirm": "Are you sure you want to delete this book?",
+    "by": "by",
+    "pagesUnit": "pages",
+    "progressPlaceholder": "pages",
+    "logButton": "Log",
+    "modal": {
+      "titleAdd": "Add a New Book",
+      "titleEdit": "Edit Book"
+    },
     "form": {
-      "titleLabel": "Book Title",
-      "titlePlaceholder": "e.g., Al-Ajrumiyyah",
-      "authorLabel": "Author",
-      "authorPlaceholder": "e.g., Muhammad ibn Dawud",
-      "levelLabel": "Difficulty Level",
+      "bookTitle": "Book Title",
+      "bookTitlePlaceholder": "e.g. Al-Ajurrumiyyah",
+      "author": "Author",
+      "authorPlaceholder": "e.g. Ibn Ajurrum",
+      "level": "Level",
       "levels": {
         "beginner": "Beginner",
         "intermediate": "Intermediate",
         "advanced": "Advanced"
       },
-      "pagesLabel": "Total Pages",
-      "pagesPlaceholder": "e.g., 150",
-      "submitButton": "Add Book",
-      "updateButton": "Update Book",
-      "cancelButton": "Cancel"
+      "totalPages": "Total Pages",
+      "totalPagesPlaceholder": "e.g. 120",
+      "addBook": "Add Book",
+      "saveChanges": "Save Changes"
     },
     "status": {
       "studying": "Studying",
@@ -136,24 +155,26 @@
     "title": "My Weekly Schedule",
     "subtitle": "Organize your study sessions for consistent learning",
     "empty": "No study sessions planned yet.\nOrganize your week — consistency is the path to mastery!",
-    "addButton": "Add Session",
-    "exportButton": "Export to PDF",
+    "emptyState": "No study sessions planned yet.\nOrganize your week — consistency is the path to mastery!",
+    "addSession": "+ Add Session",
+    "exportPDF": "📄 Export to PDF",
+    "table": {
+      "day": "Day",
+      "sessions": "Sessions"
+    },
+    "modal": {
+      "titleAdd": "Add Study Session",
+      "titleEdit": "Edit Session"
+    },
     "form": {
-      "title": {
-        "add": "Add Study Session",
-        "edit": "Edit Session"
-      },
-      "dayLabel": "Day",
-      "timeLabel": "Time",
-      "activityLabel": "Activity",
-      "activityPlaceholder": "e.g., Read Nahw chapter 3",
-      "bookLabel": "Linked Book (optional)",
-      "bookNone": "— None —",
-      "submitButton": {
-        "add": "Add Session",
-        "edit": "Save Changes"
-      },
-      "cancelButton": "Cancel"
+      "day": "Day",
+      "time": "Time",
+      "activity": "Activity",
+      "activityPlaceholder": "e.g. Read Nahw chapter 3",
+      "linkedBook": "Linked Book (optional)",
+      "noneOption": "— None —",
+      "addSession": "Add Session",
+      "saveChanges": "Save Changes"
     },
     "days": {
       "monday": "Monday",
@@ -168,8 +189,12 @@
   "roadmap": {
     "title": "Your Learning Roadmap",
     "subtitle": "Track your progress and forecast your completion dates",
-    "intro": "The forecast uses a weighted algorithm that prioritizes your recent pace, accounts for book difficulty, and factors in your study schedule. The more consistently you log progress, the more accurate your predictions become.",
+    "intro": "Track your progress across all books. The forecast uses a weighted algorithm that prioritizes your recent pace, accounts for book difficulty, and factors in your study schedule. The more consistently you log progress, the more accurate your predictions become.",
     "empty": "No books in progress.\nAdd a book and start logging pages to see your personalized roadmap!",
+    "emptyState": "No books in progress.\nAdd a book and start logging pages to see your personalized roadmap!",
+    "customPaceBadge": "custom pace",
+    "progressLabel": "{pct}% complete — {progress}/{pages} pages",
+    "noData": "Start logging progress to see your forecast.",
     "paceRating": {
       "slow": "Slow Pace",
       "normal": "Normal Pace",
@@ -184,13 +209,16 @@
       "avgSession": "Avg Session",
       "daysLeft": "Days Left"
     },
-    "forecast": {
-      "message": "At your current pace, you'll complete this book by {date}.",
-      "encouragement": {
-        "fast": "Amazing progress — keep up the momentum!",
-        "normal": "Stay consistent and you'll get there!",
-        "slow": "Try increasing your study sessions to finish sooner."
-      }
+    "details": {
+      "difficulty": "Difficulty",
+      "study": "Study",
+      "active": "Active"
+    },
+    "forecastMessage": {
+      "prefix": "At your current pace, you'll complete this book by",
+      "fast": "Amazing progress — keep up the momentum!",
+      "slow": "Try increasing your study sessions to finish sooner.",
+      "normal": "Stay consistent and you'll get there!"
     },
     "weeklyProgress": {
       "title": "Weekly Progress",
@@ -200,15 +228,16 @@
       "title": "Custom Pace Override",
       "hint": "Set a manual pages/day target to override the calculated pace.",
       "placeholder": "pages/day",
-      "setButton": "Set Pace",
-      "removeButton": "Remove",
+      "setPace": "Set Pace",
+      "remove": "Remove",
       "saving": "Saving..."
     },
     "whatIf": {
       "title": "What If?",
       "hint": "See how a different pace would change your completion date.",
-      "calculateButton": "Calculate",
-      "result": "At {pagesPerDay} pages/day, you'd finish in {days} days — by {date}."
+      "pagesPerDay": "pg/day",
+      "calculate": "Calculate",
+      "result": "At {pagesPerDay} pages/day, you'd finish in {daysLeft} days — by {completionDate}."
     }
   },
   "progress": {
@@ -305,6 +334,7 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "edit": "Edit",
+    "editLower": "edit",
     "add": "Add",
     "close": "Close",
     "confirm": "Confirm",
