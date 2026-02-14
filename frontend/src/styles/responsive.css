@@ -1,0 +1,51 @@
+/* ===== Responsive / Adaptive Utilities ===== */
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+/* --- Mobile-first breakpoints --- */
+
+/* sm: 480px+ — large phones */
+@media (min-width: 480px) {
+  .container {
+    padding-inline: var(--space-lg);
+  }
+}
+
+/* md: 768px+ — tablets */
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--space-xl);
+  }
+}
+
+/* lg: 1024px+ — laptops */
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: var(--space-2xl);
+  }
+}
+
+/* --- Visibility helpers --- */
+.hide-mobile {
+  display: none;
+}
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: initial;
+  }
+  .hide-desktop {
+    display: none;
+  }
+}
+
+/* --- Accessible focus ring --- */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
