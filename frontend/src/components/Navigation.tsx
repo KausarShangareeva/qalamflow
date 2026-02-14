@@ -85,6 +85,7 @@ export default function Navigation() {
                   Начать
                   <ArrowUpRight size={16} />
                 </Link>
+                <span className={styles.divider}></span>
                 <button
                   onClick={toggleTheme}
                   className={styles.themeBtn}
