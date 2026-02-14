@@ -5,8 +5,8 @@
 }
 
 .logoIcon {
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 30%;
+  background: linear-gradient(135deg, #6366f1 50%, #632be5 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +16,7 @@
 }
 
 .logoText {
-  font-size: var(--fs-xl);
+  font-size: 20px;
   font-weight: 700;
   color: var(--color-primary);
 }

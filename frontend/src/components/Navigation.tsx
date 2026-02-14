@@ -32,7 +32,7 @@ export default function Navigation() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <Link to={user ? "/dashboard" : "/"} className={styles.logoLink}>
-          <Logo size="large" />
+          <Logo size="medium" />
         </Link>
         <div className={styles.links}>
           {user ? (
@@ -53,11 +53,20 @@ export default function Navigation() {
                 <TrendingUp size={18} />
                 <span>{get("nav.roadmap")}</span>
               </Link>
-              <a href="https://t.me/kausarsh" target="_blank" rel="noopener noreferrer" className={styles.navLink}>
+              <a
+                href="https://t.me/kausarsh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.navLink}
+              >
                 <MessageCircle size={18} />
                 <span>{get("nav.contact")}</span>
               </a>
-              <button onClick={toggleTheme} className={styles.themeBtn} title={theme === "dark" ? "Светлая тема" : "Темная тема"}>
+              <button
+                onClick={toggleTheme}
+                className={styles.themeBtn}
+                title={theme === "dark" ? "Светлая тема" : "Темная тема"}
+              >
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
               </button>
               <button onClick={handleLogout} className={styles.logoutBtn}>
@@ -75,7 +84,11 @@ export default function Navigation() {
                 <UserPlus size={18} />
                 <span>{get("nav.register")}</span>
               </Link>
-              <button onClick={toggleTheme} className={styles.themeBtn} title={theme === "dark" ? "Светлая тема" : "Темная тема"}>
+              <button
+                onClick={toggleTheme}
+                className={styles.themeBtn}
+                title={theme === "dark" ? "Светлая тема" : "Темная тема"}
+              >
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
               </button>
             </>

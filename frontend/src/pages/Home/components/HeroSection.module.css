@@ -4,8 +4,10 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-lg);
-  padding: var(--space-3xl) 0;
+  padding: var(--space-3xl) var(--space-xl);
   text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .title {

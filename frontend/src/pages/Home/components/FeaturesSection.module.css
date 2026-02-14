@@ -1,7 +1,7 @@
 /* Features Section */
 .features {
-  padding: var(--space-3xl) 0;
   width: 100%;
+  padding: var(--space-3xl) var(--space-xl);
 }
 
 .featuresGrid {
