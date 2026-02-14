@@ -46,29 +46,29 @@
     "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "Fira Code", "Cascadia Code", monospace;
 
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  --fs-lg: 1.125rem;
-  --fs-xl: 1.25rem;
-  --fs-2xl: clamp(1.5rem, 3vw, 2rem);
-  --fs-3xl: clamp(1.75rem, 4vw, 2.5rem);
-  --fs-4xl: clamp(2rem, 5vw, 3rem);
+  --fs-xs: 1.2rem; /* 12px */
+  --fs-sm: 1.4rem; /* 14px */
+  --fs-base: 1.6rem; /* 16px */
+  --fs-lg: 1.8rem; /* 18px */
+  --fs-xl: 2rem; /* 20px */
+  --fs-2xl: clamp(2.4rem, 3vw, 3.2rem); /* 24-32px */
+  --fs-3xl: clamp(2.8rem, 4vw, 4rem); /* 28-40px */
+  --fs-4xl: clamp(3.2rem, 5vw, 4.8rem); /* 32-48px */
 
   /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
+  --space-xs: 0.4rem; /* 4px */
+  --space-sm: 0.8rem; /* 8px */
+  --space-md: 1.6rem; /* 16px */
+  --space-lg: 2.4rem; /* 24px */
+  --space-xl: 3.2rem; /* 32px */
+  --space-2xl: 4.8rem; /* 48px */
+  --space-3xl: 6.4rem; /* 64px */
 
   /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  --radius-sm: 0.4rem; /* 4px */
+  --radius-md: 0.8rem; /* 8px */
+  --radius-lg: 1.2rem; /* 12px */
+  --radius-xl: 1.6rem; /* 16px */
   --radius-full: 9999px;
 
   /* Shadows */
@@ -88,8 +88,8 @@
   --transition-spring: 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
   /* Layout */
-  --max-width: 1200px;
-  --header-height: 4rem;
+  --max-width: 120rem; /* 1200px */
+  --header-height: 6.4rem; /* 64px */
 }
 
 /* ===== Light Theme ===== */
