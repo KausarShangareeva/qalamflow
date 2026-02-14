@@ -1,0 +1,234 @@
+/* Install Banner */
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  padding: var(--space-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.text {
+  flex: 1;
+}
+
+.text strong {
+  display: block;
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.text p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  opacity: 0.9;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.installBtn {
+  background-color: white;
+  color: var(--color-primary);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+}
+
+.installBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dismissBtn {
+  background: transparent;
+  color: white;
+  font-size: var(--fs-xl);
+  padding: var(--space-xs);
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+  line-height: 1;
+}
+
+.dismissBtn:hover {
+  opacity: 1;
+}
+
+/* Instructions Modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  padding: var(--space-md);
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: var(--fs-2xl);
+  color: var(--color-primary-light);
+}
+
+.closeBtn {
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--fs-2xl);
+  padding: var(--space-xs);
+  border: none;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  line-height: 1;
+}
+
+.closeBtn:hover {
+  color: var(--color-text);
+}
+
+.modalBody {
+  padding: var(--space-lg);
+}
+
+.section {
+  margin-bottom: var(--space-xl);
+}
+
+.section:last-of-type {
+  margin-bottom: 0;
+}
+
+.section h3 {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.section ol,
+.section ul {
+  margin: 0;
+  padding-left: var(--space-lg);
+}
+
+.section li {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.benefits {
+  background-color: rgba(99, 102, 241, 0.08);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.benefits h4 {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: var(--fs-md);
+  color: var(--color-primary-light);
+}
+
+.benefits ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefits li {
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .installBtn {
+    flex: 1;
+  }
+}
