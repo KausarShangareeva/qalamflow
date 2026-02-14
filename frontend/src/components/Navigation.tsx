@@ -24,7 +24,7 @@ export default function Navigation() {
           <Logo size="medium" />
         </Link>
 
-        <nav className={styles.nav - one}>
+        <nav className={styles.navone}>
           <div className={styles.links}>
             <Link to="/login" className={styles.navLink}>
               Главная
@@ -72,6 +72,14 @@ export default function Navigation() {
               </>
             ) : (
               <>
+                <a
+                  href="https://t.me/kausarsh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.navLink}
+                >
+                  {get("nav.contact")}
+                </a>
                 <Link to="/login" className={styles.contactBtn}>
                   Начать
                 </Link>
