@@ -22,7 +22,7 @@
 
 .featureCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.15);
 }
 
 .featureIcon {
