@@ -22,7 +22,8 @@ export default function HeroSection() {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.mainTitle}>
-        Учишь арабский?<br />
+        Учишь арабский язык?
+        <br />
         Делай это системно.
       </h1>
       <h2 className={styles.animatedTitle}>
@@ -31,13 +32,15 @@ export default function HeroSection() {
           {words[currentWordIndex]}
         </span>
       </h2>
-      <p className={styles.subtitle}>
-        {get("home.subtitle")}
-      </p>
+      <p className={styles.subtitle}>{get("home.subtitle")}</p>
       {user ? (
-        <Link to="/dashboard" className={styles.cta}>{get("home.cta.dashboard")}</Link>
+        <Link to="/dashboard" className={styles.cta}>
+          {get("home.cta.dashboard")}
+        </Link>
       ) : (
-        <Link to="/register" className={styles.cta}>{get("home.cta.register")}</Link>
+        <Link to="/register" className={styles.cta}>
+          {get("home.cta.register")}
+        </Link>
       )}
     </div>
   );

@@ -5,7 +5,6 @@
   justify-content: center;
   gap: var(--space-lg);
   padding: var(--space-3xl) var(--space-xl);
-  text-align: center;
   max-width: var(--max-width);
   margin: 0 auto;
 }
@@ -19,14 +18,16 @@
 }
 
 .animatedTitle {
-  font-size: var(--fs-3xl);
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 800;
   color: var(--color-text-muted);
   margin-bottom: var(--space-lg);
 }
 
 .changingWord {
   display: inline-block;
+  min-width: 18rem; /* 180px - ширина для самого длинного слова */
+  text-align: center;
   background: linear-gradient(90deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
