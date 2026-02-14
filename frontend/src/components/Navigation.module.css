@@ -65,6 +65,23 @@
   background-color: var(--color-bg-hover);
 }
 
+.themeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+.themeBtn:hover {
+  color: var(--color-primary);
+  background-color: var(--color-bg-hover);
+}
+
 .logoutBtn {
   display: flex;
   align-items: center;

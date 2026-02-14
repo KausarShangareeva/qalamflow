@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useTheme } from "../context/ThemeContext";
 import { useCopy } from "../hooks/useCopy";
 import {
   LayoutDashboard,
@@ -10,11 +11,14 @@ import {
   LogIn,
   UserPlus,
   MessageCircle,
+  Sun,
+  Moon,
 } from "lucide-react";
 import styles from "./Navigation.module.css";
 
 export default function Navigation() {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const { get } = useCopy();
 
@@ -53,6 +57,9 @@ export default function Navigation() {
                 <MessageCircle size={18} />
                 <span>{get("nav.contact")}</span>
               </a>
+              <button onClick={toggleTheme} className={styles.themeBtn} title={theme === "dark" ? "Светлая тема" : "Темная тема"}>
+                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
               <button onClick={handleLogout} className={styles.logoutBtn}>
                 <LogOut size={18} />
                 <span>{get("nav.logout")}</span>
@@ -68,6 +75,9 @@ export default function Navigation() {
                 <UserPlus size={18} />
                 <span>{get("nav.register")}</span>
               </Link>
+              <button onClick={toggleTheme} className={styles.themeBtn} title={theme === "dark" ? "Светлая тема" : "Темная тема"}>
+                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
             </>
           )}
         </div>
