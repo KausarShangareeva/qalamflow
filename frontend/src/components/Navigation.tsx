@@ -20,10 +20,25 @@ export default function Navigation() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
+        <Link to={user ? "/dashboard" : "/"} className={styles.logoLink}>
+          <Logo size="medium" />
+        </Link>
+
+        <nav className={styles.nav - one}>
+          <div className={styles.links}>
+            <Link to="/login" className={styles.navLink}>
+              Главная
+            </Link>
+            <Link to="/register" className={styles.navLink}>
+              Как это работает
+            </Link>
+            <Link to="/register" className={styles.navLink}>
+              Возможности
+            </Link>
+          </div>
+        </nav>
+
         <nav className={styles.nav}>
-          <Link to={user ? "/dashboard" : "/"} className={styles.logoLink}>
-            <Logo size="medium" showText={false} />
-          </Link>
           <div className={styles.links}>
             {user ? (
               <>
@@ -57,20 +72,9 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <Link to="/login" className={styles.navLink}>
-                  {get("nav.login")}
+                <Link to="/login" className={styles.contactBtn}>
+                  Начать
                 </Link>
-                <Link to="/register" className={styles.navLink}>
-                  {get("nav.register")}
-                </Link>
-                <a
-                  href="https://t.me/kausarsh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.contactBtn}
-                >
-                  {get("nav.contact")}
-                </a>
                 <button
                   onClick={toggleTheme}
                   className={styles.themeBtn}

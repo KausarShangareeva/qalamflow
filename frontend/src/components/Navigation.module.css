@@ -11,7 +11,7 @@
   margin: 0 auto;
   padding: 0 var(--space-xl);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .nav {
@@ -24,6 +24,12 @@
   padding: var(--space-sm) var(--space-md);
   box-shadow: 0 0.4rem 2.4rem rgba(0, 0, 0, 0.08); /* 0 4px 24px */
   backdrop-filter: blur(0.8rem); /* 8px */
+}
+
+.nav-one {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .logoLink {
