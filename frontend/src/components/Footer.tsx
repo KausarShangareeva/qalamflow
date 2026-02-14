@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCopy } from "../hooks/useCopy";
-import { PenTool, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -12,7 +12,7 @@ export default function Footer() {
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
             <div className={styles.footerBrand}>
-              <PenTool size={28} />
+              <div className={styles.logoIcon}>Q</div>
               <h3>{get("app.name")}</h3>
             </div>
             <p className={styles.footerTagline}>{get("app.tagline")}</p>
