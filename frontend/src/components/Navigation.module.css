@@ -64,6 +64,9 @@
 }
 
 .contactLink {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem; /* 6px */
   color: var(--color-text-muted);
   padding: var(--space-sm) var(--space-md);
   border-radius: 10rem; /* Pill shape */
@@ -78,7 +81,27 @@
   background-color: var(--color-bg-hover);
 }
 
+.onlineIndicator {
+  width: 0.8rem; /* 8px */
+  height: 0.8rem; /* 8px */
+  background-color: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
 .contactBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* 4px */
   background: var(--color-text);
   color: var(--color-text-inverse);
   padding: var(--space-sm) var(--space-lg);
