@@ -23,6 +23,9 @@
   color: var(--color-text-muted);
   line-height: 1.6;
   margin-bottom: var(--space-xs);
+  max-width: 70rem; /* 700px */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sectionSubtitleEn {
@@ -30,6 +33,9 @@
   color: var(--color-text-muted);
   opacity: 0.8;
   line-height: 1.6;
+  max-width: 70rem; /* 700px */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .featuresGrid {
@@ -43,7 +49,7 @@
 .featureCard {
   background: var(--color-bg-card);
   border-radius: 1.6rem; /* 16px */
-  padding: var(--space-md);
+  padding: var(--space-lg);
   transition:
     transform var(--transition-fast),
     box-shadow var(--transition-fast);
@@ -63,6 +69,30 @@
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-md);
+}
+
+.iconGradient0 {
+  background: var(--gradient-violet-pink);
+}
+
+.iconGradient1 {
+  background: var(--gradient-emerald-cyan);
+}
+
+.iconGradient2 {
+  background: var(--gradient-orange-pink);
+}
+
+.iconGradient3 {
+  background: var(--gradient-sky-purple);
+}
+
+.iconGradient4 {
+  background: var(--gradient-amber-red);
+}
+
+.iconGradient5 {
+  background: var(--gradient-emerald-violet);
 }
 
 .featureTitle {

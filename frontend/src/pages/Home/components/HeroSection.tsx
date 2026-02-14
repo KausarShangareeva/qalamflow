@@ -25,18 +25,24 @@ export default function HeroSection() {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.mainTitle}>
-        Учишь арабский язык?
-        <br />
-        Делай это системно.
-      </h1>
+      <div className={styles.badge}>✨ Ваш Спутник в Изучении Арабского</div>
+
       <h2 className={styles.animatedTitle}>
         Дисциплина рождает{" "}
         <span className={styles.changingWordWrapper} key={currentWordIndex}>
           <span className={styles.emoji}>{words[currentWordIndex].emoji}</span>
-          <span className={styles.changingWord}>{words[currentWordIndex].text}</span>
+          <span className={styles.changingWord}>
+            {words[currentWordIndex].text}
+          </span>
         </span>
       </h2>
+
+      <h1 className={styles.mainTitle}>
+        Учишь арабский язык?
+        <br />
+        Делай это системно
+      </h1>
+
       <p className={styles.subtitle}>{get("home.subtitle")}</p>
       {user ? (
         <Link to="/dashboard" className={styles.cta}>
@@ -44,7 +50,7 @@ export default function HeroSection() {
         </Link>
       ) : (
         <Link to="/register" className={styles.cta}>
-          {get("home.cta.register")}
+          {get("home.cta.register")} ✨
         </Link>
       )}
     </div>

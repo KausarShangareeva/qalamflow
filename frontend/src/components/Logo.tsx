@@ -4,9 +4,10 @@ import styles from "./Logo.module.css";
 interface LogoProps {
   size?: "small" | "medium" | "large";
   showText?: boolean;
+  variant?: "dark" | "light";
 }
 
-export default function Logo({ size = "medium", showText = true }: LogoProps) {
+export default function Logo({ size = "medium", showText = true, variant = "dark" }: LogoProps) {
   const { get } = useCopy();
 
   const iconSizes = {
@@ -33,7 +34,11 @@ export default function Logo({ size = "medium", showText = true }: LogoProps) {
       >
         Q
       </div>
-      {showText && <span className={styles.logoText}>{get("app.name")}</span>}
+      {showText && (
+        <span className={`${styles.logoText} ${variant === "light" ? styles.logoTextLight : ""}`}>
+          {get("app.name")}
+        </span>
+      )}
     </div>
   );
 }

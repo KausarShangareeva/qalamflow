@@ -18,11 +18,14 @@ export default function App() {
       <BrowserRouter>
         <PWAInstallPrompt />
         <Routes>
+          {/* Auth routes - without layout */}
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+
+          {/* Routes with layout */}
           <Route element={<RootLayout />}>
             {/* Public routes */}
             <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
 
             {/* Protected routes */}
             <Route element={<ProtectedRoute />}>
