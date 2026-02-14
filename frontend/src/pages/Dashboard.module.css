@@ -45,6 +45,22 @@
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: all var(--transition-base);
+}
+
+.stat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-subtle);
+}
+
+.statIcon {
+  color: var(--color-primary-light);
+  opacity: 0.8;
 }
 
 .statValue {
@@ -56,7 +72,6 @@
 .statLabel {
   font-size: var(--fs-sm);
   color: var(--color-text-muted);
-  margin-top: var(--space-xs);
 }
 
 .cards {
@@ -70,31 +85,46 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
-  transition: border-color var(--transition-fast);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
 }
 .card:hover {
   border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cardIcon {
+  color: var(--color-primary-light);
+  margin-bottom: var(--space-md);
 }
 
 .card h3 {
   margin-bottom: var(--space-sm);
   font-size: var(--fs-lg);
+  color: var(--color-text);
 }
 
 .card p {
   color: var(--color-text-muted);
   font-size: var(--fs-sm);
+  flex: 1;
 }
 
 .cardLink {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
   margin-top: var(--space-md);
   color: var(--color-primary-light);
   font-size: var(--fs-sm);
   font-weight: 600;
+  transition: gap var(--transition-base);
 }
 .cardLink:hover {
   color: var(--color-primary);
+  gap: var(--space-sm);
 }
 
 .reminder {
