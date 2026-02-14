@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { api } from "../api/client";
 import type { Book, ForecastResponse } from "../api/types";
+import { BookOpen, BookCheck, FileText, TrendingUp, Calendar, TrendingUpIcon, ArrowRight } from "lucide-react";
 import styles from "./Dashboard.module.css";
 
 const MOTIVATIONS = [
@@ -56,18 +57,22 @@ export default function Dashboard() {
           <h2 className={styles.sectionTitle}>Your Progress</h2>
           <div className={styles.statsGrid}>
             <div className={styles.stat}>
+              <div className={styles.statIcon}><BookOpen size={32} /></div>
               <div className={styles.statValue}>{studying.length}</div>
               <div className={styles.statLabel}>Books in Progress</div>
             </div>
             <div className={styles.stat}>
+              <div className={styles.statIcon}><BookCheck size={32} /></div>
               <div className={styles.statValue}>{completed.length}</div>
               <div className={styles.statLabel}>Books Completed</div>
             </div>
             <div className={styles.stat}>
+              <div className={styles.statIcon}><FileText size={32} /></div>
               <div className={styles.statValue}>{totalRead}</div>
               <div className={styles.statLabel}>Pages Read</div>
             </div>
             <div className={styles.stat}>
+              <div className={styles.statIcon}><TrendingUp size={32} /></div>
               <div className={styles.statValue}>
                 {totalPages > 0 ? Math.round((totalRead / totalPages) * 100) : 0}%
               </div>
@@ -90,19 +95,28 @@ export default function Dashboard() {
         <h2 className={styles.sectionTitle}>Quick Access</h2>
         <div className={styles.cards}>
           <div className={styles.card}>
+            <div className={styles.cardIcon}><BookOpen size={40} /></div>
             <h3>My Books</h3>
             <p>Add new books, track what you're studying, and update your reading progress.</p>
-            <Link to="/books" className={styles.cardLink}>Manage Books &rarr;</Link>
+            <Link to="/books" className={styles.cardLink}>
+              Manage Books <ArrowRight size={16} />
+            </Link>
           </div>
           <div className={styles.card}>
+            <div className={styles.cardIcon}><Calendar size={40} /></div>
             <h3>My Schedule</h3>
             <p>Plan your weekly study sessions and never miss a lesson.</p>
-            <Link to="/schedule" className={styles.cardLink}>View Schedule &rarr;</Link>
+            <Link to="/schedule" className={styles.cardLink}>
+              View Schedule <ArrowRight size={16} />
+            </Link>
           </div>
           <div className={styles.card}>
+            <div className={styles.cardIcon}><TrendingUpIcon size={40} /></div>
             <h3>My Roadmap</h3>
             <p>See your learning forecast and when you'll reach your goals.</p>
-            <Link to="/roadmap" className={styles.cardLink}>View Roadmap &rarr;</Link>
+            <Link to="/roadmap" className={styles.cardLink}>
+              View Roadmap <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </div>
