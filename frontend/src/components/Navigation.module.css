@@ -18,30 +18,11 @@
   padding-inline: var(--space-md);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-size: var(--fs-xl);
-  font-weight: 700;
-  color: var(--color-primary-light);
-  transition: color var(--transition-fast);
+.logoLink {
+  transition: opacity var(--transition-fast);
 }
-.logo:hover {
-  color: var(--color-primary);
-}
-
-.logoIcon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: white;
+.logoLink:hover {
+  opacity: 0.8;
 }
 
 .links {

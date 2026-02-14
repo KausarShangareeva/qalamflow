@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCopy } from "../hooks/useCopy";
+import Logo from "./Logo";
 import { MessageCircle } from "lucide-react";
 import styles from "./Footer.module.css";
 
@@ -11,10 +12,7 @@ export default function Footer() {
       <div className={styles.footerCard}>
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
-            <div className={styles.footerBrand}>
-              <div className={styles.logoIcon}>Q</div>
-              <h3>{get("app.name")}</h3>
-            </div>
+            <Logo size="medium" />
             <p className={styles.footerTagline}>{get("app.tagline")}</p>
           </div>
 

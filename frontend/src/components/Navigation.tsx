@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
 import { useCopy } from "../hooks/useCopy";
+import Logo from "./Logo";
 import {
   LayoutDashboard,
   BookOpen,
@@ -30,9 +31,8 @@ export default function Navigation() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <Link to={user ? "/dashboard" : "/"} className={styles.logo}>
-          <div className={styles.logoIcon}>Q</div>
-          <span>{get("app.name")}</span>
+        <Link to={user ? "/dashboard" : "/"} className={styles.logoLink}>
+          <Logo size="large" />
         </Link>
         <div className={styles.links}>
           {user ? (
