@@ -12,16 +12,43 @@
   gap: var(--space-md);
 }
 
+.headerActions {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
 .addButton {
   background-color: var(--color-primary);
   color: #fff;
   font-weight: 600;
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-md);
-  transition: background-color var(--transition-fast);
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
 }
 .addButton:hover {
   background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.pdfButton {
+  background-color: var(--color-secondary);
+  color: #fff;
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.pdfButton:hover {
+  background-color: var(--color-secondary-dark);
+  transform: translateY(-1px);
 }
 
 /* Weekly table */

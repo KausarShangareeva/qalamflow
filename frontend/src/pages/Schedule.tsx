@@ -1,6 +1,8 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { api } from "../api/client";
 import type { ScheduleItem, Book } from "../api/types";
+import { useAuth } from "../context/AuthContext";
+import { generateSchedulePDF } from "../utils/pdfGenerator";
 import styles from "./Schedule.module.css";
 
 const DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
@@ -15,6 +17,7 @@ interface ScheduleForm {
 const EMPTY_FORM: ScheduleForm = { dayOfWeek: "monday", time: "09:00", activity: "", bookId: "" };
 
 export default function Schedule() {
+  const { user } = useAuth();
   const [items, setItems] = useState<ScheduleItem[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
@@ -78,6 +81,10 @@ export default function Schedule() {
     fetchData();
   };
 
+  const handleExportPDF = () => {
+    generateSchedulePDF(items, user?.name || "User");
+  };
+
   const byDay = (day: string) => items.filter((i) => i.dayOfWeek === day);
 
   if (loading) return <p>Loading schedule...</p>;
@@ -86,7 +93,14 @@ export default function Schedule() {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <h1>My Weekly Schedule</h1>
-        <button className={styles.addButton} onClick={() => openAdd()}>+ Add Session</button>
+        <div className={styles.headerActions}>
+          {items.length > 0 && (
+            <button className={styles.pdfButton} onClick={handleExportPDF}>
+              📄 Export to PDF
+            </button>
+          )}
+          <button className={styles.addButton} onClick={() => openAdd()}>+ Add Session</button>
+        </div>
       </div>
 
       {items.length === 0 ? (
