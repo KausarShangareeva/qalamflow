@@ -1,0 +1,104 @@
+.header {
+  border-bottom: 1px solid var(--color-border);
+  background-color: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--color-primary-light);
+  transition: color var(--transition-fast);
+}
+.logo:hover {
+  color: var(--color-primary);
+}
+
+.logoIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: var(--fs-sm);
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text-muted);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-text);
+  background-color: var(--color-bg-hover);
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: none;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+.logoutBtn:hover {
+  color: var(--color-error);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Hide text on mobile, show icons only */
+@media (max-width: 767px) {
+  .navLink span,
+  .logoutBtn span {
+    display: none;
+  }
+
+  .links {
+    gap: var(--space-sm);
+  }
+}
+
+@media (min-width: 480px) {
+  .nav { padding-inline: var(--space-lg); }
+}
+@media (min-width: 768px) {
+  .nav { padding-inline: var(--space-xl); }
+}
+@media (min-width: 1024px) {
+  .nav { padding-inline: var(--space-2xl); }
+}
