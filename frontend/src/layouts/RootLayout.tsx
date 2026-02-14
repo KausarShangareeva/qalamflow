@@ -1,5 +1,6 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useCopy } from "../hooks/useCopy";
 import {
   LayoutDashboard,
   BookOpen,
@@ -9,12 +10,14 @@ import {
   LogIn,
   UserPlus,
   PenTool,
+  MessageCircle,
 } from "lucide-react";
 import styles from "./RootLayout.module.css";
 
 export default function RootLayout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const { get } = useCopy();
 
   const handleLogout = () => {
     logout();
@@ -27,41 +30,45 @@ export default function RootLayout() {
         <nav className={styles.nav}>
           <Link to={user ? "/dashboard" : "/"} className={styles.logo}>
             <PenTool size={24} />
-            <span>QalamFlow</span>
+            <span>{get("app.name")}</span>
           </Link>
           <div className={styles.links}>
             {user ? (
               <>
                 <Link to="/dashboard" className={styles.navLink}>
                   <LayoutDashboard size={18} />
-                  <span>Dashboard</span>
+                  <span>{get("nav.dashboard")}</span>
                 </Link>
                 <Link to="/books" className={styles.navLink}>
                   <BookOpen size={18} />
-                  <span>Books</span>
+                  <span>{get("nav.books")}</span>
                 </Link>
                 <Link to="/schedule" className={styles.navLink}>
                   <Calendar size={18} />
-                  <span>Schedule</span>
+                  <span>{get("nav.schedule")}</span>
                 </Link>
                 <Link to="/roadmap" className={styles.navLink}>
                   <TrendingUp size={18} />
-                  <span>Roadmap</span>
+                  <span>{get("nav.roadmap")}</span>
                 </Link>
+                <a href="https://t.me/kausarsh" target="_blank" rel="noopener noreferrer" className={styles.navLink}>
+                  <MessageCircle size={18} />
+                  <span>{get("nav.contact")}</span>
+                </a>
                 <button onClick={handleLogout} className={styles.logoutBtn}>
                   <LogOut size={18} />
-                  <span>Logout</span>
+                  <span>{get("nav.logout")}</span>
                 </button>
               </>
             ) : (
               <>
                 <Link to="/login" className={styles.navLink}>
                   <LogIn size={18} />
-                  <span>Login</span>
+                  <span>{get("nav.login")}</span>
                 </Link>
                 <Link to="/register" className={styles.navLink}>
                   <UserPlus size={18} />
-                  <span>Register</span>
+                  <span>{get("nav.register")}</span>
                 </Link>
               </>
             )}
@@ -74,7 +81,7 @@ export default function RootLayout() {
       </main>
 
       <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} QalamFlow
+        &copy; {new Date().getFullYear()} {get("app.copyright")}
       </footer>
     </>
   );
