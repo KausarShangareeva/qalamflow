@@ -6,7 +6,7 @@
 
 .featuresGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); /* 280px */
   gap: var(--space-xl);
   max-width: var(--max-width);
   margin: 0 auto;
@@ -14,23 +14,23 @@
 
 .featureCard {
   background: var(--color-bg-card);
-  border-radius: 16px;
+  border-radius: 1.6rem; /* 16px */
   padding: var(--space-xl);
   transition:
     transform var(--transition-fast),
     box-shadow var(--transition-fast);
-  border: 1px solid var(--color-border);
+  border: 0.1rem solid var(--color-border); /* 1px */
 }
 
 .featureCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.15);
+  transform: translateY(-0.4rem); /* -4px */
+  box-shadow: 0 1.2rem 3.2rem rgba(99, 102, 241, 0.15); /* 0 12px 32px */
 }
 
 .featureIcon {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
+  width: 6.4rem; /* 64px */
+  height: 6.4rem; /* 64px */
+  border-radius: 1.6rem; /* 16px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,7 +60,7 @@
 
 @media (max-width: 768px) {
   .featuresGrid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); /* 250px */
     gap: var(--space-lg);
   }
 

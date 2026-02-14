@@ -21,7 +21,7 @@
 .subtitle {
   color: var(--color-text-muted);
   font-size: var(--fs-lg);
-  max-width: 40rem;
+  max-width: 64rem; /* 640px - updated for new rem scale */
   line-height: 1.7;
 }
 
