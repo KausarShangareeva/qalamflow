@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { api } from "../api/client";
 import type { Book } from "../api/types";
+import { useCopy } from "../hooks/useCopy";
 import styles from "./Books.module.css";
 
 interface BookForm {
@@ -13,6 +14,7 @@ interface BookForm {
 const EMPTY_FORM: BookForm = { title: "", author: "", level: "beginner", pages: "" };
 
 export default function Books() {
+  const { get } = useCopy();
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -68,7 +70,7 @@ export default function Books() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this book?")) return;
+    if (!confirm(get("books.deleteConfirm"))) return;
     await api.delete(`/books/${id}`);
     fetchBooks();
   };
@@ -86,19 +88,18 @@ export default function Books() {
   const pct = (book: Book) =>
     book.pages > 0 ? Math.min(100, Math.round((book.progress / book.pages) * 100)) : 0;
 
-  if (loading) return <p>Loading books...</p>;
+  if (loading) return <p>{get("common.loading")}</p>;
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <h1>My Books</h1>
-        <button className={styles.addButton} onClick={openAdd}>+ Add Book</button>
+        <h1>{get("books.title")}</h1>
+        <button className={styles.addButton} onClick={openAdd}>{get("books.addButton")}</button>
       </div>
 
       {books.length === 0 ? (
         <p className={styles.empty}>
-          You haven't added any books yet.<br />
-          Start your journey — add your first book!
+          {get("books.emptyState")}
         </p>
       ) : (
         <div className={styles.list}>
@@ -108,19 +109,19 @@ export default function Books() {
                 <div className={styles.bookInfo}>
                   <h3>{book.title}</h3>
                   <div className={styles.bookMeta}>
-                    <span>by {book.author}</span>
-                    <span>{book.pages} pages</span>
+                    <span>{get("books.by")} {book.author}</span>
+                    <span>{book.pages} {get("books.pagesUnit")}</span>
                     <span className={`${styles.badge} ${
                       book.status === "completed" ? styles.badgeCompleted : styles.badgeStudying
                     }`}>
-                      {book.status === "completed" ? "Completed" : "Studying"}
+                      {book.status === "completed" ? get("books.status.completed") : get("books.status.studying")}
                     </span>
                     <span className={styles.badge}>{book.level}</span>
                   </div>
                 </div>
                 <div className={styles.bookActions}>
-                  <button className={styles.editBtn} onClick={() => openEdit(book)}>Edit</button>
-                  <button className={styles.deleteBtn} onClick={() => handleDelete(book._id)}>Delete</button>
+                  <button className={styles.editBtn} onClick={() => openEdit(book)}>{get("common.edit")}</button>
+                  <button className={styles.deleteBtn} onClick={() => handleDelete(book._id)}>{get("common.delete")}</button>
                 </div>
               </div>
 
@@ -132,7 +133,7 @@ export default function Books() {
                 <input
                   type="number"
                   className={styles.progressInput}
-                  placeholder="pages"
+                  placeholder={get("books.progressPlaceholder")}
                   min={1}
                   value={progressInputs[book._id] || ""}
                   onChange={(e) =>
@@ -140,7 +141,7 @@ export default function Books() {
                   }
                 />
                 <button className={styles.progressBtn} onClick={() => handleLogProgress(book._id)}>
-                  Log
+                  {get("books.logButton")}
                 </button>
               </div>
             </div>
@@ -153,25 +154,25 @@ export default function Books() {
         <div className={styles.overlay} onClick={() => setShowForm(false)}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <h2 className={styles.modalTitle}>
-              {editingId ? "Edit Book" : "Add a New Book"}
+              {editingId ? get("books.modal.titleEdit") : get("books.modal.titleAdd")}
             </h2>
             {error && <p className={styles.error}>{error}</p>}
             <form onSubmit={handleSubmit} className={styles.form}>
               <label className={styles.label}>
-                Book Title
+                {get("books.form.bookTitle")}
                 <input
                   type="text"
-                  placeholder="e.g. Al-Ajurrumiyyah"
+                  placeholder={get("books.form.bookTitlePlaceholder")}
                   value={form.title}
                   onChange={(e) => setForm({ ...form, title: e.target.value })}
                   required
                 />
               </label>
               <label className={styles.label}>
-                Author
+                {get("books.form.author")}
                 <input
                   type="text"
-                  placeholder="e.g. Ibn Ajurrum"
+                  placeholder={get("books.form.authorPlaceholder")}
                   value={form.author}
                   onChange={(e) => setForm({ ...form, author: e.target.value })}
                   required
@@ -179,21 +180,21 @@ export default function Books() {
               </label>
               <div className={styles.formRow}>
                 <label className={styles.label}>
-                  Level
+                  {get("books.form.level")}
                   <select
                     value={form.level}
                     onChange={(e) => setForm({ ...form, level: e.target.value as Book["level"] })}
                   >
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
+                    <option value="beginner">{get("books.form.levels.beginner")}</option>
+                    <option value="intermediate">{get("books.form.levels.intermediate")}</option>
+                    <option value="advanced">{get("books.form.levels.advanced")}</option>
                   </select>
                 </label>
                 <label className={styles.label}>
-                  Total Pages
+                  {get("books.form.totalPages")}
                   <input
                     type="number"
-                    placeholder="e.g. 120"
+                    placeholder={get("books.form.totalPagesPlaceholder")}
                     min={1}
                     value={form.pages}
                     onChange={(e) => setForm({ ...form, pages: e.target.value })}
@@ -203,10 +204,10 @@ export default function Books() {
               </div>
               <div className={styles.formActions}>
                 <button type="submit" className={styles.saveBtn}>
-                  {editingId ? "Save Changes" : "Add Book"}
+                  {editingId ? get("books.form.saveChanges") : get("books.form.addBook")}
                 </button>
                 <button type="button" className={styles.cancelBtn} onClick={() => setShowForm(false)}>
-                  Cancel
+                  {get("common.cancel")}
                 </button>
               </div>
             </form>

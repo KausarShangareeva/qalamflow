@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/client";
 import type { Book, DetailedForecast, WhatIfResponse } from "../api/types";
+import { useCopy } from "../hooks/useCopy";
 import styles from "./Roadmap.module.css";
 
 export default function Roadmap() {
+  const { get } = useCopy();
   const [books, setBooks] = useState<Book[]>([]);
   const [forecasts, setForecasts] = useState<Record<string, DetailedForecast>>({});
   const [loading, setLoading] = useState(true);
@@ -96,21 +98,18 @@ export default function Roadmap() {
     return Math.max(1, ...weeks.map((w) => w.pages));
   };
 
-  if (loading) return <p>Loading roadmap...</p>;
+  if (loading) return <p>{get("common.loading")}</p>;
 
   return (
     <div className={styles.wrapper}>
-      <h1>Your Learning Roadmap</h1>
+      <h1>{get("roadmap.title")}</h1>
       <p className={styles.intro}>
-        Track your progress across all books. The forecast uses a <strong>weighted algorithm</strong> that
-        prioritizes your recent pace, accounts for book difficulty, and factors in your study schedule.
-        The more consistently you log progress, the more accurate your predictions become.
+        {get("roadmap.intro")}
       </p>
 
       {books.length === 0 ? (
         <p className={styles.empty}>
-          No books in progress.<br />
-          Add a book and start logging pages to see your personalized roadmap!
+          {get("roadmap.emptyState")}
         </p>
       ) : (
         <div className={styles.list}>
@@ -135,7 +134,7 @@ export default function Roadmap() {
                       </span>
                     )}
                     {fc?.paceOverride && (
-                      <span className={styles.overrideBadge}>custom pace</span>
+                      <span className={styles.overrideBadge}>{get("roadmap.customPaceBadge")}</span>
                     )}
                   </div>
                 </div>
@@ -144,7 +143,7 @@ export default function Roadmap() {
                 <div className={styles.progressBar}>
                   <div className={styles.progressFill} style={{ width: `${pct}%` }} />
                 </div>
-                <div className={styles.progressLabel}>{pct}% complete — {book.progress}/{book.pages} pages</div>
+                <div className={styles.progressLabel}>{get("roadmap.progressLabel", { pct, progress: book.progress, pages: book.pages })}</div>
 
                 {fc && !fc.message ? (
                   <>
@@ -152,60 +151,59 @@ export default function Roadmap() {
                     <div className={styles.statsRow}>
                       <div className={styles.statItem}>
                         <div className={styles.statValue}>{fc.effectivePace}</div>
-                        <div className={styles.statLabel}>Effective Pace</div>
+                        <div className={styles.statLabel}>{get("roadmap.stats.effectivePace")}</div>
                       </div>
                       <div className={styles.statItem}>
                         <div className={styles.statValue}>{fc.weightedPagesPerDay}</div>
-                        <div className={styles.statLabel}>Weighted Avg</div>
+                        <div className={styles.statLabel}>{get("roadmap.stats.weightedAvg")}</div>
                       </div>
                       <div className={styles.statItem}>
                         <div className={styles.statValue}>{fc.recentPagesPerDay}</div>
-                        <div className={styles.statLabel}>Last 7 Days</div>
+                        <div className={styles.statLabel}>{get("roadmap.stats.last7Days")}</div>
                       </div>
                       <div className={styles.statItem}>
                         <div className={styles.statValue}>{fc.pagesRemaining}</div>
-                        <div className={styles.statLabel}>Pages Left</div>
+                        <div className={styles.statLabel}>{get("roadmap.stats.pagesLeft")}</div>
                       </div>
                       <div className={styles.statItem}>
                         <div className={styles.statValue}>{fc.averageTimePerSession}m</div>
-                        <div className={styles.statLabel}>Avg Session</div>
+                        <div className={styles.statLabel}>{get("roadmap.stats.avgSession")}</div>
                       </div>
                       <div className={styles.statItem}>
                         <div className={styles.statValue}>{fc.estimatedDaysLeft ?? "\u2014"}</div>
-                        <div className={styles.statLabel}>Days Left</div>
+                        <div className={styles.statLabel}>{get("roadmap.stats.daysLeft")}</div>
                       </div>
                     </div>
 
                     {/* Algorithm details */}
                     <div className={styles.detailsRow}>
                       <span className={styles.detailChip}>
-                        Difficulty: {fc.difficultyMultiplier}x
+                        {get("roadmap.details.difficulty")}: {fc.difficultyMultiplier}x
                       </span>
                       <span className={styles.detailChip}>
-                        Study: {fc.studyFrequency.daysPerWeek}d/wk ({fc.studyFrequency.source})
+                        {get("roadmap.details.study")}: {fc.studyFrequency.daysPerWeek}d/wk ({fc.studyFrequency.source})
                       </span>
                       <span className={styles.detailChip}>
-                        Active: {fc.activeDays} days
+                        {get("roadmap.details.active")}: {fc.activeDays} days
                       </span>
                     </div>
 
                     {/* Forecast message */}
                     {fc.estimatedCompletionDate && (
                       <div className={styles.forecastMessage}>
-                        At your current pace, you'll complete this book by{" "}
-                        <strong>{formatDate(fc.estimatedCompletionDate)}</strong>.
+                        {get("roadmap.forecastMessage.prefix")} <strong>{formatDate(fc.estimatedCompletionDate)}</strong>.
                         {fc.paceRating === "fast" || fc.paceRating === "very_fast"
-                          ? " Amazing progress — keep up the momentum!"
+                          ? ` ${get("roadmap.forecastMessage.fast")}`
                           : fc.paceRating === "slow"
-                            ? " Try increasing your study sessions to finish sooner."
-                            : " Stay consistent and you'll get there!"}
+                            ? ` ${get("roadmap.forecastMessage.slow")}`
+                            : ` ${get("roadmap.forecastMessage.normal")}`}
                       </div>
                     )}
 
                     {/* Weekly Progress Chart */}
                     {fc.weeklyBreakdown.length > 0 && (
                       <div className={styles.chartSection}>
-                        <h3 className={styles.sectionTitle}>Weekly Progress</h3>
+                        <h3 className={styles.sectionTitle}>{get("roadmap.weeklyProgress.title")}</h3>
                         <div className={styles.barChart}>
                           {fc.weeklyBreakdown.map((week, i) => {
                             const maxP = getMaxPages(fc.weeklyBreakdown);
@@ -229,16 +227,16 @@ export default function Roadmap() {
 
                     {/* Pace Override */}
                     <div className={styles.overrideSection}>
-                      <h3 className={styles.sectionTitle}>Custom Pace Override</h3>
+                      <h3 className={styles.sectionTitle}>{get("roadmap.paceOverride.title")}</h3>
                       <p className={styles.overrideHint}>
-                        Set a manual pages/day target to override the calculated pace.
+                        {get("roadmap.paceOverride.hint")}
                       </p>
                       <div className={styles.overrideRow}>
                         <input
                           type="number"
                           min="0.1"
                           step="0.5"
-                          placeholder="pages/day"
+                          placeholder={get("roadmap.paceOverride.placeholder")}
                           className={styles.overrideInput}
                           value={overrideInputs[book._id] || ""}
                           onChange={(e) =>
@@ -250,7 +248,7 @@ export default function Roadmap() {
                           onClick={() => handleSaveOverride(book._id)}
                           disabled={savingOverride === book._id}
                         >
-                          {savingOverride === book._id ? "Saving..." : "Set Pace"}
+                          {savingOverride === book._id ? get("roadmap.paceOverride.saving") : get("roadmap.paceOverride.setPace")}
                         </button>
                         {fc.paceOverride && (
                           <button
@@ -258,7 +256,7 @@ export default function Roadmap() {
                             onClick={() => handleRemoveOverride(book._id)}
                             disabled={savingOverride === book._id}
                           >
-                            Remove
+                            {get("roadmap.paceOverride.remove")}
                           </button>
                         )}
                       </div>
@@ -266,9 +264,9 @@ export default function Roadmap() {
 
                     {/* What-If Scenario */}
                     <div className={styles.whatIfSection}>
-                      <h3 className={styles.sectionTitle}>What If?</h3>
+                      <h3 className={styles.sectionTitle}>{get("roadmap.whatIf.title")}</h3>
                       <p className={styles.whatIfHint}>
-                        See how a different pace would change your completion date.
+                        {get("roadmap.whatIf.hint")}
                       </p>
                       <div className={styles.whatIfRow}>
                         <input
@@ -282,29 +280,29 @@ export default function Roadmap() {
                           }
                         />
                         <span className={styles.whatIfValue}>
-                          {whatIfInputs[book._id] || Math.round(fc.effectivePace) || 5} pg/day
+                          {whatIfInputs[book._id] || Math.round(fc.effectivePace) || 5} {get("roadmap.whatIf.pagesPerDay")}
                         </span>
                         <button
                           className={styles.whatIfBtn}
                           onClick={() => handleWhatIf(book._id)}
                         >
-                          Calculate
+                          {get("roadmap.whatIf.calculate")}
                         </button>
                       </div>
                       {whatIfResults[book._id] && (
                         <div className={styles.whatIfResult}>
-                          At <strong>{whatIfResults[book._id]!.pagesPerDay} pages/day</strong>, you'd finish in{" "}
-                          <strong>{whatIfResults[book._id]!.estimatedDaysLeft} days</strong>
-                          {whatIfResults[book._id]!.estimatedCompletionDate && (
-                            <> — by <strong>{formatDate(whatIfResults[book._id]!.estimatedCompletionDate)}</strong></>
-                          )}.
+                          {get("roadmap.whatIf.result", {
+                            pagesPerDay: whatIfResults[book._id]!.pagesPerDay,
+                            daysLeft: whatIfResults[book._id]!.estimatedDaysLeft,
+                            completionDate: formatDate(whatIfResults[book._id]!.estimatedCompletionDate)
+                          })}
                         </div>
                       )}
                     </div>
                   </>
                 ) : (
                   <p className={styles.noData}>
-                    {fc?.message || "Start logging progress to see your forecast."}
+                    {fc?.message || get("roadmap.noData")}
                   </p>
                 )}
               </div>

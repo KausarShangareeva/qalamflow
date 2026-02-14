@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useCopy } from "../hooks/useCopy";
 import { api } from "../api/client";
 import type { Book, ForecastResponse } from "../api/types";
 import { BookOpen, BookCheck, FileText, TrendingUp, Calendar, TrendingUpIcon, ArrowRight } from "lucide-react";
 import styles from "./Dashboard.module.css";
 
-const MOTIVATIONS = [
-  "Every page brings you closer to knowledge. Keep going!",
-  "Consistency is the key to mastery. You're doing great!",
-  "The ink of a scholar is more precious than the blood of a martyr.",
-  "Small steps every day lead to great achievements.",
-  "Your dedication today shapes your tomorrow.",
-];
-
 export default function Dashboard() {
   const { user } = useAuth();
+  const { get, getRandomMotivation } = useCopy();
   const [books, setBooks] = useState<Book[]>([]);
   const [forecast, setForecast] = useState<ForecastResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -35,7 +29,7 @@ export default function Dashboard() {
   const completed = books.filter((b) => b.status === "completed");
   const totalPages = books.reduce((s, b) => s + b.pages, 0);
   const totalRead = books.reduce((s, b) => s + b.progress, 0);
-  const motivation = MOTIVATIONS[Math.floor(Math.random() * MOTIVATIONS.length)];
+  const motivation = getRandomMotivation();
 
   const nearest = forecast?.books
     .filter((b) => b.estimatedDaysLeft !== null)
@@ -46,7 +40,7 @@ export default function Dashboard() {
       {/* Hero */}
       <div className={styles.hero}>
         <h1 className={styles.greeting}>
-          Assalamu Alaykum, {user?.name}!
+          {get("dashboard.greeting", { name: user?.name || "User" })}
         </h1>
         <p className={styles.motivation}>{motivation}</p>
       </div>
@@ -54,29 +48,29 @@ export default function Dashboard() {
       {/* Stats */}
       {!loading && (
         <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Your Progress</h2>
+          <h2 className={styles.sectionTitle}>{get("dashboard.stats.title")}</h2>
           <div className={styles.statsGrid}>
             <div className={styles.stat}>
               <div className={styles.statIcon}><BookOpen size={32} /></div>
               <div className={styles.statValue}>{studying.length}</div>
-              <div className={styles.statLabel}>Books in Progress</div>
+              <div className={styles.statLabel}>{get("dashboard.stats.booksInProgress")}</div>
             </div>
             <div className={styles.stat}>
               <div className={styles.statIcon}><BookCheck size={32} /></div>
               <div className={styles.statValue}>{completed.length}</div>
-              <div className={styles.statLabel}>Books Completed</div>
+              <div className={styles.statLabel}>{get("dashboard.stats.booksCompleted")}</div>
             </div>
             <div className={styles.stat}>
               <div className={styles.statIcon}><FileText size={32} /></div>
               <div className={styles.statValue}>{totalRead}</div>
-              <div className={styles.statLabel}>Pages Read</div>
+              <div className={styles.statLabel}>{get("dashboard.stats.pagesRead")}</div>
             </div>
             <div className={styles.stat}>
               <div className={styles.statIcon}><TrendingUp size={32} /></div>
               <div className={styles.statValue}>
                 {totalPages > 0 ? Math.round((totalRead / totalPages) * 100) : 0}%
               </div>
-              <div className={styles.statLabel}>Overall Progress</div>
+              <div className={styles.statLabel}>{get("dashboard.stats.overallProgress")}</div>
             </div>
           </div>
         </div>
@@ -85,37 +79,39 @@ export default function Dashboard() {
       {/* Reminder */}
       {nearest && (
         <div className={styles.reminder}>
-          At your current pace, you'll finish <strong>{nearest.title}</strong> in{" "}
-          <strong>{nearest.estimatedDaysLeft} days</strong>. Keep it up!
+          {get("dashboard.reminder", {
+            bookTitle: nearest.title,
+            days: nearest.estimatedDaysLeft
+          })}
         </div>
       )}
 
       {/* Navigation cards */}
       <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Quick Access</h2>
+        <h2 className={styles.sectionTitle}>{get("dashboard.quickAccess.title")}</h2>
         <div className={styles.cards}>
           <div className={styles.card}>
             <div className={styles.cardIcon}><BookOpen size={40} /></div>
-            <h3>My Books</h3>
-            <p>Add new books, track what you're studying, and update your reading progress.</p>
+            <h3>{get("dashboard.quickAccess.books.title")}</h3>
+            <p>{get("dashboard.quickAccess.books.description")}</p>
             <Link to="/books" className={styles.cardLink}>
-              Manage Books <ArrowRight size={16} />
+              {get("dashboard.quickAccess.books.link")} <ArrowRight size={16} />
             </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.cardIcon}><Calendar size={40} /></div>
-            <h3>My Schedule</h3>
-            <p>Plan your weekly study sessions and never miss a lesson.</p>
+            <h3>{get("dashboard.quickAccess.schedule.title")}</h3>
+            <p>{get("dashboard.quickAccess.schedule.description")}</p>
             <Link to="/schedule" className={styles.cardLink}>
-              View Schedule <ArrowRight size={16} />
+              {get("dashboard.quickAccess.schedule.link")} <ArrowRight size={16} />
             </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.cardIcon}><TrendingUpIcon size={40} /></div>
-            <h3>My Roadmap</h3>
-            <p>See your learning forecast and when you'll reach your goals.</p>
+            <h3>{get("dashboard.quickAccess.roadmap.title")}</h3>
+            <p>{get("dashboard.quickAccess.roadmap.description")}</p>
             <Link to="/roadmap" className={styles.cardLink}>
-              View Roadmap <ArrowRight size={16} />
+              {get("dashboard.quickAccess.roadmap.link")} <ArrowRight size={16} />
             </Link>
           </div>
         </div>
