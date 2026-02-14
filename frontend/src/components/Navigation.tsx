@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
 import { useCopy } from "../hooks/useCopy";
 import Logo from "./Logo";
-import { LogOut, Sun, Moon } from "lucide-react";
+import { LogOut, Sun, Moon, ArrowUpRight } from "lucide-react";
 import styles from "./Navigation.module.css";
 
 export default function Navigation() {
@@ -78,10 +78,12 @@ export default function Navigation() {
                   rel="noopener noreferrer"
                   className={styles.contactLink}
                 >
+                  <span className={styles.onlineIndicator}></span>
                   {get("nav.contact")}
                 </a>
                 <Link to="/login" className={styles.contactBtn}>
                   Начать
+                  <ArrowUpRight size={16} />
                 </Link>
                 <button
                   onClick={toggleTheme}
