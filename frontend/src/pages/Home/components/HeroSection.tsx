@@ -8,7 +8,11 @@ export default function HeroSection() {
   const { user } = useAuth();
   const { get } = useCopy();
 
-  const words = ["знание", "ясность", "постоянство"];
+  const words = [
+    { emoji: "🧠", text: "знание" },
+    { emoji: "💡", text: "ясность" },
+    { emoji: "✏️", text: "постоянство" },
+  ];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
@@ -28,8 +32,9 @@ export default function HeroSection() {
       </h1>
       <h2 className={styles.animatedTitle}>
         Дисциплина рождает{" "}
-        <span className={styles.changingWord} key={currentWordIndex}>
-          {words[currentWordIndex]}
+        <span className={styles.changingWordWrapper} key={currentWordIndex}>
+          <span className={styles.emoji}>{words[currentWordIndex].emoji}</span>
+          <span className={styles.changingWord}>{words[currentWordIndex].text}</span>
         </span>
       </h2>
       <p className={styles.subtitle}>{get("home.subtitle")}</p>
