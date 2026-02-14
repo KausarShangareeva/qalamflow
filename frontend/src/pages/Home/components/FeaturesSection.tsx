@@ -3,8 +3,6 @@ import {
   TrendingUp,
   CheckCircle,
   Calendar,
-  Lightbulb,
-  BookOpen,
   MessageCircle,
   Download,
   Zap,
@@ -15,8 +13,6 @@ const featureIcons = [
   TrendingUp,
   CheckCircle,
   Calendar,
-  Lightbulb,
-  BookOpen,
   MessageCircle,
   Download,
   Zap,
@@ -26,8 +22,6 @@ const iconColors = [
   "#8b5cf6", // purple
   "#10b981", // green
   "#f59e0b", // orange
-  "#ef4444", // red
-  "#3b82f6", // blue
   "#06b6d4", // cyan
   "#f97316", // orange
   "#22c55e", // green

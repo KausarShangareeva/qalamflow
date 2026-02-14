@@ -72,6 +72,11 @@ export default function Navigation() {
               </>
             ) : (
               <>
+                <Link to="/login" className={styles.contactBtn}>
+                  Начать
+                  <ArrowUpRight size={16} />
+                </Link>
+
                 <a
                   href="https://t.me/kausarsh"
                   target="_blank"
@@ -81,10 +86,7 @@ export default function Navigation() {
                   <span className={styles.onlineIndicator}></span>
                   {get("nav.contact")}
                 </a>
-                <Link to="/login" className={styles.contactBtn}>
-                  Начать
-                  <ArrowUpRight size={16} />
-                </Link>
+
                 <span className={styles.divider}></span>
                 <button
                   onClick={toggleTheme}

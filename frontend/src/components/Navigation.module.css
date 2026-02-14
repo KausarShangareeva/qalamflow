@@ -3,7 +3,7 @@
   top: 0;
   z-index: 50;
   padding: var(--space-lg) 0;
-  background: transparent;
+  background: var(--color-bg);
 }
 
 .container {
@@ -66,7 +66,7 @@
 .contactLink {
   display: flex;
   align-items: center;
-  gap: 0.6rem; /* 6px */
+  gap: 1rem; /* 6px */
   color: var(--color-text-muted);
   padding: var(--space-sm) var(--space-md);
   border-radius: 10rem; /* Pill shape */
@@ -90,7 +90,8 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -114,6 +115,7 @@
 
 .contactBtn:hover {
   opacity: 0.9;
+  color: white;
   transform: translateY(-0.1rem); /* -1px */
 }
 
