@@ -81,7 +81,7 @@ export default function Dashboard() {
         <div className={styles.reminder}>
           {get("dashboard.reminder", {
             bookTitle: nearest.title,
-            days: nearest.estimatedDaysLeft
+            days: nearest.estimatedDaysLeft ?? 0
           })}
         </div>
       )}

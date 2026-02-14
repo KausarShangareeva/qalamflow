@@ -74,7 +74,6 @@ export function generateSchedulePDF(items: ScheduleItem[], userName: string = "U
   });
 
   // Draw table
-  const tableStartY = yPos;
   const colWidth = (pageWidth - 2 * margin) / 2;
   const rowHeight = 12;
 

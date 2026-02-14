@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useCopy } from "../hooks/useCopy";
-import { Mail, Lock, Eye, EyeOff, User, Camera } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, User } from "lucide-react";
 import Logo from "../components/Logo";
 import styles from "./Register.module.css";
 

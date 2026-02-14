@@ -293,7 +293,7 @@ export default function Roadmap() {
                         <div className={styles.whatIfResult}>
                           {get("roadmap.whatIf.result", {
                             pagesPerDay: whatIfResults[book._id]!.pagesPerDay,
-                            daysLeft: whatIfResults[book._id]!.estimatedDaysLeft,
+                            daysLeft: whatIfResults[book._id]!.estimatedDaysLeft ?? 0,
                             completionDate: formatDate(whatIfResults[book._id]!.estimatedCompletionDate)
                           })}
                         </div>
