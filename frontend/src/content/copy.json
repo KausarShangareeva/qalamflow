@@ -1,0 +1,320 @@
+{
+  "app": {
+    "name": "QalamFlow",
+    "tagline": "Your Islamic Knowledge Journey Tracker",
+    "copyright": "QalamFlow"
+  },
+  "home": {
+    "hero": {
+      "title": "QalamFlow: Your Path to Islamic Knowledge",
+      "subtitle": "Structured learning without chaos or burnout. Build your roadmap today!",
+      "cta": "Start Your Journey",
+      "ctaSecondary": "Learn More"
+    },
+    "features": {
+      "title": "Why Choose QalamFlow?",
+      "items": [
+        {
+          "title": "Track Your Progress",
+          "description": "Monitor your reading progress across multiple Islamic texts and see how far you've come."
+        },
+        {
+          "title": "Smart Scheduling",
+          "description": "Plan your study sessions around your life with our intelligent weekly scheduler."
+        },
+        {
+          "title": "Forecast Your Success",
+          "description": "Know exactly when you'll complete each book with our advanced prediction algorithm."
+        },
+        {
+          "title": "Stay Motivated",
+          "description": "Get personalized encouragement and insights to keep your learning consistent."
+        }
+      ]
+    },
+    "testimonial": {
+      "quote": "The ink of a scholar is more precious than the blood of a martyr.",
+      "author": "Prophet Muhammad ﷺ"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Continue your journey to knowledge",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password",
+      "submitButton": "Sign In",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Create one now"
+    },
+    "register": {
+      "title": "Join QalamFlow",
+      "subtitle": "Begin your structured journey to Islamic knowledge",
+      "namePlaceholder": "Full Name",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password (min 6 characters)",
+      "submitButton": "Create My Account",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Sign in",
+      "welcomeMessage": "Welcome to QalamFlow, {name}! Your journey to knowledge starts now."
+    }
+  },
+  "dashboard": {
+    "greeting": "Assalamu Alaykum, {name}!",
+    "motivations": [
+      "Every page brings you closer to knowledge. Keep going!",
+      "Consistency is the key to mastery. You're doing great!",
+      "The ink of a scholar is more precious than the blood of a martyr.",
+      "Small steps every day lead to great achievements.",
+      "Your dedication today shapes your tomorrow.",
+      "Knowledge is a treasure, and you're building yours one page at a time.",
+      "Stay consistent, and watch your understanding deepen.",
+      "May Allah accept your efforts and increase you in beneficial knowledge."
+    ],
+    "stats": {
+      "title": "Your Progress",
+      "booksInProgress": "Books in Progress",
+      "booksCompleted": "Books Completed",
+      "pagesRead": "Pages Read",
+      "overallProgress": "Overall Progress"
+    },
+    "quickAccess": {
+      "title": "Quick Access",
+      "books": {
+        "title": "My Books",
+        "description": "Add new books, track what you're studying, and update your reading progress.",
+        "link": "Manage Books"
+      },
+      "schedule": {
+        "title": "My Schedule",
+        "description": "Plan your weekly study sessions and never miss a lesson.",
+        "link": "View Schedule"
+      },
+      "roadmap": {
+        "title": "My Roadmap",
+        "description": "See your learning forecast and when you'll reach your goals.",
+        "link": "View Roadmap"
+      }
+    },
+    "reminder": "At your current pace, you'll finish {bookTitle} in {days} days. Keep it up!",
+    "antiBurnout": "You're making great progress! Remember to take breaks and keep your studies balanced."
+  },
+  "books": {
+    "title": "My Books",
+    "subtitle": "Track all your Islamic texts in one place",
+    "empty": "No books yet. Add your first book to begin tracking your progress!",
+    "addButton": "Add New Book",
+    "form": {
+      "titleLabel": "Book Title",
+      "titlePlaceholder": "e.g., Al-Ajrumiyyah",
+      "authorLabel": "Author",
+      "authorPlaceholder": "e.g., Muhammad ibn Dawud",
+      "levelLabel": "Difficulty Level",
+      "levels": {
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced"
+      },
+      "pagesLabel": "Total Pages",
+      "pagesPlaceholder": "e.g., 150",
+      "submitButton": "Add Book",
+      "updateButton": "Update Book",
+      "cancelButton": "Cancel"
+    },
+    "status": {
+      "studying": "Studying",
+      "completed": "Completed"
+    },
+    "actions": {
+      "logProgress": "Log Progress",
+      "edit": "Edit",
+      "delete": "Delete",
+      "markComplete": "Mark as Complete"
+    }
+  },
+  "schedule": {
+    "title": "My Weekly Schedule",
+    "subtitle": "Organize your study sessions for consistent learning",
+    "empty": "No study sessions planned yet.\nOrganize your week — consistency is the path to mastery!",
+    "addButton": "Add Session",
+    "exportButton": "Export to PDF",
+    "form": {
+      "title": {
+        "add": "Add Study Session",
+        "edit": "Edit Session"
+      },
+      "dayLabel": "Day",
+      "timeLabel": "Time",
+      "activityLabel": "Activity",
+      "activityPlaceholder": "e.g., Read Nahw chapter 3",
+      "bookLabel": "Linked Book (optional)",
+      "bookNone": "— None —",
+      "submitButton": {
+        "add": "Add Session",
+        "edit": "Save Changes"
+      },
+      "cancelButton": "Cancel"
+    },
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    }
+  },
+  "roadmap": {
+    "title": "Your Learning Roadmap",
+    "subtitle": "Track your progress and forecast your completion dates",
+    "intro": "The forecast uses a weighted algorithm that prioritizes your recent pace, accounts for book difficulty, and factors in your study schedule. The more consistently you log progress, the more accurate your predictions become.",
+    "empty": "No books in progress.\nAdd a book and start logging pages to see your personalized roadmap!",
+    "paceRating": {
+      "slow": "Slow Pace",
+      "normal": "Normal Pace",
+      "fast": "Fast Pace",
+      "very_fast": "Very Fast"
+    },
+    "stats": {
+      "effectivePace": "Effective Pace",
+      "weightedAvg": "Weighted Avg",
+      "last7Days": "Last 7 Days",
+      "pagesLeft": "Pages Left",
+      "avgSession": "Avg Session",
+      "daysLeft": "Days Left"
+    },
+    "forecast": {
+      "message": "At your current pace, you'll complete this book by {date}.",
+      "encouragement": {
+        "fast": "Amazing progress — keep up the momentum!",
+        "normal": "Stay consistent and you'll get there!",
+        "slow": "Try increasing your study sessions to finish sooner."
+      }
+    },
+    "weeklyProgress": {
+      "title": "Weekly Progress",
+      "noData": "Start logging progress to see your weekly breakdown."
+    },
+    "paceOverride": {
+      "title": "Custom Pace Override",
+      "hint": "Set a manual pages/day target to override the calculated pace.",
+      "placeholder": "pages/day",
+      "setButton": "Set Pace",
+      "removeButton": "Remove",
+      "saving": "Saving..."
+    },
+    "whatIf": {
+      "title": "What If?",
+      "hint": "See how a different pace would change your completion date.",
+      "calculateButton": "Calculate",
+      "result": "At {pagesPerDay} pages/day, you'd finish in {days} days — by {date}."
+    }
+  },
+  "progress": {
+    "title": "Log Your Progress",
+    "bookLabel": "Select Book",
+    "dateLabel": "Date",
+    "pagesLabel": "Pages Read",
+    "pagesPlaceholder": "e.g., 5",
+    "timeLabel": "Time Spent (minutes)",
+    "timePlaceholder": "e.g., 30",
+    "submitButton": "Log Progress",
+    "successMessage": "Progress logged! Keep up the great work!",
+    "history": {
+      "title": "Recent Progress",
+      "empty": "No progress logged yet. Start tracking your reading!"
+    }
+  },
+  "pwa": {
+    "install": {
+      "banner": {
+        "title": "Install QalamFlow",
+        "description": "Install our app for a better experience!",
+        "installButton": "Install",
+        "dismissButton": "×"
+      },
+      "modal": {
+        "title": "Install QalamFlow",
+        "ios": {
+          "title": "📱 On Mobile (iOS)",
+          "steps": [
+            "Open QalamFlow in Safari",
+            "Tap the Share button (square with arrow)",
+            "Scroll down and tap \"Add to Home Screen\"",
+            "Tap \"Add\" to confirm"
+          ]
+        },
+        "android": {
+          "title": "📱 On Mobile (Android)",
+          "steps": [
+            "Open QalamFlow in Chrome",
+            "Tap the menu (three dots)",
+            "Tap \"Add to Home screen\" or \"Install app\"",
+            "Tap \"Install\" to confirm"
+          ]
+        },
+        "desktop": {
+          "title": "💻 On Desktop (Chrome/Edge)",
+          "steps": [
+            "Look for the install icon in the address bar",
+            "Or click the menu (three dots)",
+            "Select \"Install QalamFlow\" or \"Create shortcut\"",
+            "Click \"Install\" to confirm"
+          ]
+        },
+        "benefits": {
+          "title": "✨ Benefits of Installing:",
+          "items": [
+            "✅ Faster loading times",
+            "✅ Works offline",
+            "✅ Native app experience",
+            "✅ Quick access from home screen",
+            "✅ No app store required"
+          ]
+        }
+      }
+    }
+  },
+  "notifications": {
+    "session": {
+      "upcoming": "{time} - Lesson on {bookTitle}! Your teacher is waiting.",
+      "reminder": "Don't forget your {activity} session today!"
+    },
+    "achievement": {
+      "bookCompleted": "🎉 Congratulations! You've completed {bookTitle}!",
+      "milestone": "🌟 Milestone reached: {pages} pages read!",
+      "streak": "🔥 {days}-day study streak! Keep it going!"
+    }
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "notFound": "Page not found.",
+    "unauthorized": "Please log in to continue.",
+    "validation": {
+      "required": "This field is required.",
+      "email": "Please enter a valid email.",
+      "minLength": "Must be at least {length} characters.",
+      "number": "Must be a valid number."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "more": "More",
+    "less": "Less"
+  }
+}
