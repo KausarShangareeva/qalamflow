@@ -21,7 +21,7 @@ export default function Navigation() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link to={user ? "/dashboard" : "/"} className={styles.logoLink}>
-          <Logo size="medium" />
+          <Logo size="medium" showText="false" />
         </Link>
 
         <nav className={styles.navone}>
