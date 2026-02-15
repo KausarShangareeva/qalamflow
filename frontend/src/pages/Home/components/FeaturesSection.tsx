@@ -1,4 +1,5 @@
 import { useCopy } from "../../../hooks/useCopy";
+import SectionHeader from "../../../components/SectionHeader";
 import {
   TrendingUp,
   CheckCircle,
@@ -24,12 +25,11 @@ export default function FeaturesSection() {
 
   return (
     <section className={styles.features}>
-      <div className={styles.sectionHeader}>
-        <h2 className={styles.sectionTitle}>{get("home.features.title")}</h2>
-        <p className={styles.sectionSubtitle}>
-          {get("home.features.subtitle")}
-        </p>
-      </div>
+      <SectionHeader
+        title={get("home.features.title")}
+        subtitle={get("home.features.subtitle")}
+        subtitleEn={get("home.features.subtitleEn")}
+      />
       <div className={styles.featuresGrid}>
         {features.map((feature, index) => {
           const Icon = featureIcons[index];
