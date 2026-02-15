@@ -407,3 +407,56 @@
   font-size: var(--fs-sm);
   color: var(--color-text-muted);
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .barChart {
+    height: 120px;
+  }
+
+  .overrideRow,
+  .whatIfRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .overrideInput {
+    max-width: 100%;
+  }
+
+  .whatIfSlider {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--space-md);
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .statValue {
+    font-size: var(--fs-lg);
+  }
+
+  .barChart {
+    height: 100px;
+  }
+
+  .barLabel {
+    font-size: 0.9rem;
+  }
+}

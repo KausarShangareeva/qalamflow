@@ -1,6 +1,6 @@
 /* ===== Responsive / Adaptive Utilities ===== */
 
-/* Container */
+/* Unified Container System */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -10,8 +10,8 @@
 
 /* --- Mobile-first breakpoints --- */
 
-/* sm: 480px+ — large phones */
-@media (min-width: 480px) {
+/* sm: 640px+ — large phones */
+@media (min-width: 640px) {
   .container {
     padding-inline: var(--space-lg);
   }
@@ -24,7 +24,7 @@
   }
 }
 
-/* lg: 1024px+ — laptops */
+/* lg: 1024px+ — laptops and desktops */
 @media (min-width: 1024px) {
   .container {
     padding-inline: var(--space-2xl);

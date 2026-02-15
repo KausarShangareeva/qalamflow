@@ -214,3 +214,52 @@
   padding: var(--space-3xl) 0;
   font-size: var(--fs-lg);
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table {
+    font-size: var(--fs-xs);
+  }
+
+  .table th,
+  .table td {
+    padding: var(--space-sm);
+  }
+
+  .dayLabel {
+    min-width: 80px;
+  }
+
+  .sessionChip {
+    font-size: 1rem;
+    padding: 0.3rem 0.4rem;
+    margin: 1px 2px 1px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .headerActions {
+    width: 100%;
+  }
+
+  .addButton,
+  .pdfButton {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--fs-sm);
+  }
+
+  .modal {
+    padding: var(--space-lg);
+  }
+
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .dayLabel {
+    min-width: 60px;
+  }
+}

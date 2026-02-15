@@ -4,9 +4,10 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-lg);
-  padding: var(--space-3xl) var(--space-xl);
+  padding: var(--space-3xl) 0;
   max-width: var(--max-width);
   margin: 0 auto;
+  padding-inline: var(--space-xl);
 }
 
 .badge {
@@ -37,24 +38,58 @@
   font-weight: 500;
   color: var(--color-text-muted);
   margin-bottom: var(--space-lg);
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
 }
 
+.changingPhraseWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  animation: fadeInSlide 0.7s ease-out;
+}
+
+.phraseEmoji {
+  font-size: 2.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+  animation: bounce 0.7s ease-out;
+}
+
+.changingPhrase {
+  display: inline-block;
+  min-width: fit-content;
+  background: var(--gradient-rainbow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 500;
+  animation: slideIn 0.7s ease-out;
+  font-style: italic;
+}
+
+/* Old styles kept for backward compatibility */
 .changingWordWrapper {
   display: inline-flex;
   align-items: flex-start;
-  gap: 0.8rem; /* 8px */
+  gap: 0.8rem;
   animation: fadeIn 0.6s ease-in-out;
 }
 
 .emoji {
-  font-size: 2.8rem; /* 28px */
+  font-size: 2.8rem;
   line-height: 1;
   flex-shrink: 0;
 }
 
 .changingWord {
   display: inline-block;
-  min-width: 15rem; /* 150px - ширина для самого длинного слова */
+  min-width: 15rem;
   background: var(--gradient-rainbow);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -64,11 +99,43 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(1rem); /* 10px */
+    transform: translateY(1rem);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
   }
 }
 
@@ -96,4 +163,140 @@
 .cta:hover {
   background-color: var(--color-primary-dark);
   color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper {
+    padding-inline: var(--space-lg);
+    gap: var(--space-md);
+  }
+
+  .mainTitle {
+    font-size: var(--fs-3xl);
+  }
+
+  .animatedTitle {
+    font-size: 2rem;
+    flex-direction: column;
+  }
+
+  .changingPhraseWrapper {
+    flex-direction: row;
+  }
+
+  .phraseEmoji {
+    font-size: 2.4rem;
+  }
+
+  .subtitle {
+    max-width: 90%;
+    font-size: var(--fs-base);
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding-inline: var(--space-md);
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .badge {
+    font-size: var(--fs-xs);
+    padding: var(--space-xs) var(--space-md);
+  }
+
+  .mainTitle {
+    font-size: var(--fs-2xl);
+  }
+
+  .animatedTitle {
+    font-size: 1.6rem;
+  }
+
+  .phraseEmoji {
+    font-size: 2rem;
+  }
+
+  .changingPhrase {
+    font-size: 1.6rem;
+  }
+
+  .emoji {
+    font-size: 2.2rem;
+  }
+
+  .changingWord {
+    min-width: 12rem;
+  }
+
+  .subtitle {
+    max-width: 100%;
+    font-size: var(--fs-sm);
+  }
+}
+
+/* Extra small screens (320px - 480px) */
+@media (max-width: 480px) {
+  .wrapper {
+    padding-inline: var(--space-sm);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    gap: var(--space-sm);
+  }
+
+  .badge {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.8rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .mainTitle {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .animatedTitle {
+    font-size: 1.3rem;
+    gap: 0.4rem;
+    line-height: 1.5;
+  }
+
+  .changingPhraseWrapper {
+    gap: 0.4rem;
+    max-width: 100%;
+  }
+
+  .phraseEmoji {
+    font-size: 1.6rem;
+  }
+
+  .changingPhrase {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: calc(100vw - 100px);
+    text-align: center;
+  }
+
+  .cta {
+    padding: 1.2rem 1.5rem;
+    font-size: var(--fs-sm);
+    gap: 0.6rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
 }

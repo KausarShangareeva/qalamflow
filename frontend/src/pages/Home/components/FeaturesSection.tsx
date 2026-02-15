@@ -29,9 +29,6 @@ export default function FeaturesSection() {
         <p className={styles.sectionSubtitle}>
           {get("home.features.subtitle")}
         </p>
-        <p className={styles.sectionSubtitleEn}>
-          {get("home.features.subtitleEn")}
-        </p>
       </div>
       <div className={styles.featuresGrid}>
         {features.map((feature, index) => {

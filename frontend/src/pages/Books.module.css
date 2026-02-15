@@ -246,3 +246,33 @@
   padding: var(--space-3xl) 0;
   font-size: var(--fs-lg);
 }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .modal {
+    padding: var(--space-lg);
+  }
+
+  .formRow {
+    flex-direction: column;
+  }
+
+  .bookTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bookActions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .progressSection {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .progressBar {
+    min-width: 100%;
+  }
+}
