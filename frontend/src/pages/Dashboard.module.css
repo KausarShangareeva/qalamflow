@@ -135,3 +135,56 @@
   font-size: var(--fs-sm);
   color: var(--color-text-muted);
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .greeting {
+    font-size: var(--fs-2xl);
+  }
+
+  .motivation {
+    font-size: var(--fs-base);
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: var(--space-lg);
+  }
+
+  .greeting {
+    font-size: var(--fs-xl);
+  }
+
+  .motivation {
+    font-size: var(--fs-sm);
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat {
+    padding: var(--space-md);
+  }
+
+  .statValue {
+    font-size: var(--fs-2xl);
+  }
+
+  .card {
+    padding: var(--space-md);
+  }
+
+  .reminder {
+    padding: var(--space-sm) var(--space-md);
+  }
+}

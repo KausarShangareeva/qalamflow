@@ -1,7 +1,7 @@
 /* Features Section */
 .features {
   width: 100%;
-  padding: var(--space-3xl) var(--space-xl);
+  padding: var(--space-3xl) 0;
 }
 
 .sectionHeader {
@@ -23,7 +23,7 @@
   color: var(--color-text-muted);
   line-height: 1.6;
   margin-bottom: var(--space-xs);
-  max-width: 70rem; /* 700px */
+  max-width: 50rem; /* 700px */
   margin-left: auto;
   margin-right: auto;
 }
@@ -116,7 +116,12 @@
   opacity: 0.7;
 }
 
+/* Tablets */
 @media (max-width: 768px) {
+  .sectionHeader {
+    padding-inline: var(--space-lg);
+  }
+
   .featuresGrid {
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); /* 250px */
     gap: var(--space-lg);
@@ -125,10 +130,97 @@
   .featureCard {
     padding: var(--space-lg);
   }
+
+  .sectionTitle {
+    font-size: var(--fs-3xl);
+  }
+
+  .sectionSubtitle {
+    font-size: var(--fs-base);
+  }
 }
 
-@media (max-width: 480px) {
+/* Mobile */
+@media (max-width: 640px) {
+  .sectionHeader {
+    padding-inline: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+
   .featuresGrid {
+    padding-inline: var(--space-md);
     grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .sectionTitle {
+    font-size: var(--fs-2xl);
+  }
+
+  .sectionSubtitle,
+  .sectionSubtitleEn {
+    font-size: var(--fs-sm);
+  }
+
+  .featureCard {
+    padding: var(--space-md);
+  }
+
+  .featureIcon {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
+}
+
+/* Extra small screens (320px - 480px) */
+@media (max-width: 480px) {
+  .features {
+    padding: var(--space-2xl) 0;
+  }
+
+  .sectionHeader {
+    padding-inline: var(--space-sm);
+    margin-bottom: var(--space-xl);
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .sectionSubtitle {
+    font-size: 1.2rem;
+    max-width: 100%;
+  }
+
+  .sectionSubtitleEn {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+
+  .featuresGrid {
+    padding-inline: var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .featureCard {
+    padding: var(--space-sm);
+  }
+
+  .featureIcon {
+    width: 4.8rem;
+    height: 4.8rem;
+  }
+
+  .featureTitle {
+    font-size: var(--fs-base);
+  }
+
+  .featureDescription {
+    font-size: 1.2rem;
+  }
+
+  .featureSubtitle {
+    font-size: 1.1rem;
   }
 }

@@ -8,34 +8,25 @@ export default function HeroSection() {
   const { user } = useAuth();
   const { get } = useCopy();
 
-  const words = [
-    { emoji: "🧠", text: "знание" },
-    { emoji: "💡", text: "ясность" },
-    { emoji: "✏️", text: "постоянство" },
+  const phrases = [
+    { emoji: "🎯", text: "довести курс до конца." },
+    { emoji: "✍️", text: "составить план обучения" },
+    { emoji: "📄", text: "скачать расписание в PDF" },
+    { emoji: "🔔", text: "помнить о занятиях" },
   ];
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentWordIndex((prev) => (prev + 1) % words.length);
-    }, 3000); // Change word every 3 seconds
+      setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+    }, 3500); // Change phrase every 3.5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [phrases.length]);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.badge}>✨ Ваш Спутник в Изучении Арабского</div>
-
-      <h2 className={styles.animatedTitle}>
-        Дисциплина рождает{" "}
-        <span className={styles.changingWordWrapper} key={currentWordIndex}>
-          <span className={styles.emoji}>{words[currentWordIndex].emoji}</span>
-          <span className={styles.changingWord}>
-            {words[currentWordIndex].text}
-          </span>
-        </span>
-      </h2>
 
       <h1 className={styles.mainTitle}>
         Учишь арабский язык?
@@ -43,7 +34,19 @@ export default function HeroSection() {
         Делай это системно
       </h1>
 
-      <p className={styles.subtitle}>{get("home.subtitle")}</p>
+      <h2 className={styles.animatedTitle}>
+        Мы поможем вам{" "}
+        <span className={styles.changingPhraseWrapper} key={currentPhraseIndex}>
+          <span className={styles.phraseEmoji}>
+            {phrases[currentPhraseIndex].emoji}
+          </span>
+          <span className={styles.changingPhrase}>
+            {phrases[currentPhraseIndex].text}
+          </span>
+        </span>
+      </h2>
+
+      {/* <p className={styles.subtitle}>{get("home.subtitle")}</p> */}
       {user ? (
         <Link to="/dashboard" className={styles.cta}>
           {get("home.cta.dashboard")}
