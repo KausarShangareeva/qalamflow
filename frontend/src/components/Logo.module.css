@@ -24,3 +24,20 @@
 .logoTextLight {
   color: white;
 }
+
+/* Hide logo text on extra small screens */
+@media (max-width: 375px) {
+  .logoText {
+    display: none;
+  }
+
+  .logoIcon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 18px !important;
+  }
+
+  .logo {
+    gap: 0;
+  }
+}
