@@ -1,6 +1,11 @@
 /* ===== Global Styles ===== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
+
 /* --- Root Layout --- */
 #root {
   min-height: 100dvh;
@@ -85,4 +90,21 @@ button:active {
 ::selection {
   background-color: var(--color-primary);
   color: white;
+}
+
+/* --- Print --- */
+@media print {
+  header, footer, nav {
+    display: none !important;
+  }
+
+  body, #root {
+    display: block !important;
+    min-height: auto !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
