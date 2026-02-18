@@ -464,7 +464,7 @@ function CoursePopup({
 
   const visibleCourses = useMemo(() => {
     const q = search.trim().toLowerCase();
-    if (q) return COURSES.filter((c) => c.name.toLowerCase().includes(q));
+    if (q.length >= 2) return COURSES.filter((c) => c.name.toLowerCase().includes(q));
     return COURSES.filter((c) => isFeatured(c.name));
   }, [search]);
 
