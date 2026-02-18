@@ -3,10 +3,11 @@ import styles from "./EnvelopePreview.module.css";
 
 export default function EnvelopePreview() {
   return (
-    <section className={styles.previewSection}>
+    <section id="envelope" className={styles.previewSection}>
       <SectionHeader
         title="Готовый график занятий с датами"
         subtitle="План, график и срок — в одном месте"
+        titleWidth="60%"
       />
 
       <div className={styles.envelopeWrapper}>

@@ -1,0 +1,151 @@
+.section {
+  width: 100%;
+  padding: var(--space-3xl) 0;
+  padding-inline: var(--space-md);
+  background: var(--color-bg);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: var(--color-bg-card);
+  border: 0.1rem solid var(--color-border);
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+  padding: 4rem;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 1rem,
+    transparent 1rem,
+    transparent 2rem
+  );
+}
+
+.illustration {
+  flex-shrink: 0;
+  width: 50rem;
+  min-height: 26rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.placeholderText {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+.content {
+  flex: 1;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.description {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  display: block;
+  margin-top: 2rem;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+}
+
+/* Medium screens */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    padding: 3rem;
+  }
+
+  .illustration {
+    width: 100%;
+    min-height: 20rem;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  .description {
+    text-align: center;
+    width: 60%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .card {
+    padding: var(--space-lg);
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .description {
+    text-align: center;
+    width: 90%;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .section {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-sm);
+  }
+
+  .card {
+    border-radius: 1.6rem;
+    padding: var(--space-md);
+  }
+
+  .illustration {
+    min-height: 16rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: var(--fs-sm);
+  }
+}

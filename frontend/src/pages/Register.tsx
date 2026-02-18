@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useGoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../context/AuthContext";
 import { useCopy } from "../hooks/useCopy";
 import { Mail, Lock, Eye, EyeOff, User } from "lucide-react";
@@ -7,7 +8,7 @@ import Logo from "../components/Logo";
 import styles from "./Register.module.css";
 
 export default function Register() {
-  const { register } = useAuth();
+  const { register, googleLogin } = useAuth();
   const navigate = useNavigate();
   const { get } = useCopy();
   const [name, setName] = useState("");
@@ -29,13 +30,29 @@ export default function Register() {
     }
   };
 
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: async (response) => {
+      setError("");
+      setLoading(true);
+      try {
+        await googleLogin(response.access_token);
+        navigate("/workspace");
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Google login failed");
+      } finally {
+        setLoading(false);
+      }
+    },
+    onError: () => setError("Google login failed"),
+  });
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
     try {
       await register(name, email, password);
-      navigate("/dashboard");
+      navigate("/workspace");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Registration failed");
     } finally {
@@ -79,7 +96,7 @@ export default function Register() {
 
           {error && <div className={styles.error}>{error}</div>}
 
-          <button type="button" className={styles.googleButton}>
+          <button type="button" className={styles.googleButton} onClick={() => handleGoogleLogin()}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path
                 d="M19.6 10.227c0-.709-.064-1.39-.182-2.045H10v3.868h5.382a4.6 4.6 0 01-1.996 3.018v2.509h3.232c1.891-1.742 2.982-4.305 2.982-7.35z"

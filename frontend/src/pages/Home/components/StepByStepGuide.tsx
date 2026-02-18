@@ -1,12 +1,13 @@
 import { useCopy } from "../../../hooks/useCopy";
 import { Calendar, UserRound } from "lucide-react";
+import CTAButton from "../../../components/CTAButton";
 import styles from "./StepByStepGuide.module.css";
 
 export default function StepByStepGuide() {
   const { get } = useCopy();
 
   return (
-    <section className={styles.section}>
+    <section id="how-it-works" className={styles.section}>
       <div className={styles.header}>
         <h2 className={styles.title}>{get("home.howItWorks.title")}</h2>
         <p className={styles.subtitle}>{get("home.howItWorks.subtitle")}</p>
@@ -52,11 +53,7 @@ export default function StepByStepGuide() {
         </div>
       </div>
 
-      <div className={styles.ctaContainer}>
-        <button className={styles.ctaButton}>
-          {get("home.howItWorks.cta")}
-        </button>
-      </div>
+      <CTAButton to="/register">{get("home.howItWorks.cta")}</CTAButton>
     </section>
   );
 }

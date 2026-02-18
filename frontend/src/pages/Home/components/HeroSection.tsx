@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useAuth } from "../../../context/AuthContext";
 import { useCopy } from "../../../hooks/useCopy";
+import CTAButton from "../../../components/CTAButton";
 import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
@@ -25,7 +25,7 @@ export default function HeroSection() {
   }, [phrases.length]);
 
   return (
-    <div className={styles.wrapper}>
+    <div id="hero" className={styles.wrapper}>
       <div className={styles.badge}>✨ Ваш Спутник в Изучении Арабского</div>
 
       <h1 className={styles.mainTitle}>
@@ -48,13 +48,9 @@ export default function HeroSection() {
 
       {/* <p className={styles.subtitle}>{get("home.subtitle")}</p> */}
       {user ? (
-        <Link to="/dashboard" className={styles.cta}>
-          {get("home.cta.dashboard")}
-        </Link>
+        <CTAButton to="/dashboard">{get("home.cta.dashboard")}</CTAButton>
       ) : (
-        <Link to="/register" className={styles.cta}>
-          {get("home.cta.register")} ✨
-        </Link>
+        <CTAButton to="/register">{get("home.cta.register")} ✨</CTAButton>
       )}
     </div>
   );

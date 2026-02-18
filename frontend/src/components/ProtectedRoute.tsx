@@ -8,5 +8,5 @@ export default function ProtectedRoute() {
 
   if (loading) return <div style={{ padding: "2rem", textAlign: "center" }}>{get("protectedRoute.loading")}</div>;
 
-  return user ? <Outlet /> : <Navigate to="/login" replace />;
+  return user ? <Outlet /> : <Navigate to="/" replace />;
 }

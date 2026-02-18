@@ -1,5 +1,6 @@
 import { useCopy } from "../../../hooks/useCopy";
 import SectionHeader from "../../../components/SectionHeader";
+import CTAButton from "../../../components/CTAButton";
 import {
   TrendingUp,
   CheckCircle,
@@ -8,6 +9,7 @@ import {
   Download,
   Zap,
 } from "lucide-react";
+
 import styles from "./FeaturesSection.module.css";
 
 const featureIcons = [
@@ -24,7 +26,7 @@ export default function FeaturesSection() {
   const features = getArray("home.features.items");
 
   return (
-    <section className={styles.features}>
+    <section id="features" className={styles.features}>
       <SectionHeader
         title={get("home.features.title")}
         subtitle={get("home.features.subtitle")}
@@ -47,6 +49,8 @@ export default function FeaturesSection() {
           );
         })}
       </div>
+
+      <CTAButton to="/register">Начать бесплатно</CTAButton>
     </section>
   );
 }

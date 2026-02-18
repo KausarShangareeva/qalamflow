@@ -2,44 +2,154 @@
   width: 100%;
 }
 
-/* ===== Toggle ===== */
-.toggle {
+/* ===== Toolbar ===== */
+.toolbar {
   display: flex;
-  gap: var(--space-sm);
+  align-items: center;
+  gap: var(--space-md);
   margin-bottom: var(--space-lg);
 }
 
+/* ===== Toggle (pill) ===== */
+.toggle {
+  display: flex;
+  gap: 0;
+  background: var(--color-bg-card);
+  border: 0.1rem solid var(--color-border);
+  border-radius: 3rem;
+  padding: 0.4rem;
+  width: fit-content;
+}
+
 .toggleBtn {
-  padding: var(--space-xs) var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 3rem;
+  background: transparent;
+  color: var(--color-text-muted);
   font-size: var(--fs-base);
   font-weight: 500;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-card);
-  color: var(--color-text-muted);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .toggleBtn:hover {
-  background: var(--color-bg-hover);
   color: var(--color-text);
 }
 
 .toggleActive {
-  background: var(--color-primary);
-  color: #fff;
-  border-color: var(--color-primary);
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.08);
 }
 
 .toggleActive:hover {
-  background: var(--color-primary-hover);
+  color: var(--color-text);
+}
+
+.toggleIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+/* ===== Emoji toggle ===== */
+.emojiSwitch {
+  display: flex;
+  align-items: center;
+  width: 9rem;
+  height: 3rem;
+  border: none;
+  border-radius: 10rem;
+  cursor: pointer;
+  padding: 0.25rem 6px;
+  flex-shrink: 0;
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.emojiThumb {
+  height: 3.8rem;
+  width: 3.8rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  line-height: 1;
+  transition:
+    margin 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* On = sun / bright */
+.emojiOn {
+  background: linear-gradient(135deg, #87ceeb, #b8e4f5);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.08),
+    0 0 10px rgba(135, 206, 235, 0.25);
+}
+
+.emojiOn .emojiThumb {
+  margin-left: calc(9rem - 3.8rem - 1.2rem);
+  background: radial-gradient(circle at 35% 35%, #ffe680, #f0b830);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.15),
+    0 0 10px rgba(245, 200, 66, 0.35);
+}
+
+/* Off = moon / dark */
+.emojiOff {
+  background: linear-gradient(135deg, #2d3748, #4a5568);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.emojiOff .emojiThumb {
+  margin-left: 0;
+  background: radial-gradient(circle at 60% 35%, #f5f3e8, #d8d4c0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Save button ===== */
+.saveBtn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
   color: #fff;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.saveBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 /* ===== Print button ===== */
 .printBtn {
-  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
   padding: var(--space-xs) var(--space-md);
   font-size: var(--fs-base);
   font-weight: 500;
@@ -83,7 +193,8 @@
 /* ===== Shared table ===== */
 .table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   min-width: 90rem;
   table-layout: fixed;
 }
@@ -91,7 +202,7 @@
 .table thead {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 50;
 }
 
 /* ===== Day name toggle (full / short) ===== */
@@ -116,6 +227,7 @@
 /* ===== Booked cell ===== */
 .cellBooked {
   position: relative;
+  z-index: 1;
   cursor: pointer;
 }
 
@@ -126,7 +238,16 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.courseIconCell {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  margin-right: 5px;
 }
 
 /* =======================================
@@ -285,6 +406,50 @@
   margin-bottom: var(--space-sm);
 }
 
+/* ---- Course search ---- */
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.6rem 1.2rem;
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-elevated);
+  transition: border-color var(--transition-fast);
+}
+
+.searchBox:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+}
+
+.searchIcon {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--fs-sm);
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.searchEmpty {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  padding: var(--space-sm) 0;
+}
+
 /* ---- Course tags ---- */
 .courseGrid {
   display: flex;
@@ -294,7 +459,7 @@
 }
 
 .courseTag {
-  padding: 0.6rem 3rem;
+  padding: 0.6rem 2rem;
   font-size: var(--fs-sm);
   font-weight: 500;
   border: 1.5px solid transparent;
@@ -302,10 +467,20 @@
   cursor: pointer;
   transition: all var(--transition-fast);
   letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .courseTag:hover {
   filter: brightness(0.95);
+}
+
+.courseIcon {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
 }
 
 .courseTagActive {
@@ -376,20 +551,32 @@
    ======================================= */
 
 @media (max-width: 768px) {
-  /* Toggle row: wrap + smaller buttons */
-  .toggle {
+  /* Toolbar: stack on mobile */
+  .toolbar {
     flex-wrap: wrap;
   }
 
   .toggleBtn {
-    font-size: var(--fs-base);
-    padding: var(--space-xs) var(--space-md);
+    padding: 0.6rem 1.2rem;
+    font-size: var(--fs-sm);
+    gap: 0.6rem;
+  }
+
+  .toggleIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .saveBtn {
+    font-size: var(--fs-sm);
+    padding: var(--space-xs) var(--space-sm);
+    flex: 1;
   }
 
   .printBtn {
-    font-size: var(--fs-base);
+    font-size: var(--fs-sm);
     padding: var(--space-xs) var(--space-sm);
-    width: 100%;
+    flex: 1;
   }
 
   .portraitPage,

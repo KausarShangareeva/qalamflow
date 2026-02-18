@@ -1,174 +1,227 @@
-/* Footer */
-.footerWrapper {
-  position: relative;
-  padding: var(--space-3xl) 0 var(--space-2xl);
-  background: var(--color-bg);
-  border-top: 0.1rem solid var(--color-border);
-  overflow: hidden;
-}
-
-/* Decorative gradient background */
-.footerWrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+.footer {
   width: 100%;
-  height: 0.2rem;
-  background: var(--gradient-accent);
-  opacity: 0.6;
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  background: var(--color-bg-card);
 }
 
-.footerCard {
+/* ── Main columns ── */
+.main {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3xl);
   max-width: var(--max-width);
   margin: 0 auto;
   padding-inline: var(--space-xl);
-  position: relative;
 }
 
-.footerContent {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--space-3xl);
-  margin-bottom: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
-  border-bottom: 0.1rem solid var(--color-border);
-}
-
-.footerSection h3,
-.footerSection h4 {
-  margin-bottom: var(--space-md);
-  color: var(--color-text);
-  font-weight: 700;
-  font-size: var(--fs-base);
-  letter-spacing: -0.02em;
-}
-
-.footerTagline {
-  color: var(--color-text-muted);
-  font-size: var(--fs-sm);
-  line-height: 1.7;
-  margin-top: var(--space-md);
-  max-width: 32rem;
-  opacity: 0.9;
-}
-
-.footerLinks {
+.brand {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
 }
 
-.footerLinks a {
+.tagline {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 28rem;
+}
+
+.columns {
+  display: flex;
+  gap: var(--space-3xl);
+}
+
+.columnTitle {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.02em;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.links a {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: 0.6rem;
+  font-size: var(--fs-base);
   color: var(--color-text-muted);
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  transition: all var(--transition-fast);
-  padding: var(--space-xs) 0;
-  position: relative;
+  transition: color var(--transition-fast);
   width: fit-content;
 }
 
-.footerLinks a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 0.2rem;
-  background: var(--gradient-primary);
-  transition: width var(--transition-fast);
-  border-radius: 0.2rem;
-}
-
-.footerLinks a:hover {
+.links a:hover {
   color: var(--color-text);
-  transform: translateX(0.4rem);
 }
 
-.footerLinks a:hover::before {
-  width: 100%;
-}
-
-.footerBottom {
+/* ── Divider ── */
+.divider {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-top: var(--space-lg);
-  font-size: var(--fs-xs);
+  gap: var(--space-lg);
+  max-width: var(--max-width);
+  margin: var(--space-2xl) auto;
+  padding-inline: var(--space-xl);
+}
+
+.dividerLine {
+  flex: 1;
+  height: 0.1rem;
+  background: var(--color-border);
+}
+
+.dividerIcon {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 30%;
+  background: linear-gradient(135deg, #6366f1 50%, #632be5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* ── Quote ── */
+.quote {
+  text-align: center;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 var(--space-xl) var(--space-md);
+}
+
+.quoteText {
+  font-size: var(--fs-xl);
+  font-style: italic;
   color: var(--color-text-muted);
-  opacity: 0.8;
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
 }
 
-.footerBottom span {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
+.quoteAuthor {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  opacity: 0.7;
 }
 
-/* Tablets */
+.madeWith {
+  text-align: center;
+  max-width: none;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  padding-top: var(--space-lg);
+}
+
+/* ── Tablets ── */
 @media (max-width: 768px) {
-  .footerCard {
+  .main {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2xl);
     padding-inline: var(--space-lg);
   }
 
-  .footerContent {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
+  .brand {
+    width: 100%;
   }
 
-  .footerTagline {
-    max-width: 100%;
+  .divider {
+    padding-inline: var(--space-lg);
   }
 
-  .footerBottom {
-    flex-direction: column;
-    gap: var(--space-sm);
-    text-align: center;
+  .quoteText {
+    font-size: var(--fs-lg);
   }
 }
 
-/* Mobile */
+/* ── Mobile ── */
 @media (max-width: 640px) {
-  .footerCard {
-    padding-inline: var(--space-md);
-  }
-
-  .footerContent {
-    gap: var(--space-xl);
-  }
-}
-
-/* Extra small screens (320px - 480px) */
-@media (max-width: 480px) {
-  .footerWrapper {
+  .footer {
     padding: var(--space-2xl) 0 var(--space-xl);
   }
 
-  .footerCard {
+  .main {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+    padding-inline: var(--space-md);
+  }
+
+  .brand {
+    align-items: center;
+  }
+
+  .tagline {
+    text-align: center;
+  }
+
+  .divider {
+    padding-inline: var(--space-md);
+    margin: var(--space-xl) auto;
+  }
+
+  .quote {
+    padding-inline: var(--space-md);
+  }
+
+  .quoteText {
+    font-size: var(--fs-base);
+  }
+}
+
+/* ── Extra small ── */
+@media (max-width: 480px) {
+  .footer {
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .main {
     padding-inline: var(--space-sm);
+    gap: var(--space-3xl);
   }
 
-  .footerContent {
-    gap: var(--space-lg);
+  .tagline {
+    font-size: var(--fs-base);
   }
 
-  .footerSection h3,
-  .footerSection h4 {
-    font-size: var(--fs-sm);
+  .columnTitle {
+    font-size: var(--fs-base);
+    margin-bottom: var(--space-md);
   }
 
-  .footerTagline,
-  .footerLinks a {
+  .links a {
+    font-size: var(--fs-base);
+  }
+
+  .divider {
+    padding-inline: var(--space-sm);
+    margin: var(--space-3xl) auto;
+  }
+
+  .dividerIcon {
+    width: 2.6rem;
+    height: 2.6rem;
     font-size: 1.2rem;
   }
 
-  .footerBottom {
-    font-size: 1rem;
-    padding-top: var(--space-md);
+  .quote {
+    padding-inline: var(--space-sm);
+  }
+
+  .quoteText {
+    font-size: var(--fs-base);
+  }
+
+  .quoteAuthor {
+    font-size: var(--fs-base);
   }
 }

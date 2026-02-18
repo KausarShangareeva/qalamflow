@@ -2,6 +2,11 @@
   text-align: center;
   max-width: 90rem; /* 900px */
   margin: 0 auto var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .sectionTitle {
@@ -10,6 +15,8 @@
   color: var(--color-text);
   margin-bottom: var(--space-md);
   line-height: 1.2;
+  max-width: var(--title-width, 80%);
+  margin: 0 auto;
 }
 
 .sectionSubtitle {

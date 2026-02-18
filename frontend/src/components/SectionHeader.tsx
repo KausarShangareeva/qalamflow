@@ -5,6 +5,7 @@ interface SectionHeaderProps {
   subtitle?: string;
   subtitleEn?: string;
   className?: string;
+  titleWidth?: string;
 }
 
 export default function SectionHeader({
@@ -12,10 +13,16 @@ export default function SectionHeader({
   subtitle,
   subtitleEn,
   className = "",
+  titleWidth,
 }: SectionHeaderProps) {
   return (
     <div className={`${styles.sectionHeader} ${className}`}>
-      <h2 className={styles.sectionTitle}>{title}</h2>
+      <h2
+        className={styles.sectionTitle}
+        style={titleWidth ? { "--title-width": titleWidth } as React.CSSProperties : undefined}
+      >
+        {title}
+      </h2>
       {subtitle && <p className={styles.sectionSubtitle}>{subtitle}</p>}
     </div>
   );

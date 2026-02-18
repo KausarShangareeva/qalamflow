@@ -6,10 +6,7 @@ import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import Books from "./pages/Books";
-import Schedule from "./pages/Schedule";
-import Roadmap from "./pages/Roadmap";
+import Workspace from "./pages/Workspace";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -29,10 +26,7 @@ export default function App() {
 
             {/* Protected routes */}
             <Route element={<ProtectedRoute />}>
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="books" element={<Books />} />
-              <Route path="schedule" element={<Schedule />} />
-              <Route path="roadmap" element={<Roadmap />} />
+              <Route path="workspace" element={<Workspace />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />
