@@ -11,7 +11,6 @@ interface SectionHeaderProps {
 export default function SectionHeader({
   title,
   subtitle,
-  subtitleEn,
   className = "",
   titleWidth,
 }: SectionHeaderProps) {

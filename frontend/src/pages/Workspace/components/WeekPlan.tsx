@@ -432,8 +432,6 @@ export default function WeekPlan({
       {/* Popup */}
       {popup && (
         <CoursePopup
-          day={popup.day}
-          time={popup.time}
           onAdd={handleAdd}
           onClose={() => setPopup(null)}
           showEmoji={showEmoji}
@@ -446,14 +444,10 @@ export default function WeekPlan({
 /* ===== Popup ===== */
 
 function CoursePopup({
-  day,
-  time,
   onAdd,
   onClose,
   showEmoji,
 }: {
-  day: string;
-  time: string;
   onAdd: (course: string, duration: number) => void;
   onClose: () => void;
   showEmoji: boolean;
