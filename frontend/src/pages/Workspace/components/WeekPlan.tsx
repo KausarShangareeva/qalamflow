@@ -502,7 +502,7 @@ function CoursePopup({
               }
               onClick={() => setSelectedCourse(c.name)}
             >
-              {showEmoji && "icon" in c && c.icon && (
+              {showEmoji && typeof c.icon === "string" && (
                 <img src={c.icon} alt="" className={styles.courseIcon} />
               )}
               {c.name}
@@ -591,7 +591,7 @@ function ScheduleCell({
             style={{ color: info.course.color }}
             data-print="course"
           >
-            {showEmoji && "icon" in info.course && info.course.icon && (
+            {showEmoji && typeof info.course.icon === "string" && (
               <img
                 src={info.course.icon}
                 alt=""
