@@ -27,7 +27,13 @@ export async function apiRequest<T = unknown>(
     body: options.body ? JSON.stringify(options.body) : undefined,
   });
 
-  const data = await res.json();
+  const text = await res.text();
+  let data: any;
+  try {
+    data = text ? JSON.parse(text) : {};
+  } catch {
+    throw new Error("Server returned invalid response");
+  }
 
   if (!res.ok) {
     throw new Error(data.message || "Request failed");
