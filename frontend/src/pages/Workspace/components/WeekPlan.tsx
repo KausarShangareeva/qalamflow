@@ -489,11 +489,7 @@ function CoursePopup({
             <button
               key={c.name}
               className={`${styles.courseTag} ${selectedCourse === c.name ? styles.courseTagActive : ""}`}
-              style={
-                selectedCourse === c.name
-                  ? { background: c.bg, borderColor: c.color, color: c.color }
-                  : { background: c.bg, borderColor: c.bg, color: c.color }
-              }
+              style={{ "--tag-color": c.color } as React.CSSProperties}
               onClick={() => setSelectedCourse(c.name)}
             >
               {showEmoji && typeof c.icon === "string" && (

@@ -462,7 +462,7 @@
   padding: 0.6rem 2rem;
   font-size: var(--fs-sm);
   font-weight: 500;
-  border: 1.5px solid transparent;
+  border: 1.5px solid color-mix(in srgb, var(--tag-color) var(--tag-border-strength), transparent);
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -471,10 +471,12 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  color: color-mix(in srgb, var(--tag-color) var(--tag-text-mix), white);
+  background: color-mix(in srgb, var(--tag-color) var(--tag-bg-strength), transparent);
 }
 
 .courseTag:hover {
-  filter: brightness(0.95);
+  background: color-mix(in srgb, var(--tag-color) calc(var(--tag-bg-strength) + 6%), transparent);
 }
 
 .courseIcon {
@@ -484,7 +486,8 @@
 }
 
 .courseTagActive {
-  filter: brightness(0.9);
+  border-color: color-mix(in srgb, var(--tag-color) var(--tag-text-mix), white);
+  background: color-mix(in srgb, var(--tag-color) calc(var(--tag-bg-strength) + 8%), transparent);
 }
 
 /* ---- Duration buttons ---- */
