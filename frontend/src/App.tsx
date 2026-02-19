@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import RootLayout from "./layouts/RootLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
-import PWAInstallPrompt from "./components/PWAInstallPrompt";
+
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -13,7 +13,6 @@ export default function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <PWAInstallPrompt />
         <Routes>
           {/* Auth routes - without layout */}
           <Route path="login" element={<Login />} />
