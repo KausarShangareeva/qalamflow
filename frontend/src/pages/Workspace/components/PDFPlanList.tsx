@@ -1,4 +1,5 @@
 import { Trash2 } from "lucide-react";
+import { useCopy } from "../../../hooks/useCopy";
 import type { SavedPlan } from "../types";
 import styles from "./PDFPlanList.module.css";
 
@@ -26,13 +27,14 @@ export default function PDFPlanList({
   onCreateNew,
   onDeletePlan,
 }: PDFPlanListProps) {
+  const { get } = useCopy();
   return (
     <section className={styles.section}>
       <div className={styles.grid}>
         {/* Create card */}
         <button className={styles.createCard} onClick={onCreateNew}>
           <span className={styles.createIcon}>+</span>
-          <span className={styles.createText}>Create New Plan</span>
+          <span className={styles.createText}>{get("workspace.createNewPlan")}</span>
         </button>
 
         {/* Plan cards */}

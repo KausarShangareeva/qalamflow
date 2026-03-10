@@ -1,5 +1,6 @@
 import { useRef, useState, useMemo } from "react";
 import { Printer, Save, Search } from "lucide-react";
+import { useCopy } from "../../../hooks/useCopy";
 import type { ScheduleEntry } from "../types";
 import COURSES from "../../../json/tags.json";
 import WEEKDAYS from "../../../json/weekdays.json";
@@ -108,6 +109,7 @@ export default function WeekPlan({
   onSave,
   canSave,
 }: WeekPlanProps) {
+  const { get } = useCopy();
   const [popup, setPopup] = useState<{ day: string; time: string } | null>(
     null,
   );
@@ -153,18 +155,26 @@ export default function WeekPlan({
 
     // Resolve CSS variables (var(--tag-*)) so they work inside the iframe
     const computedRoot = getComputedStyle(document.documentElement);
-    const resolvedVars = COURSES
-      .flatMap((course) => [course.color, course.bg])
+    const resolvedVars = COURSES.flatMap((course) => [course.color, course.bg])
       .filter((val): val is string => typeof val === "string")
       .map((val) => val.match(/var\((--[^)]+)\)/)?.[1])
       .filter((varName): varName is string => !!varName)
       .filter((varName, i, arr) => arr.indexOf(varName) === i)
-      .map((varName) => `${varName}: ${computedRoot.getPropertyValue(varName).trim()};`)
+      .map(
+        (varName) =>
+          `${varName}: ${computedRoot.getPropertyValue(varName).trim()};`,
+      )
       .filter(Boolean);
     const cssVarsBlock = `:root { ${resolvedVars.join(" ")} }`;
 
     const iframe = document.createElement("iframe");
-    Object.assign(iframe.style, { position: "fixed", left: "-9999px", top: "-9999px", width: "0", height: "0" });
+    Object.assign(iframe.style, {
+      position: "fixed",
+      left: "-9999px",
+      top: "-9999px",
+      width: "0",
+      height: "0",
+    });
     document.body.appendChild(iframe);
 
     const doc = iframe.contentDocument || iframe.contentWindow?.document;
@@ -219,14 +229,14 @@ export default function WeekPlan({
             onClick={() => onOrientationChange("vertical")}
           >
             <img src="/virtical.svg" alt="" className={styles.toggleIcon} />
-            <span>Vertical</span>
+            <span>{get("workspace.vertical")}</span>
           </button>
           <button
             className={`${styles.toggleBtn} ${orientation === "horizontal" ? styles.toggleActive : ""}`}
             onClick={() => onOrientationChange("horizontal")}
           >
             <img src="/horizontal.svg" alt="" className={styles.toggleIcon} />
-            <span>Horizontal</span>
+            <span>{get("workspace.horizontal")}</span>
           </button>
         </div>
         {/* Emoji toggle */}
@@ -240,11 +250,11 @@ export default function WeekPlan({
 
         <button className={styles.saveBtn} onClick={onSave} disabled={!canSave}>
           <Save size={18} />
-          Save Plan
+          {get("pdfExport.savePlan")}
         </button>
         <button className={styles.printBtn} onClick={handlePrint}>
           <Printer size={18} />
-          Print PDF
+          {get("pdfExport.printPDF")}
         </button>
       </div>
 
@@ -291,6 +301,7 @@ function CoursePopup({
   onClose: () => void;
   showEmoji: boolean;
 }) {
+  const { get } = useCopy();
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [selectedDuration, setSelectedDuration] = useState<number | null>(null);
   const [search, setSearch] = useState("");
@@ -306,20 +317,20 @@ function CoursePopup({
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
         <div className={styles.popupHeader}>
-          <span>Add Course</span>
+          <span>{get("home.howItWorks.popup.title")}</span>
           <button className={styles.popupClose} onClick={onClose}>
             &times;
           </button>
         </div>
 
         {/* Courses */}
-        <p className={styles.popupLabel}>Select a course</p>
+        <p className={styles.popupLabel}>{get("home.howItWorks.popup.selectCourse")}</p>
         <div className={styles.searchBox}>
           <Search size={16} className={styles.searchIcon} />
           <input
             className={styles.searchInput}
             type="text"
-            placeholder="Can't find a course? Type the name..."
+            placeholder={get("home.howItWorks.popup.searchPlaceholder")}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -341,12 +352,12 @@ function CoursePopup({
             </button>
           ))}
           {visibleCourses.length === 0 && (
-            <p className={styles.searchEmpty}>Nothing found</p>
+            <p className={styles.searchEmpty}>{get("workspace.nothingFound")}</p>
           )}
         </div>
 
         {/* Duration */}
-        <p className={styles.popupLabel}>Duration</p>
+        <p className={styles.popupLabel}>{get("home.howItWorks.popup.duration")}</p>
         <div className={styles.durationGrid}>
           {DURATIONS.map((d) => (
             <button
@@ -369,7 +380,7 @@ function CoursePopup({
             }
           }}
         >
-          Add to Schedule
+          {get("home.howItWorks.popup.addButton")}
         </button>
       </div>
     </div>

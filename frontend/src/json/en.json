@@ -7,10 +7,6 @@
   "nav": {
     "contact": "Contact"
   },
-  "notFound": {
-    "title": "Page not found",
-    "goHome": "Go home"
-  },
   "protectedRoute": {
     "loading": "Loading..."
   },
@@ -86,7 +82,14 @@
         "main": "See how your schedule will look",
         "bottom": "You'll always know what to study and when."
       },
-      "cta": "Create my first plan"
+      "cta": "Create my first plan",
+      "popup": {
+        "title": "Add Course",
+        "selectCourse": "Select a course",
+        "searchPlaceholder": "Can't find a course? Type the name...",
+        "duration": "Duration",
+        "addButton": "Add to Schedule"
+      }
     }
   },
   "auth": {
@@ -180,6 +183,151 @@
   "footer": {
     "quickLinks": "Quick Links",
     "connect": "Connect",
-    "madeWithLove": "Made with"
+    "madeWithLove": "Made with",
+    "home": "Home",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "envelope": "Envelope",
+    "pdfExport": "PDF Export",
+    "messageAuthor": "Message the Author",
+    "buyMeCoffee": "Buy Me a Coffee",
+    "suggestProject": "Suggest a Project",
+    "feedback": "Feedback",
+    "telegram": "The student writes code",
+    "otherProjects": "Other Projects"
+  },
+  "navigation": {
+    "home": "Home",
+    "myStudyPlan": "My study plan",
+    "messageAuthor": "Message the Author",
+    "buyMeCoffee": "Buy Me a Coffee",
+    "suggestProject": "Suggest a Project",
+    "feedback": "Leave Feedback",
+    "logout": "Logout",
+    "signUp": "Sign up",
+    "logIn": "Log in"
+  },
+  "hero": {
+    "badge": "Your study plan",
+    "mainTitle": "Study with a plan, not by mood",
+    "phrases": [
+      {
+        "emoji": "🎯",
+        "text": "complete your course."
+      },
+      {
+        "emoji": "✍️",
+        "text": "create a study plan"
+      },
+      {
+        "emoji": "📄",
+        "text": "download your schedule as PDF"
+      },
+      {
+        "emoji": "🔔",
+        "text": "stay on top of your lessons"
+      }
+    ],
+    "exploreBtn": "Explore",
+    "subMainTitle": "We'll help you"
+  },
+  "donate": {
+    "title": "Oh hey, coffee friend 😺",
+    "subtitle": "60%",
+    "mainText": "If QalamFlow helped you, a coffee keeps the code flowing",
+    "button": "☕ Buy me a coffee",
+    "footnote": "Safe & quick — 30 seconds.",
+    "coffees": [
+      {
+        "label": "Limon tea",
+        "sub": "Tiny boost",
+        "amount": "$3",
+        "badge": "Nice pick 🍋"
+      },
+      {
+        "label": "Cappuccino",
+        "sub": "Extra energy ⚡",
+        "amount": "$6",
+        "badge": "Most loved ✨"
+      },
+      {
+        "label": "Frappuccino",
+        "sub": "Author's favourite",
+        "amount": "$9",
+        "badge": "Top choice 🔥"
+      }
+    ]
+  },
+  "notFound": {
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "GO BACK HOME"
+  },
+  "features": {
+    "animatedTags": ["Math", "English", "History"],
+    "miniSchedule": {
+      "monday": "Mon",
+      "tuesday": "Tue",
+      "wednesday": "Wed",
+      "thursday": "Thu",
+      "friday": "Fri",
+      "saturday": "Sat",
+      "sunday": "Sun"
+    },
+    "savedPlans": {
+      "delete": "Delete",
+      "open": "Open",
+      "weekOf": "Week of Feb 25",
+      "sessions": "3 sessions this week",
+      "days": "Wed – Fri",
+      "hours": "4 study hours"
+    },
+    "screenPreview": "Schedule preview",
+    "comingSoon": "coming soon",
+    "getStarted": "Get Started Free"
+  },
+  "googleAuth": {
+    "continueWith": "Continue with Google",
+    "or": "OR"
+  },
+  "finalCta": {
+    "title": "Sounds great? 😊",
+    "subtitle": "Try it yourself - it's really simple",
+    "heading": "Start Planning",
+    "description": "Create your study plan from scratch in just a few minutes and work towards your goal systematically",
+    "button": "Lets start now ✨"
+  },
+  "envelopePreview": {
+    "title": "Ready lesson schedule with dates",
+    "subtitle": "Plan, schedule and deadline — all in one place"
+  },
+  "pdfExport": {
+    "title": "Print your plan in PDF format",
+    "button": "Try It Free",
+    "savePlan": "Save Plan",
+    "printPDF": "Print PDF",
+    "hint": "Try to"
+  },
+  "feedbackPage": {
+    "subtitle": "Tried it already?",
+    "cta": "Share your experience"
+  },
+  "workspace": {
+    "vertical": "Vertical",
+    "horizontal": "Horizontal",
+    "nothingFound": "Nothing found",
+    "createNewPlan": "Create New Plan"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "open": "Open",
+    "next": "Next",
+    "previous": "Previous"
   }
 }
