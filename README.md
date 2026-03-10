@@ -7,7 +7,7 @@ This project features **JWT & Google OAuth authentication**, **PDF export**, **d
 
 ## 🔗 Demo
 
-Check out the project live: [PlanFlow on Render](https://yourplanflow.netlify.app/)
+Check out the project live: [QalamFlow](https://qalamflow.com/)
 
 ---
 
