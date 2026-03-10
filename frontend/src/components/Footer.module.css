@@ -8,7 +8,7 @@
 .main {
   display: flex;
   justify-content: space-between;
-  gap: var(--space-3xl);
+  gap: var(--space-xl);
   max-width: var(--max-width);
   margin: 0 auto;
   padding-inline: var(--space-xl);
@@ -88,6 +88,7 @@
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.3;
+  white-space: nowrap;
 }
 
 .authorEmail {
@@ -97,7 +98,7 @@
 
 .columns {
   display: flex;
-  gap: var(--space-3xl);
+  gap: var(--space-xl);
   flex-wrap: wrap;
 }
 
@@ -107,6 +108,60 @@
   color: var(--color-text);
   margin-bottom: var(--space-lg);
   letter-spacing: 0.02em;
+}
+
+@keyframes hourglassFlip {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  85% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hourglass {
+  display: inline-block;
+  animation: hourglassFlip 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  transform-origin: center;
+}
+
+.projectsHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: var(--space-lg);
+}
+
+.projectsHeader .columnTitle {
+  margin-bottom: 0;
+}
+
+.soonBadge {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: #10b981; /* emerald text */
+  border: 1px solid rgba(16, 185, 129, 0.6);
+  background: rgba(16, 185, 129, 0.08);
+  border-radius: var(--radius-full);
+  padding: 0.2rem 0.9rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.projectsLinks {
+  opacity: 0.3;
+  filter: grayscale(1);
+  pointer-events: none;
+  user-select: none;
 }
 
 .links {
@@ -153,17 +208,11 @@
 }
 
 .dividerIcon {
-  width: 3.2rem;
-  height: 3.2rem;
-  border-radius: 30%;
-  background: linear-gradient(135deg, #6366f1 50%, #632be5 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: white;
+  width: 3.6rem;
+  height: 3.6rem;
   flex-shrink: 0;
+  display: block;
+  object-fit: contain;
 }
 
 /* ── Quote ── */
@@ -211,13 +260,21 @@
   font-size: var(--fs-base);
 }
 
+.projectItem > svg {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+}
+
 .projectName {
   color: var(--color-text);
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .projectDesc {
   color: var(--color-text-muted);
+  white-space: nowrap;
 }
 
 .madeWithLink {

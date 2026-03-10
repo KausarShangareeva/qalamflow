@@ -108,9 +108,7 @@ function MiniSchedule() {
       {/* Rows */}
       {MINI_HOURS.map((hour, row) => (
         <React.Fragment key={row}>
-          <div className={styles.miniTimeLabel}>
-            {hour.full.split(":")[0]}
-          </div>
+          <div className={styles.miniTimeLabel}>{hour.full.split(":")[0]}</div>
           {MINI_DAYS.map((_, col) => {
             const color = MINI_SCHEDULE[`${col}-${row}`];
             return (
@@ -169,7 +167,7 @@ function PDFFormat() {
   );
 }
 
-function DownloadPDF() {
+function DownloadPDF({ get }: { get: (path: string) => string }) {
   return (
     <div className={styles.dlWrap}>
       <div className={styles.dlBox}>
@@ -203,7 +201,7 @@ function DownloadPDF() {
       <div className={styles.dlBtnWrap}>
         <button className={styles.dlBtn}>
           <Printer size={15} strokeWidth={2.5} />
-          Print PDF
+          {get("pdfExport.printPDF")}
         </button>
 
         {/* Cursor with username */}
@@ -217,14 +215,14 @@ function DownloadPDF() {
               strokeLinejoin="round"
             />
           </svg>
-          <span className={styles.dlCursorLabel}>Michael</span>
+          <span className={styles.dlCursorLabel}>Мустафа</span>
         </div>
       </div>
     </div>
   );
 }
 
-function SavedPlans() {
+function SavedPlans({ get }: { get: (path: string) => string }) {
   return (
     <div className={styles.savedStack}>
       {/* Back cards for stack effect */}
@@ -241,12 +239,17 @@ function SavedPlans() {
             <Trash2 size={18} strokeWidth={1.8} />
           </button>
         </div>
-        <div className={styles.savedCardTitle}>Week of Feb 25</div>
-        <div className={styles.savedCardDesc}>
-          3 sessions this week <br />
-          Wed – Fri <br />4 study hours
+        <div className={styles.savedCardTitle}>
+          {get("features.savedPlans.weekOf")}
         </div>
-        <button className={styles.savedCardOpen}>Open</button>
+        <div className={styles.savedCardDesc}>
+          {get("features.savedPlans.sessions")} <br />
+          {get("features.savedPlans.days")} <br />
+          {get("features.savedPlans.hours")}
+        </div>
+        <button className={styles.savedCardOpen}>
+          {get("features.savedPlans.open")}
+        </button>
       </div>
     </div>
   );
@@ -283,7 +286,9 @@ function AnimatedTags() {
                   background: course.bg,
                 }}
               >
-                <span className={styles.animTagIcon}><TagIcon icon={course.icon} size={16} /></span>
+                <span className={styles.animTagIcon}>
+                  <TagIcon icon={course.icon} size={16} />
+                </span>
                 {course.name}
               </span>
             ))}
@@ -293,7 +298,6 @@ function AnimatedTags() {
     </div>
   );
 }
-
 
 const featureIcons = [
   GraduationCap,
@@ -337,11 +341,13 @@ export default function FeaturesSection() {
                 ) : index === 3 ? (
                   <AnimatedTags />
                 ) : index === 4 ? (
-                  <DownloadPDF />
+                  <DownloadPDF get={get} />
                 ) : index === 5 ? (
-                  <SavedPlans />
+                  <SavedPlans get={get} />
                 ) : (
-                  <span className={styles.comingSoon}>coming soon</span>
+                  <span className={styles.comingSoon}>
+                    {get("features.comingSoon")}
+                  </span>
                 )}
               </div>
             </div>
@@ -349,7 +355,9 @@ export default function FeaturesSection() {
         })}
       </div>
 
-      <CTAButton to={user ? "/workspace" : "/register"}>Get Started Free</CTAButton>
+      <CTAButton to={user ? "/workspace" : "/register"}>
+        {get("features.getStarted")}
+      </CTAButton>
     </section>
   );
 }

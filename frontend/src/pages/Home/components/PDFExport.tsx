@@ -23,7 +23,11 @@ function tag(name: string) {
 
 const tabs = [
   { key: "vertical", labelKey: "pdfExport.tabPortrait", icon: "/virtical.svg" },
-  { key: "horizontal", labelKey: "pdfExport.tabLandscape", icon: "/horizontal.svg" },
+  {
+    key: "horizontal",
+    labelKey: "pdfExport.tabLandscape",
+    icon: "/horizontal.svg",
+  },
 ] as const;
 
 type Tab = (typeof tabs)[number]["key"];
@@ -148,10 +152,12 @@ export default function PDFExport() {
       <div className={styles.header}>
         <div className={styles.first}>
           <h2 className={styles.title}>
-            {get("pdfExport.title")}
+            Распечатай
             <img src="/pdf-svg.svg" alt="" className={styles.titleIcon} />
+            свой план
           </h2>
         </div>
+        <h2 className={styles.title}>в формате PDF</h2>
       </div>
 
       <div className={styles.toggle}>

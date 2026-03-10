@@ -1,90 +1,92 @@
 import { useState, useEffect, useRef } from "react";
 import TagIcon from "../components/TagIcon";
+import CTAButton from "../components/CTAButton";
 import { useAuth } from "../context/AuthContext";
+import { useCopy } from "../hooks/useCopy";
 import { ChevronLeft, Sparkles } from "lucide-react";
 import { api } from "../api/client";
 import styles from "./SuggestProject.module.css";
 
 const TOPICS = [
-  { value: "AI", emoji: "🤖" },
-  { value: "Education", emoji: "📚" },
-  { value: "Business", emoji: "💼" },
-  { value: "Personal Site", emoji: "🌱" },
-  { value: "Gaming", emoji: "🎮" },
+  { value: "AI", label: "ИИ", emoji: "🤖" },
+  { value: "Education", label: "Образование", emoji: "📚" },
+  { value: "Business", label: "Бизнес", emoji: "💼" },
+  { value: "Personal Site", label: "Личный сайт", emoji: "🌱" },
+  { value: "Gaming", label: "Игры", emoji: "🎮" },
 ];
 
 const STATS = [
   {
-    value: "6+ Years in UI Design",
-    label: "UI/UX design in Figma",
+    value: "6+ лет в UI-дизайне",
+    label: "UI/UX дизайн в Figma",
     icon: "🎨",
     colorClass: "statBlue",
   },
   {
-    value: "Full-Stack Developer",
-    label: "React.js • Node.js • Modern Web Apps",
+    value: "Full-Stack разработчик",
+    label: "React.js • Node.js • Современные веб-приложения",
     icon: "💻",
     colorClass: "statYellow",
   },
   {
-    value: "Open to new projects",
-    label: "Looking for interesting ideas to build",
+    value: "Открыт для новых проектов",
+    label: "Ищу интересные идеи для реализации",
     icon: "🚀",
     colorClass: "statGreen",
   },
 ];
 
 const TIMELINES = [
-  { value: "Urgent", label: "1–2 weeks", badge: "Urgent" },
-  { value: "Fast", label: "2–3 weeks" },
-  { value: "Flexible", label: "1–2 months" },
-  { value: "No rush", label: "No Date Yet" },
+  { value: "Urgent", label: "Срочно", sublabel: "1–2 недели", badge: true },
+  { value: "Fast", label: "Быстро", sublabel: "2–3 недели" },
+  { value: "Flexible", label: "Гибко", sublabel: "1–2 месяца" },
+  { value: "No rush", label: "Не срочно", sublabel: "Без даты" },
 ];
 
 const TOPIC_TAGS: Record<string, string[]> = {
   AI: [
-    "AI Chatbot",
-    "AI Assistant",
-    "AI Content Generator",
-    "AI Automation",
-    "AI Image Tool",
+    "AI Чатбот",
+    "AI Ассистент",
+    "Генератор контента",
+    "AI Автоматизация",
+    "AI Изображения",
     "AI SaaS",
-    "AI API Integration",
-    "AI Productivity Tool",
+    "AI API Интеграция",
+    "AI Продуктивность",
   ],
   Education: [
-    "Language Learning",
-    "Online Courses",
-    "Learning Platform",
-    "Study Planner",
-    "Education App",
-    "Course Website",
+    "Изучение языков",
+    "Онлайн-курсы",
+    "Платформа обучения",
+    "Планировщик учёбы",
+    "Образовательное приложение",
+    "Сайт курса",
   ],
   Business: [
-    "Company Website",
-    "SaaS Platform",
-    "Marketplace",
-    "CRM / Dashboard",
-    "Booking System",
-    "Online Service",
-    "Startup MVP",
-    "Admin Panel",
+    "Сайт компании",
+    "SaaS платформа",
+    "Маркетплейс",
+    "CRM / Дашборд",
+    "Система бронирования",
+    "Онлайн-сервис",
+    "MVP стартапа",
+    "Панель администратора",
   ],
   "Personal Site": [
-    "Portfolio Website",
-    "Personal Blog",
-    "Resume / CV Site",
-    "Personal Brand",
-    "Landing Page",
-    "Personal Dashboard",
+    "Портфолио",
+    "Личный блог",
+    "Сайт-резюме",
+    "Личный бренд",
+    "Лендинг",
+    "Личный дашборд",
   ],
   Gaming: [
-    "Browser Game",
-    "Multiplayer Game",
-    "Game Landing Page",
-    "Game Community",
-    "Leaderboard System",
-    "Game Dashboard",
+    "Браузерная игра",
+    "Мультиплеер",
+    "Лендинг для игры",
+    "Игровое сообщество",
+    "Система лидерборда",
+    "Игровой дашборд",
   ],
 };
 
@@ -92,6 +94,7 @@ const TOTAL_STEPS = 5;
 
 export default function SuggestProject() {
   const { user } = useAuth();
+  const { get } = useCopy();
   const [step, setStep] = useState(1);
   const [topic, setTopic] = useState("");
   const [timeline, setTimeline] = useState("");
@@ -107,7 +110,6 @@ export default function SuggestProject() {
     setIsSubmitting(true);
     setProgress(0);
 
-    // Start visual progress bar
     intervalRef.current = setInterval(() => {
       setProgress((p) => {
         if (p >= 95) {
@@ -158,33 +160,6 @@ export default function SuggestProject() {
 
   return (
     <section className={styles.page}>
-      <header className={styles.hero}>
-        <div className={styles.badge}>
-          <TagIcon icon="💡" size={18} /> Community ideas
-        </div>
-        <p className={styles.heroMention}>
-          {user ? (
-            <>
-              Hi,{" "}
-              <span className={styles.brand}>{user.name.split(" ")[0]}</span>{" "}
-              <TagIcon icon="👋" size={20} />
-              <TagIcon icon="😁" size={20} />
-            </>
-          ) : (
-            <>
-              Hello there <TagIcon icon="👋" size={20} />
-            </>
-          )}
-        </p>
-        <h2 className={styles.heroTitle}>
-          Got an idea for a <br />
-          <span className={styles.brand}>new project?</span>
-        </h2>
-        <p className={styles.heroSubtitle}>
-          {user ? "I'd love to hear them!" : "Share it with us!"}
-        </p>
-      </header>
-
       <div className={styles.cardCenter}>
         <div className={styles.surveyCard}>
           {/* Loading screen */}
@@ -196,11 +171,11 @@ export default function SuggestProject() {
               <h3 className={styles.loadingTitle}>
                 {name ? (
                   <>
-                    <span className={styles.brand}>{name}</span>, your project
-                    idea looks great 🙂
+                    <span className={styles.brand}>{name}</span>
+                    {get("suggestProject.loadingTitleWith")}
                   </>
                 ) : (
-                  "Your project idea looks great 🙂"
+                  get("suggestProject.loadingTitleWithout")
                 )}
               </h3>
 
@@ -231,9 +206,11 @@ export default function SuggestProject() {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
-              <h3 className={styles.loadingTitle}>Got it! 🎉</h3>
+              <h3 className={styles.loadingTitle}>
+                {get("suggestProject.successTitle")}
+              </h3>
               <p className={styles.loadingSub}>
-                I'll review your request and get back to you soon
+                {get("suggestProject.successSub")}
               </p>
             </div>
           )}
@@ -265,9 +242,11 @@ export default function SuggestProject() {
               {step === 1 && (
                 <div className={styles.stepBody}>
                   <h3 className={styles.stepTitle}>
-                    What topic interests you?
+                    {get("suggestProject.step1Title")}
                   </h3>
-                  <p className={styles.stepSub}>Choose your main interest</p>
+                  <p className={styles.stepSub}>
+                    {get("suggestProject.step1Sub")}
+                  </p>
                   <ul className={styles.optionList}>
                     {TOPICS.map((t) => (
                       <li key={t.value}>
@@ -281,7 +260,7 @@ export default function SuggestProject() {
                           <span className={styles.optionIcon}>
                             <TagIcon icon={t.emoji} size={20} />
                           </span>
-                          <span className={styles.optionLabel}>{t.value}</span>
+                          <span className={styles.optionLabel}>{t.label}</span>
                         </button>
                       </li>
                     ))}
@@ -293,7 +272,7 @@ export default function SuggestProject() {
               {step === 2 && (
                 <div className={styles.stepBody}>
                   <h3 className={styles.stepTitle}>
-                    You're in the right place
+                    {get("suggestProject.step2Title")}
                   </h3>
                   <div className={styles.statList}>
                     {STATS.map((s) => (
@@ -311,12 +290,9 @@ export default function SuggestProject() {
                       </div>
                     ))}
                   </div>
-                  <button
-                    className={styles.continueBtn}
-                    onClick={() => setStep(3)}
-                  >
-                    Continue
-                  </button>
+                  <CTAButton onClick={() => setStep(3)}>
+                    {get("suggestProject.continueBtn")}
+                  </CTAButton>
                 </div>
               )}
 
@@ -324,9 +300,11 @@ export default function SuggestProject() {
               {step === 3 && (
                 <div className={styles.stepBody}>
                   <h3 className={styles.stepTitle}>
-                    When do you need the project ready?
+                    {get("suggestProject.step3Title")}
                   </h3>
-                  <p className={styles.stepSub}>Choose your timeline</p>
+                  <p className={styles.stepSub}>
+                    {get("suggestProject.step3Sub")}
+                  </p>
                   <ul className={styles.optionList}>
                     {TIMELINES.map((t) => (
                       <li key={t.value}>
@@ -338,12 +316,14 @@ export default function SuggestProject() {
                           }}
                         >
                           <span className={styles.optionLabel}>
-                            {t.value}
-                            <span className={styles.optionSub}>{t.label}</span>
+                            {t.label}
+                            <span className={styles.optionSub}>
+                              {t.sublabel}
+                            </span>
                           </span>
                           {t.badge && (
                             <span className={styles.urgentBadge}>
-                              {t.badge}
+                              {get("suggestProject.urgentBadge")}
                             </span>
                           )}
                         </button>
@@ -357,9 +337,11 @@ export default function SuggestProject() {
               {step === 4 && (
                 <div className={styles.stepBody}>
                   <h3 className={styles.stepTitle}>
-                    What is your project about?
+                    {get("suggestProject.step4Title")}
                   </h3>
-                  <p className={styles.stepSub}>You can select a few topics</p>
+                  <p className={styles.stepSub}>
+                    {get("suggestProject.step4Sub")}
+                  </p>
                   <div className={styles.tagGrid}>
                     {(TOPIC_TAGS[topic] ?? []).map((tag) => (
                       <button
@@ -371,56 +353,58 @@ export default function SuggestProject() {
                       </button>
                     ))}
                   </div>
-                  <button
-                    className={styles.continueBtn}
-                    style={{ marginTop: "var(--space-xl)" }}
+                  <CTAButton
                     disabled={selectedTags.length === 0}
                     onClick={() => setStep(5)}
                   >
-                    Continue
-                  </button>
+                    {get("suggestProject.continueBtn")}
+                  </CTAButton>
                 </div>
               )}
 
               {/* Step 5 — Contact */}
               {step === 5 && (
                 <div className={styles.stepBody}>
-                  <h3 className={styles.stepTitle}>Almost there!</h3>
-                  <p className={styles.stepSub}>Tell me how to reach you</p>
+                  <h3 className={styles.stepTitle}>
+                    {get("suggestProject.step5Title")}
+                  </h3>
+                  <p className={styles.stepSub}>
+                    {get("suggestProject.step5Sub")}
+                  </p>
                   <div className={styles.contactForm}>
                     <div className={styles.fieldGroup}>
                       <label className={styles.fieldLabel} htmlFor="sp-name">
-                        Your name
+                        {get("suggestProject.nameLabel")}
                       </label>
                       <input
                         id="sp-name"
                         type="text"
                         className={styles.fieldInput}
-                        placeholder="Your name"
+                        placeholder={get("suggestProject.namePlaceholder")}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                       />
                     </div>
                     <div className={styles.fieldGroup}>
                       <label className={styles.fieldLabel} htmlFor="sp-contact">
-                        Email or Telegram
+                        {get("suggestProject.contactLabel")}
                       </label>
                       <input
                         id="sp-contact"
                         type="text"
                         className={styles.fieldInput}
-                        placeholder="email@example.com or @username"
+                        placeholder={get("suggestProject.contactPlaceholder")}
                         value={contact}
                         onChange={(e) => setContact(e.target.value)}
                       />
                     </div>
-                    <button
-                      className={styles.submitIdeaBtn}
+
+                    <CTAButton
                       disabled={!name.trim() || !contact.trim()}
                       onClick={handleSubmit}
                     >
-                      Let's bring your idea to life 🚀
-                    </button>
+                      {get("suggestProject.submitBtn")}
+                    </CTAButton>
                   </div>
                 </div>
               )}

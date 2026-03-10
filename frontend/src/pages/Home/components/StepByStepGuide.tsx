@@ -74,9 +74,7 @@ function EmptyTable() {
       ))}
       {ET_TIMES.map((time, row) => (
         <React.Fragment key={`row-${row}`}>
-          <div className={styles.etTimeLabel}>
-            {time}
-          </div>
+          <div className={styles.etTimeLabel}>{time}</div>
           {ET_DAYS.map((_, col) => (
             <div key={`${col}-${row}`} className={styles.etCell} />
           ))}
@@ -131,24 +129,34 @@ function FilledTable() {
   );
 }
 
-function DemoPopup({ visible }: { visible: boolean }) {
+function DemoPopup({
+  visible,
+  get,
+}: {
+  visible: boolean;
+  get: (path: string) => string;
+}) {
   return (
     <div
       className={`${styles.demoPopup} ${visible ? styles.demoPopupVisible : ""}`}
     >
       <div className={styles.demoPopupHeader}>
-        <span className={styles.demoPopupTitle}>Add Course</span>
+        <span className={styles.demoPopupTitle}>
+          {get("home.howItWorks.popup.title")}
+        </span>
         <span className={styles.demoPopupClose}>
           <X size={16} />
         </span>
       </div>
 
-      <p className={styles.demoPopupLabel}>Select a course</p>
+      <p className={styles.demoPopupLabel}>
+        {get("home.howItWorks.popup.selectCourse")}
+      </p>
 
       <div className={styles.demoSearchBar}>
         <Search size={14} className={styles.demoSearchIcon} />
         <span className={styles.demoSearchPlaceholder}>
-          Can't find a course? Type the name...
+          {get("home.howItWorks.popup.searchPlaceholder")}
         </span>
       </div>
 
@@ -171,7 +179,9 @@ function DemoPopup({ visible }: { visible: boolean }) {
         ))}
       </div>
 
-      <p className={styles.demoPopupLabel}>Duration</p>
+      <p className={styles.demoPopupLabel}>
+        {get("home.howItWorks.popup.duration")}
+      </p>
 
       <div className={styles.demoDurations}>
         {DEMO_DURATIONS.map((d) => (
@@ -181,7 +191,9 @@ function DemoPopup({ visible }: { visible: boolean }) {
         ))}
       </div>
 
-      <div className={styles.demoAddBtn}>Add to Schedule</div>
+      <div className={styles.demoAddBtn}>
+        {get("home.howItWorks.popup.addButton")}
+      </div>
     </div>
   );
 }
@@ -217,6 +229,7 @@ export default function StepByStepGuide() {
       <SectionHeader
         title={get("home.howItWorks.title")}
         subtitle={get("home.howItWorks.subtitle")}
+        titleWidth="90%"
       />
 
       <div className={styles.grid}>
@@ -246,7 +259,7 @@ export default function StepByStepGuide() {
               <span className={styles.guideCursorLabel}>Aisha</span>
             </div>
 
-            <DemoPopup visible={popupVisible} />
+            <DemoPopup visible={popupVisible} get={get} />
           </div>
           <p className={styles.cardBottom}>
             {get("home.howItWorks.step1.bottom")}
@@ -271,7 +284,9 @@ export default function StepByStepGuide() {
         </div>
       </div>
 
-      <CTAButton to={user ? "/workspace" : "/register"}>{get("home.howItWorks.cta")}</CTAButton>
+      <CTAButton to={user ? "/workspace" : "/register"}>
+        {get("home.howItWorks.cta")}
+      </CTAButton>
     </section>
   );
 }

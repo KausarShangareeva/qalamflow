@@ -8,20 +8,15 @@ import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
   const { user } = useAuth();
-  const { get } = useCopy();
+  const { get, copy } = useCopy();
 
-  const phrases = [
-    { emoji: "🎯", text: "complete your course." },
-    { emoji: "✍️", text: "create a study plan" },
-    { emoji: "📄", text: "download your schedule as PDF" },
-    { emoji: "🔔", text: "stay on top of your lessons" },
-  ];
+  const phrases = copy.hero.phrases;
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
-    }, 3500); // Change phrase every 3.5 seconds
+    }, 3500);
 
     return () => clearInterval(interval);
   }, [phrases.length]);
@@ -29,16 +24,14 @@ export default function HeroSection() {
   return (
     <section id="hero" className={styles.heroSection}>
       <div className={styles.wrapper}>
-        <div className={styles.badge}><TagIcon icon="✏️" size={18} /> Your study plan</div>
+        <div className={styles.badge}>
+          <TagIcon icon="✏️" size={18} /> {get("hero.badge")}
+        </div>
 
-        <h1 className={styles.mainTitle}>
-          Study with a plan,
-          <br />
-          not by mood
-        </h1>
+        <h1 className={styles.mainTitle}>{get("hero.mainTitle")}</h1>
 
         <h2 className={styles.animatedTitle}>
-          We'll help you{" "}
+          {get("hero.subMainTitle")}{" "}
           <span
             className={styles.changingPhraseWrapper}
             key={currentPhraseIndex}
@@ -61,9 +54,13 @@ export default function HeroSection() {
           <button
             type="button"
             className={styles.exploreBtn}
-            onClick={() => document.getElementById("screen-preview")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() =>
+              document
+                .getElementById("screen-preview")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
-            Explore
+            {get("hero.exploreBtn")}
             <ArrowUpRight size={18} />
           </button>
         </div>

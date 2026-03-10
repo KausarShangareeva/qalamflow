@@ -283,13 +283,13 @@
   flex-shrink: 0;
   height: 2.4rem;
   border-bottom: 1px solid #d6d9e6;
-  background-color: #F1F1F8;
+  background-color: #f1f1f8;
 }
 
 .schedCorner {
   width: 10%;
   flex-shrink: 0;
-  background: #F1F1F8;
+  background: #f1f1f8;
 }
 
 .schedDayLabel {
@@ -301,7 +301,7 @@
   align-items: center;
   justify-content: center;
   letter-spacing: 0.01em;
-  background: #F1F1F8;
+  background: #f1f1f8;
 }
 
 /* Schedule body */
@@ -336,7 +336,7 @@
   color: var(--color-text-muted);
   font-weight: 500;
   border-right: 1px solid #d6d9e6;
-  background: #F1F1F8;
+  background: #f1f1f8;
   display: flex;
   align-items: center;
   justify-content: center;

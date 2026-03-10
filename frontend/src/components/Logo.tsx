@@ -11,9 +11,9 @@ export default function Logo({ size = "medium", showText = true, variant = "dark
   const { get } = useCopy();
 
   const iconSizes = {
-    small: 32,
-    medium: 40,
-    large: 48,
+    small: 28,
+    medium: 36,
+    large: 44,
   };
 
   const fontSizes = {
@@ -24,16 +24,12 @@ export default function Logo({ size = "medium", showText = true, variant = "dark
 
   return (
     <div className={styles.logo}>
-      <div
+      <img
+        src="/Logo_green_bg.svg"
+        alt="QalamFlow"
         className={styles.logoIcon}
-        style={{
-          width: iconSizes[size],
-          height: iconSizes[size],
-          fontSize: fontSizes[size]
-        }}
-      >
-        P
-      </div>
+        style={{ width: iconSizes[size], height: iconSizes[size] }}
+      />
       {showText && (
         <span className={`${styles.logoText} ${variant === "light" ? styles.logoTextLight : ""}`}>
           {get("app.name")}

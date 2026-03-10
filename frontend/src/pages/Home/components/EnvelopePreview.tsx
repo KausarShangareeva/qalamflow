@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { useCopy } from "../../../hooks/useCopy";
 import SectionHeader from "../../../components/SectionHeader";
 import styles from "./EnvelopePreview.module.css";
 
 export default function EnvelopePreview() {
+  const { get } = useCopy();
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   return (
     <section id="envelope" className={styles.previewSection}>
       <SectionHeader
-        title="Ready lesson schedule with dates"
-        subtitle="Plan, schedule and deadline — all in one place"
+        title={get("envelopePreview.title")}
+        subtitle={get("envelopePreview.subtitle")}
         titleWidth="60%"
       />
 
@@ -26,7 +28,12 @@ export default function EnvelopePreview() {
             onClick={() => setLightbox("/example-1.png")}
             aria-label="View schedule example 1"
           >
-            <img src="/example-1.png" alt="Schedule example 1" className={styles.cardImg} loading="lazy" />
+            <img
+              src="/example-1.png"
+              alt="Schedule example 1"
+              className={styles.cardImg}
+              loading="lazy"
+            />
           </button>
           <button
             type="button"
@@ -34,7 +41,12 @@ export default function EnvelopePreview() {
             onClick={() => setLightbox("/example-2.png")}
             aria-label="View schedule example 2"
           >
-            <img src="/example-2.png" alt="Schedule example 2" className={styles.cardImg} loading="lazy" />
+            <img
+              src="/example-2.png"
+              alt="Schedule example 2"
+              className={styles.cardImg}
+              loading="lazy"
+            />
           </button>
 
           {/* Central placeholder */}

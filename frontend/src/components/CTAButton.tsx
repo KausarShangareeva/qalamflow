@@ -7,11 +7,14 @@ interface CTAButtonProps {
   onClick?: () => void;
   className?: string;
   align?: "left" | "center" | "right";
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  noShadow?: boolean;
 }
 
-export default function CTAButton({ children, to, onClick, className, align = "center" }: CTAButtonProps) {
+export default function CTAButton({ children, to, onClick, className, align = "center", type = "button", disabled, noShadow }: CTAButtonProps) {
   const containerClass = `${styles.ctaContainer} ${styles[`align_${align}`]}`;
-  const btnClass = `${styles.ctaButton} ${className ?? ""}`;
+  const btnClass = `${styles.ctaButton} ${noShadow ? styles.noShadow : ""} ${className ?? ""}`;
 
   if (to) {
     return (
@@ -25,7 +28,7 @@ export default function CTAButton({ children, to, onClick, className, align = "c
 
   return (
     <div className={containerClass}>
-      <button className={btnClass} onClick={onClick}>
+      <button className={btnClass} onClick={onClick} type={type} disabled={disabled}>
         {children}
       </button>
     </div>

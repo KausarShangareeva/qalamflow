@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { useCopy } from "../hooks/useCopy";
 import { Mail, Lock, Eye, EyeOff, User } from "lucide-react";
 import Logo from "../components/Logo";
+import CTAButton from "../components/CTAButton";
 import styles from "./Register.module.css";
 
 export default function Register() {
@@ -187,15 +188,11 @@ export default function Register() {
               </div>
             </div>
 
-            <button
-              type="submit"
-              className={styles.submitButton}
-              disabled={loading}
-            >
+            <CTAButton type="submit" disabled={loading} align="center">
               {loading
                 ? get("auth.register.submitting")
                 : get("auth.register.submit")}
-            </button>
+            </CTAButton>
           </form>
 
           <p className={styles.link}>

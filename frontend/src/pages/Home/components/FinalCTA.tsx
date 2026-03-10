@@ -1,15 +1,17 @@
 import { useAuth } from "../../../context/AuthContext";
+import { useCopy } from "../../../hooks/useCopy";
 import SectionHeader from "../../../components/SectionHeader";
 import CTAButton from "../../../components/CTAButton";
 import styles from "./FinalCTA.module.css";
 
 export default function FinalCTA() {
   const { user } = useAuth();
+  const { get } = useCopy();
   return (
     <section id="cta" className={styles.section}>
       <SectionHeader
-        title="Sounds great? 😊"
-        subtitle="Try it yourself - it's really simple"
+        title={get("finalCta.title")}
+        subtitle={get("finalCta.subtitle")}
         titleWidth="100%"
       />
       <div className={styles.card}>
@@ -22,13 +24,10 @@ export default function FinalCTA() {
           />
         </div>
         <div className={styles.content}>
-          <h3 className={styles.title}>Start Planning</h3>
-          <p className={styles.description}>
-            Create your study plan from scratch in just a few minutes and work
-            towards your goal systematically
-          </p>
+          <h3 className={styles.title}>{get("finalCta.heading")}</h3>
+          <p className={styles.description}>{get("finalCta.description")}</p>
           <CTAButton align="left" to={user ? "/workspace" : "/register"}>
-            Lets start now ✨
+            {get("finalCta.button")}
           </CTAButton>
         </div>
       </div>

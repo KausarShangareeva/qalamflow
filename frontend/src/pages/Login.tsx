@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { useCopy } from "../hooks/useCopy";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import Logo from "../components/Logo";
+import CTAButton from "../components/CTAButton";
 import styles from "./Login.module.css";
 
 export default function Login() {
@@ -137,15 +138,11 @@ export default function Login() {
               </div>
             </div>
 
-            <button
-              type="submit"
-              className={styles.submitButton}
-              disabled={loading}
-            >
+            <CTAButton type="submit" disabled={loading} align="center">
               {loading
                 ? get("auth.login.submitting")
                 : get("auth.login.submit")}
-            </button>
+            </CTAButton>
           </form>
 
           <p className={styles.link}>

@@ -1,6 +1,6 @@
-# 📅 PlanFlow — Weekly Study Planner
+# 📅 QalamFlow — Weekly Study Planner
 
-Welcome to **PlanFlow** — a smart weekly study planner for students.
+Welcome to **QalamFlow** — a smart weekly study planner for students.
 This project features **JWT & Google OAuth authentication**, **PDF export**, **dark mode**, **student feedback**, and a **project suggestion system** with Telegram and email notifications.
 
 ---

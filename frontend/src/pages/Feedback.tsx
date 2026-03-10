@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { MapPin, Trash2, Pencil, Check, X } from "lucide-react";
+import { Trash2, Pencil, Check, X } from "lucide-react";
 import TagIcon from "../components/TagIcon";
 import { useAuth } from "../context/AuthContext";
 import { useCopy } from "../hooks/useCopy";
@@ -18,12 +18,6 @@ const initialForm: FeedbackPayload = {
   location: "",
 };
 
-const reactionOptions = [
-  { value: 1, emoji: "😔", labelKey: "feedbackPage.reactionBad" },
-  { value: 3, emoji: "🙂", labelKey: "feedbackPage.reactionDecent" },
-  { value: 5, emoji: "😍", labelKey: "feedbackPage.reactionLove" },
-];
-
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return new Intl.DateTimeFormat("en-US", {
@@ -39,10 +33,22 @@ function getReactionTag(rating: number): {
   className: string;
 } {
   if (rating >= 5)
-    return { labelKey: "feedbackPage.reactionLove", emoji: "🔥", className: "tagLove" };
+    return {
+      labelKey: "feedbackPage.reactionLove",
+      emoji: "✨",
+      className: "tagLove",
+    };
   if (rating >= 3)
-    return { labelKey: "feedbackPage.reactionDecent", emoji: "🙂", className: "tagDecent" };
-  return { labelKey: "feedbackPage.reactionBad", emoji: "👎", className: "tagBad" };
+    return {
+      labelKey: "feedbackPage.reactionDecent",
+      emoji: "💛",
+      className: "tagDecent",
+    };
+  return {
+    labelKey: "feedbackPage.reactionBad",
+    emoji: "🎈",
+    className: "tagBad",
+  };
 }
 
 export default function FeedbackPage() {
@@ -50,7 +56,6 @@ export default function FeedbackPage() {
   const { get } = useCopy();
   const { customAvatar, uploadAvatar } = useAvatar();
   const avatarInputRef = useRef<HTMLInputElement>(null);
-  const isAuthed = Boolean(user);
   const [form, setForm] = useState<FeedbackPayload>({
     ...initialForm,
     name: user?.name || "",
@@ -70,21 +75,21 @@ export default function FeedbackPage() {
   const formReactionOptions = [
     {
       value: 1,
-      emoji: "👎",
+      emoji: "🎈",
       labelKey: "feedbackPage.reactionBad",
       typeClass: styles.reactionTypeBad,
       activeClass: styles.reactionActiveBad,
     },
     {
       value: 3,
-      emoji: "🙂",
+      emoji: "💛",
       labelKey: "feedbackPage.reactionDecent",
       typeClass: styles.reactionTypeDecent,
       activeClass: styles.reactionActiveDecent,
     },
     {
       value: 5,
-      emoji: "🔥",
+      emoji: "✨",
       labelKey: "feedbackPage.reactionLove",
       typeClass: styles.reactionTypeLove,
       activeClass: styles.reactionActiveLove,
@@ -203,252 +208,260 @@ export default function FeedbackPage() {
   return (
     <section className={styles.page}>
       <header className={styles.hero}>
-        <div className={styles.badge}>
-          <TagIcon icon="⭐" size={18} /> {get("feedbackPage.badge")}
-        </div>
         <h2 className={styles.heroTitle}>
-          {get("feedbackPage.heroTitle")} <span className={styles.brand}>{get("feedbackPage.heroTitleBrand")}</span>{" "}
+          {get("feedbackPage.heroTitle")}{" "}
+          <span className={styles.brand}>
+            {get("feedbackPage.heroTitleBrand")}
+          </span>{" "}
           {get("feedbackPage.heroTitleSuffix")}
         </h2>
-        <p className={styles.heroSubtitle}>{get("feedbackPage.subtitle")}</p>
-        <CTAButton
-          onClick={() =>
-            document
-              .querySelector("form")
-              ?.scrollIntoView({ behavior: "smooth", block: "end" })
-          }
-        >
-          {get("feedbackPage.cta")}
-        </CTAButton>
       </header>
 
-      <aside className={styles.feed}>
-        {loadingList && <p className={styles.empty}>{get("feedbackPage.loading")}</p>}
-        {!loadingList && !feedbackList.length && (
-          <p className={styles.empty}>{get("feedbackPage.empty")}</p>
-        )}
+      <div className={styles.gap}>
+        <aside className={styles.feed}>
+          <p className={styles.sectionLabel}>{get("feedbackPage.reviewsLabel")}</p>
+          {loadingList && (
+            <p className={styles.empty}>{get("feedbackPage.loading")}</p>
+          )}
+          {!loadingList && !feedbackList.length && (
+            <p className={styles.empty}>{get("feedbackPage.empty")}</p>
+          )}
 
-        {feedbackList.length > 0 && (
-          <div className={styles.list}>
-            {feedbackList.map((entry) => {
-              const reaction = getReactionTag(entry.rating);
-              const own = isOwn(entry);
-              const isEditing = editingId === entry._id;
+          {feedbackList.length > 0 && (
+            <div className={styles.list}>
+              {feedbackList.map((entry) => {
+                const reaction = getReactionTag(entry.rating);
+                const own = isOwn(entry);
+                const isEditing = editingId === entry._id;
 
-              return (
-                <article key={entry._id} className={styles.card}>
-                  <UserAvatar
-                    name={entry.name}
-                    size={40}
-                    isCurrentUser={own}
-                    avatarUrl={entry.avatarUrl}
-                  />
-                  <div className={styles.cardContent}>
-                    <div className={styles.cardMeta}>
-                      <div className={styles.cardInfo}>
-                        <strong className={styles.cardName}>
-                          {entry.name}
-                          {!entry.userId && (
-                            <span className={styles.guestLabel}>{get("feedbackPage.guest")}</span>
-                          )}
-                        </strong>
-                        <span className={styles.cardDate}>
-                          {formatDate(entry.createdAt)}
-                        </span>
-                      </div>
-                      {own && !isEditing && (
-                        <div className={styles.cardActions}>
-                          <button
-                            type="button"
-                            className={styles.editBtn}
-                            onClick={() => startEdit(entry)}
-                            aria-label="Edit feedback"
-                          >
-                            <Pencil size={13} />
-                          </button>
-                          <button
-                            type="button"
-                            className={styles.deleteBtn}
-                            onClick={() => onDelete(entry._id)}
-                            aria-label="Delete feedback"
-                          >
-                            <Trash2 size={13} />
-                          </button>
+                return (
+                  <article key={entry._id} className={styles.card}>
+                    <UserAvatar
+                      name={entry.name}
+                      size={40}
+                      isCurrentUser={own}
+                      avatarUrl={entry.avatarUrl}
+                    />
+                    <div className={styles.cardContent}>
+                      <div className={styles.cardMeta}>
+                        <div className={styles.cardInfo}>
+                          <strong className={styles.cardName}>
+                            {entry.name}
+                            {!entry.userId && (
+                              <span className={styles.guestLabel}>
+                                {get("feedbackPage.guest")}
+                              </span>
+                            )}
+                          </strong>
+                          <span className={styles.cardDate}>
+                            {formatDate(entry.createdAt)}
+                          </span>
                         </div>
-                      )}
-                      {!isEditing && (
-                        <span
-                          className={`${styles.reactionTag} ${styles[reaction.className]}`}
-                        >
-                          <TagIcon icon={reaction.emoji} size={20} />
-                          {get(reaction.labelKey)}
-                        </span>
+                        {own && !isEditing && (
+                          <div className={styles.cardActions}>
+                            <button
+                              type="button"
+                              className={styles.editBtn}
+                              onClick={() => startEdit(entry)}
+                              aria-label="Edit feedback"
+                            >
+                              <Pencil size={13} />
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.deleteBtn}
+                              onClick={() => onDelete(entry._id)}
+                              aria-label="Delete feedback"
+                            >
+                              <Trash2 size={13} />
+                            </button>
+                          </div>
+                        )}
+                        {!isEditing && (
+                          <span
+                            className={`${styles.reactionTag} ${styles[reaction.className]}`}
+                          >
+                            <TagIcon icon={reaction.emoji} size={20} />
+                            {get(reaction.labelKey)}
+                          </span>
+                        )}
+                      </div>
+
+                      {isEditing ? (
+                        <div className={styles.editArea}>
+                          <div className={styles.editRatingRow}>
+                            {[
+                              {
+                                value: 1,
+                                emoji: "💚",
+                                labelKey: "feedbackPage.reactionBad",
+                              },
+                              {
+                                value: 3,
+                                emoji: "🌿",
+                                labelKey: "feedbackPage.reactionDecent",
+                              },
+                              {
+                                value: 5,
+                                emoji: "✨",
+                                labelKey: "feedbackPage.reactionLove",
+                              },
+                            ].map((opt) => (
+                              <button
+                                key={opt.value}
+                                type="button"
+                                className={`${styles.editRatingBtn} ${editRating === opt.value ? styles.editRatingActive : ""}`}
+                                onClick={() => setEditRating(opt.value)}
+                              >
+                                {opt.emoji} {get(opt.labelKey)}
+                              </button>
+                            ))}
+                          </div>
+                          <textarea
+                            className={styles.editTextarea}
+                            value={editMessage}
+                            onChange={(e) => setEditMessage(e.target.value)}
+                            rows={3}
+                            autoFocus
+                          />
+                          <div className={styles.editActions}>
+                            <button
+                              type="button"
+                              className={styles.saveBtn}
+                              onClick={() => saveEdit(entry._id)}
+                              disabled={editSaving || !editMessage.trim()}
+                            >
+                              <Check size={14} />
+                              {editSaving
+                                ? get("feedbackPage.saving")
+                                : get("feedbackPage.save")}
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.cancelBtn}
+                              onClick={cancelEdit}
+                            >
+                              <X size={14} />
+                              {get("feedbackPage.cancel")}
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className={styles.cardMessage}>{entry.message}</p>
                       )}
                     </div>
-
-                    {isEditing ? (
-                      <div className={styles.editArea}>
-                        <div className={styles.editRatingRow}>
-                          {reactionOptions.map((opt) => (
-                            <button
-                              key={opt.value}
-                              type="button"
-                              className={`${styles.editRatingBtn} ${editRating === opt.value ? styles.editRatingActive : ""}`}
-                              onClick={() => setEditRating(opt.value)}
-                            >
-                              {opt.emoji} {get(opt.labelKey)}
-                            </button>
-                          ))}
-                        </div>
-                        <textarea
-                          className={styles.editTextarea}
-                          value={editMessage}
-                          onChange={(e) => setEditMessage(e.target.value)}
-                          rows={3}
-                          autoFocus
-                        />
-                        <div className={styles.editActions}>
-                          <button
-                            type="button"
-                            className={styles.saveBtn}
-                            onClick={() => saveEdit(entry._id)}
-                            disabled={editSaving || !editMessage.trim()}
-                          >
-                            <Check size={14} />
-                            {editSaving ? get("feedbackPage.saving") : get("feedbackPage.save")}
-                          </button>
-                          <button
-                            type="button"
-                            className={styles.cancelBtn}
-                            onClick={cancelEdit}
-                          >
-                            <X size={14} />
-                            {get("feedbackPage.cancel")}
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <p className={styles.cardMessage}>{entry.message}</p>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        )}
-      </aside>
-
-      <form onSubmit={onSubmit} className={styles.form}>
-        <div className={styles.authorCard}>
-          <div className={styles.authorMain}>
-            <UserAvatar
-              name={displayName}
-              size={44}
-              isCurrentUser
-              showEditOverlay={!!user}
-              onClick={user ? () => avatarInputRef.current?.click() : undefined}
-            />
-            <input
-              ref={avatarInputRef}
-              type="file"
-              accept="image/*"
-              hidden
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                if (file) uploadAvatar(file);
-                e.target.value = "";
-              }}
-            />
-            <div className={styles.authorMeta}>
-              <div className={styles.authorNameRow}>
-                <h2>
-                  {displayName}
-                  {!user && <span className={styles.guestLabel}>{get("feedbackPage.guest")}</span>}
-                </h2>
-                <span className={styles.authorDate}>
-                  {new Intl.DateTimeFormat("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  }).format(new Date())}
-                </span>
-              </div>
-              <p className={styles.locationText}>
-                <MapPin size={14} />
-                Студентка
-              </p>
+                  </article>
+                );
+              })}
             </div>
-          </div>
+          )}
+        </aside>
 
-          <div className={styles.authorActions}>
-            <button
-              type="button"
-              className={styles.clearBtn}
-              onClick={() =>
-                setForm({
-                  ...initialForm,
-                  name: user?.name || "",
-                  email: user?.email || "",
-                })
-              }
-              aria-label="Clear form"
-            >
-              <Trash2 size={15} />
-            </button>
-            <p className={styles.rateTitle}>{get("feedbackPage.rateTitle")}</p>
-            <div className={styles.reactionGroup}>
-              {formReactionOptions.map((option) => (
-                <button
-                  key={option.value}
-                  type="button"
-                  onClick={() =>
-                    setForm((prev) => ({ ...prev, rating: option.value }))
-                  }
-                  className={`${styles.reactionButton} ${option.typeClass} ${form.rating === option.value ? option.activeClass : ""}`}
-                >
-                  <TagIcon icon={option.emoji} size={18} />
-                  {get(option.labelKey)}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-        {error && <div className={styles.error}>{error}</div>}
-
-        {!isAuthed && (
-          <div className={styles.row}>
-            <label>
-              {get("feedbackPage.namePlaceholder")}
-              <input
-                value={form.name}
-                onChange={(e) =>
-                  setForm((prev) => ({ ...prev, name: e.target.value }))
+        <form onSubmit={onSubmit} className={styles.form}>
+          <p className={styles.sectionLabel}>{get("feedbackPage.formLabel")}</p>
+          <div className={styles.authorCard}>
+            <div className={styles.authorMain}>
+              <UserAvatar
+                name={displayName}
+                size={44}
+                isCurrentUser
+                showEditOverlay={!!user}
+                onClick={
+                  user ? () => avatarInputRef.current?.click() : undefined
                 }
-                required
               />
-            </label>
+              <input
+                ref={avatarInputRef}
+                type="file"
+                accept="image/*"
+                hidden
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) uploadAvatar(file);
+                  e.target.value = "";
+                }}
+              />
+              <div className={styles.authorMeta}>
+                <div className={styles.authorNameRow}>
+                  <h2>
+                    {displayName}
+                    {!user && (
+                      <span className={styles.guestLabel}>
+                        {get("feedbackPage.guest")}
+                      </span>
+                    )}
+                  </h2>
+                  <span className={styles.authorDate}>
+                    {new Intl.DateTimeFormat("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    }).format(new Date())}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.authorActions}>
+              <p className={styles.rateTitle}>
+                {get("feedbackPage.rateTitle")}
+              </p>
+              <div className={styles.reactionGroup}>
+                {formReactionOptions.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() =>
+                      setForm((prev) => ({ ...prev, rating: option.value }))
+                    }
+                    className={`${styles.reactionButton} ${option.typeClass} ${form.rating === option.value ? option.activeClass : ""}`}
+                  >
+                    <TagIcon icon={option.emoji} size={18} />
+                    {get(option.labelKey)}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
-        )}
+          {error && <div className={styles.error}>{error}</div>}
 
-        <label className={styles.message}>
-          <textarea
-            className={styles.messageArea}
-            value={form.message}
-            onChange={(e) =>
-              setForm((prev) => ({ ...prev, message: e.target.value }))
-            }
-            rows={6}
-            placeholder={get("feedbackPage.messagePlaceholder")}
-            required
-          />
-        </label>
+          {!user && (
+            <div className={styles.row}>
+              <label>
+                <input
+                  value={form.name}
+                  onChange={(e) =>
+                    setForm((prev) => ({ ...prev, name: e.target.value }))
+                  }
+                  placeholder={get("feedbackPage.namePlaceholder")} // Текст теперь внутри
+                  required
+                />
+              </label>
+            </div>
+          )}
 
-        <div className={styles.submitRow}>
-          <button className={styles.submit} type="submit" disabled={submitting}>
-            {submitting ? get("feedbackPage.submitting") : get("feedbackPage.submit")}
-          </button>
-        </div>
-      </form>
+          <label className={styles.message}>
+            <textarea
+              className={styles.messageArea}
+              value={form.message}
+              onChange={(e) =>
+                setForm((prev) => ({ ...prev, message: e.target.value }))
+              }
+              rows={6}
+              placeholder={get("feedbackPage.messagePlaceholder")}
+              required
+            />
+          </label>
+
+          <div className={styles.submitRow}>
+            <CTAButton type="submit" disabled={submitting} className={styles.fullWidthBtn} noShadow>
+              {submitting
+                ? get("feedbackPage.submitting")
+                : get("feedbackPage.submit")}
+            </CTAButton>
+          </div>
+        </form>
+      </div>
     </section>
   );
 }

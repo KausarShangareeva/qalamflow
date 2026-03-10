@@ -35,6 +35,7 @@
   color: var(--color-text);
   margin-bottom: var(--space-md);
   text-align: center;
+  width: 60%;
 }
 
 .animatedTitle {

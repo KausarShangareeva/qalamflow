@@ -49,7 +49,9 @@ export default function Footer() {
               />
             </div>
             <div className={styles.authorInfo}>
-              <span className={styles.authorName}>{get("navigation.telegramChannel")}</span>
+              <span className={styles.authorName}>
+                {get("navigation.telegramChannel")}
+              </span>
               <span className={styles.authorEmail}>
                 {get("footer.telegram")}
               </span>
@@ -58,17 +60,6 @@ export default function Footer() {
         </div>
 
         <div className={styles.columns}>
-          <div className={styles.column}>
-            <h4 className={styles.columnTitle}>{get("footer.quickLinks")}</h4>
-            <nav className={styles.links}>
-              <a href="#hero">{get("footer.home")}</a>
-              <a href="#features">{get("footer.features")}</a>
-              <a href="#how-it-works">{get("footer.howItWorks")}</a>
-              <a href="#envelope">{get("footer.envelope")}</a>
-              <a href="#pdf-export">{get("footer.pdfExport")}</a>
-            </nav>
-          </div>
-
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>{get("footer.connect")}</h4>
             <nav className={styles.links}>
@@ -100,7 +91,7 @@ export default function Footer() {
                 <MessagesSquare size={15} />
                 {get("footer.feedback")}
               </Link>
-              <a
+              {/* <a
                 href="https://github.com/KausarShangareeva/qalamflow"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -115,88 +106,104 @@ export default function Footer() {
               >
                 <LinkedinIcon size={15} />
                 LinkedIn
-              </a>
+              </a> */}
             </nav>
           </div>
 
-          {/* <div className={styles.column}>
-            <h4 className={styles.columnTitle}>Projects</h4>
+          <div className={styles.column}>
+            <h4 className={styles.columnTitle}>{get("footer.quickLinks")}</h4>
             <nav className={styles.links}>
+              <a href="#hero">{get("footer.home")}</a>
+              <a href="#features">{get("footer.features")}</a>
+              <a href="#how-it-works">{get("footer.howItWorks")}</a>
+              <a href="#envelope">{get("footer.envelope")}</a>
+              <a href="#pdf-export">{get("footer.pdfExport")}</a>
+            </nav>
+          </div>
+
+          <div className={styles.column}>
+            <div className={styles.projectsHeader}>
+              <h4 className={styles.columnTitle}>
+                Проекты в процессе <span className={styles.hourglass}>⏳</span>
+              </h4>
+              <span className={styles.soonBadge}>Скоро</span>
+            </div>
+            <nav className={`${styles.links} ${styles.projectsLinks}`}>
               <span className={styles.projectItem}>
                 <ClipboardList size={15} style={{ color: "#22c55e" }} />
                 <span className={styles.projectName}>DeenPlanner</span>
-                <span className={styles.projectDesc}>– Student checklists</span>
+                <span className={styles.projectDesc}>
+                  – чек-листы для студентов
+                </span>
               </span>
               <span className={styles.projectItem}>
                 <GraduationCap size={15} style={{ color: "#3b82f6" }} />
                 <span className={styles.projectName}>UstazFlow</span>
                 <span className={styles.projectDesc}>
-                  – Teacher’s daily tracker
+                  – планнер преподавателя
                 </span>
               </span>
               <span className={styles.projectItem}>
                 <Heart size={15} style={{ color: "#f43f5e" }} />
                 <span className={styles.projectName}>UmmaFlow</span>
-                <span className={styles.projectDesc}>
-                  – Mom’s daily tracker
-                </span>
+                <span className={styles.projectDesc}>– планнер для мамы</span>
               </span>
               <span className={styles.projectItem}>
                 <Users size={15} style={{ color: "#a855f7" }} />
                 <span className={styles.projectName}>UsraFlow</span>
-                <span className={styles.projectDesc}>
-                  – Family daily tracker
-                </span>
+                <span className={styles.projectDesc}>– семейный планнер</span>
               </span>
               <span className={styles.projectItem}>
                 <BookMarked size={15} style={{ color: "#14b8a6" }} />
                 <span className={styles.projectName}>HifzFlow</span>
                 <span className={styles.projectDesc}>
-                  – Quran memorization tracker
+                  – трекер заучивания Корана
                 </span>
               </span>
               <span className={styles.projectItem}>
                 <Baby size={15} style={{ color: "#f59e0b" }} />
                 <span className={styles.projectName}>LittleUmmah</span>
-                <span className={styles.projectDesc}>
-                  – Stories for children
-                </span>
+                <span className={styles.projectDesc}>– истории для детей</span>
               </span>
               <span className={styles.projectItem}>
                 <Lightbulb size={15} style={{ color: "#f97316" }} />
                 <span className={styles.projectName}>NoorRoom</span>
                 <span className={styles.projectDesc}>
-                  – Your Arabic learning space
+                  – комната в арабском стиле
                 </span>
               </span>
               <span className={styles.projectItem}>
                 <Key size={15} style={{ color: "#06b6d4" }} />
                 <span className={styles.projectName}>Madrasa Key</span>
-                <span className={styles.projectDesc}>
-                  – Arabic study solutions
-                </span>
+                <span className={styles.projectDesc}>– ГДЗ по арабскому</span>
               </span>
               <span className={styles.projectItem}>
                 <Shirt size={15} style={{ color: "#6366f1" }} />
                 <span className={styles.projectName}>HijabPlanner</span>
                 <span className={styles.projectDesc}>
-                  – Modest wardrobe planner
+                  – планировщик гардероба
                 </span>
               </span>
               <span className={styles.projectItem}>
                 <Library size={15} style={{ color: "#84cc16" }} />
                 <span className={styles.projectName}>ShelfMind</span>
-                <span className={styles.projectDesc}>– Your home library</span>
+                <span className={styles.projectDesc}>
+                  – твоя домашняя библиотека
+                </span>
               </span>
             </nav>
-          </div> */}
+          </div>
         </div>
       </div>
 
       {/* Divider with centered logo */}
       <div className={styles.divider}>
         <span className={styles.dividerLine} />
-        <span className={styles.dividerIcon}>Q</span>
+        <img
+          src="/Logo_green_bg.svg"
+          alt="QalamFlow"
+          className={styles.dividerIcon}
+        />
         <span className={styles.dividerLine} />
       </div>
 

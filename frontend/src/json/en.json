@@ -249,7 +249,6 @@
   "donate": {
     "title": "Oh hey, coffee friend 😺",
     "subtitle": "60%",
-    "mainText": "If QalamFlow helped you, a coffee keeps the code flowing",
     "button": "☕ Buy me a coffee",
     "footnote": "Safe & quick — 30 seconds.",
     "coffees": [
@@ -271,7 +270,10 @@
         "amount": "$9",
         "badge": "Top choice 🔥"
       }
-    ]
+    ],
+    "mainTextBefore": "If QalamFlow helped you, a ",
+    "mainTextHighlight": "coffee keeps the code flowing",
+    "mainTextAfter": ""
   },
   "notFound": {
     "code": "404",
@@ -281,7 +283,11 @@
     "backHome": "GO BACK HOME"
   },
   "features": {
-    "animatedTags": ["Math", "English", "History"],
+    "animatedTags": [
+      "Math",
+      "English",
+      "History"
+    ],
     "miniSchedule": {
       "monday": "Mon",
       "tuesday": "Tue",
@@ -348,7 +354,8 @@
     "cancel": "Cancel",
     "reactionBad": "Bad",
     "reactionDecent": "Decent",
-    "reactionLove": "Love it!"
+    "reactionLove": "Love it!",
+    "location": "Student"
   },
   "workspace": {
     "vertical": "Vertical",
