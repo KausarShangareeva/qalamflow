@@ -56,6 +56,23 @@
         }
       ]
     },
+    "notifications": {
+      "title": "Get notifications and track your progress",
+      "subtitle": "Visualize your success in percentages",
+      "cards": [
+        {
+          "tag": "Reminders",
+          "title": "Get lesson reminders 15 minutes before and stay motivated",
+          "bottom": "Choose a course, set your dates — and get a ready lesson schedule"
+        },
+        {
+          "tag": "Progress",
+          "title": "Mark completed lessons and track your achievements",
+          "bottom": "Visual stats and reminders will help you stay on track"
+        }
+      ],
+      "cta": "Start Planning"
+    },
     "howItWorks": {
       "title": "How It Works",
       "subtitle": "From profile setup to a ready learning plan — in just a few minutes.",
