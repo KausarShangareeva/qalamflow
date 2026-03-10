@@ -47,11 +47,7 @@ export default function Donate() {
 
           <CTAButton
             onClick={() =>
-              window.open(
-                "https://buymeacoffee.com/shanstudio",
-                "bmc",
-                "width=600,height=700,left=300,top=100",
-              )
+              window.open("https://buymeacoffee.com/shanstudio", "_blank")
             }
           >
             {get("donate.button")}
