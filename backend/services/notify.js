@@ -77,7 +77,7 @@ async function sendEmail(subject, html) {
 
   try {
     const info = await transporter.sendMail({
-      from: `"PlanFlow Notifications" <${user}>`,
+      from: `"QalamFlow Notifications" <${user}>`,
       to: user, // Отправляем самому себе
       subject: subject,
       html: html,

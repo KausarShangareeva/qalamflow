@@ -205,7 +205,7 @@ export default function Register() {
         </div>
 
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} PlanFlow
+          © {new Date().getFullYear()} QalamFlow
         </p>
       </div>
     </div>

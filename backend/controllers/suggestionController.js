@@ -21,7 +21,7 @@ exports.createSuggestion = async (req, res) => {
     });
 
     const tgText =
-      `💡 <b>New suggestion on PlanFlow</b>\n\n` +
+      `💡 <b>New suggestion on QalamFlow</b>\n\n` +
       `👤 <b>${name}</b> (${email})\n` +
       `📁 ${projectType} — <b>${title}</b>\n\n` +
       `${details}`;

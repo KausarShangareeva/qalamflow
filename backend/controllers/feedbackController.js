@@ -107,7 +107,7 @@ exports.createFeedback = async (req, res) => {
     });
 
     const tgText =
-      `📝 <b>New feedback on PlanFlow</b>\n\n` +
+      `📝 <b>New feedback on QalamFlow</b>\n\n` +
       `👤 <b>${name}</b> (${email})\n` +
       `⭐ Rating: <b>${normalizedRating}/5</b>\n\n` +
       `${message}`;

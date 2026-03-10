@@ -151,7 +151,7 @@ export default function Login() {
         </div>
 
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} PlanFlow
+          © {new Date().getFullYear()} QalamFlow
         </p>
       </div>
     </div>

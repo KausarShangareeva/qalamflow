@@ -205,7 +205,7 @@ export default function FeedbackPage() {
           <TagIcon icon="⭐" size={18} /> Student reviews
         </div>
         <h2 className={styles.heroTitle}>
-          Real experiences from <span className={styles.brand}>PlanFlow</span>{" "}
+          Real experiences from <span className={styles.brand}>QalamFlow</span>{" "}
           users
         </h2>
         <p className={styles.heroSubtitle}>Tried it already?</p>

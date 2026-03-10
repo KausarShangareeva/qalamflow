@@ -36,7 +36,7 @@ export default function Donate() {
       <SectionHeader title="Oh hey, coffee friend 😺" titleWidth="60%" />
 
       <div className={styles.card}>
-        <p>If PlanFlow helped you, a coffee keeps the code flowing</p>
+        <p>If QalamFlow helped you, a coffee keeps the code flowing</p>
         <div className={styles.cardCenter}>
           <div className={styles.coffeeGrid}>
             {COFFEES.map((c) => (

@@ -1,8 +1,8 @@
 {
   "app": {
-    "name": "PlanFlow",
+    "name": "QalamFlow",
     "tagline": "Plan your studies",
-    "copyright": "PlanFlow"
+    "copyright": "QalamFlow"
   },
   "nav": {
     "contact": "Contact"
@@ -98,20 +98,20 @@
   "pwa": {
     "install": {
       "banner": {
-        "title": "Install PlanFlow",
+        "title": "Install QalamFlow",
         "description": "Install our app for a better experience!",
         "installButton": "Install",
         "dismissButton": "×"
       },
       "modal": {
-        "title": "Install PlanFlow",
+        "title": "Install QalamFlow",
         "ios": {
           "title": "On Mobile (iOS)",
           "safari": "Safari",
           "shareButton": "Share",
           "addToHomeScreen": "Add to Home Screen",
           "tapAdd": "Add",
-          "step1": "Open PlanFlow in ",
+          "step1": "Open QalamFlow in ",
           "step2": "Tap the ",
           "step2b": " button (square with arrow)",
           "step3": "Scroll down and tap ",
@@ -125,7 +125,7 @@
           "addToHome": "Add to Home Screen",
           "installApp": "Install App",
           "install": "Install",
-          "step1": "Open PlanFlow in ",
+          "step1": "Open QalamFlow in ",
           "step2": "Tap ",
           "step2b": " (three dots)",
           "step3": "Tap ",
@@ -137,7 +137,7 @@
           "title": "On Desktop (Chrome/Edge)",
           "installIcon": "install icon",
           "menu": "menu",
-          "installPlanFlow": "Install PlanFlow",
+          "installQalamFlow": "Install QalamFlow",
           "createShortcut": "Create Shortcut",
           "install": "Install",
           "step1": "Look for the ",
