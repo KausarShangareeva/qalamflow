@@ -62,7 +62,11 @@ export default function Login() {
 
           {import.meta.env.VITE_GOOGLE_CLIENT_ID && (
             <>
-              <button type="button" className={styles.googleButton} onClick={() => handleGoogleLogin()}>
+              <button
+                type="button"
+                className={styles.googleButton}
+                onClick={() => handleGoogleLogin()}
+              >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path
                     d="M19.6 10.227c0-.709-.064-1.39-.182-2.045H10v3.868h5.382a4.6 4.6 0 01-1.996 3.018v2.509h3.232c1.891-1.742 2.982-4.305 2.982-7.35z"
@@ -81,11 +85,11 @@ export default function Login() {
                     fill="#EA4335"
                   />
                 </svg>
-                Continue with Google
+                {get("googleAuth.continueWith")}
               </button>
 
               <div className={styles.divider}>
-                <span>OR</span>
+                <span>{get("googleAuth.or")}</span>
               </div>
             </>
           )}
@@ -100,7 +104,7 @@ export default function Login() {
                 <input
                   type="email"
                   className={styles.input}
-                  placeholder="your@email.com"
+                  placeholder={get("auth.login.emailInputPlaceholder")}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -117,7 +121,7 @@ export default function Login() {
                 <input
                   type={showPassword ? "text" : "password"}
                   className={styles.input}
-                  placeholder="••••••••"
+                  placeholder={get("auth.login.passwordInputPlaceholder")}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required

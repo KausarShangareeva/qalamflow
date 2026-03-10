@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { MapPin, Trash2, Pencil, Check, X } from "lucide-react";
 import TagIcon from "../components/TagIcon";
 import { useAuth } from "../context/AuthContext";
+import { useCopy } from "../hooks/useCopy";
 import { useAvatar } from "../hooks/useAvatar";
 import { api } from "../api/client";
 import CTAButton from "../components/CTAButton";
@@ -18,9 +19,9 @@ const initialForm: FeedbackPayload = {
 };
 
 const reactionOptions = [
-  { value: 1, emoji: "😔", label: "Bad" },
-  { value: 3, emoji: "🙂", label: "Decent" },
-  { value: 5, emoji: "😍", label: "Love it!" },
+  { value: 1, emoji: "😔", labelKey: "feedbackPage.reactionBad" },
+  { value: 3, emoji: "🙂", labelKey: "feedbackPage.reactionDecent" },
+  { value: 5, emoji: "😍", labelKey: "feedbackPage.reactionLove" },
 ];
 
 function formatDate(dateString: string): string {
@@ -33,19 +34,20 @@ function formatDate(dateString: string): string {
 }
 
 function getReactionTag(rating: number): {
-  label: string;
+  labelKey: string;
   emoji: string;
   className: string;
 } {
   if (rating >= 5)
-    return { label: "Love it!", emoji: "🔥", className: "tagLove" };
+    return { labelKey: "feedbackPage.reactionLove", emoji: "🔥", className: "tagLove" };
   if (rating >= 3)
-    return { label: "Decent", emoji: "🙂", className: "tagDecent" };
-  return { label: "Bad", emoji: "👎", className: "tagBad" };
+    return { labelKey: "feedbackPage.reactionDecent", emoji: "🙂", className: "tagDecent" };
+  return { labelKey: "feedbackPage.reactionBad", emoji: "👎", className: "tagBad" };
 }
 
 export default function FeedbackPage() {
   const { user } = useAuth();
+  const { get } = useCopy();
   const { customAvatar, uploadAvatar } = useAvatar();
   const avatarInputRef = useRef<HTMLInputElement>(null);
   const isAuthed = Boolean(user);
@@ -69,21 +71,21 @@ export default function FeedbackPage() {
     {
       value: 1,
       emoji: "👎",
-      label: "Bad",
+      labelKey: "feedbackPage.reactionBad",
       typeClass: styles.reactionTypeBad,
       activeClass: styles.reactionActiveBad,
     },
     {
       value: 3,
       emoji: "🙂",
-      label: "Decent",
+      labelKey: "feedbackPage.reactionDecent",
       typeClass: styles.reactionTypeDecent,
       activeClass: styles.reactionActiveDecent,
     },
     {
       value: 5,
       emoji: "🔥",
-      label: "Love it!",
+      labelKey: "feedbackPage.reactionLove",
       typeClass: styles.reactionTypeLove,
       activeClass: styles.reactionActiveLove,
     },
@@ -202,13 +204,13 @@ export default function FeedbackPage() {
     <section className={styles.page}>
       <header className={styles.hero}>
         <div className={styles.badge}>
-          <TagIcon icon="⭐" size={18} /> Student reviews
+          <TagIcon icon="⭐" size={18} /> {get("feedbackPage.badge")}
         </div>
         <h2 className={styles.heroTitle}>
-          Real experiences from <span className={styles.brand}>QalamFlow</span>{" "}
-          users
+          {get("feedbackPage.heroTitle")} <span className={styles.brand}>{get("feedbackPage.heroTitleBrand")}</span>{" "}
+          {get("feedbackPage.heroTitleSuffix")}
         </h2>
-        <p className={styles.heroSubtitle}>Tried it already?</p>
+        <p className={styles.heroSubtitle}>{get("feedbackPage.subtitle")}</p>
         <CTAButton
           onClick={() =>
             document
@@ -216,14 +218,14 @@ export default function FeedbackPage() {
               ?.scrollIntoView({ behavior: "smooth", block: "end" })
           }
         >
-          Share your experience
+          {get("feedbackPage.cta")}
         </CTAButton>
       </header>
 
       <aside className={styles.feed}>
-        {loadingList && <p className={styles.empty}>Loading feedback...</p>}
+        {loadingList && <p className={styles.empty}>{get("feedbackPage.loading")}</p>}
         {!loadingList && !feedbackList.length && (
-          <p className={styles.empty}>No feedback yet 😄 Be the first one ✨</p>
+          <p className={styles.empty}>{get("feedbackPage.empty")}</p>
         )}
 
         {feedbackList.length > 0 && (
@@ -247,7 +249,7 @@ export default function FeedbackPage() {
                         <strong className={styles.cardName}>
                           {entry.name}
                           {!entry.userId && (
-                            <span className={styles.guestLabel}>(guest)</span>
+                            <span className={styles.guestLabel}>{get("feedbackPage.guest")}</span>
                           )}
                         </strong>
                         <span className={styles.cardDate}>
@@ -279,7 +281,7 @@ export default function FeedbackPage() {
                           className={`${styles.reactionTag} ${styles[reaction.className]}`}
                         >
                           <TagIcon icon={reaction.emoji} size={20} />
-                          {reaction.label}
+                          {get(reaction.labelKey)}
                         </span>
                       )}
                     </div>
@@ -294,7 +296,7 @@ export default function FeedbackPage() {
                               className={`${styles.editRatingBtn} ${editRating === opt.value ? styles.editRatingActive : ""}`}
                               onClick={() => setEditRating(opt.value)}
                             >
-                              {opt.emoji} {opt.label}
+                              {opt.emoji} {get(opt.labelKey)}
                             </button>
                           ))}
                         </div>
@@ -313,7 +315,7 @@ export default function FeedbackPage() {
                             disabled={editSaving || !editMessage.trim()}
                           >
                             <Check size={14} />
-                            {editSaving ? "Saving..." : "Save"}
+                            {editSaving ? get("feedbackPage.saving") : get("feedbackPage.save")}
                           </button>
                           <button
                             type="button"
@@ -321,7 +323,7 @@ export default function FeedbackPage() {
                             onClick={cancelEdit}
                           >
                             <X size={14} />
-                            Cancel
+                            {get("feedbackPage.cancel")}
                           </button>
                         </div>
                       </div>
@@ -361,7 +363,7 @@ export default function FeedbackPage() {
               <div className={styles.authorNameRow}>
                 <h2>
                   {displayName}
-                  {!user && <span className={styles.guestLabel}>(guest)</span>}
+                  {!user && <span className={styles.guestLabel}>{get("feedbackPage.guest")}</span>}
                 </h2>
                 <span className={styles.authorDate}>
                   {new Intl.DateTimeFormat("en-US", {
@@ -393,7 +395,7 @@ export default function FeedbackPage() {
             >
               <Trash2 size={15} />
             </button>
-            <p className={styles.rateTitle}>Rate your experience</p>
+            <p className={styles.rateTitle}>{get("feedbackPage.rateTitle")}</p>
             <div className={styles.reactionGroup}>
               {formReactionOptions.map((option) => (
                 <button
@@ -405,7 +407,7 @@ export default function FeedbackPage() {
                   className={`${styles.reactionButton} ${option.typeClass} ${form.rating === option.value ? option.activeClass : ""}`}
                 >
                   <TagIcon icon={option.emoji} size={18} />
-                  {option.label}
+                  {get(option.labelKey)}
                 </button>
               ))}
             </div>
@@ -416,7 +418,7 @@ export default function FeedbackPage() {
         {!isAuthed && (
           <div className={styles.row}>
             <label>
-              Name *
+              {get("feedbackPage.namePlaceholder")}
               <input
                 value={form.name}
                 onChange={(e) =>
@@ -436,14 +438,14 @@ export default function FeedbackPage() {
               setForm((prev) => ({ ...prev, message: e.target.value }))
             }
             rows={6}
-            placeholder="Share your thoughts..."
+            placeholder={get("feedbackPage.messagePlaceholder")}
             required
           />
         </label>
 
         <div className={styles.submitRow}>
           <button className={styles.submit} type="submit" disabled={submitting}>
-            {submitting ? "Publishing..." : "Publish feedback"}
+            {submitting ? get("feedbackPage.submitting") : get("feedbackPage.submit")}
           </button>
         </div>
       </form>

@@ -1,5 +1,6 @@
 import { useRef, useState, useCallback } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { useCopy } from "../../hooks/useCopy";
 import TagIcon from "../../components/TagIcon";
 import { useAvatar } from "../../hooks/useAvatar";
 import UserAvatar from "../../components/UserAvatar";
@@ -11,16 +12,25 @@ import WeekPlan from "./components/WeekPlan";
 
 type Orientation = "vertical" | "horizontal";
 
-function getGreeting(): { emoji: string; text: string } {
+function getGreetingEmoji(): string {
   const h = new Date().getHours();
-  if (h < 6) return { emoji: "🌙", text: "Good night" };
-  if (h < 12) return { emoji: "☀️", text: "Good morning" };
-  if (h < 18) return { emoji: "🌤️", text: "Good afternoon" };
-  return { emoji: "✨", text: "Good evening" };
+  if (h < 6) return "🌙";
+  if (h < 12) return "☀️";
+  if (h < 18) return "🌤️";
+  return "✨";
+}
+
+function getGreetingKey(): string {
+  const h = new Date().getHours();
+  if (h < 6) return "workspace.greetingNight";
+  if (h < 12) return "workspace.greetingMorning";
+  if (h < 18) return "workspace.greetingAfternoon";
+  return "workspace.greetingEvening";
 }
 
 export default function Workspace() {
   const { user } = useAuth();
+  const { get } = useCopy();
   const firstName = user?.name?.split(" ")[0] ?? "";
   const { uploadAvatar } = useAvatar();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -112,9 +122,9 @@ export default function Workspace() {
           />
           <div className={styles.heroText}>
             <p className={styles.greeting}>
-              <TagIcon icon={getGreeting().emoji} size={22} /> {getGreeting().text}, <span className={styles.name}>{firstName}</span>
+              <TagIcon icon={getGreetingEmoji()} size={22} /> {get(getGreetingKey())}, <span className={styles.name}>{firstName}</span>
             </p>
-            <p className={styles.subtitle}>Plan your week</p>
+            <p className={styles.subtitle}>{get("workspace.subtitle")}</p>
           </div>
         </div>
         <div className={styles.heroAccent} aria-hidden />

@@ -68,10 +68,10 @@ export default function Navigation() {
               {user ? (
                 <>
                   <Link to="/" className={styles.navLink}>
-                    Home
+                    {get("navigation.home")}
                   </Link>
                   <Link to="workspace" className={styles.navLink}>
-                    My study plan
+                    {get("navigation.myStudyPlan")}
                   </Link>
                   <div className={styles.dropdownWrapper}>
                     <button className={styles.contactLink}>
@@ -90,29 +90,26 @@ export default function Navigation() {
                           alt=""
                           className={styles.navAvatar}
                         />
-                        Message the Author
+                        {get("navigation.messageAuthor")}
                       </a>
-                      <Link
-                        to="/donate"
-                        className={styles.dropdownItem}
-                      >
+                      <Link to="/donate" className={styles.dropdownItem}>
                         <img
                           src="/buymeacoffee.png"
                           alt=""
                           className={styles.navAvatar}
                         />
-                        Buy Me a Coffee
+                        {get("navigation.buyMeCoffee")}
                       </Link>
                       <Link
                         to="/suggest-project"
                         className={styles.dropdownItem}
                       >
                         <Sparkles size={16} />
-                        Suggest a Project
+                        {get("navigation.suggestProject")}
                       </Link>
                       <Link to="/feedback" className={styles.dropdownItem}>
                         <MessagesSquare size={16} />
-                        Leave Feedback
+                        {get("navigation.feedback")}
                       </Link>
                     </div>
                   </div>
@@ -123,25 +120,25 @@ export default function Navigation() {
                     className={styles.navLink}
                     onClick={() => scrollToSection("hero")}
                   >
-                    Home
+                    {get("navigation.home")}
                   </button>
                   <button
                     className={styles.navLink}
                     onClick={() => scrollToSection("features")}
                   >
-                    Features
+                    {get("footer.features")}
                   </button>
                   <button
                     className={styles.navLink}
                     onClick={() => scrollToSection("how-it-works")}
                   >
-                    How It Works
+                    {get("footer.howItWorks")}
                   </button>
                   <button
                     className={styles.navLink}
                     onClick={() => scrollToSection("pdf-export")}
                   >
-                    PDF Export
+                    {get("footer.pdfExport")}
                   </button>
                   <div className={styles.dropdownWrapper}>
                     <button className={styles.contactLink}>
@@ -160,29 +157,26 @@ export default function Navigation() {
                           alt=""
                           className={styles.navAvatar}
                         />
-                        Message the Author
+                        {get("navigation.messageAuthor")}
                       </a>
-                      <Link
-                        to="/donate"
-                        className={styles.dropdownItem}
-                      >
+                      <Link to="/donate" className={styles.dropdownItem}>
                         <img
                           src="/buymeacoffee.png"
                           alt=""
                           className={styles.navAvatar}
                         />
-                        Buy Me a Coffee
+                        {get("navigation.buyMeCoffee")}
                       </Link>
                       <Link
                         to="/suggest-project"
                         className={styles.dropdownItem}
                       >
                         <Sparkles size={16} />
-                        Suggest a Project
+                        {get("navigation.suggestProject")}
                       </Link>
                       <Link to="/feedback" className={styles.dropdownItem}>
                         <MessagesSquare size={16} />
-                        Leave Feedback
+                        {get("navigation.feedback")}
                       </Link>
                     </div>
                   </div>
@@ -196,7 +190,7 @@ export default function Navigation() {
             {user ? (
               <>
                 <button onClick={handleLogout} className={styles.logoutBtn}>
-                  Logout
+                  {get("navigation.logout")}
                   <LogOut size={18} />
                 </button>
                 <span className={styles.divider} />
@@ -205,8 +199,8 @@ export default function Navigation() {
               <>
                 <Link to="/login" className={styles.contactBtn}>
                   {localStorage.getItem("hasAccount")
-                    ? "Log in"
-                    : "Get Started"}
+                    ? get("navigation.logIn")
+                    : get("navigation.getStarted")}
                   <ArrowUpRight size={16} />
                 </Link>
               </>
@@ -253,7 +247,7 @@ export default function Navigation() {
           <>
             <Link to="/" className={styles.mobileNavLink} onClick={closeMenu}>
               <Home size={18} />
-              Home
+              {get("navigation.home")}
             </Link>
             <Link
               to="/workspace"
@@ -261,7 +255,7 @@ export default function Navigation() {
               onClick={closeMenu}
             >
               <LayoutDashboard size={18} />
-              My study plan
+              {get("navigation.myStudyPlan")}
             </Link>
 
             <div className={styles.mobileDivider} />
@@ -273,7 +267,7 @@ export default function Navigation() {
               className={styles.mobileNavLink}
             >
               <img src="/avatar_logo.png" alt="" className={styles.navAvatar} />
-              Message the Author
+              {get("navigation.messageAuthor")}
             </a>
             <Link
               to="/donate"
@@ -285,7 +279,7 @@ export default function Navigation() {
                 alt=""
                 className={styles.navAvatar}
               />
-              Buy Me a Coffee
+              {get("navigation.buyMeCoffee")}
             </Link>
             <Link
               to="/suggest-project"
@@ -293,7 +287,7 @@ export default function Navigation() {
               onClick={closeMenu}
             >
               <Sparkles size={18} />
-              Suggest a Project
+              {get("navigation.suggestProject")}
             </Link>
             <Link
               to="/feedback"
@@ -301,7 +295,7 @@ export default function Navigation() {
               onClick={closeMenu}
             >
               <MessagesSquare size={18} />
-              Leave Feedback
+              {get("navigation.feedback")}
             </Link>
 
             <div className={styles.mobileDivider} />
@@ -312,7 +306,7 @@ export default function Navigation() {
               style={{ cursor: "pointer" }}
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-              {theme === "dark" ? "Light theme" : "Dark theme"}
+              {theme === "dark" ? get("navigation.lightTheme") : get("navigation.darkTheme")}
             </button>
 
             <button
@@ -323,7 +317,7 @@ export default function Navigation() {
               }}
             >
               <LogOut size={18} />
-              Logout
+              {get("navigation.logout")}
             </button>
           </>
         ) : (
@@ -333,28 +327,28 @@ export default function Navigation() {
               onClick={() => scrollToSection("hero")}
             >
               <Home size={18} />
-              Home
+              {get("navigation.home")}
             </button>
             <button
               className={styles.mobileNavLink}
               onClick={() => scrollToSection("features")}
             >
               <Zap size={18} />
-              Features
+              {get("navigation.features")}
             </button>
             <button
               className={styles.mobileNavLink}
               onClick={() => scrollToSection("how-it-works")}
             >
               <BookOpen size={18} />
-              How It Works
+              {get("navigation.howItWorks")}
             </button>
             <button
               className={styles.mobileNavLink}
               onClick={() => scrollToSection("pdf-export")}
             >
               <Printer size={18} />
-              PDF Export
+              {get("navigation.pdfExport")}
             </button>
 
             <div className={styles.mobileDivider} />
@@ -366,7 +360,7 @@ export default function Navigation() {
               className={styles.mobileNavLink}
             >
               <img src="/avatar_logo.png" alt="" className={styles.navAvatar} />
-              Message the Author
+              {get("navigation.messageAuthor")}
             </a>
             <Link
               to="/donate"
@@ -378,7 +372,7 @@ export default function Navigation() {
                 alt=""
                 className={styles.navAvatar}
               />
-              Buy Me a Coffee
+              {get("navigation.buyMeCoffee")}
             </Link>
             <Link
               to="/suggest-project"
@@ -386,7 +380,7 @@ export default function Navigation() {
               onClick={closeMenu}
             >
               <Sparkles size={18} />
-              Suggest a Project
+              {get("navigation.suggestProject")}
             </Link>
             <Link
               to="/feedback"
@@ -394,7 +388,7 @@ export default function Navigation() {
               onClick={closeMenu}
             >
               <MessagesSquare size={18} />
-              Leave Feedback
+              {get("navigation.feedback")}
             </Link>
 
             <div className={styles.mobileDivider} />
@@ -405,7 +399,7 @@ export default function Navigation() {
               style={{ cursor: "pointer" }}
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-              {theme === "dark" ? "Light theme" : "Dark theme"}
+              {theme === "dark" ? get("navigation.lightTheme") : get("navigation.darkTheme")}
             </button>
 
             <Link
@@ -414,7 +408,7 @@ export default function Navigation() {
               onClick={closeMenu}
             >
               <ArrowUpRight size={18} />
-              {localStorage.getItem("hasAccount") ? "Log in" : "Get Started"}
+              {localStorage.getItem("hasAccount") ? get("navigation.logIn") : get("navigation.getStarted")}
             </Link>
           </>
         )}

@@ -49,9 +49,9 @@ export default function Footer() {
               />
             </div>
             <div className={styles.authorInfo}>
-              <span className={styles.authorName}>My Telegram channel</span>
+              <span className={styles.authorName}>{get("navigation.telegramChannel")}</span>
               <span className={styles.authorEmail}>
-                The student writes code
+                {get("footer.telegram")}
               </span>
             </div>
           </a>
@@ -61,11 +61,11 @@ export default function Footer() {
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>{get("footer.quickLinks")}</h4>
             <nav className={styles.links}>
-              <a href="#hero">Home</a>
-              <a href="#features">Features</a>
-              <a href="#how-it-works">How It Works</a>
-              <a href="#envelope">Envelope</a>
-              <a href="#pdf-export">PDF Export</a>
+              <a href="#hero">{get("footer.home")}</a>
+              <a href="#features">{get("footer.features")}</a>
+              <a href="#how-it-works">{get("footer.howItWorks")}</a>
+              <a href="#envelope">{get("footer.envelope")}</a>
+              <a href="#pdf-export">{get("footer.pdfExport")}</a>
             </nav>
           </div>
 
@@ -82,7 +82,7 @@ export default function Footer() {
                   alt=""
                   className={styles.linkAvatar}
                 />
-                Message the Author
+                {get("footer.messageAuthor")}
               </a>
               <Link to="/donate">
                 <img
@@ -90,15 +90,15 @@ export default function Footer() {
                   alt=""
                   className={styles.linkAvatar}
                 />
-                Buy Me a Coffee
+                {get("footer.buyMeCoffee")}
               </Link>
               <Link to="/suggest-project">
                 <Sparkles size={15} />
-                Suggest a Project
+                {get("footer.suggestProject")}
               </Link>
               <Link to="/feedback">
                 <MessagesSquare size={15} />
-                Leave Feedback
+                {get("footer.feedback")}
               </Link>
               <a
                 href="https://github.com/KausarShangareeva/qalamflow"
@@ -201,14 +201,14 @@ export default function Footer() {
       </div>
 
       <p className={styles.madeWith}>
-        Made with 🧠 by{" "}
+        {get("footer.madeWithFull")}{" "}
         <a
           href="https://shanstudio.app/"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.madeWithLink}
         >
-          ShanStudio
+          {get("footer.shanStudio")}
         </a>
       </p>
     </footer>

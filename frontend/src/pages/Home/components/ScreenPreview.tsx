@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Save, Printer } from "lucide-react";
+import { useCopy } from "../../../hooks/useCopy";
 import TAGS from "../../../json/tags.json";
 import WEEKDAYS from "../../../json/weekdays.json";
 import TagIcon from "../../../components/TagIcon";
@@ -107,6 +108,7 @@ function getSpan(day: string, time: string, times: string[]): number {
 }
 
 export default function ScreenPreview() {
+  const { get } = useCopy();
   const tableRef = useRef<HTMLDivElement>(null);
 
   function buildPrintTable(): string {
@@ -229,7 +231,7 @@ export default function ScreenPreview() {
         <div className={styles.actionBar}>
           <button className={styles.saveBtn}>
             <Save size={18} />
-            Save Plan
+            {get("pdfExport.savePlan")}
           </button>
           <button
             type="button"
@@ -237,12 +239,12 @@ export default function ScreenPreview() {
             onClick={handlePrint}
           >
             <Printer size={18} />
-            Print PDF
+            {get("pdfExport.printPDF")}
           </button>
           <div className={styles.hintGroup}>
             <span className={styles.actionHint}>
-              Try to <br />
-              print 😄
+              {get("pdfExport.hint")} <br />
+              {get("pdfExport.hintSuffix")}
             </span>
             <svg
               className={styles.hintArrow}

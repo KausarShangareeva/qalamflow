@@ -8,14 +8,12 @@ export default function NotFound() {
 
   return (
     <div className={styles.wrapper}>
-      <p className={styles.code}>404</p>
+      <p className={styles.code}>{get("notFound.code")}</p>
       <section className={styles.card} aria-label="Not found page">
-        <h1 className={styles.title}>Oops! {get("notFound.title")}</h1>
-        <p className={styles.description}>
-          The page you are looking for does not exist or has been moved.
-        </p>
+        <h1 className={styles.title}>{get("notFound.oops")} {get("notFound.title")}</h1>
+        <p className={styles.description}>{get("notFound.description")}</p>
         <Link to="/" className={styles.cta}>
-          GO BACK HOME
+          {get("notFound.backHome")}
           <span className={styles.ctaIcon}>
             <ArrowUpRight size={16} />
           </span>

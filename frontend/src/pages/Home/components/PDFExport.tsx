@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
+import { useCopy } from "../../../hooks/useCopy";
 import CTAButton from "../../../components/CTAButton";
 import TagIcon from "../../../components/TagIcon";
 import TAGS from "../../../json/tags.json";
@@ -8,13 +9,21 @@ import styles from "./PDFExport.module.css";
 
 function tag(name: string) {
   const t = TAGS.find((t) => t.name === name);
-  if (!t) { console.warn(`[PDFExport] Course not found in tags.json: "${name}"`); return { label: name, color: "#888", bg: "rgba(136,136,136,0.12)", icon: "📚" }; }
+  if (!t) {
+    console.warn(`[PDFExport] Course not found in tags.json: "${name}"`);
+    return {
+      label: name,
+      color: "#888",
+      bg: "rgba(136,136,136,0.12)",
+      icon: "📚",
+    };
+  }
   return { label: t.name, color: t.color, bg: t.bg, icon: t.icon };
 }
 
 const tabs = [
-  { key: "vertical", label: "Portrait", icon: "/virtical.svg" },
-  { key: "horizontal", label: "Landscape", icon: "/horizontal.svg" },
+  { key: "vertical", labelKey: "pdfExport.tabPortrait", icon: "/virtical.svg" },
+  { key: "horizontal", labelKey: "pdfExport.tabLandscape", icon: "/horizontal.svg" },
 ] as const;
 
 type Tab = (typeof tabs)[number]["key"];
@@ -114,7 +123,9 @@ function MiniSchedulePreview({
                     borderLeft: `2.5px solid ${course.color}`,
                   }}
                 >
-                  <span className={styles.schedBlockIcon}><TagIcon icon={course.icon} size={10} /></span>
+                  <span className={styles.schedBlockIcon}>
+                    <TagIcon icon={course.icon} size={10} />
+                  </span>
                   <span className={styles.schedBlockLabel}>{course.label}</span>
                 </div>
               );
@@ -129,6 +140,7 @@ function MiniSchedulePreview({
 // ── Main component ───────────────────────────────────────────────────────────
 export default function PDFExport() {
   const { user } = useAuth();
+  const { get } = useCopy();
   const [active, setActive] = useState<Tab>("vertical");
 
   return (
@@ -136,12 +148,10 @@ export default function PDFExport() {
       <div className={styles.header}>
         <div className={styles.first}>
           <h2 className={styles.title}>
-            Print
+            {get("pdfExport.title")}
             <img src="/pdf-svg.svg" alt="" className={styles.titleIcon} />
-            your plan
           </h2>
         </div>
-        <h2 className={styles.title}> in PDF format</h2>
       </div>
 
       <div className={styles.toggle}>
@@ -152,7 +162,7 @@ export default function PDFExport() {
             onClick={() => setActive(tab.key)}
           >
             <img src={tab.icon} alt="" className={styles.toggleIcon} />
-            <span>{tab.label}</span>
+            <span>{get(tab.labelKey)}</span>
           </button>
         ))}
       </div>
@@ -167,7 +177,9 @@ export default function PDFExport() {
         </div>
       </div>
 
-      <CTAButton to={user ? "/workspace" : "/register"}>Try It Free</CTAButton>
+      <CTAButton to={user ? "/workspace" : "/register"}>
+        {get("pdfExport.button")}
+      </CTAButton>
     </section>
   );
 }

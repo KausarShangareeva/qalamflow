@@ -117,11 +117,11 @@ export default function Register() {
                     fill="#EA4335"
                   />
                 </svg>
-                Continue with Google
+                {get("googleAuth.continueWith")}
               </button>
 
               <div className={styles.divider}>
-                <span>OR</span>
+                <span>{get("googleAuth.or")}</span>
               </div>
             </>
           )}
@@ -136,7 +136,7 @@ export default function Register() {
                 <input
                   type="text"
                   className={styles.input}
-                  placeholder="Your name"
+                  placeholder={get("auth.register.nameInputPlaceholder")}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -153,7 +153,7 @@ export default function Register() {
                 <input
                   type="email"
                   className={styles.input}
-                  placeholder="your@email.com"
+                  placeholder={get("auth.register.emailInputPlaceholder")}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -170,7 +170,7 @@ export default function Register() {
                 <input
                   type={showPassword ? "text" : "password"}
                   className={styles.input}
-                  placeholder="••••••••"
+                  placeholder={get("auth.register.passwordInputPlaceholder")}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required

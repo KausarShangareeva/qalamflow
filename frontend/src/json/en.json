@@ -97,7 +97,9 @@
       "title": "Login",
       "subtitle": "Continue your journey to knowledge",
       "emailPlaceholder": "Email",
+      "emailInputPlaceholder": "your@email.com",
       "passwordPlaceholder": "Password",
+      "passwordInputPlaceholder": "••••••••",
       "submit": "Log in",
       "submitting": "Logging in...",
       "noAccount": "Don't have an account?",
@@ -107,8 +109,11 @@
       "title": "Register",
       "subtitle": "Start your structured journey to Islamic knowledge",
       "namePlaceholder": "Name",
+      "nameInputPlaceholder": "Your name",
       "emailPlaceholder": "Email",
+      "emailInputPlaceholder": "your@email.com",
       "passwordPlaceholder": "Password",
+      "passwordInputPlaceholder": "••••••••",
       "submit": "Create account",
       "submitting": "Creating account...",
       "hasAccount": "Already have an account?",
@@ -184,6 +189,7 @@
     "quickLinks": "Quick Links",
     "connect": "Connect",
     "madeWithLove": "Made with",
+    "madeWithFull": "Made with 🧠 by",
     "home": "Home",
     "features": "Features",
     "howItWorks": "How It Works",
@@ -194,7 +200,9 @@
     "suggestProject": "Suggest a Project",
     "feedback": "Feedback",
     "telegram": "The student writes code",
-    "otherProjects": "Other Projects"
+    "otherProjects": "Other Projects",
+    "telegramChannel": "My Telegram channel",
+    "shanStudio": "ShanStudio"
   },
   "navigation": {
     "home": "Home",
@@ -205,7 +213,14 @@
     "feedback": "Leave Feedback",
     "logout": "Logout",
     "signUp": "Sign up",
-    "logIn": "Log in"
+    "logIn": "Log in",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "pdfExport": "PDF Export",
+    "lightTheme": "Light theme",
+    "darkTheme": "Dark theme",
+    "getStarted": "Get Started",
+    "telegramChannel": "My Telegram channel"
   },
   "hero": {
     "badge": "Your study plan",
@@ -259,6 +274,9 @@
     ]
   },
   "notFound": {
+    "code": "404",
+    "oops": "Oops!",
+    "title": "Page not found",
     "description": "The page you are looking for does not exist or has been moved.",
     "backHome": "GO BACK HOME"
   },
@@ -305,17 +323,43 @@
     "button": "Try It Free",
     "savePlan": "Save Plan",
     "printPDF": "Print PDF",
-    "hint": "Try to"
+    "hint": "Try to",
+    "hintSuffix": "print 😄",
+    "tabPortrait": "Portrait",
+    "tabLandscape": "Landscape"
   },
   "feedbackPage": {
     "subtitle": "Tried it already?",
-    "cta": "Share your experience"
+    "cta": "Share your experience",
+    "badge": "Student reviews",
+    "heroTitle": "Real experiences from",
+    "heroTitleBrand": "QalamFlow",
+    "heroTitleSuffix": "users",
+    "loading": "Loading feedback...",
+    "empty": "No feedback yet 😄 Be the first one ✨",
+    "guest": "(guest)",
+    "rateTitle": "Rate your experience",
+    "namePlaceholder": "Name *",
+    "messagePlaceholder": "Share your thoughts...",
+    "submit": "Publish feedback",
+    "submitting": "Publishing...",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "reactionBad": "Bad",
+    "reactionDecent": "Decent",
+    "reactionLove": "Love it!"
   },
   "workspace": {
     "vertical": "Vertical",
     "horizontal": "Horizontal",
     "nothingFound": "Nothing found",
-    "createNewPlan": "Create New Plan"
+    "createNewPlan": "Create New Plan",
+    "greetingNight": "Good night",
+    "greetingMorning": "Good morning",
+    "greetingAfternoon": "Good afternoon",
+    "greetingEvening": "Good evening",
+    "subtitle": "Plan your week"
   },
   "common": {
     "loading": "Loading...",
