@@ -1,388 +1,1113 @@
 [
   {
-    "name": "Math",
+    "name": "Математика",
     "color": "var(--tag-math)",
     "bg": "var(--tag-math-bg)",
     "icon": "📐"
   },
   {
-    "name": "Algebra",
+    "name": "Алгебра",
     "color": "var(--tag-algebra)",
     "bg": "var(--tag-algebra-bg)",
     "icon": "🔢"
   },
   {
-    "name": "Geometry",
+    "name": "Геометрия",
     "color": "var(--tag-geometry)",
     "bg": "var(--tag-geometry-bg)",
     "icon": "📏"
   },
   {
-    "name": "Calculus",
+    "name": "Математический анализ",
     "color": "var(--tag-calculus)",
     "bg": "var(--tag-calculus-bg)",
     "icon": "∫"
   },
   {
-    "name": "Statistics",
+    "name": "Статистика",
     "color": "var(--tag-statistics)",
     "bg": "var(--tag-statistics-bg)",
     "icon": "📊"
   },
   {
-    "name": "Biology",
+    "name": "Биология",
     "color": "var(--tag-biology)",
     "bg": "var(--tag-biology-bg)",
     "icon": "🧬"
   },
   {
-    "name": "Chemistry",
+    "name": "Химия",
     "color": "var(--tag-chemistry)",
     "bg": "var(--tag-chemistry-bg)",
     "icon": "🧪"
   },
   {
-    "name": "Physics",
+    "name": "Физика",
     "color": "var(--tag-physics)",
     "bg": "var(--tag-physics-bg)",
     "icon": "🔬"
   },
   {
-    "name": "Astronomy",
+    "name": "Астрономия",
     "color": "var(--tag-astronomy)",
     "bg": "var(--tag-astronomy-bg)",
     "icon": "🔭"
   },
   {
-    "name": "Earth Science",
+    "name": "Науки о Земле",
     "color": "var(--tag-earth-science)",
     "bg": "var(--tag-earth-science-bg)",
     "icon": "🌍"
   },
   {
-    "name": "History",
+    "name": "История",
     "color": "var(--tag-history)",
     "bg": "var(--tag-history-bg)",
     "icon": "📜"
   },
   {
-    "name": "World History",
+    "name": "Всемирная история",
     "color": "var(--tag-world-history)",
     "bg": "var(--tag-world-history-bg)",
     "icon": "🌐"
   },
   {
-    "name": "Geography",
+    "name": "География",
     "color": "var(--tag-geography)",
     "bg": "var(--tag-geography-bg)",
     "icon": "🗺️"
   },
   {
-    "name": "Literature",
+    "name": "Литература",
     "color": "var(--tag-literature)",
     "bg": "var(--tag-literature-bg)",
     "icon": "📚"
   },
   {
-    "name": "Writing",
+    "name": "Сочинение",
     "color": "var(--tag-writing)",
     "bg": "var(--tag-writing-bg)",
     "icon": "✍️"
   },
   {
-    "name": "Grammar",
+    "name": "Грамматика",
     "color": "var(--tag-grammar)",
     "bg": "var(--tag-grammar-bg)",
     "icon": "📝"
   },
   {
-    "name": "Reading",
+    "name": "Чтение рус/арабс (40 м.)",
     "color": "var(--tag-reading)",
     "bg": "var(--tag-reading-bg)",
     "icon": "📖"
   },
   {
-    "name": "English",
+    "name": "Английский",
     "color": "var(--tag-english)",
     "bg": "var(--tag-english-bg)",
     "icon": "🇬🇧"
   },
   {
-    "name": "Computer Science",
+    "name": "Информатика",
     "color": "var(--tag-computer-science)",
     "bg": "var(--tag-computer-science-bg)",
     "icon": "💻"
   },
   {
-    "name": "Programming",
+    "name": "Программирование",
     "color": "var(--tag-programming)",
     "bg": "var(--tag-programming-bg)",
     "icon": "👨‍💻"
   },
   {
-    "name": "Art",
+    "name": "Искусство",
     "color": "var(--tag-art)",
     "bg": "var(--tag-art-bg)",
     "icon": "🎨"
   },
   {
-    "name": "Music",
+    "name": "Музыка",
     "color": "var(--tag-music)",
     "bg": "var(--tag-music-bg)",
     "icon": "🎵"
   },
   {
-    "name": "Physical Education",
+    "name": "Физкультура",
     "color": "var(--tag-physical-education)",
     "bg": "var(--tag-physical-education-bg)",
     "icon": "⚽"
   },
   {
-    "name": "Psychology",
+    "name": "Психология",
     "color": "var(--tag-psychology)",
     "bg": "var(--tag-psychology-bg)",
     "icon": "🧠"
   },
   {
-    "name": "Economics",
+    "name": "Экономика",
     "color": "var(--tag-economics)",
     "bg": "var(--tag-economics-bg)",
     "icon": "💰"
   },
   {
-    "name": "Philosophy",
+    "name": "Философия",
     "color": "var(--tag-philosophy)",
     "bg": "var(--tag-philosophy-bg)",
     "icon": "🤔"
   },
   {
-    "name": "Social Studies",
+    "name": "Обществознание",
     "color": "var(--tag-social-studies)",
     "bg": "var(--tag-social-studies-bg)",
     "icon": "🏛️"
   },
   {
-    "name": "Drama",
+    "name": "Театр",
     "color": "var(--tag-drama)",
     "bg": "var(--tag-drama-bg)",
     "icon": "🎭"
   },
 
   {
-    "name": "Spanish",
+    "name": "Испанский",
     "color": "var(--tag-spanish)",
     "bg": "var(--tag-spanish-bg)",
     "icon": "🇪🇸"
   },
   {
-    "name": "French",
+    "name": "Французский",
     "color": "var(--tag-french)",
     "bg": "var(--tag-french-bg)",
     "icon": "🇫🇷"
   },
   {
-    "name": "German",
+    "name": "Немецкий",
     "color": "var(--tag-german)",
     "bg": "var(--tag-german-bg)",
     "icon": "🇩🇪"
   },
   {
-    "name": "Japanese",
+    "name": "Японский",
     "color": "var(--tag-japanese)",
     "bg": "var(--tag-japanese-bg)",
     "icon": "🇯🇵"
   },
   {
-    "name": "Arabic",
+    "name": "Арабский",
     "color": "var(--tag-arabic)",
     "bg": "var(--tag-arabic-bg)",
     "icon": "🇸🇦"
   },
   {
-    "name": "Chinese",
+    "name": "Китайский",
     "color": "var(--tag-chinese)",
     "bg": "var(--tag-chinese-bg)",
     "icon": "🇨🇳"
   },
 
   {
-    "name": "Environmental Science",
+    "name": "Экология",
     "color": "var(--tag-environmental-science)",
     "bg": "var(--tag-environmental-science-bg)",
     "icon": "🌱"
   },
   {
-    "name": "Anatomy",
+    "name": "Анатомия",
     "color": "var(--tag-anatomy)",
     "bg": "var(--tag-anatomy-bg)",
     "icon": "🫀"
   },
-  {
-    "name": "Ecology",
-    "color": "var(--tag-ecology)",
-    "bg": "var(--tag-ecology-bg)",
-    "icon": "🌿"
-  },
 
   {
-    "name": "Trigonometry",
+    "name": "Тригонометрия",
     "color": "var(--tag-trigonometry)",
     "bg": "var(--tag-trigonometry-bg)",
     "icon": "△"
   },
   {
-    "name": "Linear Algebra",
-    "color": "var(--tag-linear-algebra)",
-    "bg": "var(--tag-linear-algebra-bg)",
-    "icon": "🔷"
-  },
-  {
-    "name": "Probability",
+    "name": "Теория вероятностей",
     "color": "var(--tag-probability)",
     "bg": "var(--tag-probability-bg)",
     "icon": "🎲"
   },
 
   {
-    "name": "Sociology",
+    "name": "Социология",
     "color": "var(--tag-sociology)",
     "bg": "var(--tag-sociology-bg)",
     "icon": "👥"
   },
   {
-    "name": "Political Science",
+    "name": "Политология",
     "color": "var(--tag-political-science)",
     "bg": "var(--tag-political-science-bg)",
     "icon": "🗳️"
   },
   {
-    "name": "Law",
+    "name": "Право",
     "color": "var(--tag-law)",
     "bg": "var(--tag-law-bg)",
     "icon": "⚖️"
   },
 
   {
-    "name": "Data Science",
+    "name": "Наука о данных",
     "color": "var(--tag-data-science)",
     "bg": "var(--tag-data-science-bg)",
     "icon": "📈"
   },
   {
-    "name": "Cybersecurity",
+    "name": "Кибербезопасность",
     "color": "var(--tag-cybersecurity)",
     "bg": "var(--tag-cybersecurity-bg)",
     "icon": "🔐"
   },
   {
-    "name": "Web Development",
+    "name": "Веб-разработка",
     "color": "var(--tag-web-development)",
     "bg": "var(--tag-web-development-bg)",
     "icon": "🖥️"
   },
   {
-    "name": "UI/UX Design",
+    "name": "UI/UX дизайн",
     "color": "var(--tag-ui-ux-design)",
     "bg": "var(--tag-ui-ux-design-bg)",
     "icon": "🎯"
   },
 
   {
-    "name": "Marketing",
+    "name": "Маркетинг",
     "color": "var(--tag-marketing)",
     "bg": "var(--tag-marketing-bg)",
     "icon": "📣"
   },
   {
-    "name": "Finance",
+    "name": "Финансы",
     "color": "var(--tag-finance)",
     "bg": "var(--tag-finance-bg)",
     "icon": "💳"
   },
   {
-    "name": "Accounting",
+    "name": "Бухгалтерский учёт",
     "color": "var(--tag-accounting)",
     "bg": "var(--tag-accounting-bg)",
     "icon": "🧾"
   },
   {
-    "name": "Entrepreneurship",
+    "name": "Предпринимательство",
     "color": "var(--tag-entrepreneurship)",
     "bg": "var(--tag-entrepreneurship-bg)",
     "icon": "🚀"
   },
 
   {
-    "name": "Productivity",
+    "name": "Продуктивность",
     "color": "var(--tag-productivity)",
     "bg": "var(--tag-productivity-bg)",
     "icon": "⏱️"
   },
   {
-    "name": "Public Speaking",
+    "name": "Ораторское искусство",
     "color": "var(--tag-public-speaking)",
     "bg": "var(--tag-public-speaking-bg)",
     "icon": "🎤"
   },
   {
-    "name": "Leadership",
+    "name": "Лидерство",
     "color": "var(--tag-leadership)",
     "bg": "var(--tag-leadership-bg)",
     "icon": "👑"
   },
   {
-    "name": "Critical Thinking",
+    "name": "Критическое мышление",
     "color": "var(--tag-critical-thinking)",
     "bg": "var(--tag-critical-thinking-bg)",
     "icon": "🔍"
   },
   {
-    "name": "Mindfulness",
+    "name": "Осознанность",
     "color": "var(--tag-mindfulness)",
     "bg": "var(--tag-mindfulness-bg)",
     "icon": "🧘"
   },
 
-  { "name": "Differential Equations",   "color": "var(--tag-calculus)",         "bg": "var(--tag-calculus-bg)",         "icon": "📉" },
-  { "name": "Discrete Mathematics",     "color": "var(--tag-math)",             "bg": "var(--tag-math-bg)",             "icon": "🔣" },
-  { "name": "Data Structures",          "color": "var(--tag-computer-science)", "bg": "var(--tag-computer-science-bg)", "icon": "🗂️" },
-  { "name": "Algorithms",               "color": "var(--tag-programming)",      "bg": "var(--tag-programming-bg)",      "icon": "⚙️" },
-  { "name": "Machine Learning",         "color": "var(--tag-astronomy)",        "bg": "var(--tag-astronomy-bg)",        "icon": "🤖" },
-  { "name": "Database Systems",         "color": "var(--tag-computer-science)", "bg": "var(--tag-computer-science-bg)", "icon": "🗄️" },
-  { "name": "Operating Systems",        "color": "var(--tag-geography)",        "bg": "var(--tag-geography-bg)",        "icon": "🖥️" },
-  { "name": "Computer Networks",        "color": "var(--tag-programming)",      "bg": "var(--tag-programming-bg)",      "icon": "📡" },
-  { "name": "Artificial Intelligence",  "color": "var(--tag-physics)",          "bg": "var(--tag-physics-bg)",          "icon": "🧠" },
-  { "name": "Probability Theory",       "color": "var(--tag-statistics)",       "bg": "var(--tag-statistics-bg)",       "icon": "🎲" },
-  { "name": "Number Theory",            "color": "var(--tag-math)",             "bg": "var(--tag-math-bg)",             "icon": "∞" },
-  { "name": "Real Analysis",            "color": "var(--tag-algebra)",          "bg": "var(--tag-algebra-bg)",          "icon": "📊" },
-  { "name": "Quantum Mechanics",        "color": "var(--tag-physics)",          "bg": "var(--tag-physics-bg)",          "icon": "⚡" },
-  { "name": "Thermodynamics",           "color": "var(--tag-chemistry)",        "bg": "var(--tag-chemistry-bg)",        "icon": "🌡️" },
-  { "name": "Organic Chemistry",        "color": "var(--tag-chemistry)",        "bg": "var(--tag-chemistry-bg)",        "icon": "🧪" },
-  { "name": "Biochemistry",             "color": "var(--tag-biology)",          "bg": "var(--tag-biology-bg)",          "icon": "🧬" },
-  { "name": "Molecular Biology",        "color": "var(--tag-biology)",          "bg": "var(--tag-biology-bg)",          "icon": "🔬" },
-  { "name": "Genetics",                 "color": "var(--tag-earth-science)",    "bg": "var(--tag-earth-science-bg)",    "icon": "🧫" },
-  { "name": "Neuroscience",             "color": "var(--tag-psychology)",       "bg": "var(--tag-psychology-bg)",       "icon": "🧠" },
-  { "name": "Cognitive Science",        "color": "var(--tag-psychology)",       "bg": "var(--tag-psychology-bg)",       "icon": "💭" },
-  { "name": "International Relations",  "color": "var(--tag-world-history)",    "bg": "var(--tag-world-history-bg)",    "icon": "🌍" },
-  { "name": "Anthropology",             "color": "var(--tag-history)",          "bg": "var(--tag-history-bg)",          "icon": "🏺" },
-  { "name": "Linguistics",              "color": "var(--tag-grammar)",          "bg": "var(--tag-grammar-bg)",          "icon": "🔤" },
-  { "name": "Financial Mathematics",    "color": "var(--tag-economics)",        "bg": "var(--tag-economics-bg)",        "icon": "📈" },
-  { "name": "Game Theory",              "color": "var(--tag-philosophy)",       "bg": "var(--tag-philosophy-bg)",       "icon": "♟️" },
+  {
+    "name": "Дифференциальные уравнения",
+    "color": "var(--tag-calculus)",
+    "bg": "var(--tag-calculus-bg)",
+    "icon": "📉"
+  },
+  {
+    "name": "Дискретная математика",
+    "color": "var(--tag-math)",
+    "bg": "var(--tag-math-bg)",
+    "icon": "🔣"
+  },
+  {
+    "name": "Структуры данных",
+    "color": "var(--tag-computer-science)",
+    "bg": "var(--tag-computer-science-bg)",
+    "icon": "🗂️"
+  },
+  {
+    "name": "Алгоритмы",
+    "color": "var(--tag-programming)",
+    "bg": "var(--tag-programming-bg)",
+    "icon": "⚙️"
+  },
+  {
+    "name": "Машинное обучение",
+    "color": "var(--tag-astronomy)",
+    "bg": "var(--tag-astronomy-bg)",
+    "icon": "🤖"
+  },
+  {
+    "name": "Базы данных",
+    "color": "var(--tag-computer-science)",
+    "bg": "var(--tag-computer-science-bg)",
+    "icon": "🗄️"
+  },
+  {
+    "name": "Операционные системы",
+    "color": "var(--tag-geography)",
+    "bg": "var(--tag-geography-bg)",
+    "icon": "🖥️"
+  },
+  {
+    "name": "Компьютерные сети",
+    "color": "var(--tag-programming)",
+    "bg": "var(--tag-programming-bg)",
+    "icon": "📡"
+  },
+  {
+    "name": "Искусственный интеллект",
+    "color": "var(--tag-physics)",
+    "bg": "var(--tag-physics-bg)",
+    "icon": "🧠"
+  },
+  {
+    "name": "Теория чисел",
+    "color": "var(--tag-math)",
+    "bg": "var(--tag-math-bg)",
+    "icon": "∞"
+  },
+  {
+    "name": "Математический анализ II",
+    "color": "var(--tag-algebra)",
+    "bg": "var(--tag-algebra-bg)",
+    "icon": "📊"
+  },
+  {
+    "name": "Квантовая механика",
+    "color": "var(--tag-physics)",
+    "bg": "var(--tag-physics-bg)",
+    "icon": "⚡"
+  },
+  {
+    "name": "Термодинамика",
+    "color": "var(--tag-chemistry)",
+    "bg": "var(--tag-chemistry-bg)",
+    "icon": "🌡️"
+  },
+  {
+    "name": "Органическая химия",
+    "color": "var(--tag-chemistry)",
+    "bg": "var(--tag-chemistry-bg)",
+    "icon": "🧪"
+  },
+  {
+    "name": "Биохимия",
+    "color": "var(--tag-biology)",
+    "bg": "var(--tag-biology-bg)",
+    "icon": "🧬"
+  },
+  {
+    "name": "Молекулярная биология",
+    "color": "var(--tag-biology)",
+    "bg": "var(--tag-biology-bg)",
+    "icon": "🔬"
+  },
+  {
+    "name": "Генетика",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "🧫"
+  },
+  {
+    "name": "Нейронауки",
+    "color": "var(--tag-psychology)",
+    "bg": "var(--tag-psychology-bg)",
+    "icon": "🧠"
+  },
+  {
+    "name": "Когнитивная наука",
+    "color": "var(--tag-psychology)",
+    "bg": "var(--tag-psychology-bg)",
+    "icon": "💭"
+  },
+  {
+    "name": "Международные отношения",
+    "color": "var(--tag-world-history)",
+    "bg": "var(--tag-world-history-bg)",
+    "icon": "🌍"
+  },
+  {
+    "name": "Антропология",
+    "color": "var(--tag-history)",
+    "bg": "var(--tag-history-bg)",
+    "icon": "🏺"
+  },
+  {
+    "name": "Лингвистика",
+    "color": "var(--tag-grammar)",
+    "bg": "var(--tag-grammar-bg)",
+    "icon": "🔤"
+  },
+  {
+    "name": "Финансовая математика",
+    "color": "var(--tag-economics)",
+    "bg": "var(--tag-economics-bg)",
+    "icon": "📈"
+  },
+  {
+    "name": "Теория игр",
+    "color": "var(--tag-philosophy)",
+    "bg": "var(--tag-philosophy-bg)",
+    "icon": "♟️"
+  },
 
-  { "name": "Russian",    "color": "var(--tag-russian)",    "bg": "var(--tag-russian-bg)",    "icon": "🇷🇺" },
-  { "name": "Portuguese", "color": "var(--tag-portuguese)", "bg": "var(--tag-portuguese-bg)", "icon": "🇵🇹" },
-  { "name": "Italian",    "color": "var(--tag-italian)",    "bg": "var(--tag-italian-bg)",    "icon": "🇮🇹" },
-  { "name": "Korean",     "color": "var(--tag-korean)",     "bg": "var(--tag-korean-bg)",     "icon": "🇰🇷" },
-  { "name": "Hindi",      "color": "var(--tag-hindi)",      "bg": "var(--tag-hindi-bg)",      "icon": "🇮🇳" },
-  { "name": "Turkish",    "color": "var(--tag-turkish)",    "bg": "var(--tag-turkish-bg)",    "icon": "🇹🇷" },
-  { "name": "Dutch",      "color": "var(--tag-dutch)",      "bg": "var(--tag-dutch-bg)",      "icon": "🇳🇱" },
-  { "name": "Polish",     "color": "var(--tag-polish)",     "bg": "var(--tag-polish-bg)",     "icon": "🇵🇱" },
-  { "name": "Ukrainian",  "color": "var(--tag-ukrainian)",  "bg": "var(--tag-ukrainian-bg)",  "icon": "🇺🇦" },
-  { "name": "Swedish",    "color": "var(--tag-swedish)",    "bg": "var(--tag-swedish-bg)",    "icon": "🇸🇪" },
-  { "name": "Greek",      "color": "var(--tag-greek)",      "bg": "var(--tag-greek-bg)",      "icon": "🇬🇷" },
-  { "name": "Hebrew",     "color": "var(--tag-hebrew)",     "bg": "var(--tag-hebrew-bg)",     "icon": "🇮🇱" },
-  { "name": "Persian",    "color": "var(--tag-persian)",    "bg": "var(--tag-persian-bg)",    "icon": "🇮🇷" },
-  { "name": "Indonesian", "color": "var(--tag-indonesian)", "bg": "var(--tag-indonesian-bg)", "icon": "🇮🇩" },
-  { "name": "Thai",       "color": "var(--tag-thai)",       "bg": "var(--tag-thai-bg)",       "icon": "🇹🇭" },
-  { "name": "Vietnamese", "color": "var(--tag-vietnamese)", "bg": "var(--tag-vietnamese-bg)", "icon": "🇻🇳" }
+  {
+    "name": "Чтение Корана",
+    "color": "var(--tag-quran-reading)",
+    "bg": "var(--tag-quran-reading-bg)",
+    "icon": "📖"
+  },
+  {
+    "name": "Хифз Корана",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "📿"
+  },
+  {
+    "name": "Муроджиа Корана",
+    "color": "var(--tag-murajaah)",
+    "bg": "var(--tag-murajaah-bg)",
+    "icon": "🔄"
+  },
+  {
+    "name": "Хатм Корана",
+    "color": "var(--tag-khatm)",
+    "bg": "var(--tag-khatm-bg)",
+    "icon": "🌟"
+  },
+  {
+    "name": "Тахаджуд + Вирд",
+    "color": "var(--tag-wird)",
+    "bg": "var(--tag-wird-bg)",
+    "icon": "🌙"
+  },
+  {
+    "name": "Вирд Корана",
+    "color": "var(--tag-wird)",
+    "bg": "var(--tag-wird-bg)",
+    "icon": "🌙"
+  },
+  {
+    "name": "Таджвид",
+    "color": "var(--tag-tajweed)",
+    "bg": "var(--tag-tajweed-bg)",
+    "icon": "🎵"
+  },
+  {
+    "name": "Тафсир",
+    "color": "var(--tag-quran-tafsir)",
+    "bg": "var(--tag-quran-tafsir-bg)",
+    "icon": "💫"
+  },
+  {
+    "name": "Науки о Коране",
+    "color": "var(--tag-quran-sciences)",
+    "bg": "var(--tag-quran-sciences-bg)",
+    "icon": "✨"
+  },
+  {
+    "name": "Мединский курс (МК)",
+    "color": "var(--tag-medina-course)",
+    "bg": "var(--tag-medina-course-bg)",
+    "icon": "📗"
+  },
+  {
+    "name": "МК 1 том",
+    "color": "var(--tag-mk-1)",
+    "bg": "var(--tag-mk-1-bg)",
+    "icon": "📔"
+  },
+  {
+    "name": "МК 2 том",
+    "color": "var(--tag-mk-2)",
+    "bg": "var(--tag-mk-2-bg)",
+    "icon": "📗"
+  },
+  {
+    "name": "МК 3 том",
+    "color": "var(--tag-mk-3)",
+    "bg": "var(--tag-mk-3-bg)",
+    "icon": "📘"
+  },
+  {
+    "name": "МК 4 том",
+    "color": "var(--tag-mk-4)",
+    "bg": "var(--tag-mk-4-bg)",
+    "icon": "📕"
+  },
+
+  {
+    "name": "Бейна Ядейк (БЯ)",
+    "color": "var(--tag-bayna-yadayk)",
+    "bg": "var(--tag-bayna-yadayk-bg)",
+    "icon": "📘"
+  },
+  {
+    "name": "БЯ 1 том",
+    "color": "var(--tag-bya-1)",
+    "bg": "var(--tag-bya-1-bg)",
+    "icon": "📙"
+  },
+  {
+    "name": "БЯ 2 том",
+    "color": "var(--tag-bya-2)",
+    "bg": "var(--tag-bya-2-bg)",
+    "icon": "📗"
+  },
+  {
+    "name": "БЯ 3 том",
+    "color": "var(--tag-bya-3)",
+    "bg": "var(--tag-bya-3-bg)",
+    "icon": "📘"
+  },
+  {
+    "name": "БЯ 4 том",
+    "color": "var(--tag-bya-4)",
+    "bg": "var(--tag-bya-4-bg)",
+    "icon": "📕"
+  },
+
+  {
+    "name": "Аджрумийа",
+    "color": "var(--tag-ajrumiyya)",
+    "bg": "var(--tag-ajrumiyya-bg)",
+    "icon": "📜"
+  },
+  {
+    "name": "Катру ан-Нада",
+    "color": "var(--tag-qatrun-nada)",
+    "bg": "var(--tag-qatrun-nada-bg)",
+    "icon": "💧"
+  },
+  {
+    "name": "Альфия ибн Малика",
+    "color": "var(--tag-alfiyya)",
+    "bg": "var(--tag-alfiyya-bg)",
+    "icon": "🏆"
+  },
+  {
+    "name": "Академия ZAD",
+    "color": "var(--tag-academy-zad)",
+    "bg": "var(--tag-academy-zad-bg)",
+    "icon": "🎓"
+  },
+  {
+    "name": "ДИРОЯ",
+    "color": "var(--tag-diraya)",
+    "bg": "var(--tag-diraya-bg)",
+    "icon": "📡"
+  },
+  {
+    "name": "Педагогика",
+    "color": "var(--tag-pedagogy)",
+    "bg": "var(--tag-pedagogy-bg)",
+    "icon": "🍎"
+  },
+  {
+    "name": "Стажировка",
+    "color": "var(--tag-internship)",
+    "bg": "var(--tag-internship-bg)",
+    "icon": "💼"
+  },
+  {
+    "name": "Красноречие (Баляга)",
+    "color": "var(--tag-balagha)",
+    "bg": "var(--tag-balagha-bg)",
+    "icon": "💎"
+  },
+  {
+    "name": "Сильсиля ибн Сауда",
+    "color": "var(--tag-silsila)",
+    "bg": "var(--tag-silsila-bg)",
+    "icon": "🔗"
+  },
+  {
+    "name": "Кыроа Рошиди",
+    "color": "var(--tag-qiraa-rashidi)",
+    "bg": "var(--tag-qiraa-rashidi-bg)",
+    "icon": "📖"
+  },
+  {
+    "name": "Арабский для Корана",
+    "color": "var(--tag-arabic-for-quran)",
+    "bg": "var(--tag-arabic-for-quran-bg)",
+    "icon": "🌿"
+  },
+  {
+    "name": "Грамматика (нахву)",
+    "color": "var(--tag-arabic-grammar)",
+    "bg": "var(--tag-arabic-grammar-bg)",
+    "icon": "📝"
+  },
+  {
+    "name": "Морфология",
+    "color": "var(--tag-grammar)",
+    "bg": "var(--tag-grammar-bg)",
+    "icon": "🔤"
+  },
+  {
+    "name": "Красноречие",
+    "color": "var(--tag-writing)",
+    "bg": "var(--tag-writing-bg)",
+    "icon": "✍️"
+  },
+  {
+    "name": "Морфология (сарф)",
+    "color": "var(--tag-arabic-morphology)",
+    "bg": "var(--tag-arabic-morphology-bg)",
+    "icon": "🔤"
+  },
+  {
+    "name": "Акыда",
+    "color": "var(--tag-aqeedah)",
+    "bg": "var(--tag-aqeedah-bg)",
+    "icon": "🌟"
+  },
+  {
+    "name": "Хадисы",
+    "color": "var(--tag-hadith-studies)",
+    "bg": "var(--tag-hadith-studies-bg)",
+    "icon": "📜"
+  },
+  {
+    "name": "Заучивание хадисов",
+    "color": "var(--tag-hadith-memorization)",
+    "bg": "var(--tag-hadith-memorization-bg)",
+    "icon": "📿"
+  },
+  {
+    "name": "Науки о хадисах",
+    "color": "var(--tag-hadith-sciences)",
+    "bg": "var(--tag-hadith-sciences-bg)",
+    "icon": "📚"
+  },
+  {
+    "name": "Фикх",
+    "color": "var(--tag-fiqh)",
+    "bg": "var(--tag-fiqh-bg)",
+    "icon": "⚖️"
+  },
+  {
+    "name": "Фикх ибадат",
+    "color": "var(--tag-fiqh-worship)",
+    "bg": "var(--tag-fiqh-worship-bg)",
+    "icon": "🕌"
+  },
+  {
+    "name": "Фикх муамалат",
+    "color": "var(--tag-fiqh-transactions)",
+    "bg": "var(--tag-fiqh-transactions-bg)",
+    "icon": "💼"
+  },
+  {
+    "name": "Усуль аль-фикх",
+    "color": "var(--tag-usul-al-fiqh)",
+    "bg": "var(--tag-usul-al-fiqh-bg)",
+    "icon": "📖"
+  },
+  {
+    "name": "Сира",
+    "color": "var(--tag-seerah)",
+    "bg": "var(--tag-seerah-bg)",
+    "icon": "🌙"
+  },
+  {
+    "name": "История ислама",
+    "color": "var(--tag-islamic-history)",
+    "bg": "var(--tag-islamic-history-bg)",
+    "icon": "🏛️"
+  },
+  {
+    "name": "Сподвижники",
+    "color": "var(--tag-companions)",
+    "bg": "var(--tag-companions-bg)",
+    "icon": "👥"
+  },
+  {
+    "name": "Ахляк",
+    "color": "var(--tag-akhlaq)",
+    "bg": "var(--tag-akhlaq-bg)",
+    "icon": "💎"
+  },
+  {
+    "name": "Адаб",
+    "color": "var(--tag-adab)",
+    "bg": "var(--tag-adab-bg)",
+    "icon": "🌺"
+  },
+  {
+    "name": "Тазкия",
+    "color": "var(--tag-tazkiyah)",
+    "bg": "var(--tag-tazkiyah-bg)",
+    "icon": "🕊️"
+  },
+  {
+    "name": "Даава",
+    "color": "var(--tag-dawah)",
+    "bg": "var(--tag-dawah-bg)",
+    "icon": "📢"
+  },
+  {
+    "name": "Сравнительное религиоведение",
+    "color": "var(--tag-comparative-religion)",
+    "bg": "var(--tag-comparative-religion-bg)",
+    "icon": "🌍"
+  },
+  {
+    "name": "Семейное счатье",
+    "color": "var(--tag-islamic-family)",
+    "bg": "var(--tag-islamic-family-bg)",
+    "icon": "👨‍👩‍👧"
+  },
+  {
+    "name": "Исламские финансы",
+    "color": "var(--tag-islamic-finance)",
+    "bg": "var(--tag-islamic-finance-bg)",
+    "icon": "💰"
+  },
+  {
+    "name": "Исламское лидерство",
+    "color": "var(--tag-islamic-leadership)",
+    "bg": "var(--tag-islamic-leadership-bg)",
+    "icon": "👑"
+  },
+  {
+    "name": "Словарный запас Корана",
+    "color": "var(--tag-quranic-vocabulary)",
+    "bg": "var(--tag-quranic-vocabulary-bg)",
+    "icon": "🔤"
+  },
+  {
+    "name": "Исламское воспитание",
+    "color": "var(--tag-islamic-education)",
+    "bg": "var(--tag-islamic-education-bg)",
+    "icon": "🌱"
+  },
+
+  {
+    "name": "Язык жестов",
+    "color": "var(--tag-sign-language)",
+    "bg": "var(--tag-sign-language-bg)",
+    "icon": "🤟"
+  },
+  {
+    "name": "Шрифт Брайля",
+    "color": "var(--tag-braille)",
+    "bg": "var(--tag-braille-bg)",
+    "icon": "👆"
+  },
+  {
+    "name": "Письмо левой рукой 20 мин.",
+    "color": "var(--tag-left-hand-writing)",
+    "bg": "var(--tag-left-hand-writing-bg)",
+    "icon": "✋"
+  },
+
+  {
+    "name": "Конная езда",
+    "color": "var(--tag-horse-riding)",
+    "bg": "var(--tag-horse-riding-bg)",
+    "icon": "🐴"
+  },
+  {
+    "name": "Стрельба из лука",
+    "color": "var(--tag-archery)",
+    "bg": "var(--tag-archery-bg)",
+    "icon": "🏹"
+  },
+  {
+    "name": "Плавание",
+    "color": "var(--tag-swimming)",
+    "bg": "var(--tag-swimming-bg)",
+    "icon": "🏊"
+  },
+  {
+    "name": "Борьба",
+    "color": "var(--tag-wrestling)",
+    "bg": "var(--tag-wrestling-bg)",
+    "icon": "🤼"
+  },
+  {
+    "name": "Бег",
+    "color": "var(--tag-running)",
+    "bg": "var(--tag-running-bg)",
+    "icon": "🏃"
+  },
+
+  {
+    "name": "Кубик Рубика",
+    "color": "var(--tag-rubiks-cube)",
+    "bg": "var(--tag-rubiks-cube-bg)",
+    "icon": "🧩"
+  },
+  {
+    "name": "Шахматы",
+    "color": "var(--tag-chess-hobby)",
+    "bg": "var(--tag-chess-hobby-bg)",
+    "icon": "♟️"
+  },
+  {
+    "name": "Каллиграфия",
+    "color": "var(--tag-calligraphy)",
+    "bg": "var(--tag-calligraphy-bg)",
+    "icon": "🖊️"
+  },
+  {
+    "name": "Вышивание",
+    "color": "var(--tag-embroidery)",
+    "bg": "var(--tag-embroidery-bg)",
+    "icon": "🧵"
+  },
+  {
+    "name": "Вязание",
+    "color": "var(--tag-knitting)",
+    "bg": "var(--tag-knitting-bg)",
+    "icon": "🧶"
+  },
+  {
+    "name": "Шитьё",
+    "color": "var(--tag-sewing)",
+    "bg": "var(--tag-sewing-bg)",
+    "icon": "✂️"
+  },
+  {
+    "name": "Рисование",
+    "color": "var(--tag-drawing)",
+    "bg": "var(--tag-drawing-bg)",
+    "icon": "✏️"
+  },
+  {
+    "name": "Оригами",
+    "color": "var(--tag-origami)",
+    "bg": "var(--tag-origami-bg)",
+    "icon": "🦢"
+  },
+
+  {
+    "name": "Русский",
+    "color": "var(--tag-russian)",
+    "bg": "var(--tag-russian-bg)",
+    "icon": "🇷🇺"
+  },
+  {
+    "name": "Португальский",
+    "color": "var(--tag-portuguese)",
+    "bg": "var(--tag-portuguese-bg)",
+    "icon": "🇵🇹"
+  },
+  {
+    "name": "Итальянский",
+    "color": "var(--tag-italian)",
+    "bg": "var(--tag-italian-bg)",
+    "icon": "🇮🇹"
+  },
+  {
+    "name": "Корейский",
+    "color": "var(--tag-korean)",
+    "bg": "var(--tag-korean-bg)",
+    "icon": "🇰🇷"
+  },
+  {
+    "name": "Хинди",
+    "color": "var(--tag-hindi)",
+    "bg": "var(--tag-hindi-bg)",
+    "icon": "🇮🇳"
+  },
+  {
+    "name": "Турецкий",
+    "color": "var(--tag-turkish)",
+    "bg": "var(--tag-turkish-bg)",
+    "icon": "🇹🇷"
+  },
+  {
+    "name": "Нидерландский",
+    "color": "var(--tag-dutch)",
+    "bg": "var(--tag-dutch-bg)",
+    "icon": "🇳🇱"
+  },
+  {
+    "name": "Польский",
+    "color": "var(--tag-polish)",
+    "bg": "var(--tag-polish-bg)",
+    "icon": "🇵🇱"
+  },
+  {
+    "name": "Украинский",
+    "color": "var(--tag-ukrainian)",
+    "bg": "var(--tag-ukrainian-bg)",
+    "icon": "🇺🇦"
+  },
+  {
+    "name": "Шведский",
+    "color": "var(--tag-swedish)",
+    "bg": "var(--tag-swedish-bg)",
+    "icon": "🇸🇪"
+  },
+  {
+    "name": "Греческий",
+    "color": "var(--tag-greek)",
+    "bg": "var(--tag-greek-bg)",
+    "icon": "🇬🇷"
+  },
+  {
+    "name": "Иврит",
+    "color": "var(--tag-hebrew)",
+    "bg": "var(--tag-hebrew-bg)",
+    "icon": "🇮🇱"
+  },
+  {
+    "name": "Персидский",
+    "color": "var(--tag-persian)",
+    "bg": "var(--tag-persian-bg)",
+    "icon": "🇮🇷"
+  },
+  {
+    "name": "Индонезийский",
+    "color": "var(--tag-indonesian)",
+    "bg": "var(--tag-indonesian-bg)",
+    "icon": "🇮🇩"
+  },
+  {
+    "name": "Тайский",
+    "color": "var(--tag-thai)",
+    "bg": "var(--tag-thai-bg)",
+    "icon": "🇹🇭"
+  },
+  {
+    "name": "Вьетнамский",
+    "color": "var(--tag-vietnamese)",
+    "bg": "var(--tag-vietnamese-bg)",
+    "icon": "🇻🇳"
+  },
+
+  {
+    "name": "Поэзия",
+    "color": "var(--tag-poetry)",
+    "bg": "var(--tag-poetry-bg)",
+    "icon": "🪶"
+  },
+
+  {
+    "name": "ОБЖ",
+    "color": "var(--tag-obzh)",
+    "bg": "var(--tag-obzh-bg)",
+    "icon": "⛑️"
+  },
+  {
+    "name": "Технология",
+    "color": "var(--tag-technology)",
+    "bg": "var(--tag-technology-bg)",
+    "icon": "🔧"
+  },
+  {
+    "name": "Черчение",
+    "color": "var(--tag-drafting)",
+    "bg": "var(--tag-drafting-bg)",
+    "icon": "📐"
+  },
+  {
+    "name": "МХК",
+    "color": "var(--tag-mhk)",
+    "bg": "var(--tag-mhk-bg)",
+    "icon": "🎭"
+  },
+
+  {
+    "name": "Python",
+    "color": "var(--tag-python)",
+    "bg": "var(--tag-python-bg)",
+    "icon": "🐍"
+  },
+  {
+    "name": "JavaScript",
+    "color": "var(--tag-javascript)",
+    "bg": "var(--tag-javascript-bg)",
+    "icon": "🟨"
+  },
+  {
+    "name": "C++",
+    "color": "var(--tag-cpp)",
+    "bg": "var(--tag-cpp-bg)",
+    "icon": "⚙️"
+  },
+  {
+    "name": "Java",
+    "color": "var(--tag-java)",
+    "bg": "var(--tag-java-bg)",
+    "icon": "☕"
+  },
+  {
+    "name": "TypeScript",
+    "color": "var(--tag-typescript)",
+    "bg": "var(--tag-typescript-bg)",
+    "icon": "🔷"
+  },
+  {
+    "name": "HTML/CSS",
+    "color": "var(--tag-html-css)",
+    "bg": "var(--tag-html-css-bg)",
+    "icon": "🌐"
+  },
+  {
+    "name": "Swift",
+    "color": "var(--tag-swift)",
+    "bg": "var(--tag-swift-bg)",
+    "icon": "🍎"
+  },
+  {
+    "name": "Kotlin",
+    "color": "var(--tag-kotlin)",
+    "bg": "var(--tag-kotlin-bg)",
+    "icon": "🤖"
+  },
+  {
+    "name": "PHP",
+    "color": "var(--tag-php)",
+    "bg": "var(--tag-php-bg)",
+    "icon": "🐘"
+  },
+  {
+    "name": "C#",
+    "color": "var(--tag-csharp)",
+    "bg": "var(--tag-csharp-bg)",
+    "icon": "💚"
+  },
+
+  {
+    "name": "Устаза Асма",
+    "color": "var(--tag-ustaza-asma)",
+    "bg": "var(--tag-ustaza-asma-bg)",
+    "icon": "❤️"
+  },
+  {
+    "name": "Абакус",
+    "color": "var(--tag-abacus)",
+    "bg": "var(--tag-abacus-bg)",
+    "icon": "🧮"
+  }
 ]

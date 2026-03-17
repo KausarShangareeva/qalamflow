@@ -1,648 +1,850 @@
 /* ===== Course Tag Colors ===== */
 /* Dark theme (default) — bright, neon-ish, visible on dark backgrounds */
 :root {
-  --tag-math:               #4F9EFF;
-  --tag-math-bg:            rgba(79, 158, 255, 0.13);
+  --tag-math: #4f9eff;
+  --tag-math-bg: rgba(79, 158, 255, 0.13);
 
-  --tag-algebra:            #A855F7;
-  --tag-algebra-bg:         rgba(168, 85, 247, 0.13);
+  --tag-algebra: #a855f7;
+  --tag-algebra-bg: rgba(168, 85, 247, 0.13);
 
-  --tag-geometry:           #FF6B35;
-  --tag-geometry-bg:        rgba(255, 107, 53, 0.13);
+  --tag-geometry: #ff6b35;
+  --tag-geometry-bg: rgba(255, 107, 53, 0.13);
 
-  --tag-calculus:           #FF3D68;
-  --tag-calculus-bg:        rgba(255, 61, 104, 0.13);
+  --tag-calculus: #ff3d68;
+  --tag-calculus-bg: rgba(255, 61, 104, 0.13);
 
-  --tag-statistics:         #EAB308;
-  --tag-statistics-bg:      rgba(234, 179, 8, 0.13);
+  --tag-statistics: #eab308;
+  --tag-statistics-bg: rgba(234, 179, 8, 0.13);
 
-  --tag-biology:            #00D68F;
-  --tag-biology-bg:         rgba(0, 214, 143, 0.13);
+  --tag-biology: #00d68f;
+  --tag-biology-bg: rgba(0, 214, 143, 0.13);
 
-  --tag-chemistry:          #FFB800;
-  --tag-chemistry-bg:       rgba(255, 184, 0, 0.13);
+  --tag-chemistry: #ffb800;
+  --tag-chemistry-bg: rgba(255, 184, 0, 0.13);
 
-  --tag-physics:            #C084FC;
-  --tag-physics-bg:         rgba(192, 132, 252, 0.13);
+  --tag-physics: #c084fc;
+  --tag-physics-bg: rgba(192, 132, 252, 0.13);
 
-  --tag-astronomy:          #818CF8;
-  --tag-astronomy-bg:       rgba(129, 140, 248, 0.13);
+  --tag-astronomy: #818cf8;
+  --tag-astronomy-bg: rgba(129, 140, 248, 0.13);
 
-  --tag-earth-science:      #84CC16;
-  --tag-earth-science-bg:   rgba(132, 204, 22, 0.13);
+  --tag-earth-science: #84cc16;
+  --tag-earth-science-bg: rgba(132, 204, 22, 0.13);
 
-  --tag-history:            #C8865A;
-  --tag-history-bg:         rgba(200, 134, 90, 0.13);
+  --tag-history: #c8865a;
+  --tag-history-bg: rgba(200, 134, 90, 0.13);
 
-  --tag-world-history:      #E040FB;
-  --tag-world-history-bg:   rgba(224, 64, 251, 0.13);
+  --tag-world-history: #e040fb;
+  --tag-world-history-bg: rgba(224, 64, 251, 0.13);
 
-  --tag-geography:          #06B6D4;
-  --tag-geography-bg:       rgba(6, 182, 212, 0.13);
+  --tag-geography: #06b6d4;
+  --tag-geography-bg: rgba(6, 182, 212, 0.13);
 
-  --tag-literature:         #F472B6;
-  --tag-literature-bg:      rgba(244, 114, 182, 0.13);
+  --tag-literature: #f472b6;
+  --tag-literature-bg: rgba(244, 114, 182, 0.13);
 
-  --tag-writing:            #FBBF24;
-  --tag-writing-bg:         rgba(251, 191, 36, 0.13);
+  --tag-writing: #fbbf24;
+  --tag-writing-bg: rgba(251, 191, 36, 0.13);
 
-  --tag-grammar:            #6E8FFF;
-  --tag-grammar-bg:         rgba(110, 143, 255, 0.13);
+  --tag-grammar: #6e8fff;
+  --tag-grammar-bg: rgba(110, 143, 255, 0.13);
 
-  --tag-reading:            #A78BFA;
-  --tag-reading-bg:         rgba(167, 139, 250, 0.13);
+  --tag-reading: #a78bfa;
+  --tag-reading-bg: rgba(167, 139, 250, 0.13);
 
-  --tag-english:            #F97316;
-  --tag-english-bg:         rgba(249, 115, 22, 0.13);
+  --tag-english: #f97316;
+  --tag-english-bg: rgba(249, 115, 22, 0.13);
 
-  --tag-computer-science:   #6366F1;
-  --tag-computer-science-bg:rgba(99, 102, 241, 0.13);
+  --tag-computer-science: #6366f1;
+  --tag-computer-science-bg: rgba(99, 102, 241, 0.13);
 
-  --tag-programming:        #0EA5E9;
-  --tag-programming-bg:     rgba(14, 165, 233, 0.13);
+  --tag-programming: #0ea5e9;
+  --tag-programming-bg: rgba(14, 165, 233, 0.13);
 
-  --tag-art:                #F43F8E;
-  --tag-art-bg:             rgba(244, 63, 142, 0.13);
+  --tag-art: #f43f8e;
+  --tag-art-bg: rgba(244, 63, 142, 0.13);
 
-  --tag-music:              #FB923C;
-  --tag-music-bg:           rgba(251, 146, 60, 0.13);
+  --tag-music: #fb923c;
+  --tag-music-bg: rgba(251, 146, 60, 0.13);
 
-  --tag-physical-education:    #EF4444;
+  --tag-physical-education: #ef4444;
   --tag-physical-education-bg: rgba(239, 68, 68, 0.13);
 
-  --tag-psychology:         #C084FC;
-  --tag-psychology-bg:      rgba(192, 132, 252, 0.13);
+  --tag-psychology: #c084fc;
+  --tag-psychology-bg: rgba(192, 132, 252, 0.13);
 
-  --tag-economics:          #F43F5E;
-  --tag-economics-bg:       rgba(244, 63, 94, 0.13);
+  --tag-economics: #f43f5e;
+  --tag-economics-bg: rgba(244, 63, 94, 0.13);
 
-  --tag-philosophy:         #D4B96A;
-  --tag-philosophy-bg:      rgba(212, 185, 106, 0.13);
+  --tag-philosophy: #d4b96a;
+  --tag-philosophy-bg: rgba(212, 185, 106, 0.13);
 
-  --tag-social-studies:     #00C896;
-  --tag-social-studies-bg:  rgba(0, 200, 150, 0.13);
+  --tag-social-studies: #00c896;
+  --tag-social-studies-bg: rgba(0, 200, 150, 0.13);
 
-  --tag-drama:              #F050C0;
-  --tag-drama-bg:           rgba(240, 80, 192, 0.13);
+  --tag-drama: #f050c0;
+  --tag-drama-bg: rgba(240, 80, 192, 0.13);
 
   /* Languages */
-  --tag-spanish:            #FF6B9D;
-  --tag-spanish-bg:         rgba(255, 107, 157, 0.13);
+  --tag-spanish: #ff6b9d;
+  --tag-spanish-bg: rgba(255, 107, 157, 0.13);
 
-  --tag-french:             #4488FF;
-  --tag-french-bg:          rgba(68, 136, 255, 0.13);
+  --tag-french: #4488ff;
+  --tag-french-bg: rgba(68, 136, 255, 0.13);
 
-  --tag-german:             #FFD700;
-  --tag-german-bg:          rgba(255, 215, 0, 0.13);
+  --tag-german: #ffd700;
+  --tag-german-bg: rgba(255, 215, 0, 0.13);
 
-  --tag-japanese:           #FF4466;
-  --tag-japanese-bg:        rgba(255, 68, 102, 0.13);
+  --tag-japanese: #ff4466;
+  --tag-japanese-bg: rgba(255, 68, 102, 0.13);
 
-  --tag-arabic:             #00CC88;
-  --tag-arabic-bg:          rgba(0, 204, 136, 0.13);
+  --tag-arabic: #00cc88;
+  --tag-arabic-bg: rgba(0, 204, 136, 0.13);
 
-  --tag-chinese:            #FF5533;
-  --tag-chinese-bg:         rgba(255, 85, 51, 0.13);
+  --tag-chinese: #ff5533;
+  --tag-chinese-bg: rgba(255, 85, 51, 0.13);
 
   /* More Sciences */
-  --tag-environmental-science:    #44EE77;
+  --tag-environmental-science: #44ee77;
   --tag-environmental-science-bg: rgba(68, 238, 119, 0.13);
 
-  --tag-anatomy:            #FF7099;
-  --tag-anatomy-bg:         rgba(255, 112, 153, 0.13);
+  --tag-anatomy: #ff7099;
+  --tag-anatomy-bg: rgba(255, 112, 153, 0.13);
 
-  --tag-ecology:            #33DD66;
-  --tag-ecology-bg:         rgba(51, 221, 102, 0.13);
+  --tag-ecology: #33dd66;
+  --tag-ecology-bg: rgba(51, 221, 102, 0.13);
 
   /* More Math */
-  --tag-trigonometry:       #BB66FF;
-  --tag-trigonometry-bg:    rgba(187, 102, 255, 0.13);
+  --tag-trigonometry: #bb66ff;
+  --tag-trigonometry-bg: rgba(187, 102, 255, 0.13);
 
-  --tag-linear-algebra:     #55AAFF;
-  --tag-linear-algebra-bg:  rgba(85, 170, 255, 0.13);
+  --tag-linear-algebra: #55aaff;
+  --tag-linear-algebra-bg: rgba(85, 170, 255, 0.13);
 
-  --tag-probability:        #FF9922;
-  --tag-probability-bg:     rgba(255, 153, 34, 0.13);
+  --tag-probability: #ff9922;
+  --tag-probability-bg: rgba(255, 153, 34, 0.13);
 
   /* Social Sciences */
-  --tag-sociology:          #DD88FF;
-  --tag-sociology-bg:       rgba(221, 136, 255, 0.13);
+  --tag-sociology: #dd88ff;
+  --tag-sociology-bg: rgba(221, 136, 255, 0.13);
 
-  --tag-political-science:  #FF5544;
+  --tag-political-science: #ff5544;
   --tag-political-science-bg: rgba(255, 85, 68, 0.13);
 
-  --tag-law:                #DDAA33;
-  --tag-law-bg:             rgba(221, 170, 51, 0.13);
+  --tag-law: #ddaa33;
+  --tag-law-bg: rgba(221, 170, 51, 0.13);
 
   /* Tech */
-  --tag-data-science:       #00DDFF;
-  --tag-data-science-bg:    rgba(0, 221, 255, 0.13);
+  --tag-data-science: #00ddff;
+  --tag-data-science-bg: rgba(0, 221, 255, 0.13);
 
-  --tag-cybersecurity:      #FF3355;
-  --tag-cybersecurity-bg:   rgba(255, 51, 85, 0.13);
+  --tag-cybersecurity: #ff3355;
+  --tag-cybersecurity-bg: rgba(255, 51, 85, 0.13);
 
-  --tag-web-development:    #00BBFF;
+  --tag-web-development: #00bbff;
   --tag-web-development-bg: rgba(0, 187, 255, 0.13);
 
-  --tag-ui-ux-design:       #FF66CC;
-  --tag-ui-ux-design-bg:    rgba(255, 102, 204, 0.13);
+  --tag-ui-ux-design: #ff66cc;
+  --tag-ui-ux-design-bg: rgba(255, 102, 204, 0.13);
 
   /* Business */
-  --tag-marketing:          #FF8833;
-  --tag-marketing-bg:       rgba(255, 136, 51, 0.13);
+  --tag-marketing: #ff8833;
+  --tag-marketing-bg: rgba(255, 136, 51, 0.13);
 
-  --tag-finance:            #22DDAA;
-  --tag-finance-bg:         rgba(34, 221, 170, 0.13);
+  --tag-finance: #22ddaa;
+  --tag-finance-bg: rgba(34, 221, 170, 0.13);
 
-  --tag-accounting:         #77AAFF;
-  --tag-accounting-bg:      rgba(119, 170, 255, 0.13);
+  --tag-accounting: #77aaff;
+  --tag-accounting-bg: rgba(119, 170, 255, 0.13);
 
-  --tag-entrepreneurship:   #FFBB00;
-  --tag-entrepreneurship-bg:rgba(255, 187, 0, 0.13);
+  --tag-entrepreneurship: #ffbb00;
+  --tag-entrepreneurship-bg: rgba(255, 187, 0, 0.13);
 
   /* Self-development */
-  --tag-productivity:       #44FFBB;
-  --tag-productivity-bg:    rgba(68, 255, 187, 0.13);
+  --tag-productivity: #44ffbb;
+  --tag-productivity-bg: rgba(68, 255, 187, 0.13);
 
-  --tag-public-speaking:    #FF5577;
+  --tag-public-speaking: #ff5577;
   --tag-public-speaking-bg: rgba(255, 85, 119, 0.13);
 
-  --tag-leadership:         #AA77FF;
-  --tag-leadership-bg:      rgba(170, 119, 255, 0.13);
+  --tag-leadership: #aa77ff;
+  --tag-leadership-bg: rgba(170, 119, 255, 0.13);
 
-  --tag-critical-thinking:  #00EEBB;
-  --tag-critical-thinking-bg:rgba(0, 238, 187, 0.13);
+  --tag-critical-thinking: #00eebb;
+  --tag-critical-thinking-bg: rgba(0, 238, 187, 0.13);
 
-  --tag-mindfulness:        #88BBFF;
-  --tag-mindfulness-bg:     rgba(136, 187, 255, 0.13);
+  --tag-mindfulness: #88bbff;
+  --tag-mindfulness-bg: rgba(136, 187, 255, 0.13);
 
   /* Islamic Studies — Quran */
-  --tag-quran-reading:            #00E5A0;
-  --tag-quran-reading-bg:         rgba(0, 229, 160, 0.13);
+  --tag-quran-reading: #00e5a0;
+  --tag-quran-reading-bg: rgba(0, 229, 160, 0.13);
 
-  --tag-quran-memorization:       #00CC88;
-  --tag-quran-memorization-bg:    rgba(0, 204, 136, 0.13);
+  --tag-quran-memorization: #00cc88;
+  --tag-quran-memorization-bg: rgba(0, 204, 136, 0.13);
 
-  --tag-tajweed:                  #33DDAA;
-  --tag-tajweed-bg:               rgba(51, 221, 170, 0.13);
+  --tag-tajweed: #33ddaa;
+  --tag-tajweed-bg: rgba(51, 221, 170, 0.13);
 
-  --tag-quran-tafsir:             #22DDBB;
-  --tag-quran-tafsir-bg:          rgba(34, 221, 187, 0.13);
+  --tag-quran-tafsir: #22ddbb;
+  --tag-quran-tafsir-bg: rgba(34, 221, 187, 0.13);
 
-  --tag-quran-sciences:           #00FFCC;
-  --tag-quran-sciences-bg:        rgba(0, 255, 204, 0.13);
+  --tag-quran-sciences: #00ffcc;
+  --tag-quran-sciences-bg: rgba(0, 255, 204, 0.13);
 
   /* Islamic Studies — Arabic */
-  --tag-arabic-for-quran:         #44EE99;
-  --tag-arabic-for-quran-bg:      rgba(68, 238, 153, 0.13);
+  --tag-arabic-for-quran: #44ee99;
+  --tag-arabic-for-quran-bg: rgba(68, 238, 153, 0.13);
 
-  --tag-arabic-grammar:           #FFCC00;
-  --tag-arabic-grammar-bg:        rgba(255, 204, 0, 0.13);
+  --tag-arabic-grammar: #ffcc00;
+  --tag-arabic-grammar-bg: rgba(255, 204, 0, 0.13);
 
-  --tag-arabic-morphology:        #FFB800;
-  --tag-arabic-morphology-bg:     rgba(255, 184, 0, 0.13);
+  --tag-arabic-morphology: #ffb800;
+  --tag-arabic-morphology-bg: rgba(255, 184, 0, 0.13);
 
   /* Islamic Studies — Aqeedah & Hadith */
-  --tag-aqeedah:                  #FF9933;
-  --tag-aqeedah-bg:               rgba(255, 153, 51, 0.13);
+  --tag-aqeedah: #ff9933;
+  --tag-aqeedah-bg: rgba(255, 153, 51, 0.13);
 
-  --tag-hadith-studies:           #FFD700;
-  --tag-hadith-studies-bg:        rgba(255, 215, 0, 0.13);
+  --tag-hadith-studies: #ffd700;
+  --tag-hadith-studies-bg: rgba(255, 215, 0, 0.13);
 
-  --tag-hadith-memorization:      #FFAA00;
-  --tag-hadith-memorization-bg:   rgba(255, 170, 0, 0.13);
+  --tag-hadith-memorization: #ffaa00;
+  --tag-hadith-memorization-bg: rgba(255, 170, 0, 0.13);
 
-  --tag-hadith-sciences:          #FF9900;
-  --tag-hadith-sciences-bg:       rgba(255, 153, 0, 0.13);
+  --tag-hadith-sciences: #ff9900;
+  --tag-hadith-sciences-bg: rgba(255, 153, 0, 0.13);
 
   /* Islamic Studies — Fiqh */
-  --tag-fiqh:                     #4488FF;
-  --tag-fiqh-bg:                  rgba(68, 136, 255, 0.13);
+  --tag-fiqh: #4488ff;
+  --tag-fiqh-bg: rgba(68, 136, 255, 0.13);
 
-  --tag-fiqh-worship:             #5599FF;
-  --tag-fiqh-worship-bg:          rgba(85, 153, 255, 0.13);
+  --tag-fiqh-worship: #5599ff;
+  --tag-fiqh-worship-bg: rgba(85, 153, 255, 0.13);
 
-  --tag-fiqh-transactions:        #66AAFF;
-  --tag-fiqh-transactions-bg:     rgba(102, 170, 255, 0.13);
+  --tag-fiqh-transactions: #66aaff;
+  --tag-fiqh-transactions-bg: rgba(102, 170, 255, 0.13);
 
-  --tag-usul-al-fiqh:             #3377EE;
-  --tag-usul-al-fiqh-bg:          rgba(51, 119, 238, 0.13);
+  --tag-usul-al-fiqh: #3377ee;
+  --tag-usul-al-fiqh-bg: rgba(51, 119, 238, 0.13);
 
   /* Islamic Studies — History & Seerah */
-  --tag-seerah:                   #FFB366;
-  --tag-seerah-bg:                rgba(255, 179, 102, 0.13);
+  --tag-seerah: #ffb366;
+  --tag-seerah-bg: rgba(255, 179, 102, 0.13);
 
-  --tag-islamic-history:          #E8A070;
-  --tag-islamic-history-bg:       rgba(232, 160, 112, 0.13);
+  --tag-islamic-history: #e8a070;
+  --tag-islamic-history-bg: rgba(232, 160, 112, 0.13);
 
-  --tag-companions:               #D4A080;
-  --tag-companions-bg:            rgba(212, 160, 128, 0.13);
+  --tag-companions: #d4a080;
+  --tag-companions-bg: rgba(212, 160, 128, 0.13);
 
   /* Islamic Studies — Character & Spirituality */
-  --tag-akhlaq:                   #AA77FF;
-  --tag-akhlaq-bg:                rgba(170, 119, 255, 0.13);
+  --tag-akhlaq: #aa77ff;
+  --tag-akhlaq-bg: rgba(170, 119, 255, 0.13);
 
-  --tag-adab:                     #BB88FF;
-  --tag-adab-bg:                  rgba(187, 136, 255, 0.13);
+  --tag-adab: #bb88ff;
+  --tag-adab-bg: rgba(187, 136, 255, 0.13);
 
-  --tag-tazkiyah:                 #CC99FF;
-  --tag-tazkiyah-bg:              rgba(204, 153, 255, 0.13);
+  --tag-tazkiyah: #cc99ff;
+  --tag-tazkiyah-bg: rgba(204, 153, 255, 0.13);
 
   /* Islamic Studies — Dawah & Other */
-  --tag-dawah:                    #FF6644;
-  --tag-dawah-bg:                 rgba(255, 102, 68, 0.13);
+  --tag-dawah: #ff6644;
+  --tag-dawah-bg: rgba(255, 102, 68, 0.13);
 
-  --tag-comparative-religion:     #FF9955;
-  --tag-comparative-religion-bg:  rgba(255, 153, 85, 0.13);
+  --tag-comparative-religion: #ff9955;
+  --tag-comparative-religion-bg: rgba(255, 153, 85, 0.13);
 
-  --tag-islamic-family:           #FF77BB;
-  --tag-islamic-family-bg:        rgba(255, 119, 187, 0.13);
+  --tag-islamic-family: #ff77bb;
+  --tag-islamic-family-bg: rgba(255, 119, 187, 0.13);
 
-  --tag-islamic-finance:          #22DDCC;
-  --tag-islamic-finance-bg:       rgba(34, 221, 204, 0.13);
+  --tag-islamic-finance: #22ddcc;
+  --tag-islamic-finance-bg: rgba(34, 221, 204, 0.13);
 
-  --tag-islamic-leadership:       #55BBFF;
-  --tag-islamic-leadership-bg:    rgba(85, 187, 255, 0.13);
+  --tag-islamic-leadership: #55bbff;
+  --tag-islamic-leadership-bg: rgba(85, 187, 255, 0.13);
 
-  --tag-quranic-vocabulary:       #33CC88;
-  --tag-quranic-vocabulary-bg:    rgba(51, 204, 136, 0.13);
+  --tag-quranic-vocabulary: #33cc88;
+  --tag-quranic-vocabulary-bg: rgba(51, 204, 136, 0.13);
 
-  --tag-classical-arabic:         #FFCC55;
-  --tag-classical-arabic-bg:      rgba(255, 204, 85, 0.13);
+  --tag-medina-course: #ffaa44;
+  --tag-medina-course-bg: rgba(255, 170, 68, 0.13);
 
-  --tag-islamic-education:        #44BBEE;
-  --tag-islamic-education-bg:     rgba(68, 187, 238, 0.13);
+  --tag-bayna-yadayk: #44ddbb;
+  --tag-bayna-yadayk-bg: rgba(68, 221, 187, 0.13);
+
+  --tag-murajaah: #00bb99;
+  --tag-murajaah-bg: rgba(0, 187, 153, 0.13);
+
+  --tag-khatm: #55ee99;
+  --tag-khatm-bg: rgba(85, 238, 153, 0.13);
+
+  --tag-wird: #11ccbb;
+  --tag-wird-bg: rgba(17, 204, 187, 0.13);
+
+  --tag-classical-arabic: #ffcc55;
+  --tag-classical-arabic-bg: rgba(255, 204, 85, 0.13);
+
+  --tag-islamic-education: #44bbee;
+  --tag-islamic-education-bg: rgba(68, 187, 238, 0.13);
+
+  /* МК тома */
+  --tag-mk-1: #ff9900;
+  --tag-mk-1-bg: rgba(255, 153, 0, 0.13);
+  --tag-mk-2: #ffaa22;
+  --tag-mk-2-bg: rgba(255, 170, 34, 0.13);
+  --tag-mk-3: #ffb84d;
+  --tag-mk-3-bg: rgba(255, 184, 77, 0.13);
+  --tag-mk-4: #7b0028;
+  --tag-mk-4-bg: rgba(123, 0, 40, 0.15);
+
+  /* БЯ тома */
+  --tag-bya-1: #20c9a6;
+  --tag-bya-1-bg: rgba(32, 201, 166, 0.13);
+  --tag-bya-2: #26d4af;
+  --tag-bya-2-bg: rgba(38, 212, 175, 0.13);
+  --tag-bya-3: #33ddb8;
+  --tag-bya-3-bg: rgba(51, 221, 184, 0.13);
+  --tag-bya-4: #44e8c4;
+  --tag-bya-4-bg: rgba(68, 232, 196, 0.13);
+
+  /* Arabic grammar books */
+  --tag-ajrumiyya: #a855f7;
+  --tag-ajrumiyya-bg: rgba(168, 85, 247, 0.13);
+  --tag-qatrun-nada: #8b5cf6;
+  --tag-qatrun-nada-bg: rgba(139, 92, 246, 0.13);
+  --tag-alfiyya: #f0c030;
+  --tag-alfiyya-bg: rgba(240, 192, 48, 0.13);
+  --tag-academy-zad: #00dd88;
+  --tag-academy-zad-bg: rgba(0, 221, 136, 0.13);
+  --tag-diraya: #3b82f6;
+  --tag-diraya-bg: rgba(59, 130, 246, 0.13);
+  --tag-pedagogy: #f97316;
+  --tag-pedagogy-bg: rgba(249, 115, 22, 0.13);
+  --tag-internship: #0ea5e9;
+  --tag-internship-bg: rgba(14, 165, 233, 0.13);
+  --tag-balagha: #ff1744;
+  --tag-balagha-bg: rgba(255, 23, 68, 0.13);
+  --tag-silsila: #c9a84c;
+  --tag-silsila-bg: rgba(201, 168, 76, 0.13);
+  --tag-qiraa-rashidi: #84cc16;
+  --tag-qiraa-rashidi-bg: rgba(132, 204, 22, 0.13);
+
+  /* Arts */
+  --tag-poetry: #e879f9;
+  --tag-poetry-bg: rgba(232, 121, 249, 0.13);
+
+  /* Missing school subjects */
+  --tag-obzh: #ef4444;
+  --tag-obzh-bg: rgba(239, 68, 68, 0.13);
+  --tag-technology: #64748b;
+  --tag-technology-bg: rgba(100, 116, 139, 0.13);
+  --tag-drafting: #94a3b8;
+  --tag-drafting-bg: rgba(148, 163, 184, 0.13);
+  --tag-mhk: #ec4899;
+  --tag-mhk-bg: rgba(236, 72, 153, 0.13);
+
+  /* Programming languages */
+  --tag-python: #4b8bbe;
+  --tag-python-bg: rgba(75, 139, 190, 0.13);
+  --tag-javascript: #f7df1e;
+  --tag-javascript-bg: rgba(247, 223, 30, 0.13);
+  --tag-cpp: #6366f1;
+  --tag-cpp-bg: rgba(99, 102, 241, 0.13);
+  --tag-java: #f89820;
+  --tag-java-bg: rgba(248, 152, 32, 0.13);
+  --tag-typescript: #3178c6;
+  --tag-typescript-bg: rgba(49, 120, 198, 0.13);
+  --tag-html-css: #e34c26;
+  --tag-html-css-bg: rgba(227, 76, 38, 0.13);
+  --tag-swift: #ff6b35;
+  --tag-swift-bg: rgba(255, 107, 53, 0.13);
+  --tag-kotlin: #7f52ff;
+  --tag-kotlin-bg: rgba(127, 82, 255, 0.13);
+  --tag-php: #8892bf;
+  --tag-php-bg: rgba(136, 146, 191, 0.13);
+  --tag-csharp: #22c55e;
+  --tag-csharp-bg: rgba(34, 197, 94, 0.13);
+
+  /* Other */
+  --tag-abacus: #ff348c;
+  --tag-abacus-bg: rgba(244, 63, 94, 0.13);
+  --tag-ustaza-asma: #f91994;
+  --tag-ustaza-asma-bg: rgba(233, 30, 140, 0.13);
+
+  /* Special Skills & Accessible Learning */
+  --tag-sign-language: #ff9ec8;
+  --tag-sign-language-bg: rgba(255, 158, 200, 0.13);
+
+  --tag-braille: #87ceeb;
+  --tag-braille-bg: rgba(135, 206, 235, 0.13);
+
+  --tag-left-hand-writing: #dda0ff;
+  --tag-left-hand-writing-bg: rgba(221, 160, 255, 0.13);
+
+  /* Sports & Physical Activities */
+  --tag-horse-riding: #ffcc99;
+  --tag-horse-riding-bg: rgba(255, 204, 153, 0.13);
+
+  --tag-archery: #98ffd9;
+  --tag-archery-bg: rgba(152, 255, 217, 0.13);
+
+  --tag-swimming: #7ec8e3;
+  --tag-swimming-bg: rgba(126, 200, 227, 0.13);
+
+  --tag-wrestling: #ffb3ba;
+  --tag-wrestling-bg: rgba(255, 179, 186, 0.13);
+
+  --tag-running: #ffc0cb;
+  --tag-running-bg: rgba(255, 192, 203, 0.13);
+
+  /* Hobbies & Creative Arts */
+  --tag-rubiks-cube: #ff85c2;
+  --tag-rubiks-cube-bg: rgba(255, 133, 194, 0.13);
+
+  --tag-chess-hobby: #b8a9ff;
+  --tag-chess-hobby-bg: rgba(184, 169, 255, 0.13);
+
+  --tag-book-reading: #ffe4b5;
+  --tag-book-reading-bg: rgba(255, 228, 181, 0.13);
+
+  --tag-calligraphy: #f0c8ff;
+  --tag-calligraphy-bg: rgba(240, 200, 255, 0.13);
+
+  --tag-embroidery: #ffb3d9;
+  --tag-embroidery-bg: rgba(255, 179, 217, 0.13);
+
+  --tag-knitting: #c8e6ff;
+  --tag-knitting-bg: rgba(200, 230, 255, 0.13);
+
+  --tag-sewing: #ffd6f0;
+  --tag-sewing-bg: rgba(255, 214, 240, 0.13);
+
+  --tag-drawing: #ffddb3;
+  --tag-drawing-bg: rgba(255, 221, 179, 0.13);
+
+  --tag-origami: #b3f0ff;
+  --tag-origami-bg: rgba(179, 240, 255, 0.13);
 
   /* World Languages */
-  --tag-russian:      #4466FF;
-  --tag-russian-bg:   rgba(68, 102, 255, 0.13);
+  --tag-russian: #4466ff;
+  --tag-russian-bg: rgba(68, 102, 255, 0.13);
 
-  --tag-portuguese:   #00DD77;
-  --tag-portuguese-bg:rgba(0, 221, 119, 0.13);
+  --tag-portuguese: #00dd77;
+  --tag-portuguese-bg: rgba(0, 221, 119, 0.13);
 
-  --tag-italian:      #FF6B6B;
-  --tag-italian-bg:   rgba(255, 107, 107, 0.13);
+  --tag-italian: #ff6b6b;
+  --tag-italian-bg: rgba(255, 107, 107, 0.13);
 
-  --tag-korean:       #EE3366;
-  --tag-korean-bg:    rgba(238, 51, 102, 0.13);
+  --tag-korean: #ee3366;
+  --tag-korean-bg: rgba(238, 51, 102, 0.13);
 
-  --tag-hindi:        #FF9933;
-  --tag-hindi-bg:     rgba(255, 153, 51, 0.13);
+  --tag-hindi: #ff9933;
+  --tag-hindi-bg: rgba(255, 153, 51, 0.13);
 
-  --tag-turkish:      #FF4455;
-  --tag-turkish-bg:   rgba(255, 68, 85, 0.13);
+  --tag-turkish: #ff4455;
+  --tag-turkish-bg: rgba(255, 68, 85, 0.13);
 
-  --tag-dutch:        #FF7733;
-  --tag-dutch-bg:     rgba(255, 119, 51, 0.13);
+  --tag-dutch: #ff7733;
+  --tag-dutch-bg: rgba(255, 119, 51, 0.13);
 
-  --tag-polish:       #FF5566;
-  --tag-polish-bg:    rgba(255, 85, 102, 0.13);
+  --tag-polish: #ff5566;
+  --tag-polish-bg: rgba(255, 85, 102, 0.13);
 
-  --tag-ukrainian:    #FFD700;
+  --tag-ukrainian: #ffd700;
   --tag-ukrainian-bg: rgba(255, 215, 0, 0.13);
 
-  --tag-swedish:      #4499FF;
-  --tag-swedish-bg:   rgba(68, 153, 255, 0.13);
+  --tag-swedish: #4499ff;
+  --tag-swedish-bg: rgba(68, 153, 255, 0.13);
 
-  --tag-greek:        #99BBFF;
-  --tag-greek-bg:     rgba(153, 187, 255, 0.13);
+  --tag-greek: #99bbff;
+  --tag-greek-bg: rgba(153, 187, 255, 0.13);
 
-  --tag-hebrew:       #5588FF;
-  --tag-hebrew-bg:    rgba(85, 136, 255, 0.13);
+  --tag-hebrew: #5588ff;
+  --tag-hebrew-bg: rgba(85, 136, 255, 0.13);
 
-  --tag-persian:      #CC8844;
-  --tag-persian-bg:   rgba(204, 136, 68, 0.13);
+  --tag-persian: #cc8844;
+  --tag-persian-bg: rgba(204, 136, 68, 0.13);
 
-  --tag-indonesian:   #FF2233;
-  --tag-indonesian-bg:rgba(255, 34, 51, 0.13);
+  --tag-indonesian: #ff2233;
+  --tag-indonesian-bg: rgba(255, 34, 51, 0.13);
 
-  --tag-thai:         #BB44FF;
-  --tag-thai-bg:      rgba(187, 68, 255, 0.13);
+  --tag-thai: #bb44ff;
+  --tag-thai-bg: rgba(187, 68, 255, 0.13);
 
-  --tag-vietnamese:   #FF5533;
-  --tag-vietnamese-bg:rgba(255, 85, 51, 0.13);
+  --tag-vietnamese: #ff5533;
+  --tag-vietnamese-bg: rgba(255, 85, 51, 0.13);
 }
 
-/* Light theme — darker, saturated, readable on white backgrounds */
+/* Light theme — vivid text + solid pastel background, no opacity */
 [data-theme="light"] {
-  --tag-math:               #2E84E6;
-  --tag-math-bg:            rgba(46, 132, 230, 0.18);
-
-  --tag-algebra:            #7E22CE;
-  --tag-algebra-bg:         rgba(126, 34, 206, 0.10);
-
-  --tag-geometry:           #C2500A;
-  --tag-geometry-bg:        rgba(194, 80, 10, 0.10);
-
-  --tag-calculus:           #C81040;
-  --tag-calculus-bg:        rgba(200, 16, 64, 0.10);
-
-  --tag-statistics:         #A16207;
-  --tag-statistics-bg:      rgba(161, 98, 7, 0.14);
-
-  --tag-biology:            #00B874;
-  --tag-biology-bg:         rgba(0, 184, 116, 0.18);
-
-  --tag-chemistry:          #E38A00;
-  --tag-chemistry-bg:       rgba(227, 138, 0, 0.18);
-
-  --tag-physics:            #7C3AED;
-  --tag-physics-bg:         rgba(124, 58, 237, 0.14);
-
-  --tag-astronomy:          #4338CA;
-  --tag-astronomy-bg:       rgba(67, 56, 202, 0.10);
-
-  --tag-earth-science:      #4D7C0F;
-  --tag-earth-science-bg:   rgba(77, 124, 15, 0.12);
-
-  --tag-history:            #B86A2E;
-  --tag-history-bg:         rgba(184, 106, 46, 0.18);
-
-  --tag-world-history:      #86198F;
-  --tag-world-history-bg:   rgba(134, 25, 143, 0.10);
-
-  --tag-geography:          #0891B2;
-  --tag-geography-bg:       rgba(8, 145, 178, 0.16);
-
-  --tag-literature:         #E44F9C;
-  --tag-literature-bg:      rgba(228, 79, 156, 0.18);
-
-  --tag-writing:            #B45309;
-  --tag-writing-bg:         rgba(180, 83, 9, 0.10);
-
-  --tag-grammar:            #3730A3;
-  --tag-grammar-bg:         rgba(55, 48, 163, 0.10);
-
-  --tag-reading:            #6D28D9;
-  --tag-reading-bg:         rgba(109, 40, 217, 0.12);
-
-  --tag-english:            #C2410C;
-  --tag-english-bg:         rgba(194, 65, 12, 0.14);
-
-  --tag-computer-science:   #4338CA;
-  --tag-computer-science-bg:rgba(67, 56, 202, 0.12);
-
-  --tag-programming:        #0369A1;
-  --tag-programming-bg:     rgba(3, 105, 161, 0.12);
-
-  --tag-art:                #E73D7A;
-  --tag-art-bg:             rgba(231, 61, 122, 0.18);
-
-  --tag-music:              #F08A3A;
-  --tag-music-bg:           rgba(240, 138, 58, 0.18);
-
-  --tag-physical-education:    #DC2626;
-  --tag-physical-education-bg: rgba(220, 38, 38, 0.14);
-
-  --tag-psychology:         #7E22CE;
-  --tag-psychology-bg:      rgba(126, 34, 206, 0.10);
-
-  --tag-economics:          #BE123C;
-  --tag-economics-bg:       rgba(190, 18, 60, 0.13);
-
-  --tag-philosophy:         #78600A;
-  --tag-philosophy-bg:      rgba(120, 96, 10, 0.10);
-
-  --tag-social-studies:     #065F46;
-  --tag-social-studies-bg:  rgba(6, 95, 70, 0.10);
-
-  --tag-drama:              #DB4AB6;
-  --tag-drama-bg:           rgba(219, 74, 182, 0.18);
+  --tag-math: #2563eb;
+  --tag-math-bg: #dbeafe;
+  --tag-algebra: #9333ea;
+  --tag-algebra-bg: #f3e8ff;
+  --tag-geometry: #ea580c;
+  --tag-geometry-bg: #ffedd5;
+  --tag-calculus: #e11d48;
+  --tag-calculus-bg: #ffe4e6;
+  --tag-statistics: #d97706;
+  --tag-statistics-bg: #fef3c7;
+  --tag-biology: #059669;
+  --tag-biology-bg: #d1fae5;
+  --tag-chemistry: #ca8a04;
+  --tag-chemistry-bg: #fef9c3;
+  --tag-physics: #7c3aed;
+  --tag-physics-bg: #ede9fe;
+  --tag-astronomy: #4f46e5;
+  --tag-astronomy-bg: #e0e7ff;
+  --tag-earth-science: #65a30d;
+  --tag-earth-science-bg: #ecfccb;
+  --tag-history: #c2410c;
+  --tag-history-bg: #fef0e8;
+  --tag-world-history: #a21caf;
+  --tag-world-history-bg: #fae8ff;
+  --tag-geography: #0284c7;
+  --tag-geography-bg: #e0f2fe;
+  --tag-literature: #db2777;
+  --tag-literature-bg: #fce7f3;
+  --tag-writing: #b45309;
+  --tag-writing-bg: #fef3c7;
+  --tag-grammar: #4338ca;
+  --tag-grammar-bg: #eef2ff;
+  --tag-reading: #7c3aed;
+  --tag-reading-bg: #f5f3ff;
+  --tag-english: #ea580c;
+  --tag-english-bg: #fff7ed;
+  --tag-computer-science: #4f46e5;
+  --tag-computer-science-bg: #e0e7ff;
+  --tag-programming: #0369a1;
+  --tag-programming-bg: #e0f2fe;
+  --tag-art: #ec4899;
+  --tag-art-bg: #fdf2f8;
+  --tag-music: #f97316;
+  --tag-music-bg: #fff7ed;
+  --tag-physical-education: #dc2626;
+  --tag-physical-education-bg: #fef2f2;
+  --tag-psychology: #9333ea;
+  --tag-psychology-bg: #f3e8ff;
+  --tag-economics: #be185d;
+  --tag-economics-bg: #fdf2f8;
+  --tag-philosophy: #92400e;
+  --tag-philosophy-bg: #fef3c7;
+  --tag-social-studies: #047857;
+  --tag-social-studies-bg: #d1fae5;
+  --tag-drama: #c026d3;
+  --tag-drama-bg: #fae8ff;
 
   /* Languages */
-  --tag-spanish:            #A01050;
-  --tag-spanish-bg:         rgba(160, 16, 80, 0.10);
-
-  --tag-french:             #1A3FA8;
-  --tag-french-bg:          rgba(26, 63, 168, 0.10);
-
-  --tag-german:             #92600A;
-  --tag-german-bg:          rgba(146, 96, 10, 0.10);
-
-  --tag-japanese:           #A01028;
-  --tag-japanese-bg:        rgba(160, 16, 40, 0.10);
-
-  --tag-arabic:             #0A7048;
-  --tag-arabic-bg:          rgba(10, 112, 72, 0.10);
-
-  --tag-chinese:            #A02808;
-  --tag-chinese-bg:         rgba(160, 40, 8, 0.10);
+  --tag-spanish: #be185d;
+  --tag-spanish-bg: #fce7f3;
+  --tag-french: #1d4ed8;
+  --tag-french-bg: #dbeafe;
+  --tag-german: #b45309;
+  --tag-german-bg: #fef3c7;
+  --tag-japanese: #dc2626;
+  --tag-japanese-bg: #fef2f2;
+  --tag-arabic: #047857;
+  --tag-arabic-bg: #d1fae5;
+  --tag-chinese: #c2410c;
+  --tag-chinese-bg: #ffedd5;
 
   /* More Sciences */
-  --tag-environmental-science:    #1A7840;
-  --tag-environmental-science-bg: rgba(26, 120, 64, 0.10);
-
-  --tag-anatomy:            #A0204A;
-  --tag-anatomy-bg:         rgba(160, 32, 74, 0.10);
-
-  --tag-ecology:            #156B30;
-  --tag-ecology-bg:         rgba(21, 107, 48, 0.10);
+  --tag-environmental-science: #15803d;
+  --tag-environmental-science-bg: #dcfce7;
+  --tag-anatomy: #be185d;
+  --tag-anatomy-bg: #ffe4e6;
+  --tag-ecology: #15803d;
+  --tag-ecology-bg: #d1fae5;
 
   /* More Math */
-  --tag-trigonometry:       #6B1FA8;
-  --tag-trigonometry-bg:    rgba(107, 31, 168, 0.10);
-
-  --tag-linear-algebra:     #1A508A;
-  --tag-linear-algebra-bg:  rgba(26, 80, 138, 0.10);
-
-  --tag-probability:        #A05008;
-  --tag-probability-bg:     rgba(160, 80, 8, 0.10);
+  --tag-trigonometry: #7e22ce;
+  --tag-trigonometry-bg: #f3e8ff;
+  --tag-linear-algebra: #1d4ed8;
+  --tag-linear-algebra-bg: #dbeafe;
+  --tag-probability: #d97706;
+  --tag-probability-bg: #fef3c7;
 
   /* Social Sciences */
-  --tag-sociology:          #7B0FA8;
-  --tag-sociology-bg:       rgba(123, 15, 168, 0.10);
-
-  --tag-political-science:  #A01A10;
-  --tag-political-science-bg: rgba(160, 26, 16, 0.10);
-
-  --tag-law:                #886400;
-  --tag-law-bg:             rgba(136, 100, 0, 0.10);
+  --tag-sociology: #a21caf;
+  --tag-sociology-bg: #fae8ff;
+  --tag-political-science: #dc2626;
+  --tag-political-science-bg: #fef2f2;
+  --tag-law: #b45309;
+  --tag-law-bg: #fef3c7;
 
   /* Tech */
-  --tag-data-science:       #0A7888;
-  --tag-data-science-bg:    rgba(10, 120, 136, 0.10);
-
-  --tag-cybersecurity:      #8B0A20;
-  --tag-cybersecurity-bg:   rgba(139, 10, 32, 0.10);
-
-  --tag-web-development:    #0A5878;
-  --tag-web-development-bg: rgba(10, 88, 120, 0.10);
-
-  --tag-ui-ux-design:       #9B0A70;
-  --tag-ui-ux-design-bg:    rgba(155, 10, 112, 0.10);
+  --tag-data-science: #0e7490;
+  --tag-data-science-bg: #cffafe;
+  --tag-cybersecurity: #dc2626;
+  --tag-cybersecurity-bg: #fef2f2;
+  --tag-web-development: #0369a1;
+  --tag-web-development-bg: #e0f2fe;
+  --tag-ui-ux-design: #c026d3;
+  --tag-ui-ux-design-bg: #fae8ff;
 
   /* Business */
-  --tag-marketing:          #A03808;
-  --tag-marketing-bg:       rgba(160, 56, 8, 0.10);
-
-  --tag-finance:            #0A7058;
-  --tag-finance-bg:         rgba(10, 112, 88, 0.10);
-
-  --tag-accounting:         #1A4A98;
-  --tag-accounting-bg:      rgba(26, 74, 152, 0.10);
-
-  --tag-entrepreneurship:   #8A6000;
-  --tag-entrepreneurship-bg:rgba(138, 96, 0, 0.10);
+  --tag-marketing: #ea580c;
+  --tag-marketing-bg: #ffedd5;
+  --tag-finance: #047857;
+  --tag-finance-bg: #d1fae5;
+  --tag-accounting: #1d4ed8;
+  --tag-accounting-bg: #dbeafe;
+  --tag-entrepreneurship: #d97706;
+  --tag-entrepreneurship-bg: #fef3c7;
 
   /* Self-development */
-  --tag-productivity:       #0A7850;
-  --tag-productivity-bg:    rgba(10, 120, 80, 0.10);
-
-  --tag-public-speaking:    #A00A30;
-  --tag-public-speaking-bg: rgba(160, 10, 48, 0.10);
-
-  --tag-leadership:         #5A0FA8;
-  --tag-leadership-bg:      rgba(90, 15, 168, 0.10);
-
-  --tag-critical-thinking:  #0A6868;
-  --tag-critical-thinking-bg:rgba(10, 104, 104, 0.10);
-
-  --tag-mindfulness:        #1A4898;
-  --tag-mindfulness-bg:     rgba(26, 72, 152, 0.10);
+  --tag-productivity: #059669;
+  --tag-productivity-bg: #d1fae5;
+  --tag-public-speaking: #e11d48;
+  --tag-public-speaking-bg: #ffe4e6;
+  --tag-leadership: #7c3aed;
+  --tag-leadership-bg: #ede9fe;
+  --tag-critical-thinking: #0e7490;
+  --tag-critical-thinking-bg: #cffafe;
+  --tag-mindfulness: #4f46e5;
+  --tag-mindfulness-bg: #e0e7ff;
 
   /* Islamic Studies — Quran */
-  --tag-quran-reading:            #0A7050;
-  --tag-quran-reading-bg:         rgba(10, 112, 80, 0.10);
-
-  --tag-quran-memorization:       #0A6040;
-  --tag-quran-memorization-bg:    rgba(10, 96, 64, 0.10);
-
-  --tag-tajweed:                  #0A7058;
-  --tag-tajweed-bg:               rgba(10, 112, 88, 0.10);
-
-  --tag-quran-tafsir:             #0A6858;
-  --tag-quran-tafsir-bg:          rgba(10, 104, 88, 0.10);
-
-  --tag-quran-sciences:           #0A8065;
-  --tag-quran-sciences-bg:        rgba(10, 128, 101, 0.10);
+  --tag-quran-reading: #059669;
+  --tag-quran-reading-bg: #d1fae5;
+  --tag-quran-memorization: #047857;
+  --tag-quran-memorization-bg: #dcfce7;
+  --tag-tajweed: #0d9488;
+  --tag-tajweed-bg: #ccfbf1;
+  --tag-quran-tafsir: #059669;
+  --tag-quran-tafsir-bg: #d1fae5;
+  --tag-quran-sciences: #0d9488;
+  --tag-quran-sciences-bg: #ccfbf1;
 
   /* Islamic Studies — Arabic */
-  --tag-arabic-for-quran:         #1A7848;
-  --tag-arabic-for-quran-bg:      rgba(26, 120, 72, 0.10);
-
-  --tag-arabic-grammar:           #886400;
-  --tag-arabic-grammar-bg:        rgba(136, 100, 0, 0.10);
-
-  --tag-arabic-morphology:        #886000;
-  --tag-arabic-morphology-bg:     rgba(136, 96, 0, 0.10);
+  --tag-arabic-for-quran: #15803d;
+  --tag-arabic-for-quran-bg: #dcfce7;
+  --tag-arabic-grammar: #b45309;
+  --tag-arabic-grammar-bg: #fef3c7;
+  --tag-arabic-morphology: #b45309;
+  --tag-arabic-morphology-bg: #fef9c3;
 
   /* Islamic Studies — Aqeedah & Hadith */
-  --tag-aqeedah:                  #A05008;
-  --tag-aqeedah-bg:               rgba(160, 80, 8, 0.10);
-
-  --tag-hadith-studies:           #886000;
-  --tag-hadith-studies-bg:        rgba(136, 96, 0, 0.10);
-
-  --tag-hadith-memorization:      #8A5500;
-  --tag-hadith-memorization-bg:   rgba(138, 85, 0, 0.10);
-
-  --tag-hadith-sciences:          #8A4800;
-  --tag-hadith-sciences-bg:       rgba(138, 72, 0, 0.10);
+  --tag-aqeedah: #d97706;
+  --tag-aqeedah-bg: #fef3c7;
+  --tag-hadith-studies: #ca8a04;
+  --tag-hadith-studies-bg: #fef9c3;
+  --tag-hadith-memorization: #b45309;
+  --tag-hadith-memorization-bg: #fef3c7;
+  --tag-hadith-sciences: #d97706;
+  --tag-hadith-sciences-bg: #fef3c7;
 
   /* Islamic Studies — Fiqh */
-  --tag-fiqh:                     #1A4A98;
-  --tag-fiqh-bg:                  rgba(26, 74, 152, 0.10);
-
-  --tag-fiqh-worship:             #1A50A0;
-  --tag-fiqh-worship-bg:          rgba(26, 80, 160, 0.10);
-
-  --tag-fiqh-transactions:        #1A58A8;
-  --tag-fiqh-transactions-bg:     rgba(26, 88, 168, 0.10);
-
-  --tag-usul-al-fiqh:             #1A3F8A;
-  --tag-usul-al-fiqh-bg:          rgba(26, 63, 138, 0.10);
+  --tag-fiqh: #1d4ed8;
+  --tag-fiqh-bg: #dbeafe;
+  --tag-fiqh-worship: #2563eb;
+  --tag-fiqh-worship-bg: #dbeafe;
+  --tag-fiqh-transactions: #0369a1;
+  --tag-fiqh-transactions-bg: #e0f2fe;
+  --tag-usul-al-fiqh: #1d4ed8;
+  --tag-usul-al-fiqh-bg: #eef2ff;
 
   /* Islamic Studies — History & Seerah */
-  --tag-seerah:                   #92400E;
-  --tag-seerah-bg:                rgba(146, 64, 14, 0.10);
-
-  --tag-islamic-history:          #A05020;
-  --tag-islamic-history-bg:       rgba(160, 80, 32, 0.10);
-
-  --tag-companions:               #8A5030;
-  --tag-companions-bg:            rgba(138, 80, 48, 0.10);
+  --tag-seerah: #c2410c;
+  --tag-seerah-bg: #ffedd5;
+  --tag-islamic-history: #b45309;
+  --tag-islamic-history-bg: #fef3c7;
+  --tag-companions: #92400e;
+  --tag-companions-bg: #fef0e8;
 
   /* Islamic Studies — Character & Spirituality */
-  --tag-akhlaq:                   #6B1FA8;
-  --tag-akhlaq-bg:                rgba(107, 31, 168, 0.10);
-
-  --tag-adab:                     #7B2AB0;
-  --tag-adab-bg:                  rgba(123, 42, 176, 0.10);
-
-  --tag-tazkiyah:                 #8B38B8;
-  --tag-tazkiyah-bg:              rgba(139, 56, 184, 0.10);
+  --tag-akhlaq: #7c3aed;
+  --tag-akhlaq-bg: #ede9fe;
+  --tag-adab: #9333ea;
+  --tag-adab-bg: #f3e8ff;
+  --tag-tazkiyah: #a21caf;
+  --tag-tazkiyah-bg: #fae8ff;
 
   /* Islamic Studies — Dawah & Other */
-  --tag-dawah:                    #A02810;
-  --tag-dawah-bg:                 rgba(160, 40, 16, 0.10);
+  --tag-dawah: #ea580c;
+  --tag-dawah-bg: #ffedd5;
+  --tag-comparative-religion: #d97706;
+  --tag-comparative-religion-bg: #fef3c7;
+  --tag-islamic-family: #db2777;
+  --tag-islamic-family-bg: #fce7f3;
+  --tag-islamic-finance: #0d9488;
+  --tag-islamic-finance-bg: #ccfbf1;
+  --tag-islamic-leadership: #0369a1;
+  --tag-islamic-leadership-bg: #e0f2fe;
+  --tag-quranic-vocabulary: #059669;
+  --tag-quranic-vocabulary-bg: #d1fae5;
+  --tag-classical-arabic: #b45309;
+  --tag-classical-arabic-bg: #fef9c3;
+  --tag-islamic-education: #1d4ed8;
+  --tag-islamic-education-bg: #dbeafe;
 
-  --tag-comparative-religion:     #A04018;
-  --tag-comparative-religion-bg:  rgba(160, 64, 24, 0.10);
+  --tag-medina-course: #d97706;
+  --tag-medina-course-bg: #fef3c7;
+  --tag-bayna-yadayk: #0d9488;
+  --tag-bayna-yadayk-bg: #ccfbf1;
+  --tag-murajaah: #047857;
+  --tag-murajaah-bg: #dcfce7;
+  --tag-khatm: #15803d;
+  --tag-khatm-bg: #dcfce7;
+  --tag-wird: #0d9488;
+  --tag-wird-bg: #ccfbf1;
 
-  --tag-islamic-family:           #9B0A70;
-  --tag-islamic-family-bg:        rgba(155, 10, 112, 0.10);
+  /* МК тома */
+  --tag-mk-1: #d97706;
+  --tag-mk-1-bg: #fef3c7;
+  --tag-mk-2: #b45309;
+  --tag-mk-2-bg: #ffedd5;
+  --tag-mk-3: #c2410c;
+  --tag-mk-3-bg: #fef0e8;
+  --tag-mk-4: #7b0028;
+  --tag-mk-4-bg: #f9d6e0;
 
-  --tag-islamic-finance:          #0A7068;
-  --tag-islamic-finance-bg:       rgba(10, 112, 104, 0.10);
+  /* БЯ тома */
+  --tag-bya-1: #0d9488;
+  --tag-bya-1-bg: #ccfbf1;
+  --tag-bya-2: #059669;
+  --tag-bya-2-bg: #d1fae5;
+  --tag-bya-3: #047857;
+  --tag-bya-3-bg: #dcfce7;
+  --tag-bya-4: #0e7490;
+  --tag-bya-4-bg: #cffafe;
 
-  --tag-islamic-leadership:       #1A5888;
-  --tag-islamic-leadership-bg:    rgba(26, 88, 136, 0.10);
+  /* Arabic grammar books */
+  --tag-ajrumiyya: #7c3aed;
+  --tag-ajrumiyya-bg: #ede9fe;
+  --tag-qatrun-nada: #6d28d9;
+  --tag-qatrun-nada-bg: #f5f3ff;
+  --tag-alfiyya: #b45309;
+  --tag-alfiyya-bg: #fef9c3;
+  --tag-academy-zad: #047857;
+  --tag-academy-zad-bg: #dcfce7;
+  --tag-diraya: #1d4ed8;
+  --tag-diraya-bg: #dbeafe;
+  --tag-pedagogy: #ea580c;
+  --tag-pedagogy-bg: #ffedd5;
+  --tag-internship: #0284c7;
+  --tag-internship-bg: #e0f2fe;
+  --tag-balagha: #dc2626;
+  --tag-balagha-bg: #fef2f2;
+  --tag-silsila: #b45309;
+  --tag-silsila-bg: #fef3c7;
+  --tag-qiraa-rashidi: #65a30d;
+  --tag-qiraa-rashidi-bg: #ecfccb;
 
-  --tag-quranic-vocabulary:       #0A7048;
-  --tag-quranic-vocabulary-bg:    rgba(10, 112, 72, 0.10);
+  /* Arts */
+  --tag-poetry: #c026d3;
+  --tag-poetry-bg: #fae8ff;
 
-  --tag-classical-arabic:         #886408;
-  --tag-classical-arabic-bg:      rgba(136, 100, 8, 0.10);
+  /* Missing school subjects */
+  --tag-obzh: #dc2626;
+  --tag-obzh-bg: #fef2f2;
+  --tag-technology: #475569;
+  --tag-technology-bg: #f1f5f9;
+  --tag-drafting: #64748b;
+  --tag-drafting-bg: #f1f5f9;
+  --tag-mhk: #db2777;
+  --tag-mhk-bg: #fce7f3;
 
-  --tag-islamic-education:        #1A5898;
-  --tag-islamic-education-bg:     rgba(26, 88, 152, 0.10);
+  /* Programming languages */
+  --tag-python: #2563eb;
+  --tag-python-bg: #dbeafe;
+  --tag-javascript: #b45309;
+  --tag-javascript-bg: #fef9c3;
+  --tag-cpp: #4f46e5;
+  --tag-cpp-bg: #eef2ff;
+  --tag-java: #ea580c;
+  --tag-java-bg: #ffedd5;
+  --tag-typescript: #1d4ed8;
+  --tag-typescript-bg: #dbeafe;
+  --tag-html-css: #dc2626;
+  --tag-html-css-bg: #fef2f2;
+  --tag-swift: #c2410c;
+  --tag-swift-bg: #ffedd5;
+  --tag-kotlin: #7c3aed;
+  --tag-kotlin-bg: #ede9fe;
+  --tag-php: #6d28d9;
+  --tag-php-bg: #f5f3ff;
+  --tag-csharp: #15803d;
+  --tag-csharp-bg: #dcfce7;
+
+  /* Other */
+  --tag-abacus: #e11d48;
+  --tag-abacus-bg: #ffe4e6;
+  --tag-ustaza-asma: #c2185b;
+  --tag-ustaza-asma-bg: #fce4ec;
+
+  /* Special Skills & Accessible Learning */
+  --tag-sign-language: #db2777;
+  --tag-sign-language-bg: #fce7f3;
+  --tag-braille: #0284c7;
+  --tag-braille-bg: #e0f2fe;
+  --tag-left-hand-writing: #7c3aed;
+  --tag-left-hand-writing-bg: #ede9fe;
+
+  /* Sports */
+  --tag-horse-riding: #d97706;
+  --tag-horse-riding-bg: #fef3c7;
+  --tag-archery: #059669;
+  --tag-archery-bg: #d1fae5;
+  --tag-swimming: #0284c7;
+  --tag-swimming-bg: #e0f2fe;
+  --tag-wrestling: #be185d;
+  --tag-wrestling-bg: #ffe4e6;
+  --tag-running: #e11d48;
+  --tag-running-bg: #fce7f3;
+
+  /* Hobbies */
+  --tag-rubiks-cube: #db2777;
+  --tag-rubiks-cube-bg: #fce7f3;
+  --tag-chess-hobby: #6d28d9;
+  --tag-chess-hobby-bg: #ede9fe;
+  --tag-book-reading: #b45309;
+  --tag-book-reading-bg: #fef9c3;
+  --tag-calligraphy: #9333ea;
+  --tag-calligraphy-bg: #f3e8ff;
+  --tag-embroidery: #be185d;
+  --tag-embroidery-bg: #fce7f3;
+  --tag-knitting: #1d4ed8;
+  --tag-knitting-bg: #dbeafe;
+  --tag-sewing: #c026d3;
+  --tag-sewing-bg: #fae8ff;
+  --tag-drawing: #ea580c;
+  --tag-drawing-bg: #ffedd5;
+  --tag-origami: #0e7490;
+  --tag-origami-bg: #cffafe;
 
   /* World Languages */
-  --tag-russian:      #1A38A0;
-  --tag-russian-bg:   rgba(26, 56, 160, 0.10);
-
-  --tag-portuguese:   #0A7040;
-  --tag-portuguese-bg:rgba(10, 112, 64, 0.10);
-
-  --tag-italian:      #A02020;
-  --tag-italian-bg:   rgba(160, 32, 32, 0.10);
-
-  --tag-korean:       #900A30;
-  --tag-korean-bg:    rgba(144, 10, 48, 0.10);
-
-  --tag-hindi:        #A05008;
-  --tag-hindi-bg:     rgba(160, 80, 8, 0.10);
-
-  --tag-turkish:      #A01020;
-  --tag-turkish-bg:   rgba(160, 16, 32, 0.10);
-
-  --tag-dutch:        #A04010;
-  --tag-dutch-bg:     rgba(160, 64, 16, 0.10);
-
-  --tag-polish:       #A01828;
-  --tag-polish-bg:    rgba(160, 24, 40, 0.10);
-
-  --tag-ukrainian:    #886000;
-  --tag-ukrainian-bg: rgba(136, 96, 0, 0.10);
-
-  --tag-swedish:      #1A4A98;
-  --tag-swedish-bg:   rgba(26, 74, 152, 0.10);
-
-  --tag-greek:        #1A3FA8;
-  --tag-greek-bg:     rgba(26, 63, 168, 0.10);
-
-  --tag-hebrew:       #1A3890;
-  --tag-hebrew-bg:    rgba(26, 56, 144, 0.10);
-
-  --tag-persian:      #885020;
-  --tag-persian-bg:   rgba(136, 80, 32, 0.10);
-
-  --tag-indonesian:   #A00010;
-  --tag-indonesian-bg:rgba(160, 0, 16, 0.10);
-
-  --tag-thai:         #6A10A8;
-  --tag-thai-bg:      rgba(106, 16, 168, 0.10);
-
-  --tag-vietnamese:   #A02808;
-  --tag-vietnamese-bg:rgba(160, 40, 8, 0.10);
+  --tag-russian: #1d4ed8;
+  --tag-russian-bg: #dbeafe;
+  --tag-portuguese: #059669;
+  --tag-portuguese-bg: #d1fae5;
+  --tag-italian: #dc2626;
+  --tag-italian-bg: #fef2f2;
+  --tag-korean: #be185d;
+  --tag-korean-bg: #ffe4e6;
+  --tag-hindi: #d97706;
+  --tag-hindi-bg: #fef3c7;
+  --tag-turkish: #dc2626;
+  --tag-turkish-bg: #fef2f2;
+  --tag-dutch: #ea580c;
+  --tag-dutch-bg: #ffedd5;
+  --tag-polish: #e11d48;
+  --tag-polish-bg: #ffe4e6;
+  --tag-ukrainian: #b45309;
+  --tag-ukrainian-bg: #fef9c3;
+  --tag-swedish: #1d4ed8;
+  --tag-swedish-bg: #dbeafe;
+  --tag-greek: #4f46e5;
+  --tag-greek-bg: #eef2ff;
+  --tag-hebrew: #2563eb;
+  --tag-hebrew-bg: #dbeafe;
+  --tag-persian: #92400e;
+  --tag-persian-bg: #fef0e8;
+  --tag-indonesian: #dc2626;
+  --tag-indonesian-bg: #fef2f2;
+  --tag-thai: #7c3aed;
+  --tag-thai-bg: #f3e8ff;
+  --tag-vietnamese: #c2410c;
+  --tag-vietnamese-bg: #ffedd5;
 }

@@ -15,17 +15,39 @@ const DAY_SHORT: Record<string, string> = Object.fromEntries(
   WEEKDAYS.days.map((d) => [d.full, d.short]),
 );
 
+const STORAGE_KEY = "qalamflow_course_freq";
+
+function getFrequent(): string[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const freq: Record<string, number> = JSON.parse(raw);
+    return Object.entries(freq)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([name]) => name);
+  } catch {
+    return [];
+  }
+}
+
+function incrementFrequency(courseName: string) {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const freq: Record<string, number> = raw ? JSON.parse(raw) : {};
+    freq[courseName] = (freq[courseName] ?? 0) + 1;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(freq));
+  } catch {
+    // ignore
+  }
+}
+
 const FEATURED = new Set([
-  "Mathematics",
-  "Biology",
-  "Chemistry",
-  "Physics",
-  "History",
-  "Geography",
-  "English",
-  "Computer Science",
-  "Literature",
-  "Art",
+  "Арабский",
+  "Чтение Корана",
+  "Морфология (сарф)",
+  "Мединский курс (МК)",
+  "Бейна Ядейк (БЯ)",
 ]);
 
 const DURATIONS = [
@@ -39,9 +61,9 @@ const DURATIONS = [
 
 function generateTimeSlots(): string[] {
   const slots: string[] = [];
-  for (let hour = 5; hour <= 22; hour++) {
+  for (let hour = 2; hour <= 21; hour++) {
     slots.push(`${hour.toString().padStart(2, "0")}:00`);
-    if (hour < 22) {
+    if (hour < 21) {
       slots.push(`${hour.toString().padStart(2, "0")}:30`);
     }
   }
@@ -194,17 +216,18 @@ export default function WeekPlan({
   html { font-size: 10px; }
   body { font-family: "Montserrat", system-ui, sans-serif; background: #fff; }
   table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; border: 1px solid #d1d5db; border-radius: 12px; overflow: hidden; }
-  th, td { border-top: 1px solid #d1d5db; border-right: 1px solid #d1d5db; padding: ${isHorizontal ? "2px 3px" : "3px 5px"}; font-size: ${isHorizontal ? "9px" : "10px"}; text-align: center; height: ${isHorizontal ? "20px" : "29px"}; vertical-align: top; }
+  th, td { border-top: 1px solid #d1d5db; border-right: 1px solid #d1d5db; padding: ${isHorizontal ? "2px 3px" : "3px 5px"}; font-size: ${isHorizontal ? "9px" : "10px"}; text-align: center; height: ${isHorizontal ? "20px" : "29px"}; max-height: ${isHorizontal ? "20px" : "29px"}; overflow: hidden; vertical-align: center; }
   th:last-child, td:last-child { border-right: none; }
   tr:first-child th { border-top: none; }
-  th { background: #f3f0fb !important; font-weight: 500; color: #6949b2; border-bottom: 1px solid #d1d5db !important; font-size: ${isHorizontal ? "10px" : "11px"}; white-space: nowrap; }
-  td:first-child { text-align: center; font-weight: 500; color: #6b7280; width: 52px; background: #f3f0fb !important; border-right: 1px solid #d1d5db !important; font-size: ${isHorizontal ? "9px" : "9px"}; }
+  th { background: #e8f7f0 !important; font-weight: 600; color: #0a7a48; border-bottom: 1px solid #d1d5db !important; font-size: ${isHorizontal ? "10px" : "11px"}; white-space: nowrap; }
+  td:first-child { text-align: center; font-weight: 500; color: #6b7280; width: 52px; background: #e8f7f0 !important; border-right: 1px solid #d1d5db !important; font-size: ${isHorizontal ? "9px" : "9px"}; }
   th:first-child { text-align: center; width: 52px; }
   [data-print="day-full"] { display: inline !important; }
   [data-print="day-short"] { display: none !important; }
   [data-print="label"] { display: none !important; }
-  [data-print="course"] { font-size: ${isHorizontal ? "11px" : "12px"}; font-weight: 500; color: #000 !important; display: flex; align-items: center; justify-content: center; gap: 3px; overflow: hidden; white-space: nowrap; padding-top: 4px; }
-  [data-print="course-icon"] { width: ${isHorizontal ? "13px" : "15px"}; height: ${isHorizontal ? "13px" : "15px"}; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  [data-print="course"] { font-size: ${isHorizontal ? "9px" : "10px"}; font-weight: 500; color: #000 !important; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 2px; padding: 1px 2px 0; width: 100%; overflow: hidden; line-height: 1.2; }
+  [data-print="course-text"] { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-clamp: 2; word-break: break-word; text-align: center; }
+  [data-print="course-icon"] { width: ${isHorizontal ? "11px" : "13px"}; height: ${isHorizontal ? "11px" : "13px"}; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
   [data-print="course-icon"] img { width: 100% !important; height: 100% !important; }
   [data-print="booked"] { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 </style>
@@ -308,8 +331,13 @@ function CoursePopup({
 
   const visibleCourses = useMemo(() => {
     const q = search.trim().toLowerCase();
-    if (q.length >= 2)
+    if (q.length >= 3)
       return COURSES.filter((c) => c.name.toLowerCase().includes(q));
+    const frequent = getFrequent();
+    if (frequent.length > 0) {
+      const freqSet = new Set(frequent);
+      return COURSES.filter((c) => freqSet.has(c.name));
+    }
     return COURSES.filter((c) => FEATURED.has(c.name));
   }, [search]);
 
@@ -324,7 +352,9 @@ function CoursePopup({
         </div>
 
         {/* Courses */}
-        <p className={styles.popupLabel}>{get("home.howItWorks.popup.selectCourse")}</p>
+        <p className={styles.popupLabel}>
+          {get("home.howItWorks.popup.selectCourse")}
+        </p>
         <div className={styles.searchBox}>
           <Search size={16} className={styles.searchIcon} />
           <input
@@ -352,12 +382,16 @@ function CoursePopup({
             </button>
           ))}
           {visibleCourses.length === 0 && (
-            <p className={styles.searchEmpty}>{get("workspace.nothingFound")}</p>
+            <p className={styles.searchEmpty}>
+              {get("workspace.nothingFound")}
+            </p>
           )}
         </div>
 
         {/* Duration */}
-        <p className={styles.popupLabel}>{get("home.howItWorks.popup.duration")}</p>
+        <p className={styles.popupLabel}>
+          {get("home.howItWorks.popup.duration")}
+        </p>
         <div className={styles.durationGrid}>
           {DURATIONS.map((d) => (
             <button
@@ -376,6 +410,7 @@ function CoursePopup({
           disabled={!selectedCourse || !selectedDuration}
           onClick={() => {
             if (selectedCourse && selectedDuration) {
+              incrementFrequency(selectedCourse);
               onAdd(selectedCourse, selectedDuration);
             }
           }}
@@ -438,7 +473,9 @@ function ScheduleCell({
                 <TagIcon icon={info.course.icon} size={15} />
               </span>
             )}
-            <span className={styles.courseText}>{info.course.name}</span>
+            <span className={styles.courseText} data-print="course-text">
+              {info.course.name}
+            </span>
           </span>
         )}
       </td>

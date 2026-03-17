@@ -1,18 +1,23 @@
 {
   "days": [
-    { "full": "Monday",    "short": "Mon", "letter": "M", "lower": "monday"    },
-    { "full": "Tuesday",   "short": "Tue", "letter": "T", "lower": "tuesday"   },
-    { "full": "Wednesday", "short": "Wed", "letter": "W", "lower": "wednesday" },
-    { "full": "Thursday",  "short": "Thu", "letter": "T", "lower": "thursday"  },
-    { "full": "Friday",    "short": "Fri", "letter": "F", "lower": "friday"    },
-    { "full": "Saturday",  "short": "Sat", "letter": "S", "lower": "saturday"  },
-    { "full": "Sunday",    "short": "Sun", "letter": "S", "lower": "sunday"    }
+    { "full": "Monday", "short": "Mon", "letter": "M", "lower": "monday" },
+    { "full": "Tuesday", "short": "Tue", "letter": "T", "lower": "tuesday" },
+    {
+      "full": "Wednesday",
+      "short": "Wed",
+      "letter": "W",
+      "lower": "wednesday"
+    },
+    { "full": "Thursday", "short": "Thu", "letter": "T", "lower": "thursday" },
+    { "full": "Friday", "short": "Fri", "letter": "F", "lower": "friday" },
+    { "full": "Saturday", "short": "Sat", "letter": "S", "lower": "saturday" },
+    { "full": "Sunday", "short": "Sun", "letter": "S", "lower": "sunday" }
   ],
   "hours": [
-    { "full": "06:00", "short": "6:00",  "value": 6  },
-    { "full": "07:00", "short": "7:00",  "value": 7  },
-    { "full": "08:00", "short": "8:00",  "value": 8  },
-    { "full": "09:00", "short": "9:00",  "value": 9  },
+    { "full": "06:00", "short": "6:00", "value": 6 },
+    { "full": "07:00", "short": "7:00", "value": 7 },
+    { "full": "08:00", "short": "8:00", "value": 8 },
+    { "full": "09:00", "short": "9:00", "value": 9 },
     { "full": "10:00", "short": "10:00", "value": 10 },
     { "full": "11:00", "short": "11:00", "value": 11 },
     { "full": "12:00", "short": "12:00", "value": 12 },
