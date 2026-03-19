@@ -290,7 +290,7 @@ export default function SuggestProject() {
                       </div>
                     ))}
                   </div>
-                  <CTAButton onClick={() => setStep(3)}>
+                  <CTAButton onClick={() => setStep(3)} fullWidth>
                     {get("suggestProject.continueBtn")}
                   </CTAButton>
                 </div>
@@ -356,6 +356,7 @@ export default function SuggestProject() {
                   <CTAButton
                     disabled={selectedTags.length === 0}
                     onClick={() => setStep(5)}
+                    fullWidth
                   >
                     {get("suggestProject.continueBtn")}
                   </CTAButton>
@@ -391,7 +392,8 @@ export default function SuggestProject() {
                       </label>
                       <input
                         id="sp-contact"
-                        type="text"
+                        type="email"
+                        autoComplete="email"
                         className={styles.fieldInput}
                         placeholder={get("suggestProject.contactPlaceholder")}
                         value={contact}
@@ -402,6 +404,7 @@ export default function SuggestProject() {
                     <CTAButton
                       disabled={!name.trim() || !contact.trim()}
                       onClick={handleSubmit}
+                      fullWidth
                     >
                       {get("suggestProject.submitBtn")}
                     </CTAButton>

@@ -5,7 +5,8 @@ import {
   GithubIcon,
   LinkedinIcon,
   Sparkles,
-  MessagesSquare,
+  Pencil,
+  Coins,
   ClipboardList,
   GraduationCap,
   Heart,
@@ -76,11 +77,7 @@ export default function Footer() {
                 {get("footer.messageAuthor")}
               </a>
               <Link to="/donate">
-                <img
-                  src="/buymeacoffee.png"
-                  alt=""
-                  className={styles.linkAvatar}
-                />
+                <Coins size={15} />
                 {get("footer.buyMeCoffee")}
               </Link>
               <Link to="/suggest-project">
@@ -88,7 +85,7 @@ export default function Footer() {
                 {get("footer.suggestProject")}
               </Link>
               <Link to="/feedback">
-                <MessagesSquare size={15} />
+                <Pencil size={15} />
                 {get("footer.feedback")}
               </Link>
               {/* <a
@@ -124,7 +121,8 @@ export default function Footer() {
           <div className={styles.column}>
             <div className={styles.projectsHeader}>
               <h4 className={styles.columnTitle}>
-                Проекты в процессе <span className={styles.hourglass}>⏳</span>
+                Другие проекты автора{" "}
+                <span className={styles.hourglass}>⏳</span>
               </h4>
               <span className={styles.soonBadge}>Скоро</span>
             </div>

@@ -9,8 +9,8 @@ import {
   Sun,
   Moon,
   ArrowUpRight,
-  Sparkles,
-  MessagesSquare,
+  Send,
+  Copy,
   Menu,
   X,
   Home,
@@ -18,8 +18,83 @@ import {
   BookOpen,
   Zap,
   Printer,
+  Coins,
+  Sparkles,
+  Pencil,
 } from "lucide-react";
 import styles from "./Navigation.module.css";
+
+const SPARKLES = [
+  { top: "18%",  left: "6%",    delay: "0s",    size: "0.65rem" },
+  { top: "62%",  left: "14%",   delay: "1.4s",  size: "0.5rem"  },
+  { top: "20%",  left: "28%",   delay: "0.7s",  size: "0.55rem" },
+  { top: "72%",  left: "40%",   delay: "2.2s",  size: "0.45rem" },
+  { top: "15%",  left: "55%",   delay: "1.0s",  size: "0.6rem"  },
+  { top: "70%",  left: "65%",   delay: "1.8s",  size: "0.5rem"  },
+  { top: "18%",  left: "80%",   delay: "0.3s",  size: "0.65rem" },
+  { top: "65%",  left: "90%",   delay: "2.5s",  size: "0.45rem" },
+  { top: "-22%", left: "25%",   delay: "1.2s",  size: "0.45rem" },
+  { top: "110%", left: "60%",   delay: "0.6s",  size: "0.4rem"  },
+  { top: "40%",  left: "-10%",  delay: "1.9s",  size: "0.4rem"  },
+  { top: "30%",  left: "108%",  delay: "0.9s",  size: "0.45rem" },
+];
+
+function DonateSparkles() {
+  return (
+    <>
+      {SPARKLES.map((s, i) => (
+        <span
+          key={i}
+          aria-hidden="true"
+          className={styles.donateSparkle}
+          style={{ top: s.top, left: s.left, animationDelay: s.delay, fontSize: s.size }}
+        >
+          ✦
+        </span>
+      ))}
+    </>
+  );
+}
+
+function AuthorCard() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("kausyarsh@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className={styles.authorCard}>
+      <div className={styles.authorBody}>
+        <div className={styles.authorTop}>
+          <img src="/avatar_logo.png" alt="" className={styles.authorAvatar} />
+          <div className={styles.authorMeta}>
+            <span className={styles.authorName}>Kausar S.</span>
+            <span className={styles.authorRole}>Дизайнер + Программист</span>
+          </div>
+        </div>
+        <div className={styles.authorActions}>
+          <a
+            href="https://t.me/kausar_code"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.authorBtn}
+          >
+            <Send size={14} />
+            Написать в ТГ
+          </a>
+          <button className={styles.authorBtn} onClick={handleCopyEmail}>
+            <Copy size={14} />
+            {copied ? "Почта скопирована!" : "Скопировать почту"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Navigation() {
   const { user, logout } = useAuth();
@@ -79,36 +154,21 @@ export default function Navigation() {
                       {get("nav.contact")}
                     </button>
                     <div className={styles.dropdown}>
-                      <a
-                        href="https://t.me/kausar_code"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.dropdownItem}
-                      >
-                        <img
-                          src="/avatar_logo.png"
-                          alt=""
-                          className={styles.navAvatar}
-                        />
-                        {get("navigation.messageAuthor")}
-                      </a>
-                      <Link to="/donate" className={styles.dropdownItem}>
-                        <img
-                          src="/buymeacoffee.png"
-                          alt=""
-                          className={styles.navAvatar}
-                        />
+                      <AuthorCard />
+                      <Link to="/donate" className={`${styles.dropdownItem} ${styles.donateItem}`}>
+                        <DonateSparkles />
+                        <Coins size={16} className={styles.dropdownIcon} />
                         {get("navigation.buyMeCoffee")}
                       </Link>
                       <Link
                         to="/suggest-project"
                         className={styles.dropdownItem}
                       >
-                        <Sparkles size={16} />
+                        <Sparkles size={16} className={styles.dropdownIcon} />
                         {get("navigation.suggestProject")}
                       </Link>
                       <Link to="/feedback" className={styles.dropdownItem}>
-                        <MessagesSquare size={16} />
+                        <Pencil size={16} className={styles.dropdownIcon} />
                         {get("navigation.feedback")}
                       </Link>
                     </div>
@@ -146,36 +206,21 @@ export default function Navigation() {
                       {get("nav.contact")}
                     </button>
                     <div className={styles.dropdown}>
-                      <a
-                        href="https://t.me/kausar_code"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.dropdownItem}
-                      >
-                        <img
-                          src="/avatar_logo.png"
-                          alt=""
-                          className={styles.navAvatar}
-                        />
-                        {get("navigation.messageAuthor")}
-                      </a>
-                      <Link to="/donate" className={styles.dropdownItem}>
-                        <img
-                          src="/buymeacoffee.png"
-                          alt=""
-                          className={styles.navAvatar}
-                        />
+                      <AuthorCard />
+                      <Link to="/donate" className={`${styles.dropdownItem} ${styles.donateItem}`}>
+                        <DonateSparkles />
+                        <Coins size={16} className={styles.dropdownIcon} />
                         {get("navigation.buyMeCoffee")}
                       </Link>
                       <Link
                         to="/suggest-project"
                         className={styles.dropdownItem}
                       >
-                        <Sparkles size={16} />
+                        <Sparkles size={16} className={styles.dropdownIcon} />
                         {get("navigation.suggestProject")}
                       </Link>
                       <Link to="/feedback" className={styles.dropdownItem}>
-                        <MessagesSquare size={16} />
+                        <Pencil size={16} className={styles.dropdownIcon} />
                         {get("navigation.feedback")}
                       </Link>
                     </div>
@@ -271,14 +316,11 @@ export default function Navigation() {
             </a>
             <Link
               to="/donate"
-              className={styles.mobileNavLink}
+              className={`${styles.mobileNavLink} ${styles.donateItem}`}
               onClick={closeMenu}
             >
-              <img
-                src="/buymeacoffee.png"
-                alt=""
-                className={styles.navAvatar}
-              />
+              <DonateSparkles />
+              <Coins size={16} className={styles.dropdownIcon} />
               {get("navigation.buyMeCoffee")}
             </Link>
             <Link
@@ -286,7 +328,7 @@ export default function Navigation() {
               className={styles.mobileNavLink}
               onClick={closeMenu}
             >
-              <Sparkles size={18} />
+              <Sparkles size={16} className={styles.dropdownIcon} />
               {get("navigation.suggestProject")}
             </Link>
             <Link
@@ -294,7 +336,7 @@ export default function Navigation() {
               className={styles.mobileNavLink}
               onClick={closeMenu}
             >
-              <MessagesSquare size={18} />
+              <Pencil size={16} className={styles.dropdownIcon} />
               {get("navigation.feedback")}
             </Link>
 
@@ -306,7 +348,9 @@ export default function Navigation() {
               style={{ cursor: "pointer" }}
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-              {theme === "dark" ? get("navigation.lightTheme") : get("navigation.darkTheme")}
+              {theme === "dark"
+                ? get("navigation.lightTheme")
+                : get("navigation.darkTheme")}
             </button>
 
             <button
@@ -364,14 +408,11 @@ export default function Navigation() {
             </a>
             <Link
               to="/donate"
-              className={styles.mobileNavLink}
+              className={`${styles.mobileNavLink} ${styles.donateItem}`}
               onClick={closeMenu}
             >
-              <img
-                src="/buymeacoffee.png"
-                alt=""
-                className={styles.navAvatar}
-              />
+              <DonateSparkles />
+              <Coins size={16} className={styles.dropdownIcon} />
               {get("navigation.buyMeCoffee")}
             </Link>
             <Link
@@ -379,7 +420,7 @@ export default function Navigation() {
               className={styles.mobileNavLink}
               onClick={closeMenu}
             >
-              <Sparkles size={18} />
+              <Sparkles size={16} className={styles.dropdownIcon} />
               {get("navigation.suggestProject")}
             </Link>
             <Link
@@ -387,7 +428,7 @@ export default function Navigation() {
               className={styles.mobileNavLink}
               onClick={closeMenu}
             >
-              <MessagesSquare size={18} />
+              <Pencil size={16} className={styles.dropdownIcon} />
               {get("navigation.feedback")}
             </Link>
 
@@ -399,7 +440,9 @@ export default function Navigation() {
               style={{ cursor: "pointer" }}
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-              {theme === "dark" ? get("navigation.lightTheme") : get("navigation.darkTheme")}
+              {theme === "dark"
+                ? get("navigation.lightTheme")
+                : get("navigation.darkTheme")}
             </button>
 
             <Link
@@ -408,7 +451,9 @@ export default function Navigation() {
               onClick={closeMenu}
             >
               <ArrowUpRight size={18} />
-              {localStorage.getItem("hasAccount") ? get("navigation.logIn") : get("navigation.getStarted")}
+              {localStorage.getItem("hasAccount")
+                ? get("navigation.logIn")
+                : get("navigation.getStarted")}
             </Link>
           </>
         )}
