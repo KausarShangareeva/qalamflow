@@ -37,6 +37,10 @@
   box-shadow: 0 0.4rem 1.2rem rgba(16, 185, 129, 0.3);
 }
 
+.fullWidth {
+  width: 100%;
+}
+
 .noShadow {
   box-shadow: none;
 }

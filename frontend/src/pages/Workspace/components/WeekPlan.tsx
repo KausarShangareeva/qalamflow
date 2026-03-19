@@ -330,9 +330,11 @@ function CoursePopup({
   const [search, setSearch] = useState("");
 
   const visibleCourses = useMemo(() => {
-    const q = search.trim().toLowerCase();
+    const q = search.trim().toLowerCase().replace(/\s+/g, "");
     if (q.length >= 3)
-      return COURSES.filter((c) => c.name.toLowerCase().includes(q));
+      return COURSES.filter((c) =>
+        c.name.toLowerCase().replace(/\s+/g, "").includes(q)
+      );
     const frequent = getFrequent();
     if (frequent.length > 0) {
       const freqSet = new Set(frequent);

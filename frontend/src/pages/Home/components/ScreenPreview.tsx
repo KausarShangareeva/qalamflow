@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { Save, Printer } from "lucide-react";
 import { useCopy } from "../../../hooks/useCopy";
-import TAGS from "../../../json/tags.json";
 import WEEKDAYS from "../../../json/weekdays.json";
+import { t as demoTag } from "../../../utils/demoTags";
 import TagIcon from "../../../components/TagIcon";
 import styles from "./ScreenPreview.module.css";
 
@@ -30,57 +30,29 @@ function emojiToAppleUrl(emoji: string): string {
   return `https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/${codepoints}.png`;
 }
 
-function tag(name: string) {
-  const t = TAGS.find((t) => t.name === name);
-  if (!t) {
-    console.warn(`[ScreenPreview] Course not found in tags.json: "${name}"`);
-    return { name, color: "#888", bg: "rgba(136,136,136,0.12)", icon: "📚" };
-  }
-  return { name: t.name, color: t.color, bg: t.bg, icon: t.icon };
-}
+// [день, начало, конец, название из tags.json]
+const SCHEDULE_DEF: [string, number, number, string][] = [
+  ["Пн",  9, 11,  "Таджвид"],
+  ["Вт",  8, 10,  "Тафсир"],
+  ["Ср", 11, 13,  "Акыда"],
+  ["Чт",  9, 12,  "Хадисы"],
+  ["Пт", 14, 16,  "Фикх"],
+  ["Сб", 10, 12,  "Сира"],
+  ["Вс", 13, 15,  "Тазкия"],
+];
 
-const DEMO_SCHEDULE: Record<
-  string,
-  { name: string; color: string; bg: string; icon: string }
-> = {
-  // Mon — Math 09:00–11:00
-  "Mon-09:00": tag("Math"),
-  "Mon-09:30": tag("Math"),
-  "Mon-10:00": tag("Math"),
-  "Mon-10:30": tag("Math"),
-  // Tue — Physics 08:00–10:00
-  "Tue-08:00": tag("Physics"),
-  "Tue-08:30": tag("Physics"),
-  "Tue-09:00": tag("Physics"),
-  "Tue-09:30": tag("Physics"),
-  // Wed — Literature 11:00–13:00
-  "Wed-11:00": tag("Literature"),
-  "Wed-11:30": tag("Literature"),
-  "Wed-12:00": tag("Literature"),
-  "Wed-12:30": tag("Literature"),
-  // Thu — History 09:00–12:00
-  "Thu-09:00": tag("History"),
-  "Thu-09:30": tag("History"),
-  "Thu-10:00": tag("History"),
-  "Thu-10:30": tag("History"),
-  "Thu-11:00": tag("History"),
-  "Thu-11:30": tag("History"),
-  // Fri — Chemistry 14:00–16:00
-  "Fri-14:00": tag("Chemistry"),
-  "Fri-14:30": tag("Chemistry"),
-  "Fri-15:00": tag("Chemistry"),
-  "Fri-15:30": tag("Chemistry"),
-  // Sat — Biology 10:00–12:00
-  "Sat-10:00": tag("Biology"),
-  "Sat-10:30": tag("Biology"),
-  "Sat-11:00": tag("Biology"),
-  "Sat-11:30": tag("Biology"),
-  // Sun — English 13:00–15:00
-  "Sun-13:00": tag("English"),
-  "Sun-13:30": tag("English"),
-  "Sun-14:00": tag("English"),
-  "Sun-14:30": tag("English"),
-};
+// Автогенерация 30-минутных слотов из SCHEDULE_DEF
+const DEMO_SCHEDULE: Record<string, { name: string; color: string; bg: string; icon: string }> = {};
+for (const [day, startH, endH, name] of SCHEDULE_DEF) {
+  const tag = demoTag(name);
+  const entry = tag
+    ? { name: tag.label, color: tag.color, bg: tag.bg, icon: tag.icon }
+    : { name, color: "#888", bg: "rgba(136,136,136,0.12)", icon: "📚" };
+  for (let h = startH; h < endH; h++) {
+    DEMO_SCHEDULE[`${day}-${String(h).padStart(2, "0")}:00`] = entry;
+    DEMO_SCHEDULE[`${day}-${String(h).padStart(2, "0")}:30`] = entry;
+  }
+}
 
 // Track which cells are "start" vs "continuation"
 function isStart(day: string, time: string, times: string[]): boolean {

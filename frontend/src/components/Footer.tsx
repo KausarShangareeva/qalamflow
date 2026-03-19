@@ -149,7 +149,7 @@ export default function Footer() {
                 <span className={styles.projectDesc}>– планнер для мамы</span>
               </span>
               <span className={styles.projectItem}>
-                <Users size={15} style={{ color: "#a855f7" }} />
+                <Users size={15} style={{ color: "#10b981" }} />
                 <span className={styles.projectName}>UsraFlow</span>
                 <span className={styles.projectDesc}>– семейный планнер</span>
               </span>
@@ -178,7 +178,7 @@ export default function Footer() {
                 <span className={styles.projectDesc}>– ГДЗ по арабскому</span>
               </span>
               <span className={styles.projectItem}>
-                <Shirt size={15} style={{ color: "#6366f1" }} />
+                <Shirt size={15} style={{ color: "#d4a853" }} />
                 <span className={styles.projectName}>HijabPlanner</span>
                 <span className={styles.projectDesc}>
                   – планировщик гардероба

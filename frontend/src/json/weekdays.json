@@ -1,17 +1,17 @@
 {
   "days": [
-    { "full": "Monday", "short": "Mon", "letter": "M", "lower": "monday" },
-    { "full": "Tuesday", "short": "Tue", "letter": "T", "lower": "tuesday" },
+    { "full": "Понедельник", "short": "Пн", "letter": "П", "lower": "monday" },
+    { "full": "Вторник", "short": "Вт", "letter": "В", "lower": "tuesday" },
     {
-      "full": "Wednesday",
-      "short": "Wed",
-      "letter": "W",
+      "full": "Среда",
+      "short": "Ср",
+      "letter": "С",
       "lower": "wednesday"
     },
-    { "full": "Thursday", "short": "Thu", "letter": "T", "lower": "thursday" },
-    { "full": "Friday", "short": "Fri", "letter": "F", "lower": "friday" },
-    { "full": "Saturday", "short": "Sat", "letter": "S", "lower": "saturday" },
-    { "full": "Sunday", "short": "Sun", "letter": "S", "lower": "sunday" }
+    { "full": "Четверг", "short": "Чт", "letter": "Ч", "lower": "thursday" },
+    { "full": "Пятница", "short": "Пт", "letter": "П", "lower": "friday" },
+    { "full": "Суббота", "short": "Сб", "letter": "С", "lower": "saturday" },
+    { "full": "Воскресенье", "short": "Вс", "letter": "В", "lower": "sunday" }
   ],
   "hours": [
     { "full": "06:00", "short": "6:00", "value": 6 },

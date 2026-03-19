@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../context/AuthContext";
 import { useCopy } from "../hooks/useCopy";
-import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
 import Logo from "../components/Logo";
 import CTAButton from "../components/CTAButton";
 import styles from "./Login.module.css";
@@ -51,8 +51,15 @@ export default function Login() {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.container}>
-        <div className={styles.logoWrapper}>
-          <Logo size="large" variant="light" />
+        <div className={styles.topBar}>
+          <Link to="/" className={styles.backButton}>
+            <ArrowLeft size={16} />
+            На главную
+          </Link>
+          <div className={styles.logoWrapper}>
+            <Logo size="large" variant="light" />
+          </div>
+          <div style={{ width: "11rem" }} />
         </div>
 
         <div className={styles.card}>
@@ -138,7 +145,7 @@ export default function Login() {
               </div>
             </div>
 
-            <CTAButton type="submit" disabled={loading} align="center">
+            <CTAButton type="submit" disabled={loading} align="center" fullWidth>
               {loading
                 ? get("auth.login.submitting")
                 : get("auth.login.submit")}

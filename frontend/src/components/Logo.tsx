@@ -25,7 +25,7 @@ export default function Logo({ size = "medium", showText = true, variant = "dark
   return (
     <div className={styles.logo}>
       <img
-        src="/Logo_green_bg.svg"
+        src={variant === "light" ? "/Logo_white_bg.svg" : "/Logo_green_bg.svg"}
         alt="QalamFlow"
         className={styles.logoIcon}
         style={{ width: iconSizes[size], height: iconSizes[size] }}

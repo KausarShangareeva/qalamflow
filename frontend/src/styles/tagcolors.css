@@ -177,20 +177,20 @@
   --tag-mindfulness-bg: rgba(136, 187, 255, 0.13);
 
   /* Islamic Studies — Quran */
-  --tag-quran-reading: #00e5a0;
-  --tag-quran-reading-bg: rgba(0, 229, 160, 0.13);
+  --tag-quran-reading: #00d9b0;
+  --tag-quran-reading-bg: rgba(0, 217, 176, 0.13);
 
-  --tag-quran-memorization: #00cc88;
-  --tag-quran-memorization-bg: rgba(0, 204, 136, 0.13);
+  --tag-quran-memorization: #66cc66;
+  --tag-quran-memorization-bg: rgba(102, 204, 102, 0.13);
 
-  --tag-tajweed: #33ddaa;
-  --tag-tajweed-bg: rgba(51, 221, 170, 0.13);
+  --tag-tajweed: #99cc33;
+  --tag-tajweed-bg: rgba(153, 204, 51, 0.13);
 
-  --tag-quran-tafsir: #22ddbb;
-  --tag-quran-tafsir-bg: rgba(34, 221, 187, 0.13);
+  --tag-quran-tafsir: #a6aa22;
+  --tag-quran-tafsir-bg: rgba(34, 170, 102, 0.13);
 
-  --tag-quran-sciences: #00ffcc;
-  --tag-quran-sciences-bg: rgba(0, 255, 204, 0.13);
+  --tag-quran-sciences: #0d7a50;
+  --tag-quran-sciences-bg: rgba(13, 122, 80, 0.13);
 
   /* Islamic Studies — Arabic */
   --tag-arabic-for-quran: #44ee99;
@@ -199,8 +199,8 @@
   --tag-arabic-grammar: #ffcc00;
   --tag-arabic-grammar-bg: rgba(255, 204, 0, 0.13);
 
-  --tag-arabic-morphology: #ffb800;
-  --tag-arabic-morphology-bg: rgba(255, 184, 0, 0.13);
+  --tag-arabic-morphology: #a855f7;
+  --tag-arabic-morphology-bg: rgba(168, 85, 247, 0.13);
 
   /* Islamic Studies — Aqeedah & Hadith */
   --tag-aqeedah: #ff9933;
@@ -273,14 +273,14 @@
   --tag-bayna-yadayk: #44ddbb;
   --tag-bayna-yadayk-bg: rgba(68, 221, 187, 0.13);
 
-  --tag-murajaah: #00bb99;
-  --tag-murajaah-bg: rgba(0, 187, 153, 0.13);
+  --tag-murajaah: #00a878;
+  --tag-murajaah-bg: rgba(0, 168, 120, 0.13);
 
-  --tag-khatm: #55ee99;
-  --tag-khatm-bg: rgba(85, 238, 153, 0.13);
+  --tag-khatm: #55aa44;
+  --tag-khatm-bg: rgba(85, 170, 68, 0.13);
 
-  --tag-wird: #11ccbb;
-  --tag-wird-bg: rgba(17, 204, 187, 0.13);
+  --tag-wird: #228855;
+  --tag-wird-bg: rgba(34, 136, 85, 0.13);
 
   --tag-classical-arabic: #ffcc55;
   --tag-classical-arabic-bg: rgba(255, 204, 85, 0.13);
@@ -291,22 +291,22 @@
   /* МК тома */
   --tag-mk-1: #ff9900;
   --tag-mk-1-bg: rgba(255, 153, 0, 0.13);
-  --tag-mk-2: #ffaa22;
-  --tag-mk-2-bg: rgba(255, 170, 34, 0.13);
-  --tag-mk-3: #ffb84d;
-  --tag-mk-3-bg: rgba(255, 184, 77, 0.13);
+  --tag-mk-2: #10b981;
+  --tag-mk-2-bg: rgba(16, 185, 129, 0.13);
+  --tag-mk-3: #06b6d4;
+  --tag-mk-3-bg: rgba(6, 182, 212, 0.13);
   --tag-mk-4: #7b0028;
   --tag-mk-4-bg: rgba(123, 0, 40, 0.15);
 
   /* БЯ тома */
-  --tag-bya-1: #20c9a6;
-  --tag-bya-1-bg: rgba(32, 201, 166, 0.13);
-  --tag-bya-2: #26d4af;
-  --tag-bya-2-bg: rgba(38, 212, 175, 0.13);
-  --tag-bya-3: #33ddb8;
-  --tag-bya-3-bg: rgba(51, 221, 184, 0.13);
-  --tag-bya-4: #44e8c4;
-  --tag-bya-4-bg: rgba(68, 232, 196, 0.13);
+  --tag-bya-1: #f59e0b;
+  --tag-bya-1-bg: rgba(245, 158, 11, 0.13);
+  --tag-bya-2: #34d399;
+  --tag-bya-2-bg: rgba(52, 211, 153, 0.13);
+  --tag-bya-3: #22d3ee;
+  --tag-bya-3-bg: rgba(34, 211, 238, 0.13);
+  --tag-bya-4: #ef4444;
+  --tag-bya-4-bg: rgba(239, 68, 68, 0.13);
 
   /* Arabic grammar books */
   --tag-ajrumiyya: #a855f7;
@@ -605,15 +605,23 @@
   --tag-mindfulness: #4f46e5;
   --tag-mindfulness-bg: #e0e7ff;
 
-  /* Islamic Studies — Quran */
-  --tag-quran-reading: #059669;
-  --tag-quran-reading-bg: #d1fae5;
-  --tag-quran-memorization: #047857;
+  /* Quran Reading — Сделал более выраженным бирюзовым */
+  --tag-quran-reading: #0891b2;
+  --tag-quran-reading-bg: #cffafe;
+
+  /* Quran Memorization — Насыщенный травяной зеленый */
+  --tag-quran-memorization: #16a34a;
   --tag-quran-memorization-bg: #dcfce7;
-  --tag-tajweed: #0d9488;
-  --tag-tajweed-bg: #ccfbf1;
+
+  /* Tajweed — Сочный оливково-лаймовый */
+  --tag-tajweed: #65a30d;
+  --tag-tajweed-bg: #ecfccb;
+
+  /* Quran Tafsir — Глубокий изумрудный */
   --tag-quran-tafsir: #059669;
   --tag-quran-tafsir-bg: #d1fae5;
+
+  /* Quran Sciences — Темная морская волна (сделал фон заметнее) */
   --tag-quran-sciences: #0d9488;
   --tag-quran-sciences-bg: #ccfbf1;
 
@@ -622,8 +630,8 @@
   --tag-arabic-for-quran-bg: #dcfce7;
   --tag-arabic-grammar: #b45309;
   --tag-arabic-grammar-bg: #fef3c7;
-  --tag-arabic-morphology: #b45309;
-  --tag-arabic-morphology-bg: #fef9c3;
+  --tag-arabic-morphology: #7c3aed;
+  --tag-arabic-morphology-bg: #ede9fe;
 
   /* Islamic Studies — Aqeedah & Hadith */
   --tag-aqeedah: #d97706;
@@ -683,32 +691,32 @@
   --tag-medina-course-bg: #fef3c7;
   --tag-bayna-yadayk: #0d9488;
   --tag-bayna-yadayk-bg: #ccfbf1;
-  --tag-murajaah: #047857;
-  --tag-murajaah-bg: #dcfce7;
-  --tag-khatm: #15803d;
-  --tag-khatm-bg: #dcfce7;
-  --tag-wird: #0d9488;
-  --tag-wird-bg: #ccfbf1;
+  --tag-murajaah: #0f766e;
+  --tag-murajaah-bg: #ccfbf1;
+  --tag-khatm: #166534;
+  --tag-khatm-bg: #f0fdf4;
+  --tag-wird: #14532d;
+  --tag-wird-bg: #dcfce7;
 
   /* МК тома */
   --tag-mk-1: #d97706;
   --tag-mk-1-bg: #fef3c7;
-  --tag-mk-2: #b45309;
-  --tag-mk-2-bg: #ffedd5;
-  --tag-mk-3: #c2410c;
-  --tag-mk-3-bg: #fef0e8;
+  --tag-mk-2: #059669;
+  --tag-mk-2-bg: #d1fae5;
+  --tag-mk-3: #0891b2;
+  --tag-mk-3-bg: #cffafe;
   --tag-mk-4: #7b0028;
   --tag-mk-4-bg: #f9d6e0;
 
   /* БЯ тома */
-  --tag-bya-1: #0d9488;
-  --tag-bya-1-bg: #ccfbf1;
-  --tag-bya-2: #059669;
+  --tag-bya-1: #d97706;
+  --tag-bya-1-bg: #fef3c7;
+  --tag-bya-2: #10b981;
   --tag-bya-2-bg: #d1fae5;
-  --tag-bya-3: #047857;
-  --tag-bya-3-bg: #dcfce7;
-  --tag-bya-4: #0e7490;
-  --tag-bya-4-bg: #cffafe;
+  --tag-bya-3: #0891b2;
+  --tag-bya-3-bg: #e0f7ff;
+  --tag-bya-4: #dc2626;
+  --tag-bya-4-bg: #fee2e2;
 
   /* Arabic grammar books */
   --tag-ajrumiyya: #7c3aed;

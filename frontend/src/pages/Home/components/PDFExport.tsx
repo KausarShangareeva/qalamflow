@@ -3,22 +3,14 @@ import { useAuth } from "../../../context/AuthContext";
 import { useCopy } from "../../../hooks/useCopy";
 import CTAButton from "../../../components/CTAButton";
 import TagIcon from "../../../components/TagIcon";
-import TAGS from "../../../json/tags.json";
 import WEEKDAYS from "../../../json/weekdays.json";
+import { t as demoTag } from "../../../utils/demoTags";
 import styles from "./PDFExport.module.css";
 
 function tag(name: string) {
-  const t = TAGS.find((t) => t.name === name);
-  if (!t) {
-    console.warn(`[PDFExport] Course not found in tags.json: "${name}"`);
-    return {
-      label: name,
-      color: "#888",
-      bg: "rgba(136,136,136,0.12)",
-      icon: "📚",
-    };
-  }
-  return { label: t.name, color: t.color, bg: t.bg, icon: t.icon };
+  const found = demoTag(name);
+  if (!found) return { label: name, color: "#888", bg: "rgba(136,136,136,0.12)", icon: "📚" };
+  return { label: found.label, color: found.color, bg: found.bg, icon: found.icon };
 }
 
 const tabs = [
@@ -44,27 +36,20 @@ const TIME_COL_PCT = 10;
 const DAY_COL_PCT = (100 - TIME_COL_PCT) / DAYS.length;
 
 const COURSES = [
-  // Monday
-  { day: 0, start: 9, end: 11, ...tag("Math") },
-  { day: 0, start: 13, end: 14.5, ...tag("Art") },
-  // Tuesday
-  { day: 1, start: 8, end: 10, ...tag("Physics") },
-  { day: 1, start: 12, end: 13.5, ...tag("Geography") },
-  // Wednesday
-  { day: 2, start: 7, end: 8.5, ...tag("Music") },
-  { day: 2, start: 11, end: 13, ...tag("Literature") },
-  // Thursday
-  { day: 3, start: 9, end: 12, ...tag("History") },
-  { day: 3, start: 14, end: 16, ...tag("Physical Education") },
-  // Friday
-  { day: 4, start: 9, end: 11, ...tag("Computer Science") },
-  { day: 4, start: 14, end: 16, ...tag("Chemistry") },
-  // Saturday
-  { day: 5, start: 10, end: 12, ...tag("Biology") },
-  { day: 5, start: 13.5, end: 15, ...tag("Economics") },
-  // Sunday
-  { day: 6, start: 11, end: 12.5, ...tag("Drama") },
-  { day: 6, start: 14, end: 15.5, ...tag("English") },
+  { day: 0, start: 9,    end: 11,   ...tag("Таджвид") },
+  { day: 0, start: 13,   end: 14.5, ...tag("Тафсир") },
+  { day: 1, start: 8,    end: 10,   ...tag("Хадисы") },
+  { day: 1, start: 12,   end: 13.5, ...tag("Акыда") },
+  { day: 2, start: 7,    end: 8.5,  ...tag("Тазкия") },
+  { day: 2, start: 11,   end: 13,   ...tag("Адаб") },
+  { day: 3, start: 9,    end: 12,   ...tag("Фикх") },
+  { day: 3, start: 14,   end: 16,   ...tag("Сира") },
+  { day: 4, start: 9,    end: 11,   ...tag("Ахляк") },
+  { day: 4, start: 14,   end: 16,   ...tag("Даава") },
+  { day: 5, start: 10,   end: 12,   ...tag("Лингвистика") },
+  { day: 5, start: 13.5, end: 15,   ...tag("Антропология") },
+  { day: 6, start: 11,   end: 12.5, ...tag("Поэзия") },
+  { day: 6, start: 14,   end: 15.5, ...tag("Каллиграфия") },
 ];
 
 // ── Mini schedule preview ────────────────────────────────────────────────────

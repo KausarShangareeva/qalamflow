@@ -477,10 +477,16 @@
   },
 
   {
-    "name": "Чтение Корана",
+    "name": "Тасхих Корана",
     "color": "var(--tag-quran-reading)",
     "bg": "var(--tag-quran-reading-bg)",
-    "icon": "📖"
+    "icon": "📣"
+  },
+  {
+    "name": "Коран",
+    "color": "var(--tag-quran-reading)",
+    "bg": "var(--tag-quran-reading-bg)",
+    "icon": "📗"
   },
   {
     "name": "Хифз Корана",
@@ -516,7 +522,7 @@
     "name": "Таджвид",
     "color": "var(--tag-tajweed)",
     "bg": "var(--tag-tajweed-bg)",
-    "icon": "🎵"
+    "icon": "🫀"
   },
   {
     "name": "Тафсир",
@@ -534,7 +540,7 @@
     "name": "Мединский курс (МК)",
     "color": "var(--tag-medina-course)",
     "bg": "var(--tag-medina-course-bg)",
-    "icon": "📗"
+    "icon": "📚"
   },
   {
     "name": "МК 1 том",
@@ -565,7 +571,7 @@
     "name": "Бейна Ядейк (БЯ)",
     "color": "var(--tag-bayna-yadayk)",
     "bg": "var(--tag-bayna-yadayk-bg)",
-    "icon": "📘"
+    "icon": "📚"
   },
   {
     "name": "БЯ 1 том",
@@ -596,7 +602,7 @@
     "name": "Аджрумийа",
     "color": "var(--tag-ajrumiyya)",
     "bg": "var(--tag-ajrumiyya-bg)",
-    "icon": "📜"
+    "icon": "📓"
   },
   {
     "name": "Катру ан-Нада",
@@ -608,7 +614,7 @@
     "name": "Альфия ибн Малика",
     "color": "var(--tag-alfiyya)",
     "bg": "var(--tag-alfiyya-bg)",
-    "icon": "🏆"
+    "icon": "📓"
   },
   {
     "name": "Академия ZAD",
@@ -653,12 +659,6 @@
     "icon": "📖"
   },
   {
-    "name": "Арабский для Корана",
-    "color": "var(--tag-arabic-for-quran)",
-    "bg": "var(--tag-arabic-for-quran-bg)",
-    "icon": "🌿"
-  },
-  {
     "name": "Грамматика (нахву)",
     "color": "var(--tag-arabic-grammar)",
     "bg": "var(--tag-arabic-grammar-bg)",
@@ -693,18 +693,6 @@
     "color": "var(--tag-hadith-studies)",
     "bg": "var(--tag-hadith-studies-bg)",
     "icon": "📜"
-  },
-  {
-    "name": "Заучивание хадисов",
-    "color": "var(--tag-hadith-memorization)",
-    "bg": "var(--tag-hadith-memorization-bg)",
-    "icon": "📿"
-  },
-  {
-    "name": "Науки о хадисах",
-    "color": "var(--tag-hadith-sciences)",
-    "bg": "var(--tag-hadith-sciences-bg)",
-    "icon": "📚"
   },
   {
     "name": "Фикх",
@@ -796,12 +784,7 @@
     "bg": "var(--tag-islamic-leadership-bg)",
     "icon": "👑"
   },
-  {
-    "name": "Словарный запас Корана",
-    "color": "var(--tag-quranic-vocabulary)",
-    "bg": "var(--tag-quranic-vocabulary-bg)",
-    "icon": "🔤"
-  },
+
   {
     "name": "Исламское воспитание",
     "color": "var(--tag-islamic-education)",

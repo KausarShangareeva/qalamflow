@@ -148,9 +148,9 @@
   );
 
   /* Course Tags */
-  --tag-bg-strength: 24%;
-  --tag-border-strength: 40%;
-  --tag-text-mix: 62%;
+  --tag-bg-strength: 18%;
+  --tag-border-strength: 100%;
+  --tag-text-mix: 80%;
   --tag-stripe-strength: 10%;
 
   /* Layout */
@@ -182,8 +182,8 @@
   --color-border-light: #6b7280;
 
   /* Course Tags - Light Theme */
-  --tag-bg-strength: 22%;
-  --tag-border-strength: 44%;
-  --tag-text-mix: 78%;
-  --tag-stripe-strength: 18%;
+  --tag-bg-strength: 18%;
+  --tag-border-strength: 95%;
+  --tag-text-mix: 100%;
+  --tag-stripe-strength: 50%;
 }

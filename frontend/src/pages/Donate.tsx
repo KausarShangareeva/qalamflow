@@ -5,7 +5,8 @@ import copy from "../json/ru.json";
 import SectionHeader from "../components/SectionHeader";
 import CTAButton from "../components/CTAButton";
 
-const COFFEE_IMGS = ["/pencil_1.png", "/book.png", "/graduate-hat.png"];
+const TIER_EMOJIS = ["🪙", "📗", "🏆"]; // бронза, изумруд, золото
+const TIER_COLORS = ["#b87333", "#10b981", "#d4a853"]; // бронза, изумруд, золото
 const coffees = copy.donate.coffees;
 
 export default function Donate() {
@@ -29,15 +30,12 @@ export default function Donate() {
                 key={i}
                 onClick={() => setSelected(i)}
                 className={`${styles.coffeeCard} ${selected === i ? styles.coffeeCardSelected : ""}`}
+                style={{ "--tier-color": TIER_COLORS[i] } as React.CSSProperties}
               >
                 {selected === i && (
                   <span className={styles.popularBadge}>{c.badge}</span>
                 )}
-                <img
-                  src={COFFEE_IMGS[i]}
-                  alt={c.label}
-                  className={styles.coffeeImg}
-                />
+                <span className={styles.coffeeImg}>{TIER_EMOJIS[i]}</span>
                 <strong className={styles.coffeeLabel}>{c.label}</strong>
                 <span className={styles.coffeeSub}>{c.sub}</span>
                 <span className={styles.coffeeAmount}>{c.amount}</span>
@@ -47,7 +45,7 @@ export default function Donate() {
 
           <CTAButton
             onClick={() =>
-              window.open("https://buymeacoffee.com/shanstudio", "_blank")
+              window.open("https://yookassa.ru/my/i/Z_KABQB0ZcuM/l", "_blank")
             }
           >
             {get("donate.button")}

@@ -10,11 +10,12 @@ interface CTAButtonProps {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   noShadow?: boolean;
+  fullWidth?: boolean;
 }
 
-export default function CTAButton({ children, to, onClick, className, align = "center", type = "button", disabled, noShadow }: CTAButtonProps) {
+export default function CTAButton({ children, to, onClick, className, align = "center", type = "button", disabled, noShadow, fullWidth }: CTAButtonProps) {
   const containerClass = `${styles.ctaContainer} ${styles[`align_${align}`]}`;
-  const btnClass = `${styles.ctaButton} ${noShadow ? styles.noShadow : ""} ${className ?? ""}`;
+  const btnClass = `${styles.ctaButton} ${noShadow ? styles.noShadow : ""} ${fullWidth ? styles.fullWidth : ""} ${className ?? ""}`;
 
   if (to) {
     return (

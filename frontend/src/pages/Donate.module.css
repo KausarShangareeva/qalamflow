@@ -58,25 +58,25 @@
 .coffeeGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  gap: 1.2rem;
   width: 100%;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   margin-top: var(--space-sm);
 }
 
 .coffeeCard {
-  max-width: 90%;
-  width: 90%;
-  margin: 0 auto;
-  justify-self: center;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  justify-self: stretch;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: var(--space-2xl) var(--space-md);
+  padding: var(--space-lg) var(--space-sm);
   background: var(--color-bg);
   border: 1.5px solid var(--color-border);
   border-radius: 1.6rem;
@@ -88,15 +88,15 @@
 }
 
 .coffeeCard:hover {
-  border-color: var(--color-primary);
+  border-color: var(--tier-color, var(--color-primary));
   transform: translateY(-3px);
 }
 
 .coffeeCardSelected {
-  border-color: var(--color-primary);
-  background: var(--color-primary-subtle);
+  border-color: var(--tier-color, var(--color-primary));
+  background: color-mix(in srgb, var(--tier-color, var(--color-primary)) 10%, var(--color-bg-card));
   box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--color-primary) 25%, transparent);
+    color-mix(in srgb, var(--tier-color, var(--color-primary)) 25%, transparent);
 }
 
 .popularBadge {
@@ -108,16 +108,20 @@
   padding: 0.25rem 0.9rem;
   font-size: var(--fs-xs);
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--tier-color, var(--color-primary));
   background: var(--color-bg-card);
-  border: 1.5px solid var(--color-primary);
+  border: 1.5px solid var(--tier-color, var(--color-primary));
   border-radius: var(--radius-full);
 }
 
 .coffeeImg {
-  width: 6rem;
-  height: 6rem;
-  object-fit: contain;
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.6rem;
+  line-height: 1;
 }
 
 .coffeeLabel {
@@ -135,7 +139,7 @@
 .coffeeAmount {
   font-size: var(--fs-lg);
   font-weight: 800;
-  color: var(--color-primary);
+  color: var(--tier-color, var(--color-primary));
   margin-top: 0.2rem;
 }
 

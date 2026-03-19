@@ -17,38 +17,28 @@ import {
 } from "lucide-react";
 
 import WEEKDAYS from "../../../json/weekdays.json";
-import COURSES from "../../../json/tags.json";
+import ALL_TAGS from "../../../json/tags.json";
 import TagIcon from "../../../components/TagIcon";
+import { t as demoTag } from "../../../utils/demoTags";
 import styles from "./FeaturesSection.module.css";
 
-const HIGHLIGHTED_COURSES = [
-  {
-    name: "Math",
-    color: "#6366f1",
-    bg: "rgba(99,102,241,0.12)",
-    icon: "📐",
-    rows: 3,
-  },
-  {
-    name: "English",
-    color: "#f97316",
-    bg: "rgba(249,115,22,0.12)",
-    icon: "✍️",
-    rows: 5,
-  },
-  {
-    name: "History",
-    color: "#ec4899",
-    bg: "rgba(236,72,153,0.12)",
-    icon: "📜",
-    rows: 4,
-  },
+function highlighted(name: string, rows: number) {
+  const tag = demoTag(name);
+  return tag
+    ? { name: tag.label, color: tag.color, bg: tag.bg, icon: tag.icon, rows }
+    : { name, color: "#888", bg: "rgba(136,136,136,0.12)", icon: "📚", rows };
+}
+
+const HIGHLIGHTED_ALL_TAGS = [
+  highlighted("Чтение Корана", 3),
+  highlighted("Арабский для Корана", 5),
+  highlighted("Фикх", 4),
 ];
 
 function HighlightedCourses() {
   return (
     <div className={styles.courseBricks}>
-      {HIGHLIGHTED_COURSES.map((course) => (
+      {HIGHLIGHTED_ALL_TAGS.map((course) => (
         <div key={course.name} className={styles.courseColumn}>
           {Array.from({ length: course.rows }).map((_, i) => (
             <div
@@ -73,7 +63,7 @@ function HighlightedCourses() {
   );
 }
 
-const MINI_DAYS = WEEKDAYS.days.map((d) => d.letter);
+const MINI_DAYS = WEEKDAYS.days.map((d) => d.short);
 const MINI_HOURS = WEEKDAYS.hours.filter((h) => h.value >= 8 && h.value <= 16);
 
 const MINI_SCHEDULE: Record<string, string> = {
@@ -256,11 +246,11 @@ function SavedPlans({ get }: { get: (path: string) => string }) {
 }
 
 // ── Animated Tags Marquee ─────────────────────────────────────────────────────
-const chunk = Math.ceil(COURSES.length / 3);
+const chunk = Math.ceil(ALL_TAGS.length / 3);
 const TAG_ROWS = [
-  COURSES.slice(0, chunk),
-  COURSES.slice(chunk, chunk * 2),
-  COURSES.slice(chunk * 2),
+  ALL_TAGS.slice(0, chunk),
+  ALL_TAGS.slice(chunk, chunk * 2),
+  ALL_TAGS.slice(chunk * 2),
 ];
 
 function AnimatedTags() {

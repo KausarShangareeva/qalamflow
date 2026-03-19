@@ -5,58 +5,44 @@ import { Calendar, GraduationCap, Search, X } from "lucide-react";
 import CTAButton from "../../../components/CTAButton";
 import TagIcon from "../../../components/TagIcon";
 import SectionHeader from "../../../components/SectionHeader";
-import TAGS from "../../../json/tags.json";
 import WEEKDAYS from "../../../json/weekdays.json";
+import { t } from "../../../utils/demoTags";
 import styles from "./StepByStepGuide.module.css";
 
-const ET_DAYS = WEEKDAYS.days.map((d) => d.letter);
+const ET_DAYS = WEEKDAYS.days.map((d) => d.short);
 const ET_TIMES = WEEKDAYS.hours
   .filter((h) => h.value >= 8 && h.value <= 16)
   .map((h) => h.full.split(":")[0]);
 
-const DEMO_COURSE_NAMES = [
-  "Math",
-  "Biology",
-  "Chemistry",
-  "Physics",
-  "History",
+// Курсы для попапа — берём из tags.json по имени
+const POPUP_NAMES = [
+  "Арабский",
+  "Чтение Корана",
+  "Мединский курс (МК)",
+  "Бейна Ядейк (БЯ)",
+  "Морфология (сарф)",
 ];
-
-const FALLBACK_TAG = {
-  label: "?",
-  emoji: "📚",
-  color: "#888",
-  bg: "rgba(136,136,136,0.12)",
-};
-
-const DEMO_COURSES = DEMO_COURSE_NAMES.map((name) => {
-  const tag = TAGS.find((t) => t.name === name);
-  if (!tag) {
-    console.warn(`[StepByStepGuide] Course not found in tags.json: "${name}"`);
-    return FALLBACK_TAG;
-  }
-  return { label: tag.name, emoji: tag.icon, color: tag.color, bg: tag.bg };
+const DEMO_COURSES = POPUP_NAMES.flatMap((name) => {
+  const tag = t(name);
+  if (!tag) return [];
+  return [{ label: tag.label, emoji: tag.icon, color: tag.color, bg: tag.bg }];
 });
 
-const DEMO_DURATIONS = ["30 min", "1 hour", "2 hours"];
+const DEMO_DURATIONS = ["30 мин", "1 час", "2 часа"];
 
-// Row height = 2.8rem, time col = 2.8rem, header row ≈ 2.8rem
-// rows: 0=08, 1=09, 2=10, 3=11, 4=12, 5=13, 6=14, 7=15, 8=16
+// Row height = 2.8rem, rows: 0=08, 1=09, 2=10, 3=11, 4=12, 5=13, 6=14, 7=15, 8=16
 function getTag(name: string) {
-  const tag = TAGS.find((t) => t.name === name);
-  if (!tag) {
-    console.warn(`[StepByStepGuide] Course not found in tags.json: "${name}"`);
-    return FALLBACK_TAG;
-  }
-  return { label: tag.name, emoji: tag.icon, color: tag.color, bg: tag.bg };
+  const tag = t(name);
+  if (!tag) return { label: name, emoji: "📚", color: "#888", bg: "rgba(136,136,136,0.12)" };
+  return { label: tag.label, emoji: tag.icon, color: tag.color, bg: tag.bg };
 }
 
 const TABLE_COURSES = [
-  { day: 0, startRow: 1, endRow: 3, ...getTag("Math") },
-  { day: 1, startRow: 0, endRow: 2, ...getTag("Physics") },
-  { day: 3, startRow: 1, endRow: 4, ...getTag("History") },
-  { day: 5, startRow: 2, endRow: 4, ...getTag("Biology") },
-  { day: 4, startRow: 6, endRow: 8, ...getTag("Chemistry") },
+  { day: 0, startRow: 1, endRow: 3, ...getTag("Таджвид") },
+  { day: 1, startRow: 0, endRow: 2, ...getTag("Тафсир") },
+  { day: 3, startRow: 1, endRow: 4, ...getTag("Акыда") },
+  { day: 5, startRow: 2, endRow: 4, ...getTag("Сира") },
+  { day: 4, startRow: 6, endRow: 8, ...getTag("Фикх") },
 ];
 
 const CYCLE_MS = 5000;
@@ -115,7 +101,7 @@ function FilledTable() {
             top: `calc(6rem + ${c.startRow} * 2.8rem)`,
             height: `calc(${c.endRow - c.startRow} * 2.9rem - 1px)`,
             width: `calc((100% - 2px - 2.8rem) / 7 - 1px)`,
-            background: `repeating-linear-gradient(-45deg, transparent, transparent 4px, color-mix(in srgb, ${c.color} 18%, transparent) 4px, color-mix(in srgb, ${c.color} 18%, transparent) 7px), ${c.bg}`,
+            background: c.bg,
             borderLeft: `2.5px solid ${c.color}`,
           }}
         >
