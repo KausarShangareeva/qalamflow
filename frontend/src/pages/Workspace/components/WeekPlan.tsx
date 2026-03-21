@@ -30,7 +30,10 @@ function getFrequent(): string[] {
 function incrementFrequency(courseName: string) {
   try {
     const recent = getFrequent();
-    const updated = [courseName, ...recent.filter((n) => n !== courseName)].slice(0, 5);
+    const updated = [
+      courseName,
+      ...recent.filter((n) => n !== courseName),
+    ].slice(0, 5);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
   } catch {
     // ignore
@@ -148,6 +151,28 @@ export default function WeekPlan({
   const lastDeletedRef = useRef<ScheduleEntry | null>(null);
   const undoTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const tableRef = useRef<HTMLDivElement>(null);
+  const saveBtnRef = useRef<HTMLButtonElement>(null);
+  const [btnWidth, setBtnWidth] = useState<number | undefined>(undefined);
+  const emojiBtnRef = useRef<HTMLButtonElement>(null);
+  const [emojiBtnWidth, setEmojiBtnWidth] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    const btn = saveBtnRef.current;
+    if (!btn) return;
+    const ro = new ResizeObserver(() => setBtnWidth(btn.offsetWidth));
+    ro.observe(btn);
+    setBtnWidth(btn.offsetWidth);
+    return () => ro.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const btn = emojiBtnRef.current;
+    if (!btn) return;
+    const ro = new ResizeObserver(() => setEmojiBtnWidth(btn.offsetWidth));
+    ro.observe(btn);
+    setEmojiBtnWidth(btn.offsetWidth);
+    return () => ro.disconnect();
+  }, []);
 
   const scheduleMap = useMemo(() => buildScheduleMap(schedule), [schedule]);
 
@@ -164,7 +189,12 @@ export default function WeekPlan({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [schedule, onScheduleChange]);
 
-  useEffect(() => () => { if (undoTimerRef.current) clearTimeout(undoTimerRef.current); }, []);
+  useEffect(
+    () => () => {
+      if (undoTimerRef.current) clearTimeout(undoTimerRef.current);
+    },
+    [],
+  );
 
   function handleCellClick(day: string, time: string) {
     const key = `${day}-${time}`;
@@ -172,7 +202,9 @@ export default function WeekPlan({
     if (info && info.type !== "empty") {
       const entry = info.entry!;
       onScheduleChange(
-        schedule.filter((e) => !(e.day === entry.day && e.startTime === entry.startTime)),
+        schedule.filter(
+          (e) => !(e.day === entry.day && e.startTime === entry.startTime),
+        ),
       );
       lastDeletedRef.current = entry;
       setDeletedEntry(entry);
@@ -272,6 +304,68 @@ export default function WeekPlan({
     <div className={styles.wrapper}>
       {/* Toggle + Print */}
       <div className={styles.toolbar}>
+        {/* Emoji toggle */}
+        <div className={styles.emojiWrap}>
+          <div
+            className={styles.saveBubble}
+            style={emojiBtnWidth ? { width: emojiBtnWidth } : undefined}
+          >
+            <div className={styles.saveBubbleCircle}>
+              {showEmoji ? "😊" : "🌒"}
+            </div>
+            <div className={styles.saveHint}>
+              {showEmoji
+                ? "Эмоджи добавлены в расписание"
+                : "Эмоджи удалены из расписания"}
+            </div>
+          </div>
+          <div className={styles.saveDashedLine} />
+          <button
+            ref={emojiBtnRef}
+            className={`${styles.emojiSwitch} ${showEmoji ? styles.emojiOn : styles.emojiOff}`}
+            onClick={() => setShowEmoji((v) => !v)}
+            aria-label="Toggle emoji"
+          >
+            <span className={styles.emojiThumb}>{showEmoji ? "😊" : "🌒"}</span>
+          </button>
+        </div>
+
+        <div className={styles.saveBtnWrap}>
+          <div
+            className={styles.saveBubble}
+            style={btnWidth ? { width: btnWidth } : undefined}
+          >
+            <div className={styles.saveBubbleCircle}>
+              {schedule.length === 0 ? "🩶" : canSave ? "✨" : "✅"}
+            </div>
+            <div
+              className={`${styles.saveHint} ${canSave ? styles.saveHintActive : schedule.length > 0 ? styles.saveHintDone : ""}`}
+            >
+              {schedule.length === 0
+                ? "Вы ещё не добавили курс"
+                : canSave
+                  ? <>Вы добавили <strong>{schedule.length - savedScheduleLength} {pluralKurs(schedule.length - savedScheduleLength)}</strong> — сохраните план</>
+                  : "План сохранён"}
+            </div>
+          </div>
+          <div className={styles.saveDashedLine} />
+          <button
+            ref={saveBtnRef}
+            className={styles.saveBtn}
+            onClick={onSave}
+            disabled={!canSave}
+          >
+            <Save size={18} />
+            {get("pdfExport.savePlan")}
+          </button>
+        </div>
+        <button className={styles.printBtn} onClick={handlePrint}>
+          <Printer size={18} />
+          {get("pdfExport.printPDF")}
+        </button>
+
+        {/* Line-break before toggle (visible only ≤1000px) */}
+        <div className={styles.toolbarBreak} />
         <div className={styles.toggle}>
           <button
             className={`${styles.toggleBtn} ${orientation === "vertical" ? styles.toggleActive : ""}`}
@@ -288,32 +382,6 @@ export default function WeekPlan({
             <span>{get("workspace.horizontal")}</span>
           </button>
         </div>
-        {/* Emoji toggle */}
-        <button
-          className={`${styles.emojiSwitch} ${showEmoji ? styles.emojiOn : styles.emojiOff}`}
-          onClick={() => setShowEmoji((v) => !v)}
-          aria-label="Toggle emoji"
-        >
-          <span className={styles.emojiThumb}>{showEmoji ? "😊" : "🌒"}</span>
-        </button>
-
-        <div className={styles.saveBtnWrap}>
-          <span className={`${styles.saveHint} ${canSave ? styles.saveHintActive : schedule.length > 0 ? styles.saveHintDone : ""}`}>
-            {schedule.length === 0
-              ? "Вы ещё не добавили курс, чтобы сохранить его 🩶"
-              : canSave
-              ? `Вы добавили ${schedule.length - savedScheduleLength} ${pluralKurs(schedule.length - savedScheduleLength)} — сохраните план ✨`
-              : "План сохранён ✓"}
-          </span>
-          <button className={styles.saveBtn} onClick={onSave} disabled={!canSave}>
-            <Save size={18} />
-            {get("pdfExport.savePlan")}
-          </button>
-        </div>
-        <button className={styles.printBtn} onClick={handlePrint}>
-          <Printer size={18} />
-          {get("pdfExport.printPDF")}
-        </button>
       </div>
 
       {/* Table */}
@@ -349,7 +417,8 @@ export default function WeekPlan({
       {deletedEntry && (
         <div className={styles.undoToast}>
           <span>
-            «{deletedEntry.course}» удалён — нажмите <kbd className={styles.undoKbd}>Ctrl+Z</kbd> или
+            «{deletedEntry.course}» удалён — нажмите{" "}
+            <kbd className={styles.undoKbd}>Ctrl+Z</kbd> или
           </span>
           <button
             className={styles.undoBtn}
@@ -412,15 +481,19 @@ function CoursePopup({
   showEmoji: boolean;
 }) {
   const { get } = useCopy();
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(getLastCourse);
-  const [selectedDuration, setSelectedDuration] = useState<number | null>(getLastDuration);
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(
+    getLastCourse,
+  );
+  const [selectedDuration, setSelectedDuration] = useState<number | null>(
+    getLastDuration,
+  );
   const [search, setSearch] = useState("");
 
   const visibleCourses = useMemo(() => {
     const q = search.trim().toLowerCase().replace(/\s+/g, "");
     if (q.length >= 3)
       return COURSES.filter((c) =>
-        c.name.toLowerCase().replace(/\s+/g, "").includes(q)
+        c.name.toLowerCase().replace(/\s+/g, "").includes(q),
       );
     const frequent = getFrequent();
     if (frequent.length > 0) {
@@ -461,7 +534,10 @@ function CoursePopup({
               key={c.name}
               className={`${styles.courseTag} ${selectedCourse === c.name ? styles.courseTagActive : ""}`}
               style={{ "--tag-color": c.color } as React.CSSProperties}
-              onClick={() => { setSelectedCourse(c.name); saveLastCourse(c.name); }}
+              onClick={() => {
+                setSelectedCourse(c.name);
+                saveLastCourse(c.name);
+              }}
             >
               {showEmoji && typeof c.icon === "string" && (
                 <span className={styles.courseIcon}>
@@ -487,7 +563,10 @@ function CoursePopup({
             <button
               key={d.value}
               className={`${styles.durationBtn} ${selectedDuration === d.value ? styles.durationActive : ""}`}
-              onClick={() => { setSelectedDuration(d.value); saveLastDuration(d.value); }}
+              onClick={() => {
+                setSelectedDuration(d.value);
+                saveLastDuration(d.value);
+              }}
             >
               {d.label}
             </button>

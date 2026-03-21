@@ -198,7 +198,7 @@
     "messageAuthor": "Написать автору",
     "buyMeCoffee": "Поддержи студента",
     "suggestProject": "Предложить идею",
-    "feedback": "Обратная связь",
+    "feedback": "Оставить отзыв",
     "telegram": "Студент пишет код",
     "otherProjects": "Другие проекты",
     "telegramChannel": "Мой Telegram-канал",
@@ -207,7 +207,7 @@
   "navigation": {
     "home": "Главная",
     "myStudyPlan": "Мой план обучения",
-    "messageAuthor": "Написать автору",
+    "messageAuthor": "Написать автору в тг",
     "buyMeCoffee": "Поддержи студента",
     "suggestProject": "Предложить идею",
     "feedback": "Оставить отзыв",

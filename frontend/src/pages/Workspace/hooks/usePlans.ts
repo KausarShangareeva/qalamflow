@@ -9,10 +9,44 @@ import {
 const STORAGE_KEY = "qalamflow_saved_plans";
 const ACTIVE_PLAN_KEY = "qalamflow_active_plan_id";
 
+const OLD_DAY_MAP: Record<string, string> = {
+  Mon: "Понедельник",
+  Tue: "Вторник",
+  Wed: "Среда",
+  Thu: "Четверг",
+  Fri: "Пятница",
+  Sat: "Суббота",
+  Sun: "Воскресенье",
+  Monday: "Понедельник",
+  Tuesday: "Вторник",
+  Wednesday: "Среда",
+  Thursday: "Четверг",
+  Friday: "Пятница",
+  Saturday: "Суббота",
+  Sunday: "Воскресенье",
+};
+
+function migratePlan(plan: SavedPlan): SavedPlan {
+  const needsMigration = plan.schedule.some((e) => OLD_DAY_MAP[e.day]);
+  if (!needsMigration) return plan;
+  return {
+    ...plan,
+    schedule: plan.schedule.map((e) => ({
+      ...e,
+      day: OLD_DAY_MAP[e.day] ?? e.day,
+    })),
+  };
+}
+
 function loadFromStorage(): SavedPlan[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
+    if (!raw) return [];
+    const plans: SavedPlan[] = JSON.parse(raw);
+    const migrated = plans.map(migratePlan);
+    const hasMigrated = migrated.some((p, i) => p !== plans[i]);
+    if (hasMigrated) localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+    return migrated;
   } catch {
     return [];
   }

@@ -11,6 +11,15 @@ function toUnified(icon: string): string {
     .join("-");
 }
 
+/** Detect if the string is a country flag (two regional indicator symbols) */
+function isFlagEmoji(icon: string): boolean {
+  const chars = [...icon];
+  if (chars.length < 2) return false;
+  const cp1 = chars[0].codePointAt(0) ?? 0;
+  const cp2 = chars[1].codePointAt(0) ?? 0;
+  return cp1 >= 0x1f1e6 && cp1 <= 0x1f1ff && cp2 >= 0x1f1e6 && cp2 <= 0x1f1ff;
+}
+
 /** Detect if the string starts with a proper emoji (not plain text symbols like ∫ or △) */
 function isEmoji(icon: string): boolean {
   if (!icon) return false;
@@ -53,6 +62,19 @@ export default function TagIcon({
   if (icon.includes(":")) {
     const Icon = resolveReactIcon(icon);
     if (Icon) return <Icon size={size} />;
+  }
+
+  if (isFlagEmoji(icon)) {
+    const src = `https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/${toUnified(icon)}.png`;
+    return (
+      <img
+        src={src}
+        alt={icon}
+        width={size}
+        height={size}
+        style={{ display: "inline-block", verticalAlign: "middle" }}
+      />
+    );
   }
 
   if (isEmoji(icon)) {
