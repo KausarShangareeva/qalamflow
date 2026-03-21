@@ -1,4 +1,4 @@
-import { useRef, useState, useMemo } from "react";
+import { useRef, useState, useMemo, useEffect } from "react";
 import { Printer, Save, Search } from "lucide-react";
 import { useCopy } from "../../../hooks/useCopy";
 import type { ScheduleEntry } from "../types";
@@ -15,17 +15,13 @@ const DAY_SHORT: Record<string, string> = Object.fromEntries(
   WEEKDAYS.days.map((d) => [d.full, d.short]),
 );
 
-const STORAGE_KEY = "qalamflow_course_freq";
+const STORAGE_KEY = "qalamflow_course_recent";
 
 function getFrequent(): string[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
-    const freq: Record<string, number> = JSON.parse(raw);
-    return Object.entries(freq)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 5)
-      .map(([name]) => name);
+    return JSON.parse(raw) as string[];
   } catch {
     return [];
   }
@@ -33,10 +29,9 @@ function getFrequent(): string[] {
 
 function incrementFrequency(courseName: string) {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    const freq: Record<string, number> = raw ? JSON.parse(raw) : {};
-    freq[courseName] = (freq[courseName] ?? 0) + 1;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(freq));
+    const recent = getFrequent();
+    const updated = [courseName, ...recent.filter((n) => n !== courseName)].slice(0, 5);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
   } catch {
     // ignore
   }
@@ -57,6 +52,8 @@ const DURATIONS = [
   { label: "2 hours", value: 120 },
   { label: "2.5 hours", value: 150 },
   { label: "3 hours", value: 180 },
+  { label: "3.5 hours", value: 210 },
+  { label: "4 hours", value: 240 },
 ];
 
 function generateTimeSlots(): string[] {
@@ -112,6 +109,15 @@ function buildScheduleMap(entries: ScheduleEntry[]): Map<string, CellInfo> {
   return map;
 }
 
+function pluralKurs(n: number): string {
+  const abs = Math.abs(n) % 100;
+  const last = abs % 10;
+  if (abs >= 11 && abs <= 14) return "курсов";
+  if (last === 1) return "курс";
+  if (last >= 2 && last <= 4) return "курса";
+  return "курсов";
+}
+
 /* ===== Main component ===== */
 
 interface WeekPlanProps {
@@ -121,6 +127,7 @@ interface WeekPlanProps {
   onOrientationChange: (o: Orientation) => void;
   onSave: () => void;
   canSave: boolean;
+  savedScheduleLength: number;
 }
 
 export default function WeekPlan({
@@ -130,28 +137,47 @@ export default function WeekPlan({
   onOrientationChange,
   onSave,
   canSave,
+  savedScheduleLength,
 }: WeekPlanProps) {
   const { get } = useCopy();
   const [popup, setPopup] = useState<{ day: string; time: string } | null>(
     null,
   );
   const [showEmoji, setShowEmoji] = useState(true);
+  const [deletedEntry, setDeletedEntry] = useState<ScheduleEntry | null>(null);
+  const lastDeletedRef = useRef<ScheduleEntry | null>(null);
+  const undoTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const tableRef = useRef<HTMLDivElement>(null);
 
   const scheduleMap = useMemo(() => buildScheduleMap(schedule), [schedule]);
+
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if ((e.ctrlKey || e.metaKey) && e.key === "z" && lastDeletedRef.current) {
+        onScheduleChange([...schedule, lastDeletedRef.current]);
+        lastDeletedRef.current = null;
+        setDeletedEntry(null);
+        if (undoTimerRef.current) clearTimeout(undoTimerRef.current);
+      }
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [schedule, onScheduleChange]);
+
+  useEffect(() => () => { if (undoTimerRef.current) clearTimeout(undoTimerRef.current); }, []);
 
   function handleCellClick(day: string, time: string) {
     const key = `${day}-${time}`;
     const info = scheduleMap.get(key);
     if (info && info.type !== "empty") {
+      const entry = info.entry!;
       onScheduleChange(
-        schedule.filter(
-          (e) =>
-            !(
-              e.day === info.entry!.day && e.startTime === info.entry!.startTime
-            ),
-        ),
+        schedule.filter((e) => !(e.day === entry.day && e.startTime === entry.startTime)),
       );
+      lastDeletedRef.current = entry;
+      setDeletedEntry(entry);
+      if (undoTimerRef.current) clearTimeout(undoTimerRef.current);
+      undoTimerRef.current = setTimeout(() => setDeletedEntry(null), 10000);
       return;
     }
     setPopup({ day, time });
@@ -271,10 +297,19 @@ export default function WeekPlan({
           <span className={styles.emojiThumb}>{showEmoji ? "😊" : "🌒"}</span>
         </button>
 
-        <button className={styles.saveBtn} onClick={onSave} disabled={!canSave}>
-          <Save size={18} />
-          {get("pdfExport.savePlan")}
-        </button>
+        <div className={styles.saveBtnWrap}>
+          <span className={`${styles.saveHint} ${canSave ? styles.saveHintActive : schedule.length > 0 ? styles.saveHintDone : ""}`}>
+            {schedule.length === 0
+              ? "Вы ещё не добавили курс, чтобы сохранить его 🩶"
+              : canSave
+              ? `Вы добавили ${schedule.length - savedScheduleLength} ${pluralKurs(schedule.length - savedScheduleLength)} — сохраните план ✨`
+              : "План сохранён ✓"}
+          </span>
+          <button className={styles.saveBtn} onClick={onSave} disabled={!canSave}>
+            <Save size={18} />
+            {get("pdfExport.savePlan")}
+          </button>
+        </div>
         <button className={styles.printBtn} onClick={handlePrint}>
           <Printer size={18} />
           {get("pdfExport.printPDF")}
@@ -309,11 +344,63 @@ export default function WeekPlan({
           showEmoji={showEmoji}
         />
       )}
+
+      {/* Undo toast */}
+      {deletedEntry && (
+        <div className={styles.undoToast}>
+          <span>
+            «{deletedEntry.course}» удалён — нажмите <kbd className={styles.undoKbd}>Ctrl+Z</kbd> или
+          </span>
+          <button
+            className={styles.undoBtn}
+            onClick={() => {
+              onScheduleChange([...schedule, deletedEntry]);
+              lastDeletedRef.current = null;
+              setDeletedEntry(null);
+              if (undoTimerRef.current) clearTimeout(undoTimerRef.current);
+            }}
+          >
+            ↩ Вернуть
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
 /* ===== Popup ===== */
+
+const LAST_DURATION_KEY = "qalamflow_last_duration";
+const LAST_COURSE_KEY = "qalamflow_last_course";
+
+function getLastDuration(): number | null {
+  try {
+    const raw = localStorage.getItem(LAST_DURATION_KEY);
+    return raw ? Number(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveLastDuration(d: number) {
+  try {
+    localStorage.setItem(LAST_DURATION_KEY, String(d));
+  } catch {}
+}
+
+function getLastCourse(): string | null {
+  try {
+    return localStorage.getItem(LAST_COURSE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function saveLastCourse(name: string) {
+  try {
+    localStorage.setItem(LAST_COURSE_KEY, name);
+  } catch {}
+}
 
 function CoursePopup({
   onAdd,
@@ -325,8 +412,8 @@ function CoursePopup({
   showEmoji: boolean;
 }) {
   const { get } = useCopy();
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
-  const [selectedDuration, setSelectedDuration] = useState<number | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(getLastCourse);
+  const [selectedDuration, setSelectedDuration] = useState<number | null>(getLastDuration);
   const [search, setSearch] = useState("");
 
   const visibleCourses = useMemo(() => {
@@ -338,7 +425,8 @@ function CoursePopup({
     const frequent = getFrequent();
     if (frequent.length > 0) {
       const freqSet = new Set(frequent);
-      return COURSES.filter((c) => freqSet.has(c.name));
+      const matched = COURSES.filter((c) => freqSet.has(c.name));
+      if (matched.length > 0) return matched;
     }
     return COURSES.filter((c) => FEATURED.has(c.name));
   }, [search]);
@@ -373,7 +461,7 @@ function CoursePopup({
               key={c.name}
               className={`${styles.courseTag} ${selectedCourse === c.name ? styles.courseTagActive : ""}`}
               style={{ "--tag-color": c.color } as React.CSSProperties}
-              onClick={() => setSelectedCourse(c.name)}
+              onClick={() => { setSelectedCourse(c.name); saveLastCourse(c.name); }}
             >
               {showEmoji && typeof c.icon === "string" && (
                 <span className={styles.courseIcon}>
@@ -399,7 +487,7 @@ function CoursePopup({
             <button
               key={d.value}
               className={`${styles.durationBtn} ${selectedDuration === d.value ? styles.durationActive : ""}`}
-              onClick={() => setSelectedDuration(d.value)}
+              onClick={() => { setSelectedDuration(d.value); saveLastDuration(d.value); }}
             >
               {d.label}
             </button>
@@ -413,6 +501,7 @@ function CoursePopup({
           onClick={() => {
             if (selectedCourse && selectedDuration) {
               incrementFrequency(selectedCourse);
+              saveLastDuration(selectedDuration);
               onAdd(selectedCourse, selectedDuration);
             }
           }}
@@ -476,7 +565,7 @@ function ScheduleCell({
               </span>
             )}
             <span className={styles.courseText} data-print="course-text">
-              {info.course.name}
+              {info.course.name.split("\n")[0]}
             </span>
           </span>
         )}

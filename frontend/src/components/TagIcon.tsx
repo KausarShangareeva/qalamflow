@@ -1,4 +1,7 @@
+import type React from "react";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
+import * as Si from "react-icons/si";
+import * as Fa from "react-icons/fa";
 
 /** Convert an emoji string to the unified hex code format emoji-picker-react uses */
 function toUnified(icon: string): string {
@@ -13,16 +16,30 @@ function isEmoji(icon: string): boolean {
   if (!icon) return false;
   const cp = icon.codePointAt(0) ?? 0;
   return (
-    cp >= 0x1f000 || // Main emoji + regional indicator flags (1F1E0–1F1FF)
-    (cp >= 0x2600 && cp <= 0x27bf) || // Misc Symbols, Dingbats
-    (cp >= 0x2300 && cp <= 0x23ff) || // Misc Technical
-    (cp >= 0x2b00 && cp <= 0x2bff) // Misc Symbols & Arrows
+    cp >= 0x1f000 ||
+    (cp >= 0x2600 && cp <= 0x27bf) ||
+    (cp >= 0x2300 && cp <= 0x23ff) ||
+    (cp >= 0x2b00 && cp <= 0x2bff)
   );
 }
 
 /**
- * Renders a tag icon using Apple-style emoji images from emoji-picker-react.
- * Falls back to a plain <span> for non-emoji text characters (e.g. ∫, △).
+ * Resolves "si:youtube" → SiYoutube, "fa:heart" → FaHeart from react-icons.
+ */
+function resolveReactIcon(icon: string): React.ElementType | null {
+  const [prefix, name] = icon.split(":");
+  if (!name) return null;
+  const key = prefix.toUpperCase() + name.charAt(0).toUpperCase() + name.slice(1);
+  if (prefix === "si") return (Si as Record<string, React.ElementType>)[key] ?? null;
+  if (prefix === "fa") return (Fa as Record<string, React.ElementType>)[key] ?? null;
+  return null;
+}
+
+/**
+ * Renders a tag icon:
+ * - "si:youtube" / "fa:heart" → react-icons SVG
+ * - emoji → Apple-style image via emoji-picker-react
+ * - anything else → plain <span>
  */
 export default function TagIcon({
   icon,
@@ -32,6 +49,12 @@ export default function TagIcon({
   size?: number;
 }) {
   if (!icon) return null;
+
+  if (icon.includes(":")) {
+    const Icon = resolveReactIcon(icon);
+    if (Icon) return <Icon size={size} />;
+  }
+
   if (isEmoji(icon)) {
     return (
       <Emoji
@@ -41,5 +64,6 @@ export default function TagIcon({
       />
     );
   }
+
   return <span style={{ fontSize: size }}>{icon}</span>;
 }

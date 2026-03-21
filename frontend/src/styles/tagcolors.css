@@ -58,8 +58,8 @@
   --tag-computer-science: #6366f1;
   --tag-computer-science-bg: rgba(99, 102, 241, 0.13);
 
-  --tag-programming: #0ea5e9;
-  --tag-programming-bg: rgba(14, 165, 233, 0.13);
+  --tag-programming: #f59e0b;
+  --tag-programming-bg: rgba(245, 158, 11, 0.13);
 
   --tag-art: #f43f8e;
   --tag-art-bg: rgba(244, 63, 142, 0.13);
@@ -186,8 +186,8 @@
   --tag-tajweed: #99cc33;
   --tag-tajweed-bg: rgba(153, 204, 51, 0.13);
 
-  --tag-quran-tafsir: #a6aa22;
-  --tag-quran-tafsir-bg: rgba(34, 170, 102, 0.13);
+  --tag-quran-tafsir: #c4a882;
+  --tag-quran-tafsir-bg: rgba(196, 168, 130, 0.15);
 
   --tag-quran-sciences: #0d7a50;
   --tag-quran-sciences-bg: rgba(13, 122, 80, 0.13);
@@ -381,6 +381,14 @@
 
   --tag-left-hand-writing: #dda0ff;
   --tag-left-hand-writing-bg: rgba(221, 160, 255, 0.13);
+  --tag-writing-russia: #38bdf8;
+  --tag-writing-russia-bg: rgba(56, 189, 248, 0.13);
+  --tag-writing-saudi: #22c55e;
+  --tag-writing-saudi-bg: rgba(34, 197, 94, 0.13);
+  --tag-writing-usa: #f87171;
+  --tag-writing-usa-bg: rgba(248, 113, 113, 0.13);
+  --tag-writing-tatarstan: #fb923c;
+  --tag-writing-tatarstan-bg: rgba(251, 146, 60, 0.13);
 
   /* Sports & Physical Activities */
   --tag-horse-riding: #ffcc99;
@@ -474,6 +482,18 @@
 
   --tag-vietnamese: #ff5533;
   --tag-vietnamese-bg: rgba(255, 85, 51, 0.13);
+
+  --tag-sleep: #94a3b8;
+  --tag-sleep-bg: rgba(148, 163, 184, 0.13);
+
+  --tag-arabic-khasu: #c084fc;
+  --tag-arabic-khasu-bg: rgba(192, 132, 252, 0.13);
+
+  --tag-youtube: #ff4444;
+  --tag-youtube-bg: rgba(255, 68, 68, 0.13);
+
+  --tag-iq: #f472b6;
+  --tag-iq-bg: rgba(244, 114, 182, 0.13);
 }
 
 /* Light theme — vivid text + solid pastel background, no opacity */
@@ -516,8 +536,8 @@
   --tag-english-bg: #fff7ed;
   --tag-computer-science: #4f46e5;
   --tag-computer-science-bg: #e0e7ff;
-  --tag-programming: #0369a1;
-  --tag-programming-bg: #e0f2fe;
+  --tag-programming: #b45309;
+  --tag-programming-bg: #fef3c7;
   --tag-art: #ec4899;
   --tag-art-bg: #fdf2f8;
   --tag-music: #f97316;
@@ -618,8 +638,8 @@
   --tag-tajweed-bg: #ecfccb;
 
   /* Quran Tafsir — Глубокий изумрудный */
-  --tag-quran-tafsir: #059669;
-  --tag-quran-tafsir-bg: #d1fae5;
+  --tag-quran-tafsir: #9c7a52;
+  --tag-quran-tafsir-bg: #f5ead9;
 
   /* Quran Sciences — Темная морская волна (сделал фон заметнее) */
   --tag-quran-sciences: #0d9488;
@@ -789,6 +809,14 @@
   --tag-braille-bg: #e0f2fe;
   --tag-left-hand-writing: #7c3aed;
   --tag-left-hand-writing-bg: #ede9fe;
+  --tag-writing-russia: #0284c7;
+  --tag-writing-russia-bg: #e0f2fe;
+  --tag-writing-saudi: #15803d;
+  --tag-writing-saudi-bg: #dcfce7;
+  --tag-writing-usa: #dc2626;
+  --tag-writing-usa-bg: #fee2e2;
+  --tag-writing-tatarstan: #ea580c;
+  --tag-writing-tatarstan-bg: #ffedd5;
 
   /* Sports */
   --tag-horse-riding: #d97706;
@@ -855,4 +883,16 @@
   --tag-thai-bg: #f3e8ff;
   --tag-vietnamese: #c2410c;
   --tag-vietnamese-bg: #ffedd5;
+
+  --tag-sleep: #64748b;
+  --tag-sleep-bg: #f1f5f9;
+
+  --tag-arabic-khasu: #7c3aed;
+  --tag-arabic-khasu-bg: #f3e8ff;
+
+  --tag-youtube: #dc2626;
+  --tag-youtube-bg: #fee2e2;
+
+  --tag-iq: #db2777;
+  --tag-iq-bg: #fce7f3;
 }

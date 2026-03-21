@@ -48,9 +48,12 @@ export default function Workspace() {
   const pageRef = useRef<HTMLDivElement>(null);
   const [schedule, setSchedule] = useState<ScheduleEntry[]>([]);
   const [orientation, setOrientation] = useState<Orientation>("vertical");
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const [savedScheduleLength, setSavedScheduleLength] = useState(0);
 
   const handleScheduleChange = useCallback((newSchedule: ScheduleEntry[]) => {
     setSchedule(newSchedule);
+    setHasUnsavedChanges(true);
   }, []);
 
   const handleSave = useCallback(() => {
@@ -61,6 +64,8 @@ export default function Workspace() {
       const plan = savePlan(schedule, orientation);
       setActivePlanId(plan.id);
     }
+    setHasUnsavedChanges(false);
+    setSavedScheduleLength(schedule.length);
   }, [schedule, orientation, activePlanId, updatePlan, savePlan, setActivePlanId]);
 
   const handleCreateNew = useCallback(() => {
@@ -82,6 +87,9 @@ export default function Workspace() {
       if (plan) {
         setSchedule(plan.schedule);
         setOrientation(plan.orientation);
+        setHasUnsavedChanges(false);
+        setSavedScheduleLength(plan.schedule.length);
+        pageRef.current?.scrollIntoView({ behavior: "smooth" });
       }
     },
     [loadPlan],
@@ -136,7 +144,8 @@ export default function Workspace() {
         orientation={orientation}
         onOrientationChange={setOrientation}
         onSave={handleSave}
-        canSave={schedule.length > 0}
+        canSave={hasUnsavedChanges && schedule.length > 0}
+        savedScheduleLength={savedScheduleLength}
       />
 
       <PDFPlanList

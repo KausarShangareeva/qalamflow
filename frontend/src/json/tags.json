@@ -95,12 +95,7 @@
     "bg": "var(--tag-grammar-bg)",
     "icon": "📝"
   },
-  {
-    "name": "Чтение рус/арабс (40 м.)",
-    "color": "var(--tag-reading)",
-    "bg": "var(--tag-reading-bg)",
-    "icon": "📖"
-  },
+
   {
     "name": "Английский",
     "color": "var(--tag-english)",
@@ -495,7 +490,37 @@
     "icon": "📿"
   },
   {
+    "name": "Хифз Корана (1.50ч)",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "📿"
+  },
+  {
+    "name": "Заучивание Корана",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "📿"
+  },
+  {
+    "name": "Подготовка Корана",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "💚"
+  },
+  {
+    "name": "Подготовка Корана (1ч.)",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "💚"
+  },
+  {
     "name": "Муроджиа Корана",
+    "color": "var(--tag-murajaah)",
+    "bg": "var(--tag-murajaah-bg)",
+    "icon": "🔄"
+  },
+  {
+    "name": "Повтор Корана",
     "color": "var(--tag-murajaah)",
     "bg": "var(--tag-murajaah-bg)",
     "icon": "🔄"
@@ -507,7 +532,7 @@
     "icon": "🌟"
   },
   {
-    "name": "Тахаджуд + Вирд",
+    "name": "Тахаджуд + Вирд (90стр.)",
     "color": "var(--tag-wird)",
     "bg": "var(--tag-wird-bg)",
     "icon": "🌙"
@@ -528,7 +553,7 @@
     "name": "Тафсир",
     "color": "var(--tag-quran-tafsir)",
     "bg": "var(--tag-quran-tafsir-bg)",
-    "icon": "💫"
+    "icon": "📜"
   },
   {
     "name": "Науки о Коране",
@@ -635,7 +660,7 @@
     "icon": "🍎"
   },
   {
-    "name": "Стажировка",
+    "name": "Стажировка + ShanGroup",
     "color": "var(--tag-internship)",
     "bg": "var(--tag-internship-bg)",
     "icon": "💼"
@@ -805,12 +830,65 @@
     "icon": "👆"
   },
   {
-    "name": "Письмо левой рукой 20 мин.",
-    "color": "var(--tag-left-hand-writing)",
-    "bg": "var(--tag-left-hand-writing-bg)",
-    "icon": "✋"
+    "name": "Письмо левой рукой 10 мин. 🇷🇺",
+    "color": "var(--tag-writing-russia)",
+    "bg": "var(--tag-writing-russia-bg)",
+    "icon": "🇷🇺"
   },
-
+  {
+    "name": "Письмо левой рукой 10 мин. 🇸🇦",
+    "color": "var(--tag-writing-saudi)",
+    "bg": "var(--tag-writing-saudi-bg)",
+    "icon": "🇸🇦"
+  },
+  {
+    "name": "Письмо левой рукой 10 мин. 🇺🇸",
+    "color": "var(--tag-writing-usa)",
+    "bg": "var(--tag-writing-usa-bg)",
+    "icon": "🇺🇸"
+  },
+  {
+    "name": "Письмо левой рукой 10 мин. ☪️",
+    "color": "var(--tag-writing-tatarstan)",
+    "bg": "var(--tag-writing-tatarstan-bg)",
+    "icon": "☪️"
+  },
+  {
+    "name": "Английский 📖🔉💻 20 мин",
+    "color": "var(--tag-writing-usa)",
+    "bg": "var(--tag-writing-usa-bg)",
+    "icon": "🇺🇸"
+  },
+  {
+    "name": "Татарский 📖🔉 20 мин",
+    "color": "var(--tag-writing-tatarstan)",
+    "bg": "var(--tag-writing-tatarstan-bg)",
+    "icon": "☪️"
+  },
+  {
+    "name": "Русский 📖💻 30 мин",
+    "color": "var(--tag-writing-russia)",
+    "bg": "var(--tag-writing-russia-bg)",
+    "icon": "🇷🇺"
+  },
+  {
+    "name": "Арабское чтение (50 м.)",
+    "color": "var(--tag-reading)",
+    "bg": "var(--tag-reading-bg)",
+    "icon": "📖"
+  },
+  {
+    "name": "Слепая печать арабс (20 м.)",
+    "color": "var(--tag-reading)",
+    "bg": "var(--tag-reading-bg)",
+    "icon": "🇸🇦"
+  },
+  {
+    "name": "Арабское чтение (1 ч.)",
+    "color": "var(--tag-reading)",
+    "bg": "var(--tag-reading-bg)",
+    "icon": "📖"
+  },
   {
     "name": "Конная езда",
     "color": "var(--tag-horse-riding)",
@@ -1033,6 +1111,12 @@
     "icon": "🟨"
   },
   {
+    "name": "React.js",
+    "color": "var(--tag-javascript)",
+    "bg": "var(--tag-javascript-bg)",
+    "icon": "⚛️"
+  },
+  {
     "name": "C++",
     "color": "var(--tag-cpp)",
     "bg": "var(--tag-cpp-bg)",
@@ -1092,5 +1176,29 @@
     "color": "var(--tag-abacus)",
     "bg": "var(--tag-abacus-bg)",
     "icon": "🧮"
+  },
+  {
+    "name": "Сон",
+    "color": "var(--tag-sleep)",
+    "bg": "var(--tag-sleep-bg)",
+    "icon": "🛏️"
+  },
+  {
+    "name": "Сон (2ч.)",
+    "color": "var(--tag-sleep)",
+    "bg": "var(--tag-sleep-bg)",
+    "icon": "🛏️"
+  },
+  {
+    "name": "Arabic Khasu (YouTube 1ч.)",
+    "color": "var(--tag-arabic-khasu)",
+    "bg": "var(--tag-arabic-khasu-bg)",
+    "icon": "🇸🇦"
+  },
+  {
+    "name": "Тесты IQ (10м)",
+    "color": "var(--tag-iq)",
+    "bg": "var(--tag-iq-bg)",
+    "icon": "🧠"
   }
 ]
