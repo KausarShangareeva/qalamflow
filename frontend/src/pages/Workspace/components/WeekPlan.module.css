@@ -763,12 +763,12 @@
     flex-wrap: wrap;
   }
 
-  /* Invisible spacer forces toggle onto a new row */
-  .toolbarBreak {
-    display: block;
-    flex-basis: 100%;
-    height: 0;
-  }
+  /* Reorder: emoji → save → print → break → toggle */
+  .emojiWrap    { order: 1; }
+  .saveBtnWrap  { order: 2; }
+  .printBtn     { order: 3; }
+  .toolbarBreak { order: 4; display: block; flex-basis: 100%; height: 0; }
+  .toggle       { order: 5; }
 }
 
 /* =======================================

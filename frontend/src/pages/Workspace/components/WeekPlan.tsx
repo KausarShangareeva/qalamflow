@@ -154,7 +154,6 @@ export default function WeekPlan({
   const saveBtnRef = useRef<HTMLButtonElement>(null);
   const [btnWidth, setBtnWidth] = useState<number | undefined>(undefined);
   const emojiBtnRef = useRef<HTMLButtonElement>(null);
-  const [emojiBtnWidth, setEmojiBtnWidth] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     const btn = saveBtnRef.current;
@@ -162,15 +161,6 @@ export default function WeekPlan({
     const ro = new ResizeObserver(() => setBtnWidth(btn.offsetWidth));
     ro.observe(btn);
     setBtnWidth(btn.offsetWidth);
-    return () => ro.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const btn = emojiBtnRef.current;
-    if (!btn) return;
-    const ro = new ResizeObserver(() => setEmojiBtnWidth(btn.offsetWidth));
-    ro.observe(btn);
-    setEmojiBtnWidth(btn.offsetWidth);
     return () => ro.disconnect();
   }, []);
 
@@ -304,12 +294,26 @@ export default function WeekPlan({
     <div className={styles.wrapper}>
       {/* Toggle + Print */}
       <div className={styles.toolbar}>
+        <div className={styles.toggle}>
+          <button
+            className={`${styles.toggleBtn} ${orientation === "vertical" ? styles.toggleActive : ""}`}
+            onClick={() => onOrientationChange("vertical")}
+          >
+            <img src="/virtical.svg" alt="" className={styles.toggleIcon} />
+            <span>{get("workspace.vertical")}</span>
+          </button>
+          <button
+            className={`${styles.toggleBtn} ${orientation === "horizontal" ? styles.toggleActive : ""}`}
+            onClick={() => onOrientationChange("horizontal")}
+          >
+            <img src="/horizontal.svg" alt="" className={styles.toggleIcon} />
+            <span>{get("workspace.horizontal")}</span>
+          </button>
+        </div>
+
         {/* Emoji toggle */}
         <div className={styles.emojiWrap}>
-          <div
-            className={styles.saveBubble}
-            style={emojiBtnWidth ? { width: emojiBtnWidth } : undefined}
-          >
+          <div className={styles.saveBubble}>
             <div className={styles.saveBubbleCircle}>
               {showEmoji ? "😊" : "🌒"}
             </div>
@@ -364,24 +368,8 @@ export default function WeekPlan({
           {get("pdfExport.printPDF")}
         </button>
 
-        {/* Line-break before toggle (visible only ≤1000px) */}
+        {/* Line-break: forces toggle to new row at ≤1000px */}
         <div className={styles.toolbarBreak} />
-        <div className={styles.toggle}>
-          <button
-            className={`${styles.toggleBtn} ${orientation === "vertical" ? styles.toggleActive : ""}`}
-            onClick={() => onOrientationChange("vertical")}
-          >
-            <img src="/virtical.svg" alt="" className={styles.toggleIcon} />
-            <span>{get("workspace.vertical")}</span>
-          </button>
-          <button
-            className={`${styles.toggleBtn} ${orientation === "horizontal" ? styles.toggleActive : ""}`}
-            onClick={() => onOrientationChange("horizontal")}
-          >
-            <img src="/horizontal.svg" alt="" className={styles.toggleIcon} />
-            <span>{get("workspace.horizontal")}</span>
-          </button>
-        </div>
       </div>
 
       {/* Table */}
