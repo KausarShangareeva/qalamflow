@@ -26,6 +26,12 @@ const getPlans = async (req, res) => {
 const createPlan = async (req, res) => {
   try {
     const { id, createdAt, color, title, description, schedule, orientation } = req.body;
+
+    const count = await Plan.countDocuments({ userId: req.user.id });
+    if (count >= 50) {
+      return res.status(403).json({ message: "Достигнут лимит планов (50)" });
+    }
+
     const user = await User.findById(req.user.id).select("name");
     const plan = await Plan.create({
       userId: req.user.id,
