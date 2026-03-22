@@ -5,6 +5,7 @@ const connectDB = require("./config/mongodb");
 const authRoutes = require("./routes/auth");
 const suggestionRoutes = require("./routes/suggestions");
 const feedbackRoutes = require("./routes/feedback");
+const planRoutes = require("./routes/plans");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/suggestions", suggestionRoutes);
 app.use("/api/feedback", feedbackRoutes);
+app.use("/api/plans", planRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;

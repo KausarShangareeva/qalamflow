@@ -5,6 +5,7 @@ This project features **JWT & Google OAuth authentication**, **PDF export**, **d
 
 ---
 
+
 ## 🔗 Demo
 
 Check out the project live: [QalamFlow](https://qalamflow.com/)
@@ -28,6 +29,7 @@ Check out the project live: [QalamFlow](https://qalamflow.com/)
 ## 📦 Tech Stack
 
 ### Frontend
+
 - **React 19** + **TypeScript** — UI library
 - **Vite** — build tool
 - **React Router v7** — client-side routing
@@ -38,6 +40,7 @@ Check out the project live: [QalamFlow](https://qalamflow.com/)
 - **@react-oauth/google** — Google Sign-In
 
 ### Backend
+
 - **Express.js 5** — REST API
 - **MongoDB + Mongoose** — database
 - **JWT (jsonwebtoken)** — token-based authentication
@@ -105,20 +108,21 @@ Check out the project live: [QalamFlow](https://qalamflow.com/)
 
 ## 🗂️ Pages
 
-| Route              | Description                        |
-| ------------------ | ---------------------------------- |
-| `/`                | Home — landing page with features  |
-| `/workspace`       | Weekly planner (protected)         |
-| `/feedback`        | Student reviews                    |
-| `/suggest-project` | Submit a project idea              |
-| `/login`           | Login (email or Google)            |
-| `/register`        | Create an account                  |
+| Route              | Description                       |
+| ------------------ | --------------------------------- |
+| `/`                | Home — landing page with features |
+| `/workspace`       | Weekly planner (protected)        |
+| `/feedback`        | Student reviews                   |
+| `/suggest-project` | Submit a project idea             |
+| `/login`           | Login (email or Google)           |
+| `/register`        | Create an account                 |
 
 ---
 
 ## 🔑 Environment Variables
 
 ### Backend (`backend/.env`)
+
 ```
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
@@ -164,12 +168,12 @@ npm run dev        # runs on http://localhost:3001
 
 ![Lighthouse scores](./frontend/public/Lightroom.png)
 
-| Metric | Score |
-|--------|-------|
-| Performance | 98 |
-| Accessibility | 95 |
-| Best Practices | 96 |
-| SEO | 100 |
+| Metric         | Score |
+| -------------- | ----- |
+| Performance    | 98    |
+| Accessibility  | 95    |
+| Best Practices | 96    |
+| SEO            | 100   |
 
 ---
 
@@ -177,8 +181,8 @@ npm run dev        # runs on http://localhost:3001
 
 Tested and working on:
 
-| Browser | Version | Status |
-|---------|---------|--------|
+| Browser | Version | Status          |
+| ------- | ------- | --------------- |
 | Chrome  | 120+    | ✅ Full support |
 | Firefox | 121+    | ✅ Full support |
 | Safari  | 17+     | ✅ Full support |

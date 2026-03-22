@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useCopy } from "../../hooks/useCopy";
 import TagIcon from "../../components/TagIcon";
@@ -47,10 +47,46 @@ export default function Workspace() {
   } = usePlans();
 
   const pageRef = useRef<HTMLDivElement>(null);
-  const [schedule, setSchedule] = useState<ScheduleEntry[]>([]);
-  const [orientation, setOrientation] = useState<Orientation>("vertical");
+  const autoSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const activePlanIdRef = useRef(activePlanId);
+  activePlanIdRef.current = activePlanId;
+
+  const [schedule, setSchedule] = useState<ScheduleEntry[]>(() => {
+    try {
+      const raw = localStorage.getItem("qalamflow_draft_schedule");
+      return raw ? (JSON.parse(raw) as ScheduleEntry[]) : [];
+    } catch { return []; }
+  });
+  const [orientation, setOrientation] = useState<Orientation>(() => {
+    return (localStorage.getItem("qalamflow_draft_orientation") as Orientation) || "vertical";
+  });
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [savedScheduleLength, setSavedScheduleLength] = useState(0);
+
+  // 1. Save raw draft immediately on every change (survives any crash/reload)
+  useEffect(() => {
+    localStorage.setItem("qalamflow_draft_schedule", JSON.stringify(schedule));
+    localStorage.setItem("qalamflow_draft_orientation", orientation);
+  }, [schedule, orientation]);
+
+  // 2. Also auto-save into PDFPlanList after 800ms of no activity
+  useEffect(() => {
+    if (schedule.length === 0) return;
+    if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
+    autoSaveTimer.current = setTimeout(() => {
+      if (activePlanIdRef.current) {
+        updatePlan(activePlanIdRef.current, schedule, orientation);
+      } else {
+        const plan = savePlan(schedule, orientation);
+        setActivePlanId(plan.id);
+      }
+      setHasUnsavedChanges(false);
+      setSavedScheduleLength(schedule.length);
+    }, 800);
+    return () => {
+      if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
+    };
+  }, [schedule, orientation, savePlan, updatePlan, setActivePlanId]);
 
   const handleScheduleChange = useCallback((newSchedule: ScheduleEntry[]) => {
     setSchedule(newSchedule);
@@ -79,6 +115,8 @@ export default function Workspace() {
     }
     setSchedule([]);
     setActivePlanId(null);
+    localStorage.removeItem("qalamflow_draft_schedule");
+    localStorage.removeItem("qalamflow_draft_orientation");
     pageRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [schedule, orientation, activePlanId, updatePlan, savePlan, setActivePlanId]);
 

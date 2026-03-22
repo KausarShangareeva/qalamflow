@@ -1,13 +1,15 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import type { SavedPlan, ScheduleEntry } from "../types";
 import {
   generatePlanTitle,
   generatePlanDescription,
   getDominantColor,
 } from "../utils/planHelpers";
+import { api } from "../../../api/client";
 
-const STORAGE_KEY = "qalamflow_saved_plans";
 const ACTIVE_PLAN_KEY = "qalamflow_active_plan_id";
+const LEGACY_STORAGE_KEY = "qalamflow_saved_plans";
+const MIGRATION_DONE_KEY = "qalamflow_plans_migrated";
 
 const OLD_DAY_MAP: Record<string, string> = {
   Mon: "Понедельник",
@@ -38,24 +40,6 @@ function migratePlan(plan: SavedPlan): SavedPlan {
   };
 }
 
-function loadFromStorage(): SavedPlan[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    const plans: SavedPlan[] = JSON.parse(raw);
-    const migrated = plans.map(migratePlan);
-    const hasMigrated = migrated.some((p, i) => p !== plans[i]);
-    if (hasMigrated) localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
-    return migrated;
-  } catch {
-    return [];
-  }
-}
-
-function saveToStorage(plans: SavedPlan[]): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(plans));
-}
-
 function buildPlanMeta(schedule: ScheduleEntry[], orientation: "vertical" | "horizontal") {
   return {
     color: getDominantColor(schedule),
@@ -67,14 +51,54 @@ function buildPlanMeta(schedule: ScheduleEntry[], orientation: "vertical" | "hor
 }
 
 export function usePlans() {
-  const [plans, setPlans] = useState<SavedPlan[]>(loadFromStorage);
+  const [plans, setPlans] = useState<SavedPlan[]>([]);
   const [activePlanId, setActivePlanId] = useState<string | null>(
     localStorage.getItem(ACTIVE_PLAN_KEY),
   );
+  const loadedRef = useRef(false);
 
+  // Load plans from server on mount, migrate localStorage plans if needed
   useEffect(() => {
-    saveToStorage(plans);
-  }, [plans]);
+    if (loadedRef.current) return;
+    loadedRef.current = true;
+
+    api.get<SavedPlan[]>("/plans")
+      .then(async (serverPlans) => {
+        const migrated = serverPlans.map(migratePlan);
+
+        // One-time migration: upload localStorage plans not yet on server
+        const alreadyMigrated = localStorage.getItem(MIGRATION_DONE_KEY);
+        if (!alreadyMigrated) {
+          try {
+            const raw = localStorage.getItem(LEGACY_STORAGE_KEY);
+            const localPlans: SavedPlan[] = raw ? JSON.parse(raw) : [];
+            const serverIds = new Set(migrated.map((p) => p.id));
+            const toUpload = localPlans
+              .map(migratePlan)
+              .filter((p) => !serverIds.has(p.id));
+
+            if (toUpload.length > 0) {
+              const uploaded = await Promise.all(
+                toUpload.map((p) => api.post<SavedPlan>("/plans", p).catch(() => null))
+              );
+              const successful = uploaded.filter(Boolean) as SavedPlan[];
+              setPlans([...migrated, ...successful]);
+            } else {
+              setPlans(migrated);
+            }
+          } catch {
+            setPlans(migrated);
+          }
+          localStorage.setItem(MIGRATION_DONE_KEY, "1");
+        } else {
+          setPlans(migrated);
+        }
+      })
+      .catch(() => {
+        // Not logged in or network error — start empty
+        setPlans([]);
+      });
+  }, []);
 
   useEffect(() => {
     if (activePlanId) {
@@ -85,32 +109,26 @@ export function usePlans() {
   }, [activePlanId]);
 
   const savePlan = useCallback(
-    (
-      schedule: ScheduleEntry[],
-      orientation: "vertical" | "horizontal",
-    ): SavedPlan => {
+    (schedule: ScheduleEntry[], orientation: "vertical" | "horizontal"): SavedPlan => {
       const newPlan: SavedPlan = {
         id: crypto.randomUUID(),
         createdAt: new Date().toISOString(),
         ...buildPlanMeta(schedule, orientation),
       };
       setPlans((prev) => [newPlan, ...prev]);
+      api.post("/plans", newPlan).catch(() => {});
       return newPlan;
     },
     [],
   );
 
   const updatePlan = useCallback(
-    (
-      id: string,
-      schedule: ScheduleEntry[],
-      orientation: "vertical" | "horizontal",
-    ) => {
+    (id: string, schedule: ScheduleEntry[], orientation: "vertical" | "horizontal") => {
+      const meta = buildPlanMeta(schedule, orientation);
       setPlans((prev) =>
-        prev.map((p) =>
-          p.id === id ? { ...p, ...buildPlanMeta(schedule, orientation) } : p,
-        ),
+        prev.map((p) => (p.id === id ? { ...p, ...meta } : p)),
       );
+      api.put(`/plans/${id}`, meta).catch(() => {});
     },
     [],
   );
@@ -127,6 +145,7 @@ export function usePlans() {
   const deletePlan = useCallback((planId: string) => {
     setPlans((prev) => prev.filter((p) => p.id !== planId));
     setActivePlanId((prev) => (prev === planId ? null : prev));
+    api.delete(`/plans/${planId}`).catch(() => {});
   }, []);
 
   return { plans, activePlanId, setActivePlanId, savePlan, updatePlan, loadPlan, deletePlan };
