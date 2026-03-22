@@ -64,6 +64,21 @@ function formatDate(iso: string): string {
   return `${day} ${month} ${year} г.`;
 }
 
+function formatRelative(iso: string): string {
+  const diff = Date.now() - new Date(iso).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return "только что";
+  if (mins < 60) return `${mins} мин. назад`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours} ч. назад`;
+  const days = Math.floor(hours / 24);
+  if (days === 1) return "вчера";
+  if (days < 7) return `${days} дн. назад`;
+  const weeks = Math.floor(days / 7);
+  if (weeks < 5) return `${weeks} нед. назад`;
+  return formatDate(iso);
+}
+
 function formatTotalHours(schedule: SavedPlan["schedule"]): string {
   const total = schedule.reduce((sum, e) => sum + e.duration, 0) / 60;
   return total % 1 === 0 ? `${total} ч/нед` : `${total.toFixed(1)} ч/нед`;
@@ -132,6 +147,11 @@ export default function PDFPlanList({
                   🕰️ {formatTotalHours(plan.schedule)}
                 </span>
               </div>
+              {plan.updatedAt && plan.updatedAt !== plan.createdAt && (
+                <p className={styles.updatedAt}>
+                  ✏️ изменён {formatRelative(plan.updatedAt)}
+                </p>
+              )}
 
               <h3 className={styles.title}>План недели</h3>
 

@@ -228,6 +228,12 @@
   white-space: nowrap;
 }
 
+.updatedAt {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted, #888);
+  margin: 2px 0 4px;
+}
+
 .moreRow {
   font-size: var(--fs-xs);
   color: var(--color-primary);

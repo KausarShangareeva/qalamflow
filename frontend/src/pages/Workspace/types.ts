@@ -8,6 +8,7 @@ export interface ScheduleEntry {
 export interface SavedPlan {
   id: string;
   createdAt: string;
+  updatedAt?: string;
   color: string;
   title: string;
   description: string;

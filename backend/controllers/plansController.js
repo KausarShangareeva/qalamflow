@@ -8,6 +8,7 @@ const getPlans = async (req, res) => {
     const result = plans.map((p) => ({
       id: p.clientId,
       createdAt: p.createdAt.toISOString(),
+      updatedAt: p.updatedAt.toISOString(),
       color: p.color,
       title: p.title,
       description: p.description,
@@ -65,11 +66,13 @@ const updatePlan = async (req, res) => {
     res.json({
       id: plan.clientId,
       createdAt: plan.createdAt.toISOString(),
+      updatedAt: plan.updatedAt.toISOString(),
       color: plan.color,
       title: plan.title,
       description: plan.description,
       schedule: plan.schedule,
       orientation: plan.orientation,
+      userName: plan.userName,
     });
   } catch (err) {
     res.status(500).json({ message: "Server error" });
