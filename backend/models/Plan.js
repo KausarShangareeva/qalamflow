@@ -22,6 +22,10 @@ const planSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    userName: {
+      type: String,
+      default: "",
+    },
     color: { type: String, default: "" },
     title: { type: String, default: "" },
     description: { type: String, default: "" },

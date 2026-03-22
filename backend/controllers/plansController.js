@@ -1,4 +1,5 @@
 const Plan = require("../models/Plan");
+const User = require("../models/User");
 
 // GET /api/plans — get all plans for current user
 const getPlans = async (req, res) => {
@@ -12,6 +13,7 @@ const getPlans = async (req, res) => {
       description: p.description,
       schedule: p.schedule,
       orientation: p.orientation,
+      userName: p.userName,
     }));
     res.json(result);
   } catch (err) {
@@ -23,9 +25,11 @@ const getPlans = async (req, res) => {
 const createPlan = async (req, res) => {
   try {
     const { id, createdAt, color, title, description, schedule, orientation } = req.body;
+    const user = await User.findById(req.user.id).select("name");
     const plan = await Plan.create({
       userId: req.user.id,
       clientId: id,
+      userName: user?.name || "",
       color,
       title,
       description,
@@ -41,6 +45,7 @@ const createPlan = async (req, res) => {
       description: plan.description,
       schedule: plan.schedule,
       orientation: plan.orientation,
+      userName: plan.userName,
     });
   } catch (err) {
     res.status(500).json({ message: "Server error" });
