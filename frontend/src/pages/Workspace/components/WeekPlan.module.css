@@ -710,6 +710,54 @@
   transform: scale(1.04);
 }
 
+/* ---- Benefit toast ---- */
+.benefitToast {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.2rem 1.8rem;
+  background: var(--color-bg-card);
+  border: 1.5px solid var(--color-primary);
+  border-radius: 1.4rem;
+  box-shadow: var(--shadow-xl);
+  z-index: 201;
+  transform: translateX(-50%) translateY(-110%);
+  animation: benefitIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+             benefitOut 0.3s ease-in 2.7s forwards;
+  transform-origin: bottom center;
+  pointer-events: none;
+}
+
+.benefitToastLabel {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.benefitToastBody {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.benefitToastText {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+@keyframes benefitIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-110%) scale(0.4); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(-110%) scale(1); }
+}
+
+@keyframes benefitOut {
+  from { opacity: 1; transform: translateX(-50%) translateY(-110%) scale(1); }
+  to   { opacity: 0; transform: translateX(-50%) translateY(-110%) scale(0.4); }
+}
+
 /* ---- Undo toast ---- */
 .undoToast {
   position: fixed;

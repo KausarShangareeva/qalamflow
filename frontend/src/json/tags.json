@@ -956,70 +956,80 @@
     "color": "var(--tag-writing-russia)",
     "bg": "var(--tag-writing-russia-bg)",
     "icon": "🇷🇺",
-    "benefit": "Тренировка обеих рук"
+    "benefit": "Тренировка обеих рук",
+    "adminOnly": true
   },
   {
     "name": "Письмо левой рукой 10 мин. 🇸🇦",
     "color": "var(--tag-writing-saudi)",
     "bg": "var(--tag-writing-saudi-bg)",
     "icon": "🇸🇦",
-    "benefit": "Тренировка обеих рук"
+    "benefit": "Тренировка обеих рук",
+    "adminOnly": true
   },
   {
     "name": "Письмо левой рукой 10 мин. 🇺🇸",
     "color": "var(--tag-writing-usa)",
     "bg": "var(--tag-writing-usa-bg)",
     "icon": "🇺🇸",
-    "benefit": "Тренировка обеих рук"
+    "benefit": "Тренировка обеих рук",
+    "adminOnly": true
   },
   {
     "name": "Письмо левой рукой 10 мин. ☪️",
     "color": "var(--tag-writing-tatarstan)",
     "bg": "var(--tag-writing-tatarstan-bg)",
     "icon": "☪️",
-    "benefit": "Тренировка обеих рук"
+    "benefit": "Тренировка обеих рук",
+    "adminOnly": true
   },
   {
     "name": "Английский 📖🔉💻 20 мин",
     "color": "var(--tag-writing-usa)",
     "bg": "var(--tag-writing-usa-bg)",
     "icon": "🇺🇸",
-    "benefit": "Язык мировых возможностей"
+    "benefit": "Язык мировых возможностей",
+    "adminOnly": true
   },
   {
     "name": "Татарский 📖🔉 20 мин",
     "color": "var(--tag-writing-tatarstan)",
     "bg": "var(--tag-writing-tatarstan-bg)",
     "icon": "☪️",
-    "benefit": "Родной язык — живая память"
+    "benefit": "Родной язык — живая память",
+    "adminOnly": true
   },
   {
     "name": "Русский 📖💻 30 мин",
     "color": "var(--tag-writing-russia)",
     "bg": "var(--tag-writing-russia-bg)",
     "icon": "🇷🇺",
-    "benefit": "Грамотность и богатство речи"
+    "benefit": "Грамотность и богатство речи",
+    "adminOnly": true
   },
   {
     "name": "Арабское чтение (50 м.)",
     "color": "var(--tag-reading)",
     "bg": "var(--tag-reading-bg)",
     "icon": "📖",
-    "benefit": "Беглое чтение на арабском"
+    "benefit": "Беглое чтение на арабском",
+    "adminOnly": true
   },
   {
     "name": "Слепая печать арабс (20 м.)",
     "color": "var(--tag-reading)",
     "bg": "var(--tag-reading-bg)",
     "icon": "🇸🇦",
-    "benefit": "Быстрый набор арабского текста"
+    "benefit": "Быстрый набор арабского текста",
+    "adminOnly": true
   },
   {
     "name": "Арабское чтение (1 ч.)",
     "color": "var(--tag-reading)",
     "bg": "var(--tag-reading-bg)",
     "icon": "📖",
-    "benefit": "Беглое чтение на арабском"
+    "benefit": "Беглое чтение на арабском",
+    "adminOnly": true
   },
   {
     "name": "Конная езда",
@@ -1341,7 +1351,8 @@
     "color": "var(--tag-ustaza-asma)",
     "bg": "var(--tag-ustaza-asma-bg)",
     "icon": "❤️",
-    "benefit": "Занятие с любимым учителем"
+    "benefit": "Занятие с любимым учителем",
+    "adminOnly": true
   },
   {
     "name": "Абакус",
@@ -1362,14 +1373,16 @@
     "color": "var(--tag-sleep)",
     "bg": "var(--tag-sleep-bg)",
     "icon": "🛏️",
-    "benefit": "Восстановление сил и памяти"
+    "benefit": "Восстановление сил и памяти",
+    "adminOnly": true
   },
   {
     "name": "Arabic Khasu (YouTube 1ч.)",
     "color": "var(--tag-arabic-khasu)",
     "bg": "var(--tag-arabic-khasu-bg)",
     "icon": "🇸🇦",
-    "benefit": "Арабский через живое видео"
+    "benefit": "Арабский через живое видео",
+    "adminOnly": true
   },
   {
     "name": "Тесты IQ (10м)",
@@ -1383,20 +1396,23 @@
     "color": "var(--tag-iq)",
     "bg": "var(--tag-iq-bg)",
     "icon": "💣",
-    "benefit": "Занятие с Каюмом"
+    "benefit": "Занятие с Каюмом",
+    "adminOnly": true
   },
   {
     "name": "Каусар кофе",
     "color": "var(--tag-algebra)",
     "bg": "var(--tag-algebra-bg)",
     "icon": "☕",
-    "benefit": "Перерыв с кофе и зарядкой"
+    "benefit": "Перерыв с кофе и зарядкой",
+    "adminOnly": true
   },
   {
     "name": "Покормить Каусара",
     "color": "var(--tag-ustaza-asma)",
     "bg": "var(--tag-ustaza-asma-bg)",
     "icon": "🍲",
-    "benefit": "Забота о близких"
+    "benefit": "Забота о близких",
+    "adminOnly": true
   }
 ]

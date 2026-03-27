@@ -153,6 +153,9 @@ export default function WeekPlan({
   );
   const [showEmoji, setShowEmoji] = useState(true);
   const [deletedEntry, setDeletedEntry] = useState<ScheduleEntry | null>(null);
+  const [benefitToast, setBenefitToast] = useState<{ course: string; benefit: string; icon: string; x: number; y: number } | null>(null);
+  const benefitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const popupPosRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const lastDeletedRef = useRef<ScheduleEntry | null>(null);
   const undoTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const tableRef = useRef<HTMLDivElement>(null);
@@ -191,14 +194,14 @@ export default function WeekPlan({
     [],
   );
 
-  function handleCellClick(day: string, time: string) {
+  function handleCellClick(day: string, time: string, e: React.MouseEvent) {
     const key = `${day}-${time}`;
     const info = scheduleMap.get(key);
     if (info && info.type !== "empty") {
       const entry = info.entry!;
       onScheduleChange(
         schedule.filter(
-          (e) => !(e.day === entry.day && e.startTime === entry.startTime),
+          (e2) => !(e2.day === entry.day && e2.startTime === entry.startTime),
         ),
       );
       lastDeletedRef.current = entry;
@@ -207,6 +210,8 @@ export default function WeekPlan({
       undoTimerRef.current = setTimeout(() => setDeletedEntry(null), 10000);
       return;
     }
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    popupPosRef.current = { x: rect.left + rect.width / 2, y: rect.top };
     setPopup({ day, time });
   }
 
@@ -217,6 +222,13 @@ export default function WeekPlan({
       { day: popup.day, startTime: popup.time, course, duration },
     ]);
     setPopup(null);
+
+    const tag = COURSES.find((c) => c.name === course);
+    if (tag && "benefit" in tag && (tag as any).benefit) {
+      if (benefitTimerRef.current) clearTimeout(benefitTimerRef.current);
+      setBenefitToast({ course, benefit: (tag as any).benefit, icon: tag.icon, x: popupPosRef.current.x, y: popupPosRef.current.y });
+      benefitTimerRef.current = setTimeout(() => setBenefitToast(null), 3000);
+    }
   }
 
   function handlePrint() {
@@ -419,6 +431,19 @@ export default function WeekPlan({
         />
       )}
 
+      {benefitToast && (
+        <div
+          className={styles.benefitToast}
+          style={{ left: benefitToast.x, top: benefitToast.y }}
+        >
+          <span className={styles.benefitToastLabel}>ПОЛЬЗА КУРСА</span>
+          <div className={styles.benefitToastBody}>
+            <TagIcon icon={benefitToast.icon} size={22} />
+            <span className={styles.benefitToastText}>{benefitToast.benefit}</span>
+          </div>
+        </div>
+      )}
+
       {deletedEntry && (
         <UndoToast
           message={deletedEntry.course}
@@ -499,10 +524,12 @@ function CoursePopup({
   onAdd,
   onClose,
   showEmoji,
+  isAdmin,
 }: {
   onAdd: (course: string, duration: number) => void;
   onClose: () => void;
   showEmoji: boolean;
+  isAdmin: boolean;
 }) {
   const { get } = useCopy();
   const [selectedCourse, setSelectedCourse] = useState<string | null>(
@@ -629,7 +656,7 @@ function ScheduleCell({
   day: string;
   time: string;
   scheduleMap: Map<string, CellInfo>;
-  onCellClick: (day: string, time: string) => void;
+  onCellClick: (day: string, time: string, e: React.MouseEvent) => void;
   className: string;
   showEmoji: boolean;
 }) {
@@ -658,7 +685,7 @@ function ScheduleCell({
         className={`${className} ${styles.cellBooked}`}
         style={cellStyle}
         data-print="booked"
-        onClick={() => onCellClick(day, time)}
+        onClick={(e) => onCellClick(day, time, e)}
       >
         {isStart && (
           <span className={styles.courseName} data-print="course">
@@ -677,7 +704,7 @@ function ScheduleCell({
   }
 
   return (
-    <td className={className} onClick={() => onCellClick(day, time)}>
+    <td className={className} onClick={(e) => onCellClick(day, time, e)}>
       <span className={styles.cellLabel} data-print="label">
         {DAY_SHORT[day]}. {time}
       </span>
@@ -693,7 +720,7 @@ function VerticalTable({
   showEmoji,
 }: {
   scheduleMap: Map<string, CellInfo>;
-  onCellClick: (day: string, time: string) => void;
+  onCellClick: (day: string, time: string, e: React.MouseEvent) => void;
   showEmoji: boolean;
 }) {
   return (
@@ -746,7 +773,7 @@ function HorizontalTable({
   showEmoji,
 }: {
   scheduleMap: Map<string, CellInfo>;
-  onCellClick: (day: string, time: string) => void;
+  onCellClick: (day: string, time: string, e: React.MouseEvent) => void;
   showEmoji: boolean;
 }) {
   return (
