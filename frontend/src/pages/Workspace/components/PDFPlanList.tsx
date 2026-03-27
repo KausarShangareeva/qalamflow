@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Trash2 } from "lucide-react";
 import { useCopy } from "../../../hooks/useCopy";
 import type { SavedPlan, ScheduleEntry } from "../types";
@@ -116,6 +117,8 @@ export default function PDFPlanList({
   onDeletePlan,
 }: PDFPlanListProps) {
   const { get } = useCopy();
+  const [confirmId, setConfirmId] = useState<string | null>(null);
+
   return (
     <section className={styles.section}>
       <div className={styles.grid}>
@@ -177,25 +180,39 @@ export default function PDFPlanList({
               )}
 
               <div className={styles.cardFooter}>
-                <button
-                  className={styles.openBtn}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onLoadPlan(plan.id);
-                  }}
-                >
-                  Открыть
-                </button>
-                <button
-                  className={styles.deleteBtn}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onDeletePlan(plan.id);
-                  }}
-                  aria-label="Delete plan"
-                >
-                  <Trash2 size={16} />
-                </button>
+                {confirmId === plan.id ? (
+                  <div className={styles.confirmRow} onClick={(e) => e.stopPropagation()}>
+                    <span className={styles.confirmText}>Вы точно хотите удалить этот супер-план?</span>
+                    <button
+                      className={styles.confirmYes}
+                      onClick={(e) => { e.stopPropagation(); onDeletePlan(plan.id); setConfirmId(null); }}
+                    >
+                      Да, точно
+                    </button>
+                    <button
+                      className={styles.confirmNo}
+                      onClick={(e) => { e.stopPropagation(); setConfirmId(null); }}
+                    >
+                      Ой, нет!
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <button
+                      className={styles.openBtn}
+                      onClick={(e) => { e.stopPropagation(); onLoadPlan(plan.id); }}
+                    >
+                      Открыть
+                    </button>
+                    <button
+                      className={styles.deleteBtn}
+                      onClick={(e) => { e.stopPropagation(); setConfirmId(plan.id); }}
+                      aria-label="Delete plan"
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </>
+                )}
               </div>
             </article>
           );

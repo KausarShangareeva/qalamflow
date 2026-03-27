@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
 import { useCopy } from "../hooks/useCopy";
 import Logo from "./Logo";
+import CTAButton from "./CTAButton";
 import {
   LogOut,
   Sun,
@@ -242,12 +243,12 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <Link to="/login" className={styles.contactBtn}>
+                <CTAButton to="/login">
                   {localStorage.getItem("hasAccount")
                     ? get("navigation.logIn")
                     : get("navigation.getStarted")}
                   <ArrowUpRight size={16} />
-                </Link>
+                </CTAButton>
               </>
             )}
 

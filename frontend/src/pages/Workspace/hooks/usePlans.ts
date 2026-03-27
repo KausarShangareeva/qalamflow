@@ -52,6 +52,7 @@ function buildPlanMeta(schedule: ScheduleEntry[], orientation: "vertical" | "hor
 
 export function usePlans() {
   const [plans, setPlans] = useState<SavedPlan[]>([]);
+  const [plansReady, setPlansReady] = useState(false);
   const [activePlanId, setActivePlanId] = useState<string | null>(
     localStorage.getItem(ACTIVE_PLAN_KEY),
   );
@@ -93,10 +94,12 @@ export function usePlans() {
         } else {
           setPlans(migrated);
         }
+        setPlansReady(true);
       })
       .catch(() => {
         // Not logged in or network error — start empty
         setPlans([]);
+        setPlansReady(true);
       });
   }, []);
 
@@ -148,5 +151,10 @@ export function usePlans() {
     api.delete(`/plans/${planId}`).catch(() => {});
   }, []);
 
-  return { plans, activePlanId, setActivePlanId, savePlan, updatePlan, loadPlan, deletePlan };
+  const restorePlan = useCallback((plan: SavedPlan) => {
+    setPlans((prev) => [plan, ...prev.filter((p) => p.id !== plan.id)]);
+    api.post("/plans", plan).catch(() => {});
+  }, []);
+
+  return { plans, plansReady, activePlanId, setActivePlanId, savePlan, updatePlan, loadPlan, deletePlan, restorePlan };
 }

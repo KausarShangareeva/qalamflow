@@ -6,7 +6,9 @@ export default function ProtectedRoute() {
   const { user, loading } = useAuth();
   const { get } = useCopy();
 
+  const isGuest = localStorage.getItem("guestMode") === "true";
+
   if (loading) return <div style={{ padding: "2rem", textAlign: "center" }}>{get("protectedRoute.loading")}</div>;
 
-  return user ? <Outlet /> : <Navigate to="/" replace />;
+  return user || isGuest ? <Outlet /> : <Navigate to="/" replace />;
 }

@@ -2,6 +2,81 @@
   width: 100%;
 }
 
+/* ===== Guest Modal ===== */
+.guestModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.guestModal {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 2rem;
+  padding: 3.2rem;
+  max-width: 42rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.6rem;
+}
+
+.guestModalEmoji {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.guestModalTitle {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.guestModalText {
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.guestModalRegister {
+  width: 100%;
+  padding: 1.4rem 2.4rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 1.2rem;
+  font-size: var(--fs-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.guestModalRegister:hover {
+  opacity: 0.88;
+}
+
+.guestModalLater {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.guestModalLater:hover {
+  color: var(--color-text);
+}
+
 /* ===== Toolbar ===== */
 .toolbar {
   display: flex;
@@ -646,7 +721,7 @@
   gap: 1.2rem;
   padding: 1rem 1.8rem;
   background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-primary);
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-xl);
   font-size: var(--fs-sm);

@@ -3,1220 +3,1400 @@
     "name": "Математика",
     "color": "var(--tag-math)",
     "bg": "var(--tag-math-bg)",
-    "icon": "📐"
+    "icon": "📐",
+    "benefit": "Развивает логику и мышление"
   },
   {
     "name": "Алгебра",
     "color": "var(--tag-algebra)",
     "bg": "var(--tag-algebra-bg)",
-    "icon": "🔢"
+    "icon": "🔢",
+    "benefit": "Учит решать уравнения и задачи"
   },
   {
     "name": "Геометрия",
     "color": "var(--tag-geometry)",
     "bg": "var(--tag-geometry-bg)",
-    "icon": "📏"
+    "icon": "📏",
+    "benefit": "Развивает пространственное мышление"
   },
   {
     "name": "Математический анализ",
     "color": "var(--tag-calculus)",
     "bg": "var(--tag-calculus-bg)",
-    "icon": "∫"
+    "icon": "∫",
+    "benefit": "Основа науки и инженерии"
   },
   {
     "name": "Статистика",
     "color": "var(--tag-statistics)",
     "bg": "var(--tag-statistics-bg)",
-    "icon": "📊"
+    "icon": "📊",
+    "benefit": "Помогает анализировать данные"
   },
   {
     "name": "Биология",
     "color": "var(--tag-biology)",
     "bg": "var(--tag-biology-bg)",
-    "icon": "🧬"
+    "icon": "🧬",
+    "benefit": "Понимание жизни и природы"
   },
   {
     "name": "Химия",
     "color": "var(--tag-chemistry)",
     "bg": "var(--tag-chemistry-bg)",
-    "icon": "🧪"
+    "icon": "🧪",
+    "benefit": "Раскрывает тайны вещества"
   },
   {
     "name": "Физика",
     "color": "var(--tag-physics)",
     "bg": "var(--tag-physics-bg)",
-    "icon": "🔬"
+    "icon": "🔬",
+    "benefit": "Объясняет законы природы"
   },
   {
     "name": "Астрономия",
     "color": "var(--tag-astronomy)",
     "bg": "var(--tag-astronomy-bg)",
-    "icon": "🔭"
+    "icon": "🔭",
+    "benefit": "Открывает тайны Вселенной"
   },
   {
     "name": "Науки о Земле",
     "color": "var(--tag-earth-science)",
     "bg": "var(--tag-earth-science-bg)",
-    "icon": "🌍"
+    "icon": "🌍",
+    "benefit": "Понимание нашей планеты"
   },
   {
     "name": "История",
     "color": "var(--tag-history)",
     "bg": "var(--tag-history-bg)",
-    "icon": "📜"
+    "icon": "📜",
+    "benefit": "Учит на ошибках прошлого"
   },
   {
     "name": "Всемирная история",
     "color": "var(--tag-world-history)",
     "bg": "var(--tag-world-history-bg)",
-    "icon": "🌐"
+    "icon": "🌐",
+    "benefit": "Расширяет кругозор о мире"
   },
   {
     "name": "География",
     "color": "var(--tag-geography)",
     "bg": "var(--tag-geography-bg)",
-    "icon": "🗺️"
+    "icon": "🗺️",
+    "benefit": "Знание стран и народов"
   },
   {
     "name": "Литература",
     "color": "var(--tag-literature)",
     "bg": "var(--tag-literature-bg)",
-    "icon": "📚"
+    "icon": "📚",
+    "benefit": "Обогащает речь и душу"
   },
   {
     "name": "Сочинение",
     "color": "var(--tag-writing)",
     "bg": "var(--tag-writing-bg)",
-    "icon": "✍️"
+    "icon": "✍️",
+    "benefit": "Развивает письменную речь"
   },
   {
     "name": "Грамматика",
     "color": "var(--tag-grammar)",
     "bg": "var(--tag-grammar-bg)",
-    "icon": "📝"
+    "icon": "📝",
+    "benefit": "Грамотность и точность речи"
   },
-
   {
     "name": "Английский",
     "color": "var(--tag-english)",
     "bg": "var(--tag-english-bg)",
-    "icon": "🇬🇧"
+    "icon": "🇬🇧",
+    "benefit": "Язык мировых возможностей"
   },
   {
     "name": "Информатика",
     "color": "var(--tag-computer-science)",
     "bg": "var(--tag-computer-science-bg)",
-    "icon": "💻"
+    "icon": "💻",
+    "benefit": "Основа цифрового мира"
   },
   {
     "name": "Программирование",
     "color": "var(--tag-programming)",
     "bg": "var(--tag-programming-bg)",
-    "icon": "👨‍💻"
+    "icon": "👨‍💻",
+    "benefit": "Создавай продукты своими руками"
   },
   {
     "name": "Искусство",
     "color": "var(--tag-art)",
     "bg": "var(--tag-art-bg)",
-    "icon": "🎨"
+    "icon": "🎨",
+    "benefit": "Развивает творчество и вкус"
   },
   {
     "name": "Музыка",
     "color": "var(--tag-music)",
     "bg": "var(--tag-music-bg)",
-    "icon": "🎵"
+    "icon": "🎵",
+    "benefit": "Тренирует слух и память"
   },
   {
     "name": "Физкультура",
     "color": "var(--tag-physical-education)",
     "bg": "var(--tag-physical-education-bg)",
-    "icon": "⚽"
+    "icon": "⚽",
+    "benefit": "Здоровое тело — здоровый дух"
   },
   {
     "name": "Психология",
     "color": "var(--tag-psychology)",
     "bg": "var(--tag-psychology-bg)",
-    "icon": "🧠"
+    "icon": "🧠",
+    "benefit": "Понимание себя и людей"
   },
   {
     "name": "Экономика",
     "color": "var(--tag-economics)",
     "bg": "var(--tag-economics-bg)",
-    "icon": "💰"
+    "icon": "💰",
+    "benefit": "Управление деньгами и ресурсами"
   },
   {
     "name": "Философия",
     "color": "var(--tag-philosophy)",
     "bg": "var(--tag-philosophy-bg)",
-    "icon": "🤔"
+    "icon": "🤔",
+    "benefit": "Учит глубоко мыслить"
   },
   {
     "name": "Обществознание",
     "color": "var(--tag-social-studies)",
     "bg": "var(--tag-social-studies-bg)",
-    "icon": "🏛️"
+    "icon": "🏛️",
+    "benefit": "Понимание общества и государства"
   },
   {
     "name": "Театр",
     "color": "var(--tag-drama)",
     "bg": "var(--tag-drama-bg)",
-    "icon": "🎭"
+    "icon": "🎭",
+    "benefit": "Раскрывает актёрский потенциал"
   },
-
   {
     "name": "Испанский",
     "color": "var(--tag-spanish)",
     "bg": "var(--tag-spanish-bg)",
-    "icon": "🇪🇸"
+    "icon": "🇪🇸",
+    "benefit": "Язык 500 млн человек"
   },
   {
     "name": "Французский",
     "color": "var(--tag-french)",
     "bg": "var(--tag-french-bg)",
-    "icon": "🇫🇷"
+    "icon": "🇫🇷",
+    "benefit": "Язык культуры и дипломатии"
   },
   {
     "name": "Немецкий",
     "color": "var(--tag-german)",
     "bg": "var(--tag-german-bg)",
-    "icon": "🇩🇪"
+    "icon": "🇩🇪",
+    "benefit": "Язык науки и техники"
   },
   {
     "name": "Японский",
     "color": "var(--tag-japanese)",
     "bg": "var(--tag-japanese-bg)",
-    "icon": "🇯🇵"
+    "icon": "🇯🇵",
+    "benefit": "Открывает уникальную культуру"
   },
   {
     "name": "Арабский",
     "color": "var(--tag-arabic)",
     "bg": "var(--tag-arabic-bg)",
-    "icon": "🇸🇦"
+    "icon": "🇸🇦",
+    "benefit": "Язык Корана и исламской науки"
   },
   {
     "name": "Китайский",
     "color": "var(--tag-chinese)",
     "bg": "var(--tag-chinese-bg)",
-    "icon": "🇨🇳"
+    "icon": "🇨🇳",
+    "benefit": "Язык будущей экономики"
   },
-
   {
     "name": "Экология",
     "color": "var(--tag-environmental-science)",
     "bg": "var(--tag-environmental-science-bg)",
-    "icon": "🌱"
+    "icon": "🌱",
+    "benefit": "Забота о нашей планете"
   },
   {
     "name": "Анатомия",
     "color": "var(--tag-anatomy)",
     "bg": "var(--tag-anatomy-bg)",
-    "icon": "🫀"
+    "icon": "🫀",
+    "benefit": "Знание строения тела человека"
   },
-
   {
     "name": "Тригонометрия",
     "color": "var(--tag-trigonometry)",
     "bg": "var(--tag-trigonometry-bg)",
-    "icon": "△"
+    "icon": "△",
+    "benefit": "Основа физики и инженерии"
   },
   {
     "name": "Теория вероятностей",
     "color": "var(--tag-probability)",
     "bg": "var(--tag-probability-bg)",
-    "icon": "🎲"
+    "icon": "🎲",
+    "benefit": "Понимание случайности и риска"
   },
-
   {
     "name": "Социология",
     "color": "var(--tag-sociology)",
     "bg": "var(--tag-sociology-bg)",
-    "icon": "👥"
+    "icon": "👥",
+    "benefit": "Изучение общества и групп"
   },
   {
     "name": "Политология",
     "color": "var(--tag-political-science)",
     "bg": "var(--tag-political-science-bg)",
-    "icon": "🗳️"
+    "icon": "🗳️",
+    "benefit": "Понимание власти и политики"
   },
   {
     "name": "Право",
     "color": "var(--tag-law)",
     "bg": "var(--tag-law-bg)",
-    "icon": "⚖️"
+    "icon": "⚖️",
+    "benefit": "Знание своих прав"
   },
-
   {
     "name": "Наука о данных",
     "color": "var(--tag-data-science)",
     "bg": "var(--tag-data-science-bg)",
-    "icon": "📈"
+    "icon": "📈",
+    "benefit": "Профессия будущего в IT"
   },
   {
     "name": "Кибербезопасность",
     "color": "var(--tag-cybersecurity)",
     "bg": "var(--tag-cybersecurity-bg)",
-    "icon": "🔐"
+    "icon": "🔐",
+    "benefit": "Защита данных и систем"
   },
   {
     "name": "Веб-разработка",
     "color": "var(--tag-web-development)",
     "bg": "var(--tag-web-development-bg)",
-    "icon": "🖥️"
+    "icon": "🖥️",
+    "benefit": "Создавай сайты и приложения"
   },
   {
     "name": "UI/UX дизайн",
     "color": "var(--tag-ui-ux-design)",
     "bg": "var(--tag-ui-ux-design-bg)",
-    "icon": "🎯"
+    "icon": "🎯",
+    "benefit": "Дизайн удобных интерфейсов"
   },
-
   {
     "name": "Маркетинг",
     "color": "var(--tag-marketing)",
     "bg": "var(--tag-marketing-bg)",
-    "icon": "📣"
+    "icon": "📣",
+    "benefit": "Продвижение продуктов и идей"
   },
   {
     "name": "Финансы",
     "color": "var(--tag-finance)",
     "bg": "var(--tag-finance-bg)",
-    "icon": "💳"
+    "icon": "💳",
+    "benefit": "Управляй деньгами грамотно"
   },
   {
     "name": "Бухгалтерский учёт",
     "color": "var(--tag-accounting)",
     "bg": "var(--tag-accounting-bg)",
-    "icon": "🧾"
+    "icon": "🧾",
+    "benefit": "Учёт и контроль финансов"
   },
   {
     "name": "Предпринимательство",
     "color": "var(--tag-entrepreneurship)",
     "bg": "var(--tag-entrepreneurship-bg)",
-    "icon": "🚀"
+    "icon": "🚀",
+    "benefit": "Строй бизнес с нуля"
   },
-
   {
     "name": "Продуктивность",
     "color": "var(--tag-productivity)",
     "bg": "var(--tag-productivity-bg)",
-    "icon": "⏱️"
+    "icon": "⏱️",
+    "benefit": "Делай больше за меньше время"
   },
   {
     "name": "Ораторское искусство",
     "color": "var(--tag-public-speaking)",
     "bg": "var(--tag-public-speaking-bg)",
-    "icon": "🎤"
+    "icon": "🎤",
+    "benefit": "Говори убедительно и ярко"
   },
   {
     "name": "Лидерство",
     "color": "var(--tag-leadership)",
     "bg": "var(--tag-leadership-bg)",
-    "icon": "👑"
+    "icon": "👑",
+    "benefit": "Веди людей за собой"
   },
   {
     "name": "Критическое мышление",
     "color": "var(--tag-critical-thinking)",
     "bg": "var(--tag-critical-thinking-bg)",
-    "icon": "🔍"
+    "icon": "🔍",
+    "benefit": "Анализируй и не верь слепо"
   },
   {
     "name": "Осознанность",
     "color": "var(--tag-mindfulness)",
     "bg": "var(--tag-mindfulness-bg)",
-    "icon": "🧘"
+    "icon": "🧘",
+    "benefit": "Спокойствие и ясность ума"
   },
-
   {
     "name": "Дифференциальные уравнения",
     "color": "var(--tag-calculus)",
     "bg": "var(--tag-calculus-bg)",
-    "icon": "📉"
+    "icon": "📉",
+    "benefit": "Моделирование реальных процессов"
   },
   {
     "name": "Дискретная математика",
     "color": "var(--tag-math)",
     "bg": "var(--tag-math-bg)",
-    "icon": "🔣"
+    "icon": "🔣",
+    "benefit": "Фундамент программирования и логики"
   },
   {
     "name": "Структуры данных",
     "color": "var(--tag-computer-science)",
     "bg": "var(--tag-computer-science-bg)",
-    "icon": "🗂️"
+    "icon": "🗂️",
+    "benefit": "Эффективное хранение информации"
   },
   {
     "name": "Алгоритмы",
     "color": "var(--tag-programming)",
     "bg": "var(--tag-programming-bg)",
-    "icon": "⚙️"
+    "icon": "⚙️",
+    "benefit": "Решай задачи быстро и красиво"
   },
   {
     "name": "Машинное обучение",
     "color": "var(--tag-astronomy)",
     "bg": "var(--tag-astronomy-bg)",
-    "icon": "🤖"
+    "icon": "🤖",
+    "benefit": "Обучай машины думать"
   },
   {
     "name": "Базы данных",
     "color": "var(--tag-computer-science)",
     "bg": "var(--tag-computer-science-bg)",
-    "icon": "🗄️"
+    "icon": "🗄️",
+    "benefit": "Хранение и поиск данных"
   },
   {
     "name": "Операционные системы",
     "color": "var(--tag-geography)",
     "bg": "var(--tag-geography-bg)",
-    "icon": "🖥️"
+    "icon": "🖥️",
+    "benefit": "Понимание работы компьютера"
   },
   {
     "name": "Компьютерные сети",
     "color": "var(--tag-programming)",
     "bg": "var(--tag-programming-bg)",
-    "icon": "📡"
+    "icon": "📡",
+    "benefit": "Как работает интернет"
   },
   {
     "name": "Искусственный интеллект",
     "color": "var(--tag-physics)",
     "bg": "var(--tag-physics-bg)",
-    "icon": "🧠"
+    "icon": "🧠",
+    "benefit": "Технологии будущего уже сегодня"
   },
   {
     "name": "Теория чисел",
     "color": "var(--tag-math)",
     "bg": "var(--tag-math-bg)",
-    "icon": "∞"
+    "icon": "∞",
+    "benefit": "Красота и тайны чисел"
   },
   {
     "name": "Математический анализ II",
     "color": "var(--tag-algebra)",
     "bg": "var(--tag-algebra-bg)",
-    "icon": "📊"
+    "icon": "📊",
+    "benefit": "Углублённый анализ и интегралы"
   },
   {
     "name": "Квантовая механика",
     "color": "var(--tag-physics)",
     "bg": "var(--tag-physics-bg)",
-    "icon": "⚡"
+    "icon": "⚡",
+    "benefit": "Физика на уровне атомов"
   },
   {
     "name": "Термодинамика",
     "color": "var(--tag-chemistry)",
     "bg": "var(--tag-chemistry-bg)",
-    "icon": "🌡️"
+    "icon": "🌡️",
+    "benefit": "Законы тепла и энергии"
   },
   {
     "name": "Органическая химия",
     "color": "var(--tag-chemistry)",
     "bg": "var(--tag-chemistry-bg)",
-    "icon": "🧪"
+    "icon": "🧪",
+    "benefit": "Химия жизни и материалов"
   },
   {
     "name": "Биохимия",
     "color": "var(--tag-biology)",
     "bg": "var(--tag-biology-bg)",
-    "icon": "🧬"
+    "icon": "🧬",
+    "benefit": "Химия живых организмов"
   },
   {
     "name": "Молекулярная биология",
     "color": "var(--tag-biology)",
     "bg": "var(--tag-biology-bg)",
-    "icon": "🔬"
+    "icon": "🔬",
+    "benefit": "Тайны ДНК и клеток"
   },
   {
     "name": "Генетика",
     "color": "var(--tag-earth-science)",
     "bg": "var(--tag-earth-science-bg)",
-    "icon": "🧫"
+    "icon": "🧫",
+    "benefit": "Наследственность и гены"
   },
   {
     "name": "Нейронауки",
     "color": "var(--tag-psychology)",
     "bg": "var(--tag-psychology-bg)",
-    "icon": "🧠"
+    "icon": "🧠",
+    "benefit": "Как работает мозг"
   },
   {
     "name": "Когнитивная наука",
     "color": "var(--tag-psychology)",
     "bg": "var(--tag-psychology-bg)",
-    "icon": "💭"
+    "icon": "💭",
+    "benefit": "Наука о мышлении и сознании"
   },
   {
     "name": "Международные отношения",
     "color": "var(--tag-world-history)",
     "bg": "var(--tag-world-history-bg)",
-    "icon": "🌍"
+    "icon": "🌍",
+    "benefit": "Дипломатия и мировая политика"
   },
   {
     "name": "Антропология",
     "color": "var(--tag-history)",
     "bg": "var(--tag-history-bg)",
-    "icon": "🏺"
+    "icon": "🏺",
+    "benefit": "Изучение человека и культур"
   },
   {
     "name": "Лингвистика",
     "color": "var(--tag-grammar)",
     "bg": "var(--tag-grammar-bg)",
-    "icon": "🔤"
+    "icon": "🔤",
+    "benefit": "Наука о языке и речи"
   },
   {
     "name": "Финансовая математика",
     "color": "var(--tag-economics)",
     "bg": "var(--tag-economics-bg)",
-    "icon": "📈"
+    "icon": "📈",
+    "benefit": "Математика для инвестиций"
   },
   {
     "name": "Теория игр",
     "color": "var(--tag-philosophy)",
     "bg": "var(--tag-philosophy-bg)",
-    "icon": "♟️"
+    "icon": "♟️",
+    "benefit": "Стратегии в конкурентной среде"
   },
-
   {
     "name": "Тасхих Корана",
     "color": "var(--tag-quran-reading)",
     "bg": "var(--tag-quran-reading-bg)",
-    "icon": "📣"
+    "icon": "📣",
+    "benefit": "Правильное чтение Корана"
   },
   {
     "name": "Коран",
     "color": "var(--tag-quran-reading)",
     "bg": "var(--tag-quran-reading-bg)",
-    "icon": "📗"
+    "icon": "📗",
+    "benefit": "Слово Аллаха — свет сердца"
   },
   {
     "name": "Хифз Корана",
     "color": "var(--tag-quran-memorization)",
     "bg": "var(--tag-quran-memorization-bg)",
-    "icon": "📿"
+    "icon": "📿",
+    "benefit": "Заучивание Корана наизусть"
   },
   {
     "name": "Хифз Корана (1.50ч)",
     "color": "var(--tag-quran-memorization)",
     "bg": "var(--tag-quran-memorization-bg)",
-    "icon": "📿"
+    "icon": "📿",
+    "benefit": "Заучивание Корана наизусть"
   },
   {
     "name": "Заучивание Корана",
     "color": "var(--tag-quran-memorization)",
     "bg": "var(--tag-quran-memorization-bg)",
-    "icon": "📿"
+    "icon": "📿",
+    "benefit": "Хранить Коран в сердце"
   },
   {
     "name": "Подготовка Корана",
     "color": "var(--tag-quran-memorization)",
     "bg": "var(--tag-quran-memorization-bg)",
-    "icon": "💚"
+    "icon": "💚",
+    "benefit": "Подготовка к занятию Кораном"
   },
   {
     "name": "Подготовка Корана (1ч.)",
     "color": "var(--tag-quran-memorization)",
     "bg": "var(--tag-quran-memorization-bg)",
-    "icon": "💚"
+    "icon": "💚",
+    "benefit": "Подготовка к занятию Кораном"
   },
   {
     "name": "Муроджиа Корана",
     "color": "var(--tag-murajaah)",
     "bg": "var(--tag-murajaah-bg)",
-    "icon": "🔄"
+    "icon": "🔄",
+    "benefit": "Повторение для закрепления"
   },
   {
     "name": "Повтор Корана",
     "color": "var(--tag-murajaah)",
     "bg": "var(--tag-murajaah-bg)",
-    "icon": "🔄"
+    "icon": "🔄",
+    "benefit": "Повторение укрепляет память"
   },
   {
     "name": "Хатм Корана",
     "color": "var(--tag-khatm)",
     "bg": "var(--tag-khatm-bg)",
-    "icon": "🌟"
+    "icon": "🌟",
+    "benefit": "Завершение полного чтения"
   },
   {
     "name": "Тахаджуд + Вирд (90стр.)",
     "color": "var(--tag-wird)",
     "bg": "var(--tag-wird-bg)",
-    "icon": "🌙"
+    "icon": "🌙",
+    "benefit": "Ночная молитва и поминание"
   },
   {
     "name": "Вирд Корана",
     "color": "var(--tag-wird)",
     "bg": "var(--tag-wird-bg)",
-    "icon": "🌙"
+    "icon": "🌙",
+    "benefit": "Ежедневное чтение Корана"
   },
   {
     "name": "Таджвид",
     "color": "var(--tag-tajweed)",
     "bg": "var(--tag-tajweed-bg)",
-    "icon": "🫀"
+    "icon": "🫀",
+    "benefit": "Правила красивого чтения"
   },
   {
     "name": "Тафсир",
     "color": "var(--tag-quran-tafsir)",
     "bg": "var(--tag-quran-tafsir-bg)",
-    "icon": "📜"
+    "icon": "📜",
+    "benefit": "Толкование смыслов Корана"
   },
   {
     "name": "Науки о Коране",
     "color": "var(--tag-quran-sciences)",
     "bg": "var(--tag-quran-sciences-bg)",
-    "icon": "✨"
+    "icon": "✨",
+    "benefit": "Глубокое изучение Корана"
   },
   {
     "name": "Мединский курс (МК)",
     "color": "var(--tag-medina-course)",
     "bg": "var(--tag-medina-course-bg)",
-    "icon": "📚"
+    "icon": "📚",
+    "benefit": "Арабский по методу Медины"
   },
   {
     "name": "МК 1 том",
     "color": "var(--tag-mk-1)",
     "bg": "var(--tag-mk-1-bg)",
-    "icon": "📔"
+    "icon": "📔",
+    "benefit": "Первые шаги в арабском"
   },
   {
     "name": "МК 2 том",
     "color": "var(--tag-mk-2)",
     "bg": "var(--tag-mk-2-bg)",
-    "icon": "📗"
+    "icon": "📗",
+    "benefit": "Развитие арабского языка"
   },
   {
     "name": "МК 3 том",
     "color": "var(--tag-mk-3)",
     "bg": "var(--tag-mk-3-bg)",
-    "icon": "📘"
+    "icon": "📘",
+    "benefit": "Продвинутый уровень арабского"
   },
   {
     "name": "МК 4 том",
     "color": "var(--tag-mk-4)",
     "bg": "var(--tag-mk-4-bg)",
-    "icon": "📕"
+    "icon": "📕",
+    "benefit": "Мастерство арабского языка"
   },
-
   {
     "name": "Бейна Ядейк (БЯ)",
     "color": "var(--tag-bayna-yadayk)",
     "bg": "var(--tag-bayna-yadayk-bg)",
-    "icon": "📚"
+    "icon": "📚",
+    "benefit": "Арабский для разговорной речи"
   },
   {
     "name": "БЯ 1 том",
     "color": "var(--tag-bya-1)",
     "bg": "var(--tag-bya-1-bg)",
-    "icon": "📙"
+    "icon": "📙",
+    "benefit": "Начало разговорного арабского"
   },
   {
     "name": "БЯ 2 том",
     "color": "var(--tag-bya-2)",
     "bg": "var(--tag-bya-2-bg)",
-    "icon": "📗"
+    "icon": "📗",
+    "benefit": "Расширение словарного запаса"
   },
   {
     "name": "БЯ 3 том",
     "color": "var(--tag-bya-3)",
     "bg": "var(--tag-bya-3-bg)",
-    "icon": "📘"
+    "icon": "📘",
+    "benefit": "Свободная речь на арабском"
   },
   {
     "name": "БЯ 4 том",
     "color": "var(--tag-bya-4)",
     "bg": "var(--tag-bya-4-bg)",
-    "icon": "📕"
+    "icon": "📕",
+    "benefit": "Высокий уровень арабского"
   },
-
   {
     "name": "Аджрумийа",
     "color": "var(--tag-ajrumiyya)",
     "bg": "var(--tag-ajrumiyya-bg)",
-    "icon": "📓"
+    "icon": "📓",
+    "benefit": "Классическая арабская грамматика"
   },
   {
     "name": "Катру ан-Нада",
     "color": "var(--tag-qatrun-nada)",
     "bg": "var(--tag-qatrun-nada-bg)",
-    "icon": "💧"
+    "icon": "💧",
+    "benefit": "Углублённая арабская грамматика"
   },
   {
     "name": "Альфия ибн Малика",
     "color": "var(--tag-alfiyya)",
     "bg": "var(--tag-alfiyya-bg)",
-    "icon": "📓"
+    "icon": "📓",
+    "benefit": "Вершина арабской грамматики"
   },
   {
     "name": "Академия ZAD",
     "color": "var(--tag-academy-zad)",
     "bg": "var(--tag-academy-zad-bg)",
-    "icon": "🎓"
+    "icon": "🎓",
+    "benefit": "Системное исламское образование"
   },
   {
     "name": "ДИРОЯ",
     "color": "var(--tag-diraya)",
     "bg": "var(--tag-diraya-bg)",
-    "icon": "📡"
+    "icon": "📡",
+    "benefit": "Знание и понимание ислама"
   },
   {
     "name": "Педагогика",
     "color": "var(--tag-pedagogy)",
     "bg": "var(--tag-pedagogy-bg)",
-    "icon": "🍎"
+    "icon": "🍎",
+    "benefit": "Искусство обучать других"
   },
   {
     "name": "Стажировка + ShanGroup",
     "color": "var(--tag-internship)",
     "bg": "var(--tag-internship-bg)",
-    "icon": "💼"
+    "icon": "💼",
+    "benefit": "Реальный опыт на практике"
   },
   {
     "name": "Красноречие (Баляга)",
     "color": "var(--tag-balagha)",
     "bg": "var(--tag-balagha-bg)",
-    "icon": "💎"
+    "icon": "💎",
+    "benefit": "Красота арабской речи"
   },
   {
     "name": "Сильсиля ибн Сауда",
     "color": "var(--tag-silsila)",
     "bg": "var(--tag-silsila-bg)",
-    "icon": "🔗"
+    "icon": "🔗",
+    "benefit": "Системный курс арабского"
   },
   {
     "name": "Кыроа Рошиди",
     "color": "var(--tag-qiraa-rashidi)",
     "bg": "var(--tag-qiraa-rashidi-bg)",
-    "icon": "📖"
+    "icon": "📖",
+    "benefit": "Чтение по методу Рошиди"
   },
   {
     "name": "Грамматика (нахву)",
     "color": "var(--tag-arabic-grammar)",
     "bg": "var(--tag-arabic-grammar-bg)",
-    "icon": "📝"
+    "icon": "📝",
+    "benefit": "Правила арабской грамматики"
   },
   {
     "name": "Морфология",
     "color": "var(--tag-grammar)",
     "bg": "var(--tag-grammar-bg)",
-    "icon": "🔤"
+    "icon": "🔤",
+    "benefit": "Строение слов и форм"
   },
   {
     "name": "Красноречие",
     "color": "var(--tag-writing)",
     "bg": "var(--tag-writing-bg)",
-    "icon": "✍️"
+    "icon": "✍️",
+    "benefit": "Говори красиво и точно"
   },
   {
     "name": "Морфология (сарф)",
     "color": "var(--tag-arabic-morphology)",
     "bg": "var(--tag-arabic-morphology-bg)",
-    "icon": "🔤"
+    "icon": "🔤",
+    "benefit": "Арабское словообразование"
   },
   {
     "name": "Акыда",
     "color": "var(--tag-aqeedah)",
     "bg": "var(--tag-aqeedah-bg)",
-    "icon": "🌟"
+    "icon": "🌟",
+    "benefit": "Правильное исламское вероубеждение"
   },
   {
     "name": "Хадисы",
     "color": "var(--tag-hadith-studies)",
     "bg": "var(--tag-hadith-studies-bg)",
-    "icon": "📜"
+    "icon": "📜",
+    "benefit": "Слова и поступки Пророка"
   },
   {
     "name": "Фикх",
     "color": "var(--tag-fiqh)",
     "bg": "var(--tag-fiqh-bg)",
-    "icon": "⚖️"
+    "icon": "⚖️",
+    "benefit": "Исламское право в жизни"
   },
   {
     "name": "Фикх ибадат",
     "color": "var(--tag-fiqh-worship)",
     "bg": "var(--tag-fiqh-worship-bg)",
-    "icon": "🕌"
+    "icon": "🕌",
+    "benefit": "Правила поклонения Аллаху"
   },
   {
     "name": "Фикх муамалат",
     "color": "var(--tag-fiqh-transactions)",
     "bg": "var(--tag-fiqh-transactions-bg)",
-    "icon": "💼"
+    "icon": "💼",
+    "benefit": "Исламские правила сделок"
   },
   {
     "name": "Усуль аль-фикх",
     "color": "var(--tag-usul-al-fiqh)",
     "bg": "var(--tag-usul-al-fiqh-bg)",
-    "icon": "📖"
+    "icon": "📖",
+    "benefit": "Основы исламского права"
   },
   {
     "name": "Сира",
     "color": "var(--tag-seerah)",
     "bg": "var(--tag-seerah-bg)",
-    "icon": "🌙"
+    "icon": "🌙",
+    "benefit": "Жизнь Пророка Мухаммада"
   },
   {
     "name": "История ислама",
     "color": "var(--tag-islamic-history)",
     "bg": "var(--tag-islamic-history-bg)",
-    "icon": "🏛️"
+    "icon": "🏛️",
+    "benefit": "Великие страницы ислама"
   },
   {
     "name": "Сподвижники",
     "color": "var(--tag-companions)",
     "bg": "var(--tag-companions-bg)",
-    "icon": "👥"
+    "icon": "👥",
+    "benefit": "Жизнь сподвижников Пророка"
   },
   {
     "name": "Ахляк",
     "color": "var(--tag-akhlaq)",
     "bg": "var(--tag-akhlaq-bg)",
-    "icon": "💎"
+    "icon": "💎",
+    "benefit": "Исламская нравственность и характер"
   },
   {
     "name": "Адаб",
     "color": "var(--tag-adab)",
     "bg": "var(--tag-adab-bg)",
-    "icon": "🌺"
+    "icon": "🌺",
+    "benefit": "Исламский этикет и воспитание"
   },
   {
     "name": "Тазкия",
     "color": "var(--tag-tazkiyah)",
     "bg": "var(--tag-tazkiyah-bg)",
-    "icon": "🕊️"
+    "icon": "🕊️",
+    "benefit": "Очищение и рост души"
   },
   {
     "name": "Даава",
     "color": "var(--tag-dawah)",
     "bg": "var(--tag-dawah-bg)",
-    "icon": "📢"
+    "icon": "📢",
+    "benefit": "Призыв к исламу"
   },
   {
     "name": "Сравнительное религиоведение",
     "color": "var(--tag-comparative-religion)",
     "bg": "var(--tag-comparative-religion-bg)",
-    "icon": "🌍"
+    "icon": "🌍",
+    "benefit": "Сравнение религий мира"
   },
   {
     "name": "Семейное счатье",
     "color": "var(--tag-islamic-family)",
     "bg": "var(--tag-islamic-family-bg)",
-    "icon": "👨‍👩‍👧"
+    "icon": "👨‍👩‍👧",
+    "benefit": "Гармония в семье"
   },
   {
     "name": "Исламские финансы",
     "color": "var(--tag-islamic-finance)",
     "bg": "var(--tag-islamic-finance-bg)",
-    "icon": "💰"
+    "icon": "💰",
+    "benefit": "Халяльное управление деньгами"
   },
   {
     "name": "Исламское лидерство",
     "color": "var(--tag-islamic-leadership)",
     "bg": "var(--tag-islamic-leadership-bg)",
-    "icon": "👑"
+    "icon": "👑",
+    "benefit": "Лидерство по исламским принципам"
   },
-
   {
     "name": "Исламское воспитание",
     "color": "var(--tag-islamic-education)",
     "bg": "var(--tag-islamic-education-bg)",
-    "icon": "🌱"
+    "icon": "🌱",
+    "benefit": "Воспитание по исламу"
   },
-
   {
     "name": "Язык жестов",
     "color": "var(--tag-sign-language)",
     "bg": "var(--tag-sign-language-bg)",
-    "icon": "🤟"
+    "icon": "🤟",
+    "benefit": "Общение без слов"
   },
   {
     "name": "Шрифт Брайля",
     "color": "var(--tag-braille)",
     "bg": "var(--tag-braille-bg)",
-    "icon": "👆"
+    "icon": "👆",
+    "benefit": "Письмо для незрячих людей"
   },
   {
     "name": "Письмо левой рукой 10 мин. 🇷🇺",
     "color": "var(--tag-writing-russia)",
     "bg": "var(--tag-writing-russia-bg)",
-    "icon": "🇷🇺"
+    "icon": "🇷🇺",
+    "benefit": "Тренировка обеих рук"
   },
   {
     "name": "Письмо левой рукой 10 мин. 🇸🇦",
     "color": "var(--tag-writing-saudi)",
     "bg": "var(--tag-writing-saudi-bg)",
-    "icon": "🇸🇦"
+    "icon": "🇸🇦",
+    "benefit": "Тренировка обеих рук"
   },
   {
     "name": "Письмо левой рукой 10 мин. 🇺🇸",
     "color": "var(--tag-writing-usa)",
     "bg": "var(--tag-writing-usa-bg)",
-    "icon": "🇺🇸"
+    "icon": "🇺🇸",
+    "benefit": "Тренировка обеих рук"
   },
   {
     "name": "Письмо левой рукой 10 мин. ☪️",
     "color": "var(--tag-writing-tatarstan)",
     "bg": "var(--tag-writing-tatarstan-bg)",
-    "icon": "☪️"
+    "icon": "☪️",
+    "benefit": "Тренировка обеих рук"
   },
   {
     "name": "Английский 📖🔉💻 20 мин",
     "color": "var(--tag-writing-usa)",
     "bg": "var(--tag-writing-usa-bg)",
-    "icon": "🇺🇸"
+    "icon": "🇺🇸",
+    "benefit": "Язык мировых возможностей"
   },
   {
     "name": "Татарский 📖🔉 20 мин",
     "color": "var(--tag-writing-tatarstan)",
     "bg": "var(--tag-writing-tatarstan-bg)",
-    "icon": "☪️"
+    "icon": "☪️",
+    "benefit": "Родной язык — живая память"
   },
   {
     "name": "Русский 📖💻 30 мин",
     "color": "var(--tag-writing-russia)",
     "bg": "var(--tag-writing-russia-bg)",
-    "icon": "🇷🇺"
+    "icon": "🇷🇺",
+    "benefit": "Грамотность и богатство речи"
   },
   {
     "name": "Арабское чтение (50 м.)",
     "color": "var(--tag-reading)",
     "bg": "var(--tag-reading-bg)",
-    "icon": "📖"
+    "icon": "📖",
+    "benefit": "Беглое чтение на арабском"
   },
   {
     "name": "Слепая печать арабс (20 м.)",
     "color": "var(--tag-reading)",
     "bg": "var(--tag-reading-bg)",
-    "icon": "🇸🇦"
+    "icon": "🇸🇦",
+    "benefit": "Быстрый набор арабского текста"
   },
   {
     "name": "Арабское чтение (1 ч.)",
     "color": "var(--tag-reading)",
     "bg": "var(--tag-reading-bg)",
-    "icon": "📖"
+    "icon": "📖",
+    "benefit": "Беглое чтение на арабском"
   },
   {
     "name": "Конная езда",
     "color": "var(--tag-horse-riding)",
     "bg": "var(--tag-horse-riding-bg)",
-    "icon": "🐴"
+    "icon": "🐴",
+    "benefit": "Сила, баланс и смелость"
   },
   {
     "name": "Стрельба из лука",
     "color": "var(--tag-archery)",
     "bg": "var(--tag-archery-bg)",
-    "icon": "🏹"
+    "icon": "🏹",
+    "benefit": "Точность и концентрация"
   },
   {
     "name": "Плавание",
     "color": "var(--tag-swimming)",
     "bg": "var(--tag-swimming-bg)",
-    "icon": "🏊"
+    "icon": "🏊",
+    "benefit": "Выносливость и здоровье тела"
   },
   {
     "name": "Борьба",
     "color": "var(--tag-wrestling)",
     "bg": "var(--tag-wrestling-bg)",
-    "icon": "🤼"
+    "icon": "🤼",
+    "benefit": "Сила и самооборона"
   },
   {
     "name": "Бег",
     "color": "var(--tag-running)",
     "bg": "var(--tag-running-bg)",
-    "icon": "🏃"
+    "icon": "🏃",
+    "benefit": "Выносливость и ясность ума"
   },
-
   {
     "name": "Кубик Рубика",
     "color": "var(--tag-rubiks-cube)",
     "bg": "var(--tag-rubiks-cube-bg)",
-    "icon": "🧩"
+    "icon": "🧩",
+    "benefit": "Тренирует память и логику"
   },
   {
     "name": "Шахматы",
     "color": "var(--tag-chess-hobby)",
     "bg": "var(--tag-chess-hobby-bg)",
-    "icon": "♟️"
+    "icon": "♟️",
+    "benefit": "Стратегия и глубокое мышление"
   },
   {
     "name": "Каллиграфия",
     "color": "var(--tag-calligraphy)",
     "bg": "var(--tag-calligraphy-bg)",
-    "icon": "🖊️"
+    "icon": "🖊️",
+    "benefit": "Красота письма и терпение"
   },
   {
     "name": "Вышивание",
     "color": "var(--tag-embroidery)",
     "bg": "var(--tag-embroidery-bg)",
-    "icon": "🧵"
+    "icon": "🧵",
+    "benefit": "Творчество и усидчивость"
   },
   {
     "name": "Вязание",
     "color": "var(--tag-knitting)",
     "bg": "var(--tag-knitting-bg)",
-    "icon": "🧶"
+    "icon": "🧶",
+    "benefit": "Успокаивает и развивает руки"
   },
   {
     "name": "Шитьё",
     "color": "var(--tag-sewing)",
     "bg": "var(--tag-sewing-bg)",
-    "icon": "✂️"
+    "icon": "✂️",
+    "benefit": "Создавай одежду своими руками"
   },
   {
     "name": "Рисование",
     "color": "var(--tag-drawing)",
     "bg": "var(--tag-drawing-bg)",
-    "icon": "✏️"
+    "icon": "✏️",
+    "benefit": "Выражай мысли через образы"
   },
   {
     "name": "Оригами",
     "color": "var(--tag-origami)",
     "bg": "var(--tag-origami-bg)",
-    "icon": "🦢"
+    "icon": "🦢",
+    "benefit": "Концентрация и точность движений"
   },
-
   {
     "name": "Русский",
     "color": "var(--tag-russian)",
     "bg": "var(--tag-russian-bg)",
-    "icon": "🇷🇺"
+    "icon": "🇷🇺",
+    "benefit": "Грамотность и богатство речи"
   },
   {
     "name": "Португальский",
     "color": "var(--tag-portuguese)",
     "bg": "var(--tag-portuguese-bg)",
-    "icon": "🇵🇹"
+    "icon": "🇵🇹",
+    "benefit": "Язык двух континентов"
   },
   {
     "name": "Итальянский",
     "color": "var(--tag-italian)",
     "bg": "var(--tag-italian-bg)",
-    "icon": "🇮🇹"
+    "icon": "🇮🇹",
+    "benefit": "Язык искусства и культуры"
   },
   {
     "name": "Корейский",
     "color": "var(--tag-korean)",
     "bg": "var(--tag-korean-bg)",
-    "icon": "🇰🇷"
+    "icon": "🇰🇷",
+    "benefit": "Язык технологий и культуры"
   },
   {
     "name": "Хинди",
     "color": "var(--tag-hindi)",
     "bg": "var(--tag-hindi-bg)",
-    "icon": "🇮🇳"
+    "icon": "🇮🇳",
+    "benefit": "Язык миллиарда людей"
   },
   {
     "name": "Турецкий",
     "color": "var(--tag-turkish)",
     "bg": "var(--tag-turkish-bg)",
-    "icon": "🇹🇷"
+    "icon": "🇹🇷",
+    "benefit": "Мост между Европой и Азией"
   },
   {
     "name": "Нидерландский",
     "color": "var(--tag-dutch)",
     "bg": "var(--tag-dutch-bg)",
-    "icon": "🇳🇱"
+    "icon": "🇳🇱",
+    "benefit": "Язык науки и торговли"
   },
   {
     "name": "Польский",
     "color": "var(--tag-polish)",
     "bg": "var(--tag-polish-bg)",
-    "icon": "🇵🇱"
+    "icon": "🇵🇱",
+    "benefit": "Язык Центральной Европы"
   },
   {
     "name": "Украинский",
     "color": "var(--tag-ukrainian)",
     "bg": "var(--tag-ukrainian-bg)",
-    "icon": "🇺🇦"
+    "icon": "🇺🇦",
+    "benefit": "Красивый славянский язык"
   },
   {
     "name": "Шведский",
     "color": "var(--tag-swedish)",
     "bg": "var(--tag-swedish-bg)",
-    "icon": "🇸🇪"
+    "icon": "🇸🇪",
+    "benefit": "Язык Скандинавии и инноваций"
   },
   {
     "name": "Греческий",
     "color": "var(--tag-greek)",
     "bg": "var(--tag-greek-bg)",
-    "icon": "🇬🇷"
+    "icon": "🇬🇷",
+    "benefit": "Язык философии и науки"
   },
   {
     "name": "Иврит",
     "color": "var(--tag-hebrew)",
     "bg": "var(--tag-hebrew-bg)",
-    "icon": "🇮🇱"
+    "icon": "🇮🇱",
+    "benefit": "Один из древнейших языков"
   },
   {
     "name": "Персидский",
     "color": "var(--tag-persian)",
     "bg": "var(--tag-persian-bg)",
-    "icon": "🇮🇷"
+    "icon": "🇮🇷",
+    "benefit": "Язык поэзии и мудрости"
   },
   {
     "name": "Индонезийский",
     "color": "var(--tag-indonesian)",
     "bg": "var(--tag-indonesian-bg)",
-    "icon": "🇮🇩"
+    "icon": "🇮🇩",
+    "benefit": "Язык крупнейшей мусульманской страны"
   },
   {
     "name": "Тайский",
     "color": "var(--tag-thai)",
     "bg": "var(--tag-thai-bg)",
-    "icon": "🇹🇭"
+    "icon": "🇹🇭",
+    "benefit": "Уникальный язык Юго-Восточной Азии"
   },
   {
     "name": "Вьетнамский",
     "color": "var(--tag-vietnamese)",
     "bg": "var(--tag-vietnamese-bg)",
-    "icon": "🇻🇳"
+    "icon": "🇻🇳",
+    "benefit": "Язык быстро растущей экономики"
   },
-
   {
     "name": "Поэзия",
     "color": "var(--tag-poetry)",
     "bg": "var(--tag-poetry-bg)",
-    "icon": "🪶"
+    "icon": "🪶",
+    "benefit": "Красота слова и чувств"
   },
-
   {
     "name": "ОБЖ",
     "color": "var(--tag-obzh)",
     "bg": "var(--tag-obzh-bg)",
-    "icon": "⛑️"
+    "icon": "⛑️",
+    "benefit": "Безопасность в любой ситуации"
   },
   {
     "name": "Технология",
     "color": "var(--tag-technology)",
     "bg": "var(--tag-technology-bg)",
-    "icon": "🔧"
+    "icon": "🔧",
+    "benefit": "Практические навыки и умения"
   },
   {
     "name": "Черчение",
     "color": "var(--tag-drafting)",
     "bg": "var(--tag-drafting-bg)",
-    "icon": "📐"
+    "icon": "📐",
+    "benefit": "Точность и техническое мышление"
   },
   {
     "name": "МХК",
     "color": "var(--tag-mhk)",
     "bg": "var(--tag-mhk-bg)",
-    "icon": "🎭"
+    "icon": "🎭",
+    "benefit": "Мировая культура и искусство"
   },
-
   {
     "name": "Python",
     "color": "var(--tag-python)",
     "bg": "var(--tag-python-bg)",
-    "icon": "🐍"
+    "icon": "🐍",
+    "benefit": "Язык для науки и автоматизации"
   },
   {
     "name": "JavaScript",
     "color": "var(--tag-javascript)",
     "bg": "var(--tag-javascript-bg)",
-    "icon": "🟨"
+    "icon": "🟨",
+    "benefit": "Оживляй веб-страницы кодом"
   },
   {
     "name": "React.js",
     "color": "var(--tag-javascript)",
     "bg": "var(--tag-javascript-bg)",
-    "icon": "⚛️"
+    "icon": "⚛️",
+    "benefit": "Современные интерфейсы быстро"
   },
   {
     "name": "C++",
     "color": "var(--tag-cpp)",
     "bg": "var(--tag-cpp-bg)",
-    "icon": "⚙️"
+    "icon": "⚙️",
+    "benefit": "Скорость и мощь программирования"
   },
   {
     "name": "Java",
     "color": "var(--tag-java)",
     "bg": "var(--tag-java-bg)",
-    "icon": "☕"
+    "icon": "☕",
+    "benefit": "Надёжность и масштабируемость"
   },
   {
     "name": "TypeScript",
     "color": "var(--tag-typescript)",
     "bg": "var(--tag-typescript-bg)",
-    "icon": "🔷"
+    "icon": "🔷",
+    "benefit": "JavaScript с типами и порядком"
   },
   {
     "name": "HTML/CSS",
     "color": "var(--tag-html-css)",
     "bg": "var(--tag-html-css-bg)",
-    "icon": "🌐"
+    "icon": "🌐",
+    "benefit": "Основа любого сайта"
   },
   {
     "name": "Swift",
     "color": "var(--tag-swift)",
     "bg": "var(--tag-swift-bg)",
-    "icon": "🍎"
+    "icon": "🍎",
+    "benefit": "Разработка приложений для iPhone"
   },
   {
     "name": "Kotlin",
     "color": "var(--tag-kotlin)",
     "bg": "var(--tag-kotlin-bg)",
-    "icon": "🤖"
+    "icon": "🤖",
+    "benefit": "Современный язык для Android"
   },
   {
     "name": "PHP",
     "color": "var(--tag-php)",
     "bg": "var(--tag-php-bg)",
-    "icon": "🐘"
+    "icon": "🐘",
+    "benefit": "Серверная разработка сайтов"
   },
   {
     "name": "C#",
     "color": "var(--tag-csharp)",
     "bg": "var(--tag-csharp-bg)",
-    "icon": "💚"
+    "icon": "💚",
+    "benefit": "Игры и корпоративные приложения"
   },
-
   {
     "name": "Устаза Асма",
     "color": "var(--tag-ustaza-asma)",
     "bg": "var(--tag-ustaza-asma-bg)",
-    "icon": "❤️"
+    "icon": "❤️",
+    "benefit": "Занятие с любимым учителем"
   },
   {
     "name": "Абакус",
     "color": "var(--tag-abacus)",
     "bg": "var(--tag-abacus-bg)",
-    "icon": "🧮"
+    "icon": "🧮",
+    "benefit": "Молниеносный счёт в уме"
   },
   {
     "name": "Сон",
     "color": "var(--tag-sleep)",
     "bg": "var(--tag-sleep-bg)",
-    "icon": "🛏️"
+    "icon": "🛏️",
+    "benefit": "Восстановление сил и памяти"
   },
   {
     "name": "Сон (2ч.)",
     "color": "var(--tag-sleep)",
     "bg": "var(--tag-sleep-bg)",
-    "icon": "🛏️"
+    "icon": "🛏️",
+    "benefit": "Восстановление сил и памяти"
   },
   {
     "name": "Arabic Khasu (YouTube 1ч.)",
     "color": "var(--tag-arabic-khasu)",
     "bg": "var(--tag-arabic-khasu-bg)",
-    "icon": "🇸🇦"
+    "icon": "🇸🇦",
+    "benefit": "Арабский через живое видео"
   },
   {
     "name": "Тесты IQ (10м)",
     "color": "var(--tag-iq)",
     "bg": "var(--tag-iq-bg)",
-    "icon": "🧠"
+    "icon": "🧠",
+    "benefit": "Тренировка интеллекта и скорости"
   },
   {
     "name": "Каюм",
     "color": "var(--tag-iq)",
     "bg": "var(--tag-iq-bg)",
-    "icon": "💣"
+    "icon": "💣",
+    "benefit": "Занятие с Каюмом"
   },
   {
     "name": "Каусар кофе",
     "color": "var(--tag-algebra)",
     "bg": "var(--tag-algebra-bg)",
-    "icon": "☕"
+    "icon": "☕",
+    "benefit": "Перерыв с кофе и зарядкой"
   },
   {
     "name": "Покормить Каусара",
     "color": "var(--tag-ustaza-asma)",
     "bg": "var(--tag-ustaza-asma-bg)",
-    "icon": "🍲"
+    "icon": "🍲",
+    "benefit": "Забота о близких"
   }
 ]

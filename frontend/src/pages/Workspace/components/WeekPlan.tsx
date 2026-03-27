@@ -1,6 +1,8 @@
 import { useRef, useState, useMemo, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Printer, Save, Search } from "lucide-react";
 import { useCopy } from "../../../hooks/useCopy";
+import UndoToast from "../../../components/UndoToast";
 import type { ScheduleEntry } from "../types";
 import COURSES from "../../../json/tags.json";
 import WEEKDAYS from "../../../json/weekdays.json";
@@ -143,6 +145,9 @@ export default function WeekPlan({
   savedScheduleLength,
 }: WeekPlanProps) {
   const { get } = useCopy();
+  const navigate = useNavigate();
+  const isGuest = localStorage.getItem("guestMode") === "true";
+  const [showGuestModal, setShowGuestModal] = useState(false);
   const [popup, setPopup] = useState<{ day: string; time: string } | null>(
     null,
   );
@@ -215,6 +220,10 @@ export default function WeekPlan({
   }
 
   function handlePrint() {
+    if (isGuest) {
+      setShowGuestModal(true);
+      return;
+    }
     const el = tableRef.current;
     if (!el) return;
 
@@ -410,24 +419,42 @@ export default function WeekPlan({
         />
       )}
 
-      {/* Undo toast */}
       {deletedEntry && (
-        <div className={styles.undoToast}>
-          <span>
-            «{deletedEntry.course}» удалён — нажмите{" "}
-            <kbd className={styles.undoKbd}>Ctrl+Z</kbd> или
-          </span>
-          <button
-            className={styles.undoBtn}
-            onClick={() => {
-              onScheduleChange([...schedule, deletedEntry]);
-              lastDeletedRef.current = null;
-              setDeletedEntry(null);
-              if (undoTimerRef.current) clearTimeout(undoTimerRef.current);
-            }}
-          >
-            ↩ Вернуть
-          </button>
+        <UndoToast
+          message={deletedEntry.course}
+          onUndo={() => {
+            onScheduleChange([...schedule, deletedEntry]);
+            lastDeletedRef.current = null;
+            setDeletedEntry(null);
+            if (undoTimerRef.current) clearTimeout(undoTimerRef.current);
+          }}
+        />
+      )}
+
+      {showGuestModal && (
+        <div className={styles.guestModalOverlay} onClick={() => setShowGuestModal(false)}>
+          <div className={styles.guestModal} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.guestModalEmoji}>🎉</div>
+            <h3 className={styles.guestModalTitle}>Ага! Вы хотите распечатать крутой план?</h3>
+            <p className={styles.guestModalText}>
+              Зарегистрируйтесь, чтобы не потерять план и иметь доступ к нему с любого устройства!
+            </p>
+            <button
+              className={styles.guestModalRegister}
+              onClick={() => {
+                localStorage.removeItem("guestMode");
+                navigate("/register");
+              }}
+            >
+              Зарегистрироваться
+            </button>
+            <button
+              className={styles.guestModalLater}
+              onClick={() => setShowGuestModal(false)}
+            >
+              Позже
+            </button>
+          </div>
         </div>
       )}
     </div>

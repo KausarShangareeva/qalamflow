@@ -1,4 +1,5 @@
 ﻿import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 import { useCopy } from "../../../hooks/useCopy";
 import { ArrowUpRight } from "lucide-react";
@@ -9,6 +10,15 @@ import styles from "./HeroSection.module.css";
 export default function HeroSection() {
   const { user } = useAuth();
   const { get, copy } = useCopy();
+  const navigate = useNavigate();
+
+  function handleGuestMode() {
+    localStorage.setItem("guestMode", "true");
+    localStorage.removeItem("qalamflow_draft_schedule");
+    localStorage.removeItem("qalamflow_draft_orientation");
+    localStorage.removeItem("qalamflow_active_plan_id");
+    navigate("/workspace");
+  }
 
   const phrases = copy.hero.phrases;
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
@@ -49,7 +59,7 @@ export default function HeroSection() {
           {user ? (
             <CTAButton to="/workspace">{get("home.cta.dashboard")}</CTAButton>
           ) : (
-            <CTAButton to="/register">{get("home.cta.register")} ✨</CTAButton>
+            <CTAButton onClick={handleGuestMode}>Составить план как гость ✨</CTAButton>
           )}
           <button
             type="button"

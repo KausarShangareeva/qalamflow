@@ -5,9 +5,10 @@ import TagIcon from "../../components/TagIcon";
 import { useAvatar } from "../../hooks/useAvatar";
 import UserAvatar from "../../components/UserAvatar";
 import { usePlans } from "./hooks/usePlans";
-import type { ScheduleEntry } from "./types";
+import type { ScheduleEntry, SavedPlan } from "./types";
 import styles from "./Workspace.module.css";
 import PDFPlanList from "./components/PDFPlanList";
+import UndoToast from "../../components/UndoToast";
 import WeekPlan from "./components/WeekPlan";
 import AudioPlayer from "./components/AudioPlayer";
 
@@ -38,12 +39,14 @@ export default function Workspace() {
 
   const {
     plans,
+    plansReady,
     activePlanId,
     setActivePlanId,
     savePlan,
     updatePlan,
     loadPlan,
     deletePlan,
+    restorePlan,
   } = usePlans();
 
   const pageRef = useRef<HTMLDivElement>(null);
@@ -62,6 +65,23 @@ export default function Workspace() {
   });
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [savedScheduleLength, setSavedScheduleLength] = useState(0);
+  const [deletedPlan, setDeletedPlan] = useState<SavedPlan | null>(null);
+  const deletedPlanTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Ctrl+Z to undo plan deletion
+  const deletedPlanRef = useRef<SavedPlan | null>(null);
+  deletedPlanRef.current = deletedPlan;
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if ((e.ctrlKey || e.metaKey) && e.key === "z" && deletedPlanRef.current) {
+        restorePlan(deletedPlanRef.current);
+        setDeletedPlan(null);
+        if (deletedPlanTimerRef.current) clearTimeout(deletedPlanTimerRef.current);
+      }
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [restorePlan]);
 
   // 1. Save raw draft immediately on every change (survives any crash/reload)
   useEffect(() => {
@@ -71,6 +91,7 @@ export default function Workspace() {
 
   // 2. Also auto-save into PDFPlanList after 800ms of no activity
   useEffect(() => {
+    if (!plansReady) return;
     if (schedule.length === 0) return;
     if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
     autoSaveTimer.current = setTimeout(() => {
@@ -86,7 +107,7 @@ export default function Workspace() {
     return () => {
       if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
     };
-  }, [schedule, orientation, savePlan, updatePlan, setActivePlanId]);
+  }, [plansReady, schedule, orientation, savePlan, updatePlan, setActivePlanId]);
 
   const handleScheduleChange = useCallback((newSchedule: ScheduleEntry[]) => {
     setSchedule(newSchedule);
@@ -136,13 +157,19 @@ export default function Workspace() {
 
   const handleDeletePlan = useCallback(
     (planId: string) => {
+      const plan = plans.find((p) => p.id === planId);
+      if (plan) {
+        setDeletedPlan(plan);
+        if (deletedPlanTimerRef.current) clearTimeout(deletedPlanTimerRef.current);
+        deletedPlanTimerRef.current = setTimeout(() => setDeletedPlan(null), 10000);
+      }
       deletePlan(planId);
       if (activePlanId === planId) {
         setSchedule([]);
         setActivePlanId(null);
       }
     },
-    [deletePlan, activePlanId, setActivePlanId],
+    [deletePlan, activePlanId, setActivePlanId, plans],
   );
 
   return (
@@ -195,6 +222,17 @@ export default function Workspace() {
         onCreateNew={handleCreateNew}
         onDeletePlan={handleDeletePlan}
       />
+
+      {deletedPlan && (
+        <UndoToast
+          message={deletedPlan.title}
+          onUndo={() => {
+            restorePlan(deletedPlan);
+            setDeletedPlan(null);
+            if (deletedPlanTimerRef.current) clearTimeout(deletedPlanTimerRef.current);
+          }}
+        />
+      )}
     </div>
   );
 }
