@@ -242,14 +242,14 @@ export default function Navigation() {
                 <span className={styles.divider} />
               </>
             ) : (
-              <>
-                <CTAButton to="/login">
+              <div className={styles.loginBtn}>
+                <CTAButton to="/login" noShadow className={styles.navLoginBtn}>
                   {localStorage.getItem("hasAccount")
                     ? get("navigation.logIn")
                     : get("navigation.getStarted")}
                   <ArrowUpRight size={16} />
                 </CTAButton>
-              </>
+              </div>
             )}
 
             <button

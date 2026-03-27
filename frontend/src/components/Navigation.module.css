@@ -455,6 +455,20 @@
   border-color: var(--color-text-muted);
 }
 
+/* Nav login button wrapper — hides on mobile */
+.loginBtn {
+  display: flex;
+  align-items: center;
+}
+
+/* Applied directly to CTAButton's inner link via className prop */
+.navLoginBtn {
+  padding: 0 var(--space-md) !important;
+  height: 4.4rem !important;
+  font-size: 1.6rem !important;
+  font-weight: 500;
+}
+
 .logoutBtn {
   display: flex;
   align-items: center;
@@ -464,7 +478,10 @@
   padding: 1rem 1.6rem;
   border-radius: 2rem;
   border: 1px solid transparent;
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
   border-radius: 1.5rem;
   transition: all var(--transition-fast);
   cursor: pointer;
@@ -657,6 +674,10 @@
   }
 
   .rightActions .divider {
+    display: none;
+  }
+
+  .loginBtn {
     display: none;
   }
 
