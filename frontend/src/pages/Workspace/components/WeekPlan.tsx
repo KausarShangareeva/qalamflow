@@ -61,7 +61,7 @@ const DURATIONS = [
 
 function generateTimeSlots(): string[] {
   const slots: string[] = [];
-  for (let hour = 2; hour <= 21; hour++) {
+  for (let hour = 6; hour <= 21; hour++) {
     slots.push(`${hour.toString().padStart(2, "0")}:00`);
     if (hour < 21) {
       slots.push(`${hour.toString().padStart(2, "0")}:30`);
@@ -345,11 +345,20 @@ export default function WeekPlan({
             <div
               className={`${styles.saveHint} ${canSave ? styles.saveHintActive : schedule.length > 0 ? styles.saveHintDone : ""}`}
             >
-              {schedule.length === 0
-                ? "Вы ещё не добавили курс"
-                : canSave
-                  ? <>Вы добавили <strong>{schedule.length - savedScheduleLength} {pluralKurs(schedule.length - savedScheduleLength)}</strong> — сохраните план</>
-                  : "План сохранён"}
+              {schedule.length === 0 ? (
+                "Вы ещё не добавили курс"
+              ) : canSave ? (
+                <>
+                  Вы добавили{" "}
+                  <strong>
+                    {schedule.length - savedScheduleLength}{" "}
+                    {pluralKurs(schedule.length - savedScheduleLength)}
+                  </strong>{" "}
+                  — сохраните план
+                </>
+              ) : (
+                "План сохранён"
+              )}
             </div>
           </div>
           <div className={styles.saveDashedLine} />

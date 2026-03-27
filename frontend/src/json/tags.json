@@ -1200,5 +1200,23 @@
     "color": "var(--tag-iq)",
     "bg": "var(--tag-iq-bg)",
     "icon": "🧠"
+  },
+  {
+    "name": "Каюм",
+    "color": "var(--tag-iq)",
+    "bg": "var(--tag-iq-bg)",
+    "icon": "💣"
+  },
+  {
+    "name": "Каусар кофе",
+    "color": "var(--tag-algebra)",
+    "bg": "var(--tag-algebra-bg)",
+    "icon": "☕"
+  },
+  {
+    "name": "Покормить Каусара",
+    "color": "var(--tag-ustaza-asma)",
+    "bg": "var(--tag-ustaza-asma-bg)",
+    "icon": "🍲"
   }
 ]
