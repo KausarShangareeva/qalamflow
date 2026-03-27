@@ -138,8 +138,11 @@ export default function PDFExport() {
         <div className={styles.first}>
           <h2 className={styles.title}>
             Распечатай
-            <img src="/pdf-svg.svg" alt="" className={styles.titleIcon} />
-            свой план
+            <div className={styles.titleIcon}>
+              <div className={styles.titleIconCorner} />
+              <div className={styles.titleIconBadge}>PDF</div>
+            </div>
+            <span style={{ whiteSpace: "nowrap" }}>свой план</span>
           </h2>
         </div>
         <h2 className={styles.title}>в формате PDF</h2>

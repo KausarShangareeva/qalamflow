@@ -10,7 +10,6 @@ import styles from "./Workspace.module.css";
 import PDFPlanList from "./components/PDFPlanList";
 import UndoToast from "../../components/UndoToast";
 import WeekPlan from "./components/WeekPlan";
-import AudioPlayer from "./components/AudioPlayer";
 
 type Orientation = "vertical" | "horizontal";
 
@@ -201,7 +200,6 @@ export default function Workspace() {
             <p className={styles.subtitle}>{get("workspace.subtitle")}</p>
           </div>
         </div>
-        <AudioPlayer />
         <div className={styles.heroAccent} aria-hidden />
       </header>
 

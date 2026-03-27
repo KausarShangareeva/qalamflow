@@ -13,7 +13,6 @@
   padding: var(--space-2xl) 0;
 }
 
-
 .heroTitle {
   font-size: var(--fs-4xl);
   font-weight: 600;
@@ -22,7 +21,6 @@
   margin: 0;
   width: 60%;
 }
-
 
 .brand {
   color: var(--color-primary);
@@ -89,7 +87,6 @@
   gap: var(--space-sm);
 }
 
-
 .authorMeta {
   display: grid;
   gap: 0.2rem;
@@ -117,7 +114,6 @@
   white-space: nowrap;
 }
 
-
 .authorActions {
   display: flex;
   align-items: center;
@@ -129,7 +125,6 @@
 .rateTitle {
   display: none;
 }
-
 
 .reactionGroup {
   display: flex;
@@ -264,7 +259,11 @@
 
 .row input:focus {
   outline: none;
-  background: color-mix(in srgb, var(--color-bg-hover) 80%, var(--color-bg-card));
+  background: color-mix(
+    in srgb,
+    var(--color-bg-hover) 80%,
+    var(--color-bg-card)
+  );
 }
 
 .form textarea {
@@ -330,7 +329,6 @@
   flex: 1;
   min-width: 0;
 }
-
 
 .empty {
   margin: 0 auto;
@@ -550,7 +548,6 @@
   flex-shrink: 0;
 }
 
-
 .tagLove {
   color: #22c55e;
 }
@@ -621,8 +618,12 @@
   }
 
   .reactionButton {
-    padding: 0 0.8rem;
-    font-size: var(--fs-xs);
+    padding: 0 2rem;
+    font-size: var(--fs-md);
+  }
+
+  .reactionTag {
+    font-size: var(--fs-base);
   }
 
   .row {

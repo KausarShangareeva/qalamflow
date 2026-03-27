@@ -40,6 +40,12 @@
   color: #fff;
 }
 
+@media (max-width: 640px) {
+  .ctrlHint {
+    display: none;
+  }
+}
+
 .kbd {
   display: inline-block;
   padding: 0.1rem 0.5rem;

@@ -67,7 +67,7 @@
   backdrop-filter: blur(8px);
   border: 0.1rem solid rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-full);
-  padding: 0.8rem 1.4rem;
+  padding: 1.6rem 2rem;
   transition: all var(--transition-fast);
   white-space: nowrap;
 }
@@ -344,5 +344,19 @@
 
   .title {
     font-size: var(--fs-lg);
+  }
+
+  .topBar {
+    justify-content: space-between;
+  }
+
+  .logoWrapper {
+    flex: unset;
+    justify-content: flex-end;
+  }
+
+
+  .topBar > div:last-child {
+    display: none;
   }
 }

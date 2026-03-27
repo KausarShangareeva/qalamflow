@@ -2,6 +2,7 @@ import { useRef, useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Printer, Save, Search } from "lucide-react";
 import { useCopy } from "../../../hooks/useCopy";
+import { useAuth } from "../../../context/AuthContext";
 import UndoToast from "../../../components/UndoToast";
 import type { ScheduleEntry } from "../types";
 import COURSES from "../../../json/tags.json";
@@ -146,6 +147,8 @@ export default function WeekPlan({
 }: WeekPlanProps) {
   const { get } = useCopy();
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const isAdmin = user?.role === "admin";
   const isGuest = localStorage.getItem("guestMode") === "true";
   const [showGuestModal, setShowGuestModal] = useState(false);
   const [popup, setPopup] = useState<{ day: string; time: string } | null>(
@@ -428,6 +431,7 @@ export default function WeekPlan({
           onAdd={handleAdd}
           onClose={() => setPopup(null)}
           showEmoji={showEmoji}
+          isAdmin={isAdmin}
         />
       )}
 
@@ -540,16 +544,21 @@ function CoursePopup({
   );
   const [search, setSearch] = useState("");
 
+  const allCourses = useMemo(
+    () => COURSES.filter((c) => isAdmin || !(c as any).adminOnly),
+    [isAdmin],
+  );
+
   const visibleCourses = useMemo(() => {
     const q = search.trim().toLowerCase().replace(/\s+/g, "");
     if (q.length >= 3)
-      return COURSES.filter((c) =>
+      return allCourses.filter((c) =>
         c.name.toLowerCase().replace(/\s+/g, "").includes(q),
       );
     const frequent = getFrequent();
     if (frequent.length > 0) {
       const freqSet = new Set(frequent);
-      const matched = COURSES.filter((c) => freqSet.has(c.name));
+      const matched = allCourses.filter((c) => freqSet.has(c.name));
       if (matched.length > 0) return matched;
     }
     return COURSES.filter((c) => FEATURED.has(c.name));

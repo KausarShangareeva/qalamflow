@@ -538,7 +538,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 28rem;
+  width: min(34rem, 90vw);
   max-width: 85vw;
   height: 100dvh;
   background: var(--color-bg-card);

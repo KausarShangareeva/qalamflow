@@ -50,7 +50,7 @@
 
   width: 70%;
   background-color: var(--color-primary-light);
-  opacity: 0.45;
+  opacity: 1;
   height: 25rem;
   clip-path: polygon(100% 100%, 0 0, 0 100%);
   z-index: 200;
@@ -64,7 +64,7 @@
   right: 10%;
   width: 70%;
   background-color: var(--color-primary);
-  opacity: 0.55;
+  opacity: 1;
   height: 25rem;
   clip-path: polygon(100% 100%, 100% 0, 0 100%);
   z-index: 200;
@@ -138,8 +138,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .lightboxImg {
@@ -152,8 +156,14 @@
 }
 
 @keyframes zoomIn {
-  from { transform: scale(0.85); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .lightboxClose {
@@ -191,7 +201,7 @@
   border-right: 23rem solid transparent;
   border-bottom: 13rem solid var(--color-primary-light);
   border-bottom-color: var(--color-primary-light);
-  opacity: 0.4;
+  opacity: 1;
   z-index: 2;
   filter: drop-shadow(0 0.4rem 1.2rem rgba(0, 0, 0, 0.08));
 }

@@ -723,8 +723,9 @@
   box-shadow: var(--shadow-xl);
   z-index: 201;
   transform: translateX(-50%) translateY(-110%);
-  animation: benefitIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
-             benefitOut 0.3s ease-in 2.7s forwards;
+  animation:
+    benefitIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+    benefitOut 0.3s ease-in 2.7s forwards;
   transform-origin: bottom center;
   pointer-events: none;
 }
@@ -749,13 +750,71 @@
 }
 
 @keyframes benefitIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(-110%) scale(0.4); }
-  to   { opacity: 1; transform: translateX(-50%) translateY(-110%) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-110%) scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-110%) scale(1);
+  }
 }
 
 @keyframes benefitOut {
-  from { opacity: 1; transform: translateX(-50%) translateY(-110%) scale(1); }
-  to   { opacity: 0; transform: translateX(-50%) translateY(-110%) scale(0.4); }
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-110%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-110%) scale(0.4);
+  }
+}
+
+@media (max-width: 640px) {
+  .benefitToast {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translateX(-50%) translateY(-50%);
+    width: min(85vw, 32rem);
+    align-items: center;
+    text-align: center;
+    animation:
+      benefitInMobile 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+      benefitOutMobile 0.3s ease-in 2.7s forwards;
+  }
+
+  .benefitToastLabel {
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .benefitToastText {
+    font-size: var(--fs-sm);
+  }
+
+  @keyframes benefitInMobile {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-50%) scale(0.4);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+  }
+
+  @keyframes benefitOutMobile {
+    from {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-50%) scale(0.4);
+    }
+  }
 }
 
 /* ---- Undo toast ---- */
@@ -887,11 +946,24 @@
   }
 
   /* Reorder: emoji → save → print → break → toggle */
-  .emojiWrap    { order: 1; }
-  .saveBtnWrap  { order: 2; }
-  .printBtn     { order: 3; }
-  .toolbarBreak { order: 4; display: block; flex-basis: 100%; height: 0; }
-  .toggle       { order: 5; }
+  .emojiWrap {
+    order: 1;
+  }
+  .saveBtnWrap {
+    order: 2;
+  }
+  .printBtn {
+    order: 3;
+  }
+  .toolbarBreak {
+    order: 4;
+    display: block;
+    flex-basis: 100%;
+    height: 0;
+  }
+  .toggle {
+    order: 5;
+  }
 }
 
 /* =======================================

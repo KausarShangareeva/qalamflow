@@ -45,7 +45,7 @@ export default function Donate() {
 
           <CTAButton
             onClick={() =>
-              window.open("https://yookassa.ru/my/i/Z_KABQB0ZcuM/l", "_blank")
+              window.open("https://pay.cloudtips.ru/p/b6c287e5", "_blank")
             }
           >
             {get("donate.button")}
