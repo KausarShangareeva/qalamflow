@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import type { ScheduleEntry } from "../types";
-import { api } from "../../../api/client";
+import { PLANNER_CATEGORIES } from "./plannerScript";
 import styles from "./AIPlannerChat.module.css";
 
 interface ChatMessage {
-  role: "user" | "assistant";
+  role: "bot" | "user";
   content: string;
+  options?: string[];
+  tip?: string;
 }
 
 interface AIPlannerChatProps {
@@ -14,175 +16,188 @@ interface AIPlannerChatProps {
   userName: string;
 }
 
-const AI_TAGS = [
-  { id: "hifz", label: "📖 Хифз (Коран)", greeting: "Мир тебе, о Хафиз Корана!" },
-  { id: "arabic", label: "🌍 Арабский язык", greeting: "Мир тебе, о Арабист!" },
-  { id: "ielts", label: "🎓 IELTS", greeting: "Мир тебе, о Мастер IELTS!" },
-  { id: "programming", label: "💻 Программирование", greeting: "Мир тебе, о Разработчик!" },
-  { id: "other", label: "🛠 Другое", greeting: "Мир тебе, о целеустремлённый!" },
-];
-
 export default function AIPlannerChat({ onClose, onApplyPlan, userName }: AIPlannerChatProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
-      role: "assistant",
-      content: `Привет${userName ? ", " + userName : ""}! 👋 Я помогу составить крутой план на неделю.\n\nДля чего хочешь спланировать неделю? Выбери одну или несколько категорий:`,
+      role: "bot",
+      content: `Привет${userName ? ", " + userName : ""}! 👋 Я помогу составить крутой план на неделю.\n\nВыбери категорию:`,
     },
   ]);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [tagsConfirmed, setTagsConfirmed] = useState(false);
+
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [stepIndex, setStepIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [isReady, setIsReady] = useState(false);
-  const [generating, setGenerating] = useState(false);
-  const [primaryGreeting, setPrimaryGreeting] = useState("");
+  const [done, setDone] = useState(false);
+  const [readyToApply, setReadyToApply] = useState(false);
+
   const bottomRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef  = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, loading]);
+  }, [messages]);
 
-  const toggleTag = (id: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(id) ? prev.filter((t) => t !== id) : [...prev, id]
-    );
+  // ── Выбор категории ──────────────────────────────────────
+  const handleSelectCategory = (catId: string) => {
+    const cat = PLANNER_CATEGORIES.find((c) => c.id === catId);
+    if (!cat) return;
+    setSelectedCategory(catId);
+
+    // найти первый активный шаг (без condition или condition = true)
+    const firstStep = cat.steps.find((s) => !s.condition || s.condition({}));
+    if (!firstStep) return;
+
+    setMessages((prev) => [
+      ...prev,
+      { role: "user",  content: cat.label },
+      { role: "bot",   content: firstStep.question, options: firstStep.options, tip: firstStep.tip },
+    ]);
+    setStepIndex(0);
   };
 
-  const sendToAI = async (newMessages: ChatMessage[]) => {
-    setLoading(true);
-    try {
-      const data = await api.post<{ message: string; isReady: boolean }>("/ai/chat", {
-        messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
-      });
-      const assistantMsg: ChatMessage = { role: "assistant", content: data.message };
-      setMessages((prev) => [...prev, assistantMsg]);
-      if (data.isReady) setIsReady(true);
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "Произошла ошибка. Попробуй ещё раз." },
-      ]);
-    } finally {
-      setLoading(false);
-      setTimeout(() => inputRef.current?.focus(), 100);
-    }
-  };
+  // ── Обработка ответа (кнопка или текст) ─────────────────
+  const handleAnswer = (answer: string) => {
+    if (!selectedCategory) return;
+    const cat = PLANNER_CATEGORIES.find((c) => c.id === selectedCategory)!;
 
-  const confirmTags = async () => {
-    if (selectedTags.length === 0) return;
-    const tagLabels = AI_TAGS.filter((t) => selectedTags.includes(t.id))
-      .map((t) => t.label)
-      .join(", ");
-    const primary = AI_TAGS.find((t) => t.id === selectedTags[0]);
-    if (primary) setPrimaryGreeting(primary.greeting);
-    setTagsConfirmed(true);
-    const userMsg: ChatMessage = { role: "user", content: `Выбранные категории: ${tagLabels}` };
-    const newMessages = [...messages, userMsg];
-    setMessages(newMessages);
-    await sendToAI(newMessages);
-  };
+    // активные шаги с учётом уже собранных ответов
+    const currentStep = getActiveSteps(cat, answers)[stepIndex];
+    if (!currentStep) return;
 
-  const sendMessage = async () => {
-    if (!input.trim() || loading) return;
-    const userMsg: ChatMessage = { role: "user", content: input.trim() };
-    const newMessages = [...messages, userMsg];
-    setMessages(newMessages);
+    const newAnswers = { ...answers, [currentStep.key]: answer };
+    setAnswers(newAnswers);
     setInput("");
-    await sendToAI(newMessages);
-  };
 
-  const handleApplyPlan = async () => {
-    setGenerating(true);
-    try {
-      const data = await api.post<{ schedule: ScheduleEntry[] }>("/ai/chat", {
-        messages: messages.map((m) => ({ role: m.role, content: m.content })),
-        action: "generate",
-      });
-      onApplyPlan(data.schedule, primaryGreeting);
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "Не удалось сгенерировать план. Попробуй ещё раз." },
-      ]);
-      setGenerating(false);
+    const activeSteps = getActiveSteps(cat, newAnswers);
+    const nextIndex   = stepIndex + 1;
+
+    setMessages((prev) => [
+      ...prev,
+      { role: "user", content: answer },
+    ]);
+
+    if (nextIndex < activeSteps.length) {
+      // следующий вопрос
+      const next = activeSteps[nextIndex];
+      setStepIndex(nextIndex);
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          { role: "bot", content: next.question, options: next.options, tip: next.tip },
+        ]);
+      }, 300);
+    } else {
+      // все вопросы собраны — показываем превью плана
+      setDone(true);
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          { role: "bot", content: cat.confirmMessage(newAnswers) },
+        ]);
+        setReadyToApply(true);
+      }, 300);
     }
   };
+
+  // ── Применить план ───────────────────────────────────────
+  const handleApply = () => {
+    const cat = PLANNER_CATEGORIES.find((c) => c.id === selectedCategory);
+    if (!cat) return;
+    const schedule = cat.generatePlan(answers);
+    onApplyPlan(schedule, cat.greeting);
+  };
+
+  // ── Показываем только шаги, у которых condition выполняется ─
+  function getActiveSteps(cat: typeof PLANNER_CATEGORIES[number], ans: Record<string, string>) {
+    return cat.steps.filter((s) => !s.condition || s.condition(ans));
+  }
+
+  // ── Текущий шаг — нужен ли текстовый ввод? ──────────────
+  const currentCat   = PLANNER_CATEGORIES.find((c) => c.id === selectedCategory);
+  const activeSteps  = currentCat ? getActiveSteps(currentCat, answers) : [];
+  const currentStep  = activeSteps[stepIndex];
+  const needsTextInput = selectedCategory && !done && currentStep && !currentStep.options;
 
   return (
     <div className={styles.overlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className={styles.panel}>
+
+        {/* Заголовок */}
         <div className={styles.header}>
           <span className={styles.headerTitle}>🤖 ИИ-планировщик</span>
           <button className={styles.closeBtn} onClick={onClose} aria-label="Закрыть">✕</button>
         </div>
 
+        {/* Сообщения */}
         <div className={styles.messages}>
           {messages.map((msg, i) => (
-            <div key={i} className={`${styles.bubble} ${msg.role === "user" ? styles.userBubble : styles.botBubble}`}>
-              {msg.content.split("\n").map((line, j, arr) => (
-                <span key={j}>{line}{j < arr.length - 1 && <br />}</span>
-              ))}
+            <div key={i}>
+              <div className={`${styles.bubble} ${msg.role === "user" ? styles.userBubble : styles.botBubble}`}>
+                {msg.content.split("\n").map((line, j, arr) => (
+                  <span key={j}>{line}{j < arr.length - 1 && <br />}</span>
+                ))}
+              </div>
+
+              {/* Подсказка под вопросом */}
+              {msg.tip && (
+                <div className={styles.tipBox}>
+                  {msg.tip.split("\n").map((line, j, arr) => (
+                    <span key={j}>{line}{j < arr.length - 1 && <br />}</span>
+                  ))}
+                </div>
+              )}
+
+              {/* Кнопки-варианты под последним ботовым сообщением */}
+              {msg.role === "bot" && msg.options && i === messages.length - 1 && !done && (
+                <div className={styles.optionList}>
+                  {msg.options.map((opt) => (
+                    <button key={opt} className={styles.optionBtn} onClick={() => handleAnswer(opt)}>
+                      {opt}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
 
-          {!tagsConfirmed && (
-            <div className={styles.tagArea}>
-              <div className={styles.tagList}>
-                {AI_TAGS.map((tag) => (
-                  <button
-                    key={tag.id}
-                    className={`${styles.tagBtn} ${selectedTags.includes(tag.id) ? styles.tagSelected : ""}`}
-                    onClick={() => toggleTag(tag.id)}
-                  >
-                    {tag.label}
-                  </button>
-                ))}
-              </div>
-              {selectedTags.length > 0 && (
-                <button className={styles.confirmTagsBtn} onClick={confirmTags}>
-                  Продолжить →
+          {/* Кнопки категорий (только в начале) */}
+          {!selectedCategory && (
+            <div className={styles.optionList}>
+              {PLANNER_CATEGORIES.map((cat) => (
+                <button key={cat.id} className={styles.optionBtn} onClick={() => handleSelectCategory(cat.id)}>
+                  {cat.label}
                 </button>
-              )}
+              ))}
             </div>
           )}
 
-          {loading && (
-            <div className={`${styles.bubble} ${styles.botBubble} ${styles.typing}`}>
-              <span /><span /><span />
-            </div>
-          )}
-
-          {isReady && !generating && (
-            <button className={styles.applyBtn} onClick={handleApplyPlan}>
+          {/* Кнопка применить план */}
+          {readyToApply && (
+            <button className={styles.applyBtn} onClick={handleApply}>
               ✨ Применить план в расписание
             </button>
-          )}
-
-          {generating && (
-            <div className={`${styles.bubble} ${styles.botBubble}`}>
-              ⏳ Генерирую твой план...
-            </div>
           )}
 
           <div ref={bottomRef} />
         </div>
 
-        {tagsConfirmed && !isReady && (
+        {/* Текстовый ввод — только когда вопрос без вариантов */}
+        {needsTextInput && (
           <div className={styles.inputRow}>
             <input
               ref={inputRef}
               className={styles.input}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+              onKeyDown={(e) => e.key === "Enter" && input.trim() && handleAnswer(input.trim())}
               placeholder="Напиши ответ..."
-              disabled={loading || generating}
+              autoFocus
             />
             <button
               className={styles.sendBtn}
-              onClick={sendMessage}
-              disabled={loading || !input.trim()}
+              onClick={() => input.trim() && handleAnswer(input.trim())}
+              disabled={!input.trim()}
             >
               →
             </button>
