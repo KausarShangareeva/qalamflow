@@ -6,6 +6,7 @@ const authRoutes = require("./routes/auth");
 const suggestionRoutes = require("./routes/suggestions");
 const feedbackRoutes = require("./routes/feedback");
 const planRoutes = require("./routes/plans");
+const aiRoutes = require("./routes/ai");
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/suggestions", suggestionRoutes);
 app.use("/api/feedback", feedbackRoutes);
 app.use("/api/plans", planRoutes);
+app.use("/api/ai", aiRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;

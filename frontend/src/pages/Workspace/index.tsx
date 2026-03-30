@@ -10,6 +10,7 @@ import styles from "./Workspace.module.css";
 import PDFPlanList from "./components/PDFPlanList";
 import UndoToast from "../../components/UndoToast";
 import WeekPlan from "./components/WeekPlan";
+import AIPlannerChat from "./components/AIPlannerChat";
 
 type Orientation = "vertical" | "horizontal";
 
@@ -66,6 +67,8 @@ export default function Workspace() {
   const [savedScheduleLength, setSavedScheduleLength] = useState(0);
   const [deletedPlan, setDeletedPlan] = useState<SavedPlan | null>(null);
   const deletedPlanTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [aiChatOpen, setAiChatOpen] = useState(false);
+  const [aiGreeting, setAiGreeting] = useState<string | null>(null);
 
   // Ctrl+Z to undo plan deletion
   const deletedPlanRef = useRef<SavedPlan | null>(null);
@@ -171,6 +174,14 @@ export default function Workspace() {
     [deletePlan, activePlanId, setActivePlanId, plans],
   );
 
+  const handleAIPlanApplied = useCallback((newSchedule: ScheduleEntry[], greeting: string) => {
+    setSchedule(newSchedule);
+    setHasUnsavedChanges(true);
+    if (greeting) setAiGreeting(greeting);
+    setAiChatOpen(false);
+    pageRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   return (
     <div className={styles.page} ref={pageRef}>
       <header className={styles.hero}>
@@ -195,9 +206,17 @@ export default function Workspace() {
           />
           <div className={styles.heroText}>
             <p className={styles.greeting}>
-              <TagIcon icon={getGreetingEmoji()} size={22} /> {get(getGreetingKey())}, <span className={styles.name}>{firstName}</span>
+              {aiGreeting
+                ? <span className={styles.name}>{aiGreeting}</span>
+                : <><TagIcon icon={getGreetingEmoji()} size={22} /> {get(getGreetingKey())}, <span className={styles.name}>{firstName}</span></>
+              }
             </p>
-            <p className={styles.subtitle}>{get("workspace.subtitle")}</p>
+            <div className={styles.subtitleRow}>
+              <p className={styles.subtitle}>{get("workspace.subtitle")}</p>
+              <button className={styles.aiInlineBtn} onClick={() => setAiChatOpen(true)}>
+                🤖 Спланируй с ИИ
+              </button>
+            </div>
           </div>
         </div>
         <div className={styles.heroAccent} aria-hidden />
@@ -229,6 +248,19 @@ export default function Workspace() {
             setDeletedPlan(null);
             if (deletedPlanTimerRef.current) clearTimeout(deletedPlanTimerRef.current);
           }}
+        />
+      )}
+
+      <button className={styles.aiFab} onClick={() => setAiChatOpen(true)}>
+        <span>🤖</span>
+        <span>Составить план с ИИ</span>
+      </button>
+
+      {aiChatOpen && (
+        <AIPlannerChat
+          userName={firstName}
+          onClose={() => setAiChatOpen(false)}
+          onApplyPlan={handleAIPlanApplied}
         />
       )}
     </div>
