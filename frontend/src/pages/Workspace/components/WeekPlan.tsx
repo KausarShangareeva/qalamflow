@@ -64,7 +64,7 @@ const DURATIONS = [
 
 function generateTimeSlots(): string[] {
   const slots: string[] = [];
-  for (let hour = 6; hour <= 21; hour++) {
+  for (let hour = 2; hour <= 21; hour++) {
     slots.push(`${hour.toString().padStart(2, "0")}:00`);
     if (hour < 21) {
       slots.push(`${hour.toString().padStart(2, "0")}:30`);
@@ -149,14 +149,20 @@ export default function WeekPlan({
   const navigate = useNavigate();
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
-  const isGuest = localStorage.getItem("guestMode") === "true";
+  const isGuest = localStorage.getItem("guestMode") === "true" && !user;
   const [showGuestModal, setShowGuestModal] = useState(false);
   const [popup, setPopup] = useState<{ day: string; time: string } | null>(
     null,
   );
   const [showEmoji, setShowEmoji] = useState(true);
   const [deletedEntry, setDeletedEntry] = useState<ScheduleEntry | null>(null);
-  const [benefitToast, setBenefitToast] = useState<{ course: string; benefit: string; icon: string; x: number; y: number } | null>(null);
+  const [benefitToast, setBenefitToast] = useState<{
+    course: string;
+    benefit: string;
+    icon: string;
+    x: number;
+    y: number;
+  } | null>(null);
   const benefitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const popupPosRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const lastDeletedRef = useRef<ScheduleEntry | null>(null);
@@ -229,7 +235,13 @@ export default function WeekPlan({
     const tag = COURSES.find((c) => c.name === course);
     if (tag && "benefit" in tag && (tag as any).benefit) {
       if (benefitTimerRef.current) clearTimeout(benefitTimerRef.current);
-      setBenefitToast({ course, benefit: (tag as any).benefit, icon: tag.icon, x: popupPosRef.current.x, y: popupPosRef.current.y });
+      setBenefitToast({
+        course,
+        benefit: (tag as any).benefit,
+        icon: tag.icon,
+        x: popupPosRef.current.x,
+        y: popupPosRef.current.y,
+      });
       benefitTimerRef.current = setTimeout(() => setBenefitToast(null), 3000);
     }
   }
@@ -443,7 +455,9 @@ export default function WeekPlan({
           <span className={styles.benefitToastLabel}>ПОЛЬЗА КУРСА</span>
           <div className={styles.benefitToastBody}>
             <TagIcon icon={benefitToast.icon} size={22} />
-            <span className={styles.benefitToastText}>{benefitToast.benefit}</span>
+            <span className={styles.benefitToastText}>
+              {benefitToast.benefit}
+            </span>
           </div>
         </div>
       )}
@@ -461,12 +475,21 @@ export default function WeekPlan({
       )}
 
       {showGuestModal && (
-        <div className={styles.guestModalOverlay} onClick={() => setShowGuestModal(false)}>
-          <div className={styles.guestModal} onClick={(e) => e.stopPropagation()}>
+        <div
+          className={styles.guestModalOverlay}
+          onClick={() => setShowGuestModal(false)}
+        >
+          <div
+            className={styles.guestModal}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className={styles.guestModalEmoji}>🎉</div>
-            <h3 className={styles.guestModalTitle}>Ага! Вы хотите распечатать крутой план?</h3>
+            <h3 className={styles.guestModalTitle}>
+              Ага! Вы хотите распечатать крутой план?
+            </h3>
             <p className={styles.guestModalText}>
-              Зарегистрируйтесь, чтобы не потерять план и иметь доступ к нему с любого устройства!
+              Зарегистрируйтесь, чтобы не потерять план и иметь доступ к нему с
+              любого устройства!
             </p>
             <button
               className={styles.guestModalRegister}
