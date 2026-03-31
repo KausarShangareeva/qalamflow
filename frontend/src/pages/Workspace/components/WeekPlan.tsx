@@ -695,14 +695,15 @@ function ScheduleCell({
   const key = `${day}-${time}`;
   const info = scheduleMap.get(key);
 
-  if (info && info.course) {
+  if (info && info.type !== "empty") {
     const isStart = info.type === "start";
     const { isLast } = info;
-    const c = info.course.color;
+    const c = info.course?.color ?? "var(--color-primary-solid, #4ade80)";
+    const bg = info.course?.bg ?? "color-mix(in srgb, var(--color-primary-solid, #4ade80) 12%, transparent)";
     const stripe = `color-mix(in srgb, ${c} 5%, transparent)`;
     const lineColor = `color-mix(in srgb, ${c} 100%, transparent)`;
     const cellStyle: React.CSSProperties = {
-      backgroundColor: info.course.bg,
+      backgroundColor: bg,
       backgroundImage: `repeating-linear-gradient(-45deg, transparent, transparent 4px, ${stripe} 4px, ${stripe} 7px)`,
       zIndex: info.order + 1,
       borderLeft: `1px solid ${lineColor}`,
@@ -712,6 +713,7 @@ function ScheduleCell({
         : { borderTopColor: "transparent" }),
       ...(isLast && { borderBottom: `1px solid ${lineColor}` }),
     };
+    const displayName = info.course?.name ?? info.entry?.course ?? "";
     return (
       <td
         className={`${className} ${styles.cellBooked}`}
@@ -721,13 +723,13 @@ function ScheduleCell({
       >
         {isStart && (
           <span className={styles.courseName} data-print="course">
-            {showEmoji && typeof info.course.icon === "string" && (
+            {showEmoji && info.course && typeof info.course.icon === "string" && (
               <span className={styles.courseIconCell} data-print="course-icon">
                 <TagIcon icon={info.course.icon} size={15} />
               </span>
             )}
             <span className={styles.courseText} data-print="course-text">
-              {info.course.name.split("\n")[0]}
+              {displayName.split("\n")[0]}
             </span>
           </span>
         )}

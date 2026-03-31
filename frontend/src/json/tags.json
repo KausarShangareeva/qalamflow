@@ -613,7 +613,8 @@
     "color": "var(--tag-wird)",
     "bg": "var(--tag-wird-bg)",
     "icon": "🌙",
-    "benefit": "Ночная молитва и поминание"
+    "benefit": "Ночная молитва и поминание",
+    "adminOnly": true
   },
   {
     "name": "Вирд Корана",

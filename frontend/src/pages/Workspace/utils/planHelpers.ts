@@ -21,15 +21,8 @@ export function getDominantColor(schedule: ScheduleEntry[]): string {
 }
 
 /** Auto-generate a title from the schedule courses */
-export function generatePlanTitle(schedule: ScheduleEntry[]): string {
-  const uniqueCourses = [...new Set(schedule.map((e) => e.course))];
-  if (uniqueCourses.length === 0) return "Empty plan";
-  if (uniqueCourses.length === 1)
-    return `${uniqueCourses[0]} — weekly plan`;
-  if (uniqueCourses.length === 2)
-    return `${uniqueCourses[0]} and ${uniqueCourses[1]} — weekly plan`;
-  const rest = uniqueCourses.length - 2;
-  return `${uniqueCourses[0]}, ${uniqueCourses[1]} and ${rest} more — weekly plan`;
+export function generatePlanTitle(_schedule: ScheduleEntry[]): string {
+  return "План недели";
 }
 
 /** Auto-generate a description summarizing schedule contents */

@@ -40,10 +40,10 @@ function migratePlan(plan: SavedPlan): SavedPlan {
   };
 }
 
-function buildPlanMeta(schedule: ScheduleEntry[], orientation: "vertical" | "horizontal") {
+function buildPlanMeta(schedule: ScheduleEntry[], orientation: "vertical" | "horizontal", titleOverride?: string) {
   return {
     color: getDominantColor(schedule),
-    title: generatePlanTitle(schedule),
+    title: titleOverride ?? generatePlanTitle(schedule),
     description: generatePlanDescription(schedule),
     schedule,
     orientation,
@@ -112,11 +112,11 @@ export function usePlans() {
   }, [activePlanId]);
 
   const savePlan = useCallback(
-    (schedule: ScheduleEntry[], orientation: "vertical" | "horizontal"): SavedPlan => {
+    (schedule: ScheduleEntry[], orientation: "vertical" | "horizontal", titleOverride?: string): SavedPlan => {
       const newPlan: SavedPlan = {
         id: crypto.randomUUID(),
         createdAt: new Date().toISOString(),
-        ...buildPlanMeta(schedule, orientation),
+        ...buildPlanMeta(schedule, orientation, titleOverride),
       };
       setPlans((prev) => [newPlan, ...prev]);
       api.post("/plans", newPlan).catch(() => {});
@@ -127,11 +127,14 @@ export function usePlans() {
 
   const updatePlan = useCallback(
     (id: string, schedule: ScheduleEntry[], orientation: "vertical" | "horizontal") => {
-      const meta = buildPlanMeta(schedule, orientation);
       setPlans((prev) =>
-        prev.map((p) => (p.id === id ? { ...p, ...meta } : p)),
+        prev.map((p) => {
+          if (p.id !== id) return p;
+          const meta = buildPlanMeta(schedule, orientation, p.title);
+          api.put(`/plans/${id}`, meta).catch(() => {});
+          return { ...p, ...meta };
+        }),
       );
-      api.put(`/plans/${id}`, meta).catch(() => {});
     },
     [],
   );

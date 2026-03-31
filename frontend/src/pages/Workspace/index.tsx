@@ -69,6 +69,7 @@ export default function Workspace() {
   const deletedPlanTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [aiChatOpen, setAiChatOpen] = useState(false);
   const [aiGreeting, setAiGreeting] = useState<string | null>(null);
+  const aiPlanTitleRef = useRef<string | undefined>(undefined);
 
   // Ctrl+Z to undo plan deletion
   const deletedPlanRef = useRef<SavedPlan | null>(null);
@@ -100,7 +101,8 @@ export default function Workspace() {
       if (activePlanIdRef.current) {
         updatePlan(activePlanIdRef.current, schedule, orientation);
       } else {
-        const plan = savePlan(schedule, orientation);
+        const plan = savePlan(schedule, orientation, aiPlanTitleRef.current);
+        aiPlanTitleRef.current = undefined;
         setActivePlanId(plan.id);
       }
       setHasUnsavedChanges(false);
@@ -121,7 +123,8 @@ export default function Workspace() {
     if (activePlanId) {
       updatePlan(activePlanId, schedule, orientation);
     } else {
-      const plan = savePlan(schedule, orientation);
+      const plan = savePlan(schedule, orientation, aiPlanTitleRef.current);
+      aiPlanTitleRef.current = undefined;
       setActivePlanId(plan.id);
     }
     setHasUnsavedChanges(false);
@@ -174,13 +177,15 @@ export default function Workspace() {
     [deletePlan, activePlanId, setActivePlanId, plans],
   );
 
-  const handleAIPlanApplied = useCallback((newSchedule: ScheduleEntry[], greeting: string) => {
+  const handleAIPlanApplied = useCallback((newSchedule: ScheduleEntry[], greeting: string, planTitle: string) => {
+    setActivePlanId(null);
     setSchedule(newSchedule);
     setHasUnsavedChanges(true);
     if (greeting) setAiGreeting(greeting);
+    aiPlanTitleRef.current = planTitle;
     setAiChatOpen(false);
     pageRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, []);
+  }, [setActivePlanId]);
 
   return (
     <div className={styles.page} ref={pageRef}>
@@ -251,7 +256,7 @@ export default function Workspace() {
         />
       )}
 
-      <button className={styles.aiFab} onClick={() => setAiChatOpen(true)}>
+      <button className={styles.aiFab} onClick={() => { handleCreateNew(); setAiChatOpen(true); }}>
         <span>🤖</span>
         <span>Составить план с ИИ</span>
       </button>

@@ -156,7 +156,11 @@ export default function PDFPlanList({
                 </p>
               )}
 
-              <h3 className={styles.title}>План недели</h3>
+              <h3 className={styles.title}>
+                {plan.title?.includes("weekly plan") || plan.title?.includes("Empty plan")
+                  ? "План недели"
+                  : plan.title}
+              </h3>
 
               <ul className={styles.courseList}>
                 {visible.map((row) => (

@@ -12,7 +12,7 @@ interface ChatMessage {
 
 interface AIPlannerChatProps {
   onClose: () => void;
-  onApplyPlan: (schedule: ScheduleEntry[], greeting: string) => void;
+  onApplyPlan: (schedule: ScheduleEntry[], greeting: string, planTitle: string) => void;
   userName: string;
 }
 
@@ -105,7 +105,7 @@ export default function AIPlannerChat({ onClose, onApplyPlan, userName }: AIPlan
     const cat = PLANNER_CATEGORIES.find((c) => c.id === selectedCategory);
     if (!cat) return;
     const schedule = cat.generatePlan(answers);
-    onApplyPlan(schedule, cat.greeting);
+    onApplyPlan(schedule, cat.greeting, cat.planTitle);
   };
 
   // ── Показываем только шаги, у которых condition выполняется ─

@@ -122,57 +122,46 @@
   40%           { transform: scale(1);   opacity: 1; }
 }
 
-/* ===== Tag area ===== */
-.tagArea {
+/* ===== Options (category buttons & answer buttons) ===== */
+.optionList {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  align-self: flex-start;
-  width: 100%;
-}
-
-.tagList {
-  display: flex;
-  flex-wrap: wrap;
   gap: 0.8rem;
+  width: 100%;
+  margin-top: 0.4rem;
 }
 
-.tagBtn {
+.optionBtn {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: 2rem;
-  padding: 0.8rem 1.6rem;
+  border-radius: 1.2rem;
+  padding: 1rem 1.6rem;
   font-size: var(--fs-base);
   color: var(--color-text-primary);
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s, color 0.15s;
-  white-space: nowrap;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+  line-height: 1.4;
 }
 
-.tagBtn:hover {
+.optionBtn:hover {
   border-color: var(--color-primary-solid, #4ade80);
+  background: var(--color-bg-card);
 }
 
-.tagSelected {
-  background: var(--color-primary);
-  border-color: transparent;
-  color: #fff;
-}
-
-.confirmTagsBtn {
-  background: var(--color-primary);
-  color: #fff;
-  border: none;
-  border-radius: 1.2rem;
-  padding: 1rem 2.2rem;
-  font-size: var(--fs-base);
-  font-weight: 700;
-  cursor: pointer;
+/* ===== Tip box ===== */
+.tipBox {
+  background: var(--color-bg);
+  border-left: 3px solid var(--color-primary-solid, #4ade80);
+  border-radius: 0 0.8rem 0.8rem 0;
+  padding: 1rem 1.4rem;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-top: 0.4rem;
   align-self: flex-start;
-  transition: opacity 0.15s;
+  max-width: 85%;
 }
-
-.confirmTagsBtn:hover { opacity: 0.88; }
 
 /* ===== Apply button ===== */
 .applyBtn {
