@@ -70,6 +70,13 @@
     "benefit": "Понимание нашей планеты"
   },
   {
+    "name": "Чтение",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "📚",
+    "benefit": ""
+  },
+  {
     "name": "История",
     "color": "var(--tag-history)",
     "bg": "var(--tag-history-bg)",
@@ -599,6 +606,14 @@
     "color": "var(--tag-murajaah)",
     "bg": "var(--tag-murajaah-bg)",
     "icon": "🔄",
+    "benefit": "Повторение укрепляет память",
+    "adminOnly": true
+  },
+  {
+    "name": "Чтение Корана",
+    "color": "var(--tag-murajaah)",
+    "bg": "var(--tag-murajaah-bg)",
+    "icon": "📖",
     "benefit": "Повторение укрепляет память"
   },
   {
@@ -614,6 +629,20 @@
     "bg": "var(--tag-wird-bg)",
     "icon": "🌙",
     "benefit": "Ночная молитва и поминание",
+    "adminOnly": true
+  },
+  {
+    "name": "Тахаджуд",
+    "color": "var(--tag-wird)",
+    "bg": "var(--tag-wird-bg)",
+    "icon": "🌙",
+    "benefit": "Ночная молитва и поминание"
+  },
+  {
+    "name": "Анат ученица",
+    "color": "var(--tag-wird)",
+    "bg": "var(--tag-wird-bg)",
+    "icon": "💛",
     "adminOnly": true
   },
   {
@@ -960,7 +989,6 @@
     "benefit": "Тренировка обеих рук",
     "adminOnly": true
   },
-
   {
     "name": "Письмо левой рукой 10 мин. 🇸🇦",
     "color": "var(--tag-writing-saudi)",
@@ -1357,6 +1385,46 @@
     "adminOnly": true
   },
   {
+    "name": "арабский Исках",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "🐻",
+    "benefit": "Занятие с любимым учителем",
+    "adminOnly": true
+  },
+  {
+    "name": "Сулейман",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "🧸",
+    "benefit": "Занятие с любимым учителем",
+    "adminOnly": true
+  },
+  {
+    "name": "Салат + готовка",
+    "color": "var(--tag-statistics)",
+    "bg": "var(--tag-statistics-bg)",
+    "icon": "🥗",
+    "benefit": "Занятие с любимым учителем",
+    "adminOnly": true
+  },
+  {
+    "name": "Уборка",
+    "color": "var(--tag-statistics)",
+    "bg": "var(--tag-statistics-bg)",
+    "icon": "🧹",
+    "benefit": "Занятие с любимым учителем",
+    "adminOnly": true
+  },
+  {
+    "name": "арабский Халиль Каюм",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "🐯",
+    "benefit": "Занятие с любимым учителем",
+    "adminOnly": true
+  },
+  {
     "name": "Абакус",
     "color": "var(--tag-abacus)",
     "bg": "var(--tag-abacus-bg)",
@@ -1430,5 +1498,355 @@
     "bg": "var(--tag-quran-tafsir-bg)",
     "icon": "📜",
     "benefit": "Толкование смыслов Корана"
+  },
+  {
+    "name": "Спорт зал (Ноги)",
+    "color": "var(--tag-legs)",
+    "bg": "var(--tag-legs-bg)",
+    "icon": "🦵",
+    "benefit": "Тренировка мышц ног"
+  },
+  {
+    "name": "Спорт зал (Руки)",
+    "color": "var(--tag-arms)",
+    "bg": "var(--tag-arms-bg)",
+    "icon": "💪",
+    "benefit": "Тренировка рук"
+  },
+  {
+    "name": "Спорт зал (Грудь)",
+    "color": "var(--tag-chest)",
+    "bg": "var(--tag-chest-bg)",
+    "icon": "🏋️",
+    "benefit": "Тренировка грудных мышц"
+  },
+  {
+    "name": "Спорт зал (Спина)",
+    "color": "var(--tag-back)",
+    "bg": "var(--tag-back-bg)",
+    "icon": "🔙",
+    "benefit": "Тренировка мышц спины"
+  },
+  {
+    "name": "Спорт зал (Плечи)",
+    "color": "var(--tag-shoulders)",
+    "bg": "var(--tag-shoulders-bg)",
+    "icon": "🤸",
+    "benefit": "Тренировка плечевых мышц"
+  },
+  {
+    "name": "Спорт зал (Пресс)",
+    "color": "var(--tag-abs)",
+    "bg": "var(--tag-abs-bg)",
+    "icon": "🔥",
+    "benefit": "Тренировка мышц живота"
+  },
+  {
+    "name": "Кардио",
+    "color": "var(--tag-cardio)",
+    "bg": "var(--tag-cardio-bg)",
+    "icon": "❤️",
+    "benefit": "Тренировка сердца и выносливости"
+  },
+  {
+    "name": "Бег",
+    "color": "var(--tag-running)",
+    "bg": "var(--tag-running-bg)",
+    "icon": "🏃",
+    "benefit": "Бег и выносливость"
+  },
+  {
+    "name": "Плавание",
+    "color": "var(--tag-swimming)",
+    "bg": "var(--tag-swimming-bg)",
+    "icon": "🏊",
+    "benefit": "Плавание"
+  },
+  {
+    "name": "Велосипед",
+    "color": "var(--tag-cycling)",
+    "bg": "var(--tag-cycling-bg)",
+    "icon": "🚴",
+    "benefit": "Езда на велосипеде"
+  },
+  {
+    "name": "Растяжка",
+    "color": "var(--tag-stretching)",
+    "bg": "var(--tag-stretching-bg)",
+    "icon": "🧘",
+    "benefit": "Гибкость и растяжка"
+  },
+  {
+    "name": "Питание",
+    "color": "var(--tag-nutrition)",
+    "bg": "var(--tag-nutrition-bg)",
+    "icon": "🥗",
+    "benefit": "Правильное питание"
+  },
+  {
+    "name": "Протеин",
+    "color": "var(--tag-protein)",
+    "bg": "var(--tag-protein-bg)",
+    "icon": "🥩",
+    "benefit": "Белок для мышц"
+  },
+  {
+    "name": "Отдых",
+    "color": "var(--tag-recovery)",
+    "bg": "var(--tag-recovery-bg)",
+    "icon": "😴",
+    "benefit": "Восстановление и сон"
+  },
+  {
+    "name": "Сила",
+    "color": "var(--tag-strength)",
+    "bg": "var(--tag-strength-bg)",
+    "icon": "🏆",
+    "benefit": "Силовые упражнения"
+  },
+  {
+    "name": "Чтение",
+    "color": "var(--tag-reading)",
+    "bg": "var(--tag-reading-bg)",
+    "icon": "📖",
+    "benefit": "Развитие кругозора и мышления"
+  },
+  {
+    "name": "Книга",
+    "color": "var(--tag-book)",
+    "bg": "var(--tag-book-bg)",
+    "icon": "📚",
+    "benefit": "Углублённое изучение темы"
+  },
+  {
+    "name": "Конспект",
+    "color": "var(--tag-notes)",
+    "bg": "var(--tag-notes-bg)",
+    "icon": "📝",
+    "benefit": "Записать главное"
+  },
+  {
+    "name": "Нон-фикшн",
+    "color": "var(--tag-nonfiction)",
+    "bg": "var(--tag-nonfiction-bg)",
+    "icon": "🧠",
+    "benefit": "Реальные знания и факты"
+  },
+  {
+    "name": "Художественная",
+    "color": "var(--tag-fiction)",
+    "bg": "var(--tag-fiction-bg)",
+    "icon": "✍️",
+    "benefit": "Развитие воображения"
+  },
+  {
+    "name": "Аудиокнига",
+    "color": "var(--tag-audiobook)",
+    "bg": "var(--tag-audiobook-bg)",
+    "icon": "🎧",
+    "benefit": "Слушать и учиться"
+  },
+  {
+    "name": "Статья",
+    "color": "var(--tag-article)",
+    "bg": "var(--tag-article-bg)",
+    "icon": "📰",
+    "benefit": "Быстрое чтение статей"
+  },
+  {
+    "name": "Пересказ",
+    "color": "var(--tag-retell)",
+    "bg": "var(--tag-retell-bg)",
+    "icon": "🗣️",
+    "benefit": "Закрепить прочитанное"
+  },
+  {
+    "name": "Бокс",
+    "color": "var(--tag-boxing)",
+    "bg": "var(--tag-boxing-bg)",
+    "icon": "🥊",
+    "benefit": "Скорость, сила и выносливость"
+  },
+  {
+    "name": "Борьба",
+    "color": "var(--tag-wrestling)",
+    "bg": "var(--tag-wrestling-bg)",
+    "icon": "🤼",
+    "benefit": "Техника и контроль тела"
+  },
+  {
+    "name": "ММА",
+    "color": "var(--tag-mma)",
+    "bg": "var(--tag-mma-bg)",
+    "icon": "🥋",
+    "benefit": "Смешанные единоборства"
+  },
+  {
+    "name": "Дзюдо",
+    "color": "var(--tag-judo)",
+    "bg": "var(--tag-judo-bg)",
+    "icon": "🥋",
+    "benefit": "Броски и техника падения"
+  },
+  {
+    "name": "Карате",
+    "color": "var(--tag-karate)",
+    "bg": "var(--tag-karate-bg)",
+    "icon": "🥋",
+    "benefit": "Удары и дисциплина"
+  },
+  {
+    "name": "Тхэквондо",
+    "color": "var(--tag-taekwondo)",
+    "bg": "var(--tag-taekwondo-bg)",
+    "icon": "🦵",
+    "benefit": "Удары ногами и гибкость"
+  },
+  {
+    "name": "Кикбоксинг",
+    "color": "var(--tag-kickboxing)",
+    "bg": "var(--tag-kickboxing-bg)",
+    "icon": "🥊",
+    "benefit": "Комбинация бокса и ударов ногами"
+  },
+  {
+    "name": "Муай Тай",
+    "color": "var(--tag-muaythai)",
+    "bg": "var(--tag-muaythai-bg)",
+    "icon": "🥊",
+    "benefit": "Тайский бокс — 8 конечностей"
+  },
+  {
+    "name": "Самбо",
+    "color": "var(--tag-sambo)",
+    "bg": "var(--tag-sambo-bg)",
+    "icon": "🤼",
+    "benefit": "Русское боевое искусство"
+  },
+  {
+    "name": "Грэпплинг",
+    "color": "var(--tag-grappling)",
+    "bg": "var(--tag-grappling-bg)",
+    "icon": "🤼",
+    "benefit": "Борьба в партере"
+  },
+  {
+    "name": "Тяжёлая атлетика",
+    "color": "var(--tag-weightlifting)",
+    "bg": "var(--tag-weightlifting-bg)",
+    "icon": "🏋️",
+    "benefit": "Рывок и толчок штанги"
+  },
+  {
+    "name": "Кроссфит",
+    "color": "var(--tag-crossfit)",
+    "bg": "var(--tag-crossfit-bg)",
+    "icon": "⚡",
+    "benefit": "Высокоинтенсивные тренировки"
+  },
+  {
+    "name": "Гимнастика",
+    "color": "var(--tag-gymnastics)",
+    "bg": "var(--tag-gymnastics-bg)",
+    "icon": "🤸",
+    "benefit": "Гибкость и координация"
+  },
+  {
+    "name": "Футбол",
+    "color": "var(--tag-football)",
+    "bg": "var(--tag-football-bg)",
+    "icon": "⚽",
+    "benefit": "Командный спорт и выносливость"
+  },
+  {
+    "name": "Баскетбол",
+    "color": "var(--tag-basketball)",
+    "bg": "var(--tag-basketball-bg)",
+    "icon": "🏀",
+    "benefit": "Прыжки и командная игра"
+  },
+  {
+    "name": "Тренировка",
+    "color": "var(--tag-workout)",
+    "bg": "var(--tag-workout-bg)",
+    "icon": "💪",
+    "benefit": "Общая тренировка"
+  },
+  {
+    "name": "Волейбол",
+    "color": "var(--tag-volleyball)",
+    "bg": "var(--tag-volleyball-bg)",
+    "icon": "🏐",
+    "benefit": "Командная игра и прыжки"
+  },
+  {
+    "name": "Теннис",
+    "color": "var(--tag-tennis)",
+    "bg": "var(--tag-tennis-bg)",
+    "icon": "🎾",
+    "benefit": "Реакция и координация"
+  },
+  {
+    "name": "Настольный теннис",
+    "color": "var(--tag-tabletennis)",
+    "bg": "var(--tag-tabletennis-bg)",
+    "icon": "🏓",
+    "benefit": "Скорость реакции"
+  },
+  {
+    "name": "Хоккей",
+    "color": "var(--tag-hockey)",
+    "bg": "var(--tag-hockey-bg)",
+    "icon": "🏒",
+    "benefit": "Скорость и командная игра"
+  },
+  {
+    "name": "Регби",
+    "color": "var(--tag-rugby)",
+    "bg": "var(--tag-rugby-bg)",
+    "icon": "🏉",
+    "benefit": "Сила и командная игра"
+  },
+  {
+    "name": "Бадминтон",
+    "color": "var(--tag-badminton)",
+    "bg": "var(--tag-badminton-bg)",
+    "icon": "🏸",
+    "benefit": "Скорость и ловкость"
+  },
+  {
+    "name": "Лёгкая атлетика",
+    "color": "var(--tag-athletics)",
+    "bg": "var(--tag-athletics-bg)",
+    "icon": "🏃",
+    "benefit": "Бег, прыжки, метание"
+  },
+  {
+    "name": "Йога",
+    "color": "var(--tag-yoga)",
+    "bg": "var(--tag-yoga-bg)",
+    "icon": "🧘",
+    "benefit": "Гибкость и спокойствие"
+  },
+  {
+    "name": "Скалолазание",
+    "color": "var(--tag-climbing)",
+    "bg": "var(--tag-climbing-bg)",
+    "icon": "🧗",
+    "benefit": "Сила и ловкость"
+  },
+  {
+    "name": "Лыжи",
+    "color": "var(--tag-skiing)",
+    "bg": "var(--tag-skiing-bg)",
+    "icon": "⛷️",
+    "benefit": "Баланс и выносливость"
+  },
+  {
+    "name": "Гольф",
+    "color": "var(--tag-golf)",
+    "bg": "var(--tag-golf-bg)",
+    "icon": "⛳",
+    "benefit": "Точность и концентрация"
   }
 ]

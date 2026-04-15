@@ -58,15 +58,22 @@ export default function Workspace() {
     try {
       const raw = localStorage.getItem("qalamflow_draft_schedule");
       return raw ? (JSON.parse(raw) as ScheduleEntry[]) : [];
-    } catch { return []; }
+    } catch {
+      return [];
+    }
   });
   const [orientation, setOrientation] = useState<Orientation>(() => {
-    return (localStorage.getItem("qalamflow_draft_orientation") as Orientation) || "vertical";
+    return (
+      (localStorage.getItem("qalamflow_draft_orientation") as Orientation) ||
+      "vertical"
+    );
   });
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [savedScheduleLength, setSavedScheduleLength] = useState(0);
   const [deletedPlan, setDeletedPlan] = useState<SavedPlan | null>(null);
-  const deletedPlanTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const deletedPlanTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const [aiChatOpen, setAiChatOpen] = useState(false);
   const [aiGreeting, setAiGreeting] = useState<string | null>(null);
   const aiPlanTitleRef = useRef<string | undefined>(undefined);
@@ -79,7 +86,8 @@ export default function Workspace() {
       if ((e.ctrlKey || e.metaKey) && e.key === "z" && deletedPlanRef.current) {
         restorePlan(deletedPlanRef.current);
         setDeletedPlan(null);
-        if (deletedPlanTimerRef.current) clearTimeout(deletedPlanTimerRef.current);
+        if (deletedPlanTimerRef.current)
+          clearTimeout(deletedPlanTimerRef.current);
       }
     }
     window.addEventListener("keydown", onKeyDown);
@@ -111,7 +119,14 @@ export default function Workspace() {
     return () => {
       if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
     };
-  }, [plansReady, schedule, orientation, savePlan, updatePlan, setActivePlanId]);
+  }, [
+    plansReady,
+    schedule,
+    orientation,
+    savePlan,
+    updatePlan,
+    setActivePlanId,
+  ]);
 
   const handleScheduleChange = useCallback((newSchedule: ScheduleEntry[]) => {
     setSchedule(newSchedule);
@@ -129,7 +144,14 @@ export default function Workspace() {
     }
     setHasUnsavedChanges(false);
     setSavedScheduleLength(schedule.length);
-  }, [schedule, orientation, activePlanId, updatePlan, savePlan, setActivePlanId]);
+  }, [
+    schedule,
+    orientation,
+    activePlanId,
+    updatePlan,
+    savePlan,
+    setActivePlanId,
+  ]);
 
   const handleCreateNew = useCallback(() => {
     if (schedule.length > 0) {
@@ -144,7 +166,14 @@ export default function Workspace() {
     localStorage.removeItem("qalamflow_draft_schedule");
     localStorage.removeItem("qalamflow_draft_orientation");
     pageRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [schedule, orientation, activePlanId, updatePlan, savePlan, setActivePlanId]);
+  }, [
+    schedule,
+    orientation,
+    activePlanId,
+    updatePlan,
+    savePlan,
+    setActivePlanId,
+  ]);
 
   const handleLoadPlan = useCallback(
     (planId: string) => {
@@ -165,8 +194,12 @@ export default function Workspace() {
       const plan = plans.find((p) => p.id === planId);
       if (plan) {
         setDeletedPlan(plan);
-        if (deletedPlanTimerRef.current) clearTimeout(deletedPlanTimerRef.current);
-        deletedPlanTimerRef.current = setTimeout(() => setDeletedPlan(null), 10000);
+        if (deletedPlanTimerRef.current)
+          clearTimeout(deletedPlanTimerRef.current);
+        deletedPlanTimerRef.current = setTimeout(
+          () => setDeletedPlan(null),
+          10000,
+        );
       }
       deletePlan(planId);
       if (activePlanId === planId) {
@@ -177,15 +210,18 @@ export default function Workspace() {
     [deletePlan, activePlanId, setActivePlanId, plans],
   );
 
-  const handleAIPlanApplied = useCallback((newSchedule: ScheduleEntry[], greeting: string, planTitle: string) => {
-    setActivePlanId(null);
-    setSchedule(newSchedule);
-    setHasUnsavedChanges(true);
-    if (greeting) setAiGreeting(greeting);
-    aiPlanTitleRef.current = planTitle;
-    setAiChatOpen(false);
-    pageRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [setActivePlanId]);
+  const handleAIPlanApplied = useCallback(
+    (newSchedule: ScheduleEntry[], greeting: string, planTitle: string) => {
+      setActivePlanId(null);
+      setSchedule(newSchedule);
+      setHasUnsavedChanges(true);
+      if (greeting) setAiGreeting(greeting);
+      aiPlanTitleRef.current = planTitle;
+      setAiChatOpen(false);
+      pageRef.current?.scrollIntoView({ behavior: "smooth" });
+    },
+    [setActivePlanId],
+  );
 
   return (
     <div className={styles.page} ref={pageRef}>
@@ -211,14 +247,22 @@ export default function Workspace() {
           />
           <div className={styles.heroText}>
             <p className={styles.greeting}>
-              {aiGreeting
-                ? <span className={styles.name}>{aiGreeting}</span>
-                : <><TagIcon icon={getGreetingEmoji()} size={22} /> {get(getGreetingKey())}, <span className={styles.name}>{firstName}</span></>
-              }
+              {aiGreeting ? (
+                <span className={styles.name}>{aiGreeting}</span>
+              ) : (
+                <>
+                  <TagIcon icon={getGreetingEmoji()} size={22} />{" "}
+                  {get(getGreetingKey())},{" "}
+                  <span className={styles.name}>{firstName}</span>
+                </>
+              )}
             </p>
             <div className={styles.subtitleRow}>
               <p className={styles.subtitle}>{get("workspace.subtitle")}</p>
-              <button className={styles.aiInlineBtn} onClick={() => setAiChatOpen(true)}>
+              <button
+                className={styles.aiInlineBtn}
+                onClick={() => setAiChatOpen(true)}
+              >
                 🤖 Спланируй с ИИ
               </button>
             </div>
@@ -251,15 +295,11 @@ export default function Workspace() {
           onUndo={() => {
             restorePlan(deletedPlan);
             setDeletedPlan(null);
-            if (deletedPlanTimerRef.current) clearTimeout(deletedPlanTimerRef.current);
+            if (deletedPlanTimerRef.current)
+              clearTimeout(deletedPlanTimerRef.current);
           }}
         />
       )}
-
-      <button className={styles.aiFab} onClick={() => { handleCreateNew(); setAiChatOpen(true); }}>
-        <span>🤖</span>
-        <span>Составить план с ИИ</span>
-      </button>
 
       {aiChatOpen && (
         <AIPlannerChat

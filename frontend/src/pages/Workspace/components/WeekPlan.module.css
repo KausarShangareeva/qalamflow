@@ -85,6 +85,71 @@
   margin-bottom: var(--space-lg);
 }
 
+/* ===== Table controls column (time range + palette + toggle) ===== */
+.tableControls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ===== Time range row ===== */
+.timeRangeRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.timeRangeLabel {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.timeSelect {
+  padding: 0.4rem 0.8rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  font-size: var(--fs-sm);
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.timeSelect:focus {
+  border-color: var(--color-primary);
+}
+
+/* ===== Color palette ===== */
+.colorPalette {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.colorSwatch {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.colorSwatch:hover {
+  transform: scale(1.18);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.colorSwatchActive {
+  border-color: var(--color-text) !important;
+  transform: scale(1.18);
+  box-shadow: 0 0 0 2px var(--color-bg-card), 0 0 0 4px currentColor;
+}
+
 /* ===== Toggle (pill) ===== */
 .toggle {
   display: flex;
@@ -451,8 +516,8 @@
   font-size: var(--fs-base);
   font-weight: 500;
   text-align: center;
-  color: #1aaa6a;
-  background: color-mix(in srgb, #1aaa6a 7%, var(--color-bg-card));
+  color: var(--table-accent, #1aaa6a);
+  background: color-mix(in srgb, var(--table-accent, #1aaa6a) 7%, var(--color-bg-card));
   letter-spacing: 0.02em;
   white-space: nowrap;
   border-bottom: 1px solid var(--color-border);
@@ -479,7 +544,7 @@
   color: var(--color-text-muted);
   white-space: nowrap;
   text-align: center;
-  background: color-mix(in srgb, #1aaa6a 6%, var(--color-bg-card));
+  background: color-mix(in srgb, var(--table-accent, #1aaa6a) 6%, var(--color-bg-card));
   border-right: 1px solid var(--color-border);
   user-select: none;
 }
@@ -520,7 +585,7 @@
   color: var(--color-text-muted);
   white-space: nowrap;
   text-align: center;
-  background: color-mix(in srgb, #1aaa6a 6%, var(--color-bg-card));
+  background: color-mix(in srgb, var(--table-accent, #1aaa6a) 6%, var(--color-bg-card));
   border-right: 1px solid var(--color-border);
   user-select: none;
 }
@@ -640,6 +705,167 @@
   font-size: var(--fs-sm);
   color: var(--color-text-muted);
   padding: var(--space-sm) 0;
+}
+
+/* ===== Custom tag — "+ Свой курс" button ===== */
+.addCustomTagBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.4rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.addCustomTagBtn:hover {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+.addCustomTagPlus {
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+/* ===== "Не нашли?" prompt ===== */
+.notFoundPrompt {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.notFoundBtn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* ===== Add custom tag form ===== */
+.addTagForm {
+  background: var(--color-bg-elevated);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  animation: popupAppear 0.18s ease;
+}
+
+.addTagRow {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.addTagEmojiInput {
+  width: 4.4rem;
+  padding: 0.6rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  font-size: 1.6rem;
+  text-align: center;
+  font-family: inherit;
+  outline: none;
+  flex-shrink: 0;
+}
+
+.addTagNameInput {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  font-size: var(--fs-sm);
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.addTagNameInput:focus {
+  border-color: var(--color-primary);
+}
+
+.addTagColorRow {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.addTagColorSwatch {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.addTagColorSwatch:hover {
+  transform: scale(1.2);
+}
+
+.addTagColorActive {
+  border-color: var(--color-text) !important;
+  transform: scale(1.2);
+}
+
+.addTagActions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.addTagSave {
+  padding: 0.6rem 1.6rem;
+  border: none;
+  border-radius: var(--radius-full);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.addTagSave:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.addTagSave:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.addTagCancel {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  transition: color var(--transition-fast);
+}
+
+.addTagCancel:hover {
+  color: var(--color-text);
 }
 
 /* ---- Course tags ---- */

@@ -494,6 +494,111 @@
 
   --tag-iq: #f472b6;
   --tag-iq-bg: rgba(244, 114, 182, 0.13);
+
+  /* Sport tags */
+  --tag-legs: #f97316;
+  --tag-legs-bg: rgba(249, 115, 22, 0.13);
+  --tag-arms: #ef4444;
+  --tag-arms-bg: rgba(239, 68, 68, 0.13);
+  --tag-chest: #e11d48;
+  --tag-chest-bg: rgba(225, 29, 72, 0.13);
+  --tag-back: #0ea5e9;
+  --tag-back-bg: rgba(14, 165, 233, 0.13);
+  --tag-shoulders: #a855f7;
+  --tag-shoulders-bg: rgba(168, 85, 247, 0.13);
+  --tag-abs: #f59e0b;
+  --tag-abs-bg: rgba(245, 158, 11, 0.13);
+  --tag-cardio: #ff3d68;
+  --tag-cardio-bg: rgba(255, 61, 104, 0.13);
+  --tag-running: #22c55e;
+  --tag-running-bg: rgba(34, 197, 94, 0.13);
+  --tag-swimming: #06b6d4;
+  --tag-swimming-bg: rgba(6, 182, 212, 0.13);
+  --tag-cycling: #84cc16;
+  --tag-cycling-bg: rgba(132, 204, 22, 0.13);
+  --tag-stretching: #c084fc;
+  --tag-stretching-bg: rgba(192, 132, 252, 0.13);
+  --tag-nutrition: #00d68f;
+  --tag-nutrition-bg: rgba(0, 214, 143, 0.13);
+  --tag-protein: #fb923c;
+  --tag-protein-bg: rgba(251, 146, 60, 0.13);
+  --tag-recovery: #64748b;
+  --tag-recovery-bg: rgba(100, 116, 139, 0.13);
+  --tag-strength: #eab308;
+  --tag-strength-bg: rgba(234, 179, 8, 0.13);
+
+  /* Reading tags */
+  --tag-book: #818cf8;
+  --tag-book-bg: rgba(129, 140, 248, 0.13);
+  --tag-notes: #fbbf24;
+  --tag-notes-bg: rgba(251, 191, 36, 0.13);
+  --tag-nonfiction: #4f9eff;
+  --tag-nonfiction-bg: rgba(79, 158, 255, 0.13);
+  --tag-fiction: #f472b6;
+  --tag-fiction-bg: rgba(244, 114, 182, 0.13);
+  --tag-audiobook: #34d399;
+  --tag-audiobook-bg: rgba(52, 211, 153, 0.13);
+  --tag-article: #60a5fa;
+  --tag-article-bg: rgba(96, 165, 250, 0.13);
+  --tag-retell: #fb7185;
+  --tag-retell-bg: rgba(251, 113, 133, 0.13);
+
+  /* Martial arts & sport tags */
+  --tag-boxing: #ef4444;
+  --tag-boxing-bg: rgba(239, 68, 68, 0.13);
+  --tag-wrestling: #f97316;
+  --tag-wrestling-bg: rgba(249, 115, 22, 0.13);
+  --tag-mma: #dc2626;
+  --tag-mma-bg: rgba(220, 38, 38, 0.13);
+  --tag-judo: #1d4ed8;
+  --tag-judo-bg: rgba(29, 78, 216, 0.13);
+  --tag-karate: #7c3aed;
+  --tag-karate-bg: rgba(124, 58, 237, 0.13);
+  --tag-taekwondo: #0891b2;
+  --tag-taekwondo-bg: rgba(8, 145, 178, 0.13);
+  --tag-kickboxing: #e11d48;
+  --tag-kickboxing-bg: rgba(225, 29, 72, 0.13);
+  --tag-muaythai: #b91c1c;
+  --tag-muaythai-bg: rgba(185, 28, 28, 0.13);
+  --tag-sambo: #15803d;
+  --tag-sambo-bg: rgba(21, 128, 61, 0.13);
+  --tag-grappling: #b45309;
+  --tag-grappling-bg: rgba(180, 83, 9, 0.13);
+  --tag-weightlifting: #6d28d9;
+  --tag-weightlifting-bg: rgba(109, 40, 217, 0.13);
+  --tag-crossfit: #ea580c;
+  --tag-crossfit-bg: rgba(234, 88, 12, 0.13);
+  --tag-gymnastics: #ec4899;
+  --tag-gymnastics-bg: rgba(236, 72, 153, 0.13);
+  --tag-football: #16a34a;
+  --tag-football-bg: rgba(22, 163, 74, 0.13);
+  --tag-basketball: #d97706;
+  --tag-basketball-bg: rgba(217, 119, 6, 0.13);
+
+  --tag-workout: #10b981;
+  --tag-workout-bg: rgba(16, 185, 129, 0.13);
+  --tag-volleyball: #f59e0b;
+  --tag-volleyball-bg: rgba(245, 158, 11, 0.13);
+  --tag-tennis: #84cc16;
+  --tag-tennis-bg: rgba(132, 204, 22, 0.13);
+  --tag-tabletennis: #06b6d4;
+  --tag-tabletennis-bg: rgba(6, 182, 212, 0.13);
+  --tag-hockey: #60a5fa;
+  --tag-hockey-bg: rgba(96, 165, 250, 0.13);
+  --tag-rugby: #78716c;
+  --tag-rugby-bg: rgba(120, 113, 108, 0.13);
+  --tag-badminton: #a3e635;
+  --tag-badminton-bg: rgba(163, 230, 53, 0.13);
+  --tag-athletics: #fb923c;
+  --tag-athletics-bg: rgba(251, 146, 60, 0.13);
+  --tag-yoga: #c084fc;
+  --tag-yoga-bg: rgba(192, 132, 252, 0.13);
+  --tag-climbing: #a8a29e;
+  --tag-climbing-bg: rgba(168, 162, 158, 0.13);
+  --tag-skiing: #93c5fd;
+  --tag-skiing-bg: rgba(147, 197, 253, 0.13);
+  --tag-golf: #4ade80;
+  --tag-golf-bg: rgba(74, 222, 128, 0.13);
 }
 
 /* Light theme — vivid text + solid pastel background, no opacity */
@@ -895,4 +1000,109 @@
 
   --tag-iq: #db2777;
   --tag-iq-bg: #fce7f3;
+
+  /* Sport tags */
+  --tag-legs: #c2410c;
+  --tag-legs-bg: #ffedd5;
+  --tag-arms: #dc2626;
+  --tag-arms-bg: #fee2e2;
+  --tag-chest: #be123c;
+  --tag-chest-bg: #ffe4e6;
+  --tag-back: #0284c7;
+  --tag-back-bg: #e0f2fe;
+  --tag-shoulders: #7c3aed;
+  --tag-shoulders-bg: #f3e8ff;
+  --tag-abs: #b45309;
+  --tag-abs-bg: #fef3c7;
+  --tag-cardio: #e11d48;
+  --tag-cardio-bg: #ffe4e6;
+  --tag-running: #15803d;
+  --tag-running-bg: #dcfce7;
+  --tag-swimming: #0e7490;
+  --tag-swimming-bg: #cffafe;
+  --tag-cycling: #4d7c0f;
+  --tag-cycling-bg: #ecfccb;
+  --tag-stretching: #6d28d9;
+  --tag-stretching-bg: #ede9fe;
+  --tag-nutrition: #047857;
+  --tag-nutrition-bg: #d1fae5;
+  --tag-protein: #c2410c;
+  --tag-protein-bg: #fff7ed;
+  --tag-recovery: #475569;
+  --tag-recovery-bg: #f1f5f9;
+  --tag-strength: #a16207;
+  --tag-strength-bg: #fef9c3;
+
+  /* Reading tags */
+  --tag-book: #4338ca;
+  --tag-book-bg: #eef2ff;
+  --tag-notes: #b45309;
+  --tag-notes-bg: #fef3c7;
+  --tag-nonfiction: #1d4ed8;
+  --tag-nonfiction-bg: #dbeafe;
+  --tag-fiction: #be185d;
+  --tag-fiction-bg: #fce7f3;
+  --tag-audiobook: #065f46;
+  --tag-audiobook-bg: #d1fae5;
+  --tag-article: #1e40af;
+  --tag-article-bg: #dbeafe;
+  --tag-retell: #9f1239;
+  --tag-retell-bg: #ffe4e6;
+
+  /* Martial arts & sport tags */
+  --tag-boxing: #dc2626;
+  --tag-boxing-bg: #fee2e2;
+  --tag-wrestling: #c2410c;
+  --tag-wrestling-bg: #ffedd5;
+  --tag-mma: #991b1b;
+  --tag-mma-bg: #fef2f2;
+  --tag-judo: #1e40af;
+  --tag-judo-bg: #dbeafe;
+  --tag-karate: #6d28d9;
+  --tag-karate-bg: #ede9fe;
+  --tag-taekwondo: #0e7490;
+  --tag-taekwondo-bg: #cffafe;
+  --tag-kickboxing: #9f1239;
+  --tag-kickboxing-bg: #ffe4e6;
+  --tag-muaythai: #7f1d1d;
+  --tag-muaythai-bg: #fef2f2;
+  --tag-sambo: #14532d;
+  --tag-sambo-bg: #dcfce7;
+  --tag-grappling: #92400e;
+  --tag-grappling-bg: #fef3c7;
+  --tag-weightlifting: #4c1d95;
+  --tag-weightlifting-bg: #f3e8ff;
+  --tag-crossfit: #9a3412;
+  --tag-crossfit-bg: #fff7ed;
+  --tag-gymnastics: #be185d;
+  --tag-gymnastics-bg: #fce7f3;
+  --tag-football: #15803d;
+  --tag-football-bg: #dcfce7;
+  --tag-basketball: #b45309;
+  --tag-basketball-bg: #fef3c7;
+
+  --tag-workout: #047857;
+  --tag-workout-bg: #d1fae5;
+  --tag-volleyball: #b45309;
+  --tag-volleyball-bg: #fef3c7;
+  --tag-tennis: #4d7c0f;
+  --tag-tennis-bg: #ecfccb;
+  --tag-tabletennis: #0e7490;
+  --tag-tabletennis-bg: #cffafe;
+  --tag-hockey: #1d4ed8;
+  --tag-hockey-bg: #dbeafe;
+  --tag-rugby: #57534e;
+  --tag-rugby-bg: #f5f5f4;
+  --tag-badminton: #3f6212;
+  --tag-badminton-bg: #ecfccb;
+  --tag-athletics: #c2410c;
+  --tag-athletics-bg: #ffedd5;
+  --tag-yoga: #6d28d9;
+  --tag-yoga-bg: #ede9fe;
+  --tag-climbing: #78716c;
+  --tag-climbing-bg: #f5f5f4;
+  --tag-skiing: #1e40af;
+  --tag-skiing-bg: #eff6ff;
+  --tag-golf: #15803d;
+  --tag-golf-bg: #dcfce7;
 }

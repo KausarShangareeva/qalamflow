@@ -75,6 +75,62 @@ function generateTimeSlots(): string[] {
 
 const TIME_SLOTS = generateTimeSlots();
 
+/* ===== Palette & time range ===== */
+
+const PALETTE_COLORS = [
+  "#1aaa6a",
+  "#3b82f6",
+  "#8b5cf6",
+  "#ec4899",
+  "#f97316",
+  "#eab308",
+  "#06b6d4",
+  "#ef4444",
+];
+
+const ACCENT_KEY = "qalamflow_accent_color";
+const TIME_FROM_KEY = "qalamflow_time_from";
+const TIME_TO_KEY = "qalamflow_time_to";
+const CUSTOM_TAGS_KEY = "qalamflow_custom_tags";
+
+interface CustomTag {
+  name: string;
+  icon: string;
+  color: string;
+  bg: string;
+}
+
+function getCustomTags(): CustomTag[] {
+  try {
+    const raw = localStorage.getItem(CUSTOM_TAGS_KEY);
+    return raw ? (JSON.parse(raw) as CustomTag[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCustomTagsToStorage(tags: CustomTag[]) {
+  try {
+    localStorage.setItem(CUSTOM_TAGS_KEY, JSON.stringify(tags));
+  } catch {}
+}
+
+function generateDynamicTimeSlots(from: number, to: number): string[] {
+  const slots: string[] = [];
+  for (let hour = from; hour <= to; hour++) {
+    slots.push(`${hour.toString().padStart(2, "0")}:00`);
+    if (hour < to) slots.push(`${hour.toString().padStart(2, "0")}:30`);
+  }
+  return slots;
+}
+
+function lightenHex(hex: string, amount: number): string {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgb(${Math.round(r + (255 - r) * amount)}, ${Math.round(g + (255 - g) * amount)}, ${Math.round(b + (255 - b) * amount)})`;
+}
+
 /* ===== Types ===== */
 
 interface CellInfo {
@@ -155,6 +211,19 @@ export default function WeekPlan({
     null,
   );
   const [showEmoji, setShowEmoji] = useState(true);
+  const [accentColor, setAccentColor] = useState<string>(
+    () => localStorage.getItem(ACCENT_KEY) || "#1aaa6a",
+  );
+  const [timeFrom, setTimeFrom] = useState<number>(() =>
+    Number(localStorage.getItem(TIME_FROM_KEY) || "2"),
+  );
+  const [timeTo, setTimeTo] = useState<number>(() =>
+    Number(localStorage.getItem(TIME_TO_KEY) || "21"),
+  );
+  const dynamicTimeSlots = useMemo(
+    () => generateDynamicTimeSlots(timeFrom, timeTo),
+    [timeFrom, timeTo],
+  );
   const [deletedEntry, setDeletedEntry] = useState<ScheduleEntry | null>(null);
   const [benefitToast, setBenefitToast] = useState<{
     course: string;
@@ -303,8 +372,8 @@ export default function WeekPlan({
   th, td { border-top: 1px solid #d1d5db; border-right: 1px solid #d1d5db; padding: ${isHorizontal ? "2px 3px" : "3px 5px"}; font-size: ${isHorizontal ? "9px" : "10px"}; text-align: center; height: ${isHorizontal ? "20px" : "29px"}; max-height: ${isHorizontal ? "20px" : "29px"}; overflow: hidden; vertical-align: center; }
   th:last-child, td:last-child { border-right: none; }
   tr:first-child th { border-top: none; }
-  th { background: #e8f7f0 !important; font-weight: 600; color: #0a7a48; border-bottom: 1px solid #d1d5db !important; font-size: ${isHorizontal ? "10px" : "11px"}; white-space: nowrap; }
-  td:first-child { text-align: center; font-weight: 500; color: #6b7280; width: 52px; background: #e8f7f0 !important; border-right: 1px solid #d1d5db !important; font-size: ${isHorizontal ? "9px" : "9px"}; }
+  th { background: ${lightenHex(accentColor, 0.86)} !important; font-weight: 600; color: ${accentColor}; border-bottom: 1px solid #d1d5db !important; font-size: ${isHorizontal ? "10px" : "11px"}; white-space: nowrap; }
+  td:first-child { text-align: center; font-weight: 500; color: #6b7280; width: 52px; background: ${lightenHex(accentColor, 0.91)} !important; border-right: 1px solid #d1d5db !important; font-size: ${isHorizontal ? "9px" : "9px"}; }
   th:first-child { text-align: center; width: 52px; }
   [data-print="day-full"] { display: inline !important; }
   [data-print="day-short"] { display: none !important; }
@@ -330,21 +399,76 @@ export default function WeekPlan({
     <div className={styles.wrapper}>
       {/* Toggle + Print */}
       <div className={styles.toolbar}>
-        <div className={styles.toggle}>
-          <button
-            className={`${styles.toggleBtn} ${orientation === "vertical" ? styles.toggleActive : ""}`}
-            onClick={() => onOrientationChange("vertical")}
-          >
-            <img src="/virtical.svg" alt="" className={styles.toggleIcon} />
-            <span>{get("workspace.vertical")}</span>
-          </button>
-          <button
-            className={`${styles.toggleBtn} ${orientation === "horizontal" ? styles.toggleActive : ""}`}
-            onClick={() => onOrientationChange("horizontal")}
-          >
-            <img src="/horizontal.svg" alt="" className={styles.toggleIcon} />
-            <span>{get("workspace.horizontal")}</span>
-          </button>
+        <div className={styles.tableControls}>
+          {/* Time range */}
+          <div className={styles.timeRangeRow}>
+            <span className={styles.timeRangeLabel}>От</span>
+            <select
+              className={styles.timeSelect}
+              value={timeFrom}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                setTimeFrom(v);
+                localStorage.setItem(TIME_FROM_KEY, String(v));
+              }}
+            >
+              {Array.from({ length: 24 }, (_, i) => (
+                <option key={i} value={i} disabled={i >= timeTo}>
+                  {i.toString().padStart(2, "0")}:00
+                </option>
+              ))}
+            </select>
+            <span className={styles.timeRangeLabel}>До</span>
+            <select
+              className={styles.timeSelect}
+              value={timeTo}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                setTimeTo(v);
+                localStorage.setItem(TIME_TO_KEY, String(v));
+              }}
+            >
+              {Array.from({ length: 24 }, (_, i) => (
+                <option key={i + 1} value={i + 1} disabled={i + 1 <= timeFrom}>
+                  {(i + 1).toString().padStart(2, "0")}:00
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Color swatches */}
+          <div className={styles.colorPalette}>
+            {PALETTE_COLORS.map((color) => (
+              <button
+                key={color}
+                className={`${styles.colorSwatch} ${accentColor === color ? styles.colorSwatchActive : ""}`}
+                style={{ background: color }}
+                title={color}
+                onClick={() => {
+                  setAccentColor(color);
+                  localStorage.setItem(ACCENT_KEY, color);
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Orientation toggle */}
+          <div className={styles.toggle}>
+            <button
+              className={`${styles.toggleBtn} ${orientation === "vertical" ? styles.toggleActive : ""}`}
+              onClick={() => onOrientationChange("vertical")}
+            >
+              <img src="/virtical.svg" alt="" className={styles.toggleIcon} />
+              <span>{get("workspace.vertical")}</span>
+            </button>
+            <button
+              className={`${styles.toggleBtn} ${orientation === "horizontal" ? styles.toggleActive : ""}`}
+              onClick={() => onOrientationChange("horizontal")}
+            >
+              <img src="/horizontal.svg" alt="" className={styles.toggleIcon} />
+              <span>{get("workspace.horizontal")}</span>
+            </button>
+          </div>
         </div>
 
         {/* Emoji toggle */}
@@ -421,18 +545,21 @@ export default function WeekPlan({
       <div
         className={`${styles.tableContainer} ${orientation === "horizontal" ? styles.landscapePage : styles.portraitPage}`}
         ref={tableRef}
+        style={{ "--table-accent": accentColor } as React.CSSProperties}
       >
         {orientation === "vertical" ? (
           <VerticalTable
             scheduleMap={scheduleMap}
             onCellClick={handleCellClick}
             showEmoji={showEmoji}
+            timeSlots={dynamicTimeSlots}
           />
         ) : (
           <HorizontalTable
             scheduleMap={scheduleMap}
             onCellClick={handleCellClick}
             showEmoji={showEmoji}
+            timeSlots={dynamicTimeSlots}
           />
         )}
       </div>
@@ -566,10 +693,18 @@ function CoursePopup({
     getLastDuration,
   );
   const [search, setSearch] = useState("");
+  const [customTags, setCustomTags] = useState<CustomTag[]>(getCustomTags);
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [newTagName, setNewTagName] = useState("");
+  const [newTagIcon, setNewTagIcon] = useState("🏷️");
+  const [newTagColor, setNewTagColor] = useState(PALETTE_COLORS[0]);
 
   const allCourses = useMemo(
-    () => COURSES.filter((c) => isAdmin || !(c as any).adminOnly),
-    [isAdmin],
+    () => [
+      ...COURSES.filter((c) => isAdmin || !(c as any).adminOnly),
+      ...customTags,
+    ],
+    [isAdmin, customTags],
   );
 
   const visibleCourses = useMemo(() => {
@@ -585,7 +720,30 @@ function CoursePopup({
       if (matched.length > 0) return matched;
     }
     return COURSES.filter((c) => FEATURED.has(c.name));
-  }, [search]);
+  }, [search, allCourses]);
+
+  function handleSaveCustomTag() {
+    const name = newTagName.trim();
+    if (!name) return;
+    if (allCourses.some((c) => c.name === name)) return;
+    const tag: CustomTag = {
+      name,
+      icon: newTagIcon,
+      color: newTagColor,
+      bg: newTagColor + "20",
+    };
+    const updated = [...customTags, tag];
+    setCustomTags(updated);
+    saveCustomTagsToStorage(updated);
+    setSelectedCourse(name);
+    saveLastCourse(name);
+    setShowAddForm(false);
+    setNewTagName("");
+    setNewTagIcon("🏷️");
+    setNewTagColor(PALETTE_COLORS[0]);
+  }
+
+  const showAddPrompt = search.trim().length >= 3;
 
   return (
     <div className={styles.overlay} onClick={onClose}>
@@ -630,12 +788,68 @@ function CoursePopup({
               {c.name}
             </button>
           ))}
-          {visibleCourses.length === 0 && (
-            <p className={styles.searchEmpty}>
-              {get("workspace.nothingFound")}
-            </p>
-          )}
+
+          {/* "+ Добавить свой курс" button — always at the end */}
+          <button
+            className={styles.addCustomTagBtn}
+            onClick={() => {
+              setShowAddForm((v) => !v);
+              if (!showAddForm && search.trim()) setNewTagName(search.trim());
+            }}
+          >
+            <span className={styles.addCustomTagPlus}>+</span>
+            Свой курс
+          </button>
         </div>
+
+        {/* Mini form to add custom tag */}
+        {showAddForm && (
+          <div className={styles.addTagForm}>
+            <div className={styles.addTagRow}>
+              <input
+                className={styles.addTagEmojiInput}
+                value={newTagIcon}
+                maxLength={4}
+                onChange={(e) => setNewTagIcon(e.target.value)}
+                placeholder="🏷️"
+              />
+              <input
+                className={styles.addTagNameInput}
+                value={newTagName}
+                onChange={(e) => setNewTagName(e.target.value)}
+                placeholder="Название курса..."
+                onKeyDown={(e) => e.key === "Enter" && handleSaveCustomTag()}
+                autoFocus
+              />
+            </div>
+            <div className={styles.addTagColorRow}>
+              {PALETTE_COLORS.map((color) => (
+                <button
+                  key={color}
+                  className={`${styles.addTagColorSwatch} ${newTagColor === color ? styles.addTagColorActive : ""}`}
+                  style={{ background: color }}
+                  onClick={() => setNewTagColor(color)}
+                />
+              ))}
+            </div>
+            <div className={styles.addTagActions}>
+              <button
+                className={styles.addTagSave}
+                style={{ background: newTagColor }}
+                onClick={handleSaveCustomTag}
+                disabled={!newTagName.trim()}
+              >
+                Сохранить
+              </button>
+              <button
+                className={styles.addTagCancel}
+                onClick={() => setShowAddForm(false)}
+              >
+                Отмена
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Duration */}
         <p className={styles.popupLabel}>
@@ -699,7 +913,9 @@ function ScheduleCell({
     const isStart = info.type === "start";
     const { isLast } = info;
     const c = info.course?.color ?? "var(--color-primary-solid, #4ade80)";
-    const bg = info.course?.bg ?? "color-mix(in srgb, var(--color-primary-solid, #4ade80) 12%, transparent)";
+    const bg =
+      info.course?.bg ??
+      "color-mix(in srgb, var(--color-primary-solid, #4ade80) 12%, transparent)";
     const stripe = `color-mix(in srgb, ${c} 5%, transparent)`;
     const lineColor = `color-mix(in srgb, ${c} 100%, transparent)`;
     const cellStyle: React.CSSProperties = {
@@ -723,11 +939,16 @@ function ScheduleCell({
       >
         {isStart && (
           <span className={styles.courseName} data-print="course">
-            {showEmoji && info.course && typeof info.course.icon === "string" && (
-              <span className={styles.courseIconCell} data-print="course-icon">
-                <TagIcon icon={info.course.icon} size={15} />
-              </span>
-            )}
+            {showEmoji &&
+              info.course &&
+              typeof info.course.icon === "string" && (
+                <span
+                  className={styles.courseIconCell}
+                  data-print="course-icon"
+                >
+                  <TagIcon icon={info.course.icon} size={15} />
+                </span>
+              )}
             <span className={styles.courseText} data-print="course-text">
               {displayName.split("\n")[0]}
             </span>
@@ -752,10 +973,12 @@ function VerticalTable({
   scheduleMap,
   onCellClick,
   showEmoji,
+  timeSlots,
 }: {
   scheduleMap: Map<string, CellInfo>;
   onCellClick: (day: string, time: string, e: React.MouseEvent) => void;
   showEmoji: boolean;
+  timeSlots: string[];
 }) {
   return (
     <table className={styles.table}>
@@ -775,7 +998,7 @@ function VerticalTable({
         </tr>
       </thead>
       <tbody>
-        {TIME_SLOTS.map((time) => (
+        {timeSlots.map((time) => (
           <tr
             key={time}
             className={time.endsWith(":00") ? styles.hourRow : styles.halfRow}
@@ -805,10 +1028,12 @@ function HorizontalTable({
   scheduleMap,
   onCellClick,
   showEmoji,
+  timeSlots,
 }: {
   scheduleMap: Map<string, CellInfo>;
   onCellClick: (day: string, time: string, e: React.MouseEvent) => void;
   showEmoji: boolean;
+  timeSlots: string[];
 }) {
   return (
     <table className={`${styles.table} ${styles.tableHorizontal}`}>
@@ -828,7 +1053,7 @@ function HorizontalTable({
         </tr>
       </thead>
       <tbody>
-        {TIME_SLOTS.map((time) => (
+        {timeSlots.map((time) => (
           <tr
             key={time}
             className={time.endsWith(":00") ? styles.hourRow : styles.halfRow}
