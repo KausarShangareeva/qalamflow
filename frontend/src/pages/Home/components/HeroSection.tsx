@@ -52,6 +52,12 @@ export default function HeroSection() {
               </CTAButton>
             )}
           </div>
+
+          {/* <img
+            src="/pencils.png"
+            alt=""
+            className={styles.pencilsImg}
+          /> */}
         </div>
 
         {/* Right column — page mockup */}
