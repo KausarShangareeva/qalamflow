@@ -17,24 +17,39 @@
 }
 
 .ctaButton {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background: var(--gradient-primary);
-  color: white;
+  background: linear-gradient(135deg, #7a9a6a 0%, #5e7d50 60%, #526e46 100%);
+  color: #f0ede6;
   font-size: var(--fs-lg);
   font-weight: 600;
   padding: 1.6rem 4rem;
   border-radius: 1.2rem;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
   text-decoration: none;
   transition:
     transform var(--transition-fast),
     box-shadow var(--transition-fast);
+  box-shadow:
+    0 0.4rem 1.2rem rgba(80, 110, 60, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
 
-  box-shadow: 0 0.4rem 1.2rem rgba(16, 185, 129, 0.3);
+/* Noise grain overlay */
+.ctaButton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
 }
 
 .fullWidth {
@@ -51,8 +66,11 @@
 
 .ctaButton:hover {
   transform: translateY(-0.2rem);
-  box-shadow: 0 0.8rem 2rem rgba(16, 185, 129, 0.4);
-  color: white;
+  box-shadow:
+    0 0.8rem 2.4rem rgba(80, 110, 60, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: #f0ede6;
+  background: linear-gradient(135deg, #85a872 0%, #678a58 60%, #5a7a4c 100%);
 }
 
 .ctaButton:active {

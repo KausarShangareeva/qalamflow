@@ -34,45 +34,33 @@ export default function HeroSection() {
   return (
     <section id="hero" className={styles.heroSection}>
       <div className={styles.wrapper}>
-        <div className={styles.badge}>
-          <TagIcon icon="✏️" size={18} /> {get("hero.badge")}
+        {/* Left column — text & actions */}
+        <div className={styles.heroLeft}>
+          <h1 className={styles.mainTitle}>{get("hero.mainTitle")}</h1>
+
+          <h2 className={styles.animatedTitle}>
+            Спроектируй свою учебный план за 5 минут и начни двигаться к
+            результату без выгорания
+          </h2>
+
+          <div className={styles.heroActions}>
+            {user ? (
+              <CTAButton to="/workspace">{get("home.cta.dashboard")}</CTAButton>
+            ) : (
+              <CTAButton onClick={handleGuestMode}>
+                Составить план как гость ✨
+              </CTAButton>
+            )}
+          </div>
         </div>
 
-        <h1 className={styles.mainTitle}>{get("hero.mainTitle")}</h1>
-
-        <h2 className={styles.animatedTitle}>
-          {get("hero.subMainTitle")}{" "}
-          <span
-            className={styles.changingPhraseWrapper}
-            key={currentPhraseIndex}
-          >
-            <span className={styles.phraseEmoji}>
-              <TagIcon icon={phrases[currentPhraseIndex].emoji} size={28} />
-            </span>
-            <span className={styles.changingPhrase}>
-              {phrases[currentPhraseIndex].text}
-            </span>
-          </span>
-        </h2>
-
-        <div className={styles.heroActions}>
-          {user ? (
-            <CTAButton to="/workspace">{get("home.cta.dashboard")}</CTAButton>
-          ) : (
-            <CTAButton onClick={handleGuestMode}>Составить план как гость ✨</CTAButton>
-          )}
-          <button
-            type="button"
-            className={styles.exploreBtn}
-            onClick={() =>
-              document
-                .getElementById("screen-preview")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            {get("hero.exploreBtn")}
-            <ArrowUpRight size={18} />
-          </button>
+        {/* Right column — page mockup */}
+        <div className={styles.heroRight}>
+          <img
+            src="/QalamFlow_page.jpg"
+            alt="QalamFlow preview"
+            className={styles.heroMockup}
+          />
         </div>
       </div>
     </section>

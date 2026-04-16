@@ -1,53 +1,122 @@
 .heroSection {
   position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: calc(-1 * var(--space-xl));
+  background-image:
+    radial-gradient(circle, var(--dot-color) 1px, transparent 1px),
+    repeating-linear-gradient(
+      180deg,
+      var(--dash-color) 0,
+      var(--dash-color) 14px,
+      transparent 14px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      var(--dash-color) 0,
+      var(--dash-color) 14px,
+      transparent 14px,
+      transparent 22px
+    ),
+    url("/table_3.png");
+  background-size:
+    24px 24px,
+    1px 100%,
+    1px 100%,
+    cover;
+  background-position:
+    0 0,
+    left top,
+    right top,
+    center;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+}
+
+.heroSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22rem;
+  background-image: url("/shadow_1.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.heroSection > * {
+  position: relative;
+  z-index: 2;
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-lg);
-  padding: var(--space-3xl) 0;
+  gap: 5rem;
+  padding: var(--space-xl) 0;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding-inline: var(--space-xl);
 }
 
-.badge {
-  display: inline-flex;
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.heroRight {
+  display: flex;
   align-items: center;
-  gap: 0.6rem;
-  background: var(--gradient-subtle);
-  border: 0.1rem solid rgba(99, 102, 241, 0.2);
-  color: var(--color-primary);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: 10rem;
-  margin-bottom: var(--space-md);
+  justify-content: center;
+}
+
+.heroMockup {
+  width: 300%;
+  max-width: 100rem;
+  border-radius: 1.6rem;
+  box-shadow:
+    0 3.2rem 6.4rem rgba(0, 0, 0, 0.35),
+    0 0.8rem 1.6rem rgba(0, 0, 0, 0.2);
+  transform: rotate(-6deg) translateY(1rem);
+  transform-origin: center bottom;
+  transition: transform 0.4s ease;
+  object-fit: cover;
+  margin-left: 50rem;
+  margin-bottom: 10rem;
+}
+
+.heroMockup:hover {
+  transform: rotate(-5deg) translateY(-0.5rem);
 }
 
 .mainTitle {
-  font-size: var(--fs-4xl);
+  font-size: 7rem;
   font-weight: 700;
-  line-height: 1.2;
-  color: var(--color-text);
+  color: #ffedd7;
   margin-bottom: var(--space-md);
-  text-align: center;
-  width: 60%;
+  text-align: left;
+  width: 100%;
 }
 
 .animatedTitle {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 400;
-  color: var(--color-text-muted);
+  color: #ffedd7;
+  max-width: 90%;
   margin-bottom: var(--space-lg);
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.8rem;
 }
 
@@ -177,12 +246,43 @@
 .subtitle {
   color: var(--color-text-muted);
   font-size: var(--fs-lg);
-  max-width: 75%; /* 640px - updated for new rem scale */
+  max-width: 100%;
   line-height: 1.7;
-  text-align: center;
+  text-align: left;
 }
 
 /* Responsive */
+@media (max-width: 900px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    padding-inline: var(--space-lg);
+    gap: var(--space-xl);
+  }
+
+  .heroLeft {
+    align-items: center;
+  }
+
+  .mainTitle {
+    text-align: center;
+    font-size: var(--fs-3xl);
+  }
+
+  .animatedTitle {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .heroRight {
+    order: -1;
+  }
+
+  .heroMockup {
+    max-width: 36rem;
+    transform: rotate(-4deg) translateY(0.5rem);
+  }
+}
+
 @media (max-width: 768px) {
   .wrapper {
     padding-inline: var(--space-lg);
@@ -272,6 +372,10 @@
 
 /* Extra small screens (320px - 480px) */
 @media (max-width: 480px) {
+  .heroSection {
+    margin-top: calc(-1 * var(--space-lg));
+  }
+
   .wrapper {
     padding-inline: var(--space-sm);
     padding-top: var(--space-xl);

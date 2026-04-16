@@ -1848,5 +1848,236 @@
     "bg": "var(--tag-golf-bg)",
     "icon": "⛳",
     "benefit": "Точность и концентрация"
+  },
+  {
+    "name": "Подъём",
+    "color": "var(--tag-wakeup)",
+    "bg": "var(--tag-wakeup-bg)",
+    "icon": "🌅",
+    "benefit": "Начало нового дня"
+  },
+  {
+    "name": "Дневной сон",
+    "color": "var(--tag-nap)",
+    "bg": "var(--tag-nap-bg)",
+    "icon": "🛌",
+    "benefit": "Восстановление сил"
+  },
+  {
+    "name": "Холодный душ",
+    "color": "var(--tag-cold-shower)",
+    "bg": "var(--tag-cold-shower-bg)",
+    "icon": "🧊",
+    "benefit": "Бодрость и иммунитет"
+  },
+  {
+    "name": "Душ",
+    "color": "var(--tag-shower)",
+    "bg": "var(--tag-shower-bg)",
+    "icon": "🚿",
+    "benefit": "Гигиена и свежесть"
+  },
+  {
+    "name": "Умыться",
+    "color": "var(--tag-wash)",
+    "bg": "var(--tag-wash-bg)",
+    "icon": "🫧",
+    "benefit": "Утренняя гигиена"
+  },
+  {
+    "name": "Гусуль",
+    "color": "var(--tag-ghusl)",
+    "bg": "var(--tag-ghusl-bg)",
+    "icon": "🌊",
+    "benefit": "Полное омовение"
+  },
+  {
+    "name": "Баня",
+    "color": "var(--tag-sauna)",
+    "bg": "var(--tag-sauna-bg)",
+    "icon": "🔥",
+    "benefit": "Оздоровление и расслабление"
+  },
+  {
+    "name": "Прогулка",
+    "color": "var(--tag-walk)",
+    "bg": "var(--tag-walk-bg)",
+    "icon": "🚶",
+    "benefit": "Свежий воздух и движение"
+  },
+  {
+    "name": "Бег",
+    "color": "var(--tag-run)",
+    "bg": "var(--tag-run-bg)",
+    "icon": "🏃",
+    "benefit": "Выносливость и здоровье"
+  },
+  {
+    "name": "Плавание",
+    "color": "var(--tag-swim)",
+    "bg": "var(--tag-swim-bg)",
+    "icon": "🏊",
+    "benefit": "Полная нагрузка на тело"
+  },
+  {
+    "name": "Бассейн",
+    "color": "var(--tag-pool)",
+    "bg": "var(--tag-pool-bg)",
+    "icon": "🏊‍♂️",
+    "benefit": "Тренировка в воде"
+  },
+  {
+    "name": "Отдых",
+    "color": "var(--tag-rest)",
+    "bg": "var(--tag-rest-bg)",
+    "icon": "😌",
+    "benefit": "Восстановление и покой"
+  },
+  {
+    "name": "Завтрак",
+    "color": "var(--tag-breakfast)",
+    "bg": "var(--tag-breakfast-bg)",
+    "icon": "🍳",
+    "benefit": "Энергия на весь день"
+  },
+  {
+    "name": "Обед",
+    "color": "var(--tag-lunch)",
+    "bg": "var(--tag-lunch-bg)",
+    "icon": "🍽️",
+    "benefit": "Основной приём пищи"
+  },
+  {
+    "name": "Ужин",
+    "color": "var(--tag-dinner)",
+    "bg": "var(--tag-dinner-bg)",
+    "icon": "🥘",
+    "benefit": "Вечерний приём пищи"
+  },
+  {
+    "name": "Перекус",
+    "color": "var(--tag-snack)",
+    "bg": "var(--tag-snack-bg)",
+    "icon": "🍎",
+    "benefit": "Лёгкий перекус"
+  },
+  {
+    "name": "Сухур",
+    "color": "var(--tag-suhoor)",
+    "bg": "var(--tag-suhoor-bg)",
+    "icon": "🌙",
+    "benefit": "Предрассветный приём пищи"
+  },
+  {
+    "name": "Ифтар",
+    "color": "var(--tag-iftar)",
+    "bg": "var(--tag-iftar-bg)",
+    "icon": "🌇",
+    "benefit": "Разговение после поста"
+  },
+  {
+    "name": "Намаз",
+    "color": "var(--tag-salah)",
+    "bg": "var(--tag-salah-bg)",
+    "icon": "🕌",
+    "benefit": "Связь с Аллахом"
+  },
+  {
+    "name": "Фаджр",
+    "color": "var(--tag-fajr)",
+    "bg": "var(--tag-fajr-bg)",
+    "icon": "🌄",
+    "benefit": "Утренний намаз"
+  },
+  {
+    "name": "Духха",
+    "color": "var(--tag-duha)",
+    "bg": "var(--tag-duha-bg)",
+    "icon": "☀️",
+    "benefit": "Добровольный намаз Духха"
+  },
+  {
+    "name": "Зухр",
+    "color": "var(--tag-dhuhr)",
+    "bg": "var(--tag-dhuhr-bg)",
+    "icon": "🕛",
+    "benefit": "Полуденный намаз"
+  },
+  {
+    "name": "Аср",
+    "color": "var(--tag-asr)",
+    "bg": "var(--tag-asr-bg)",
+    "icon": "🌤️",
+    "benefit": "Послеполуденный намаз"
+  },
+  {
+    "name": "Магриб",
+    "color": "var(--tag-maghrib)",
+    "bg": "var(--tag-maghrib-bg)",
+    "icon": "🌆",
+    "benefit": "Намаз после захода солнца"
+  },
+  {
+    "name": "Иша",
+    "color": "var(--tag-isha)",
+    "bg": "var(--tag-isha-bg)",
+    "icon": "🌙",
+    "benefit": "Ночной намаз"
+  },
+  {
+    "name": "Тахаджуд",
+    "color": "var(--tag-tahajjud)",
+    "bg": "var(--tag-tahajjud-bg)",
+    "icon": "⭐",
+    "benefit": "Ночной добровольный намаз"
+  },
+  {
+    "name": "Витр",
+    "color": "var(--tag-witr)",
+    "bg": "var(--tag-witr-bg)",
+    "icon": "🌙",
+    "benefit": "Намаз Витр"
+  },
+  {
+    "name": "Азкары утро",
+    "color": "var(--tag-morning-adhkar)",
+    "bg": "var(--tag-morning-adhkar-bg)",
+    "icon": "🌸",
+    "benefit": "Утренние зикры — защита и баракат"
+  },
+  {
+    "name": "Азкары вечер",
+    "color": "var(--tag-evening-adhkar)",
+    "bg": "var(--tag-evening-adhkar-bg)",
+    "icon": "🌺",
+    "benefit": "Вечерние зикры — защита ночью"
+  },
+  {
+    "name": "Ду'а",
+    "color": "var(--tag-dua)",
+    "bg": "var(--tag-dua-bg)",
+    "icon": "🤲",
+    "benefit": "Обращение к Аллаху"
+  },
+  {
+    "name": "Садака",
+    "color": "var(--tag-sadaqah)",
+    "bg": "var(--tag-sadaqah-bg)",
+    "icon": "🪙",
+    "benefit": "Очищение имущества и души"
+  },
+  {
+    "name": "Пожертвование",
+    "color": "var(--tag-donation)",
+    "bg": "var(--tag-donation-bg)",
+    "icon": "🪙",
+    "benefit": "Помощь нуждающимся"
+  },
+  {
+    "name": "Дироя",
+    "color": "var(--tag-diroya)",
+    "bg": "var(--tag-diroya-bg)",
+    "icon": "/Diroya.svg",
+    "benefit": "Изучение исламских наук"
   }
 ]

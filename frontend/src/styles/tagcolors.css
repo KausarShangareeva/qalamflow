@@ -599,6 +599,81 @@
   --tag-skiing-bg: rgba(147, 197, 253, 0.13);
   --tag-golf: #4ade80;
   --tag-golf-bg: rgba(74, 222, 128, 0.13);
+
+  /* Daily routine */
+  --tag-wakeup: #f59e0b;
+  --tag-wakeup-bg: rgba(245, 158, 11, 0.13);
+  --tag-nap: #818cf8;
+  --tag-nap-bg: rgba(129, 140, 248, 0.13);
+  --tag-cold-shower: #38bdf8;
+  --tag-cold-shower-bg: rgba(56, 189, 248, 0.13);
+  --tag-shower: #60a5fa;
+  --tag-shower-bg: rgba(96, 165, 250, 0.13);
+  --tag-wash: #67e8f9;
+  --tag-wash-bg: rgba(103, 232, 249, 0.13);
+  --tag-ghusl: #06b6d4;
+  --tag-ghusl-bg: rgba(6, 182, 212, 0.13);
+  --tag-sauna: #ef4444;
+  --tag-sauna-bg: rgba(239, 68, 68, 0.13);
+  --tag-walk: #34d399;
+  --tag-walk-bg: rgba(52, 211, 153, 0.13);
+  --tag-run: #22c55e;
+  --tag-run-bg: rgba(34, 197, 94, 0.13);
+  --tag-swim: #0ea5e9;
+  --tag-swim-bg: rgba(14, 165, 233, 0.13);
+  --tag-pool: #0284c7;
+  --tag-pool-bg: rgba(2, 132, 199, 0.13);
+  --tag-rest: #a78bfa;
+  --tag-rest-bg: rgba(167, 139, 250, 0.13);
+
+  /* Meals */
+  --tag-breakfast: #fbbf24;
+  --tag-breakfast-bg: rgba(251, 191, 36, 0.13);
+  --tag-lunch: #f97316;
+  --tag-lunch-bg: rgba(249, 115, 22, 0.13);
+  --tag-dinner: #e11d48;
+  --tag-dinner-bg: rgba(225, 29, 72, 0.13);
+  --tag-snack: #84cc16;
+  --tag-snack-bg: rgba(132, 204, 22, 0.13);
+  --tag-suhoor: #6366f1;
+  --tag-suhoor-bg: rgba(99, 102, 241, 0.13);
+  --tag-iftar: #f472b6;
+  --tag-iftar-bg: rgba(244, 114, 182, 0.13);
+
+  /* Salah (prayers) */
+  --tag-salah: #1aaa6a;
+  --tag-salah-bg: rgba(26, 170, 106, 0.13);
+  --tag-fajr: #8b5cf6;
+  --tag-fajr-bg: rgba(139, 92, 246, 0.13);
+  --tag-duha: #f59e0b;
+  --tag-duha-bg: rgba(245, 158, 11, 0.13);
+  --tag-dhuhr: #06b6d4;
+  --tag-dhuhr-bg: rgba(6, 182, 212, 0.13);
+  --tag-asr: #f97316;
+  --tag-asr-bg: rgba(249, 115, 22, 0.13);
+  --tag-maghrib: #ec4899;
+  --tag-maghrib-bg: rgba(236, 72, 153, 0.13);
+  --tag-isha: #4f46e5;
+  --tag-isha-bg: rgba(79, 70, 229, 0.13);
+  --tag-tahajjud: #7c3aed;
+  --tag-tahajjud-bg: rgba(124, 58, 237, 0.13);
+  --tag-witr: #a855f7;
+  --tag-witr-bg: rgba(168, 85, 247, 0.13);
+
+  /* Dhikr & charity */
+  --tag-morning-adhkar: #10b981;
+  --tag-morning-adhkar-bg: rgba(16, 185, 129, 0.13);
+  --tag-evening-adhkar: #0891b2;
+  --tag-evening-adhkar-bg: rgba(8, 145, 178, 0.13);
+  --tag-dua: #00d68f;
+  --tag-dua-bg: rgba(0, 214, 143, 0.13);
+  --tag-sadaqah: #eab308;
+  --tag-sadaqah-bg: rgba(234, 179, 8, 0.13);
+  --tag-donation: #f59e0b;
+  --tag-donation-bg: rgba(245, 158, 11, 0.13);
+
+  --tag-diroya: #1aaa6a;
+  --tag-diroya-bg: rgba(26, 170, 106, 0.13);
 }
 
 /* Light theme — vivid text + solid pastel background, no opacity */
@@ -1105,4 +1180,79 @@
   --tag-skiing-bg: #eff6ff;
   --tag-golf: #15803d;
   --tag-golf-bg: #dcfce7;
+
+  /* Daily routine */
+  --tag-wakeup: #b45309;
+  --tag-wakeup-bg: #fef3c7;
+  --tag-nap: #4338ca;
+  --tag-nap-bg: #eef2ff;
+  --tag-cold-shower: #0369a1;
+  --tag-cold-shower-bg: #e0f2fe;
+  --tag-shower: #1d4ed8;
+  --tag-shower-bg: #dbeafe;
+  --tag-wash: #0e7490;
+  --tag-wash-bg: #cffafe;
+  --tag-ghusl: #0c4a6e;
+  --tag-ghusl-bg: #e0f2fe;
+  --tag-sauna: #991b1b;
+  --tag-sauna-bg: #fee2e2;
+  --tag-walk: #065f46;
+  --tag-walk-bg: #d1fae5;
+  --tag-run: #15803d;
+  --tag-run-bg: #dcfce7;
+  --tag-swim: #0369a1;
+  --tag-swim-bg: #e0f2fe;
+  --tag-pool: #075985;
+  --tag-pool-bg: #e0f2fe;
+  --tag-rest: #5b21b6;
+  --tag-rest-bg: #ede9fe;
+
+  /* Meals */
+  --tag-breakfast: #92400e;
+  --tag-breakfast-bg: #fef3c7;
+  --tag-lunch: #9a3412;
+  --tag-lunch-bg: #ffedd5;
+  --tag-dinner: #9f1239;
+  --tag-dinner-bg: #ffe4e6;
+  --tag-snack: #3f6212;
+  --tag-snack-bg: #ecfccb;
+  --tag-suhoor: #3730a3;
+  --tag-suhoor-bg: #eef2ff;
+  --tag-iftar: #be185d;
+  --tag-iftar-bg: #fce7f3;
+
+  /* Salah */
+  --tag-salah: #14532d;
+  --tag-salah-bg: #dcfce7;
+  --tag-fajr: #4c1d95;
+  --tag-fajr-bg: #ede9fe;
+  --tag-duha: #78350f;
+  --tag-duha-bg: #fef3c7;
+  --tag-dhuhr: #0c4a6e;
+  --tag-dhuhr-bg: #e0f2fe;
+  --tag-asr: #7c2d12;
+  --tag-asr-bg: #ffedd5;
+  --tag-maghrib: #831843;
+  --tag-maghrib-bg: #fce7f3;
+  --tag-isha: #1e1b4b;
+  --tag-isha-bg: #eef2ff;
+  --tag-tahajjud: #3b0764;
+  --tag-tahajjud-bg: #faf5ff;
+  --tag-witr: #581c87;
+  --tag-witr-bg: #f3e8ff;
+
+  /* Dhikr & charity */
+  --tag-morning-adhkar: #064e3b;
+  --tag-morning-adhkar-bg: #d1fae5;
+  --tag-evening-adhkar: #164e63;
+  --tag-evening-adhkar-bg: #cffafe;
+  --tag-dua: #065f46;
+  --tag-dua-bg: #d1fae5;
+  --tag-sadaqah: #78350f;
+  --tag-sadaqah-bg: #fef9c3;
+  --tag-donation: #92400e;
+  --tag-donation-bg: #fef3c7;
+
+  --tag-diroya: #14532d;
+  --tag-diroya-bg: #dcfce7;
 }

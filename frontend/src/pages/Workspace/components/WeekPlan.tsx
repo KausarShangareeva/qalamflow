@@ -133,11 +133,19 @@ function lightenHex(hex: string, amount: number): string {
 
 /* ===== Types ===== */
 
+interface AnyTag {
+  name: string;
+  color: string;
+  bg: string;
+  icon?: string;
+  benefit?: string;
+}
+
 interface CellInfo {
   type: "start" | "continuation" | "empty";
   isLast: boolean;
   order: number;
-  course?: (typeof COURSES)[number];
+  course?: AnyTag;
   entry?: ScheduleEntry;
 }
 
@@ -152,10 +160,13 @@ function getTimeSlotsForEntry(startTime: string, duration: number): string[] {
   return TIME_SLOTS.slice(startIdx, startIdx + slotCount);
 }
 
-function buildScheduleMap(entries: ScheduleEntry[]): Map<string, CellInfo> {
+function buildScheduleMap(
+  entries: ScheduleEntry[],
+  allTags: AnyTag[],
+): Map<string, CellInfo> {
   const map = new Map<string, CellInfo>();
   entries.forEach((entry, entryIdx) => {
-    const course = COURSES.find((c) => c.name === entry.course);
+    const course = allTags.find((c) => c.name === entry.course);
     const slots = getTimeSlotsForEntry(entry.startTime, entry.duration);
     slots.forEach((time, i) => {
       const key = `${entry.day}-${time}`;
@@ -224,6 +235,14 @@ export default function WeekPlan({
     () => generateDynamicTimeSlots(timeFrom, timeTo),
     [timeFrom, timeTo],
   );
+  const [customTags, setCustomTags] = useState<CustomTag[]>(getCustomTags);
+  const allTags = useMemo<AnyTag[]>(
+    () => [
+      ...(COURSES as AnyTag[]),
+      ...customTags,
+    ],
+    [customTags],
+  );
   const [deletedEntry, setDeletedEntry] = useState<ScheduleEntry | null>(null);
   const [benefitToast, setBenefitToast] = useState<{
     course: string;
@@ -250,7 +269,10 @@ export default function WeekPlan({
     return () => ro.disconnect();
   }, []);
 
-  const scheduleMap = useMemo(() => buildScheduleMap(schedule), [schedule]);
+  const scheduleMap = useMemo(
+    () => buildScheduleMap(schedule, allTags),
+    [schedule, allTags],
+  );
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -301,13 +323,13 @@ export default function WeekPlan({
     ]);
     setPopup(null);
 
-    const tag = COURSES.find((c) => c.name === course);
-    if (tag && "benefit" in tag && (tag as any).benefit) {
+    const tag = allTags.find((c) => c.name === course);
+    if (tag && tag.benefit) {
       if (benefitTimerRef.current) clearTimeout(benefitTimerRef.current);
       setBenefitToast({
         course,
-        benefit: (tag as any).benefit,
-        icon: tag.icon,
+        benefit: tag.benefit!,
+        icon: tag.icon ?? "",
         x: popupPosRef.current.x,
         y: popupPosRef.current.y,
       });
@@ -571,6 +593,11 @@ export default function WeekPlan({
           onClose={() => setPopup(null)}
           showEmoji={showEmoji}
           isAdmin={isAdmin}
+          customTags={customTags}
+          onCustomTagsChange={(tags) => {
+            setCustomTags(tags);
+            saveCustomTagsToStorage(tags);
+          }}
         />
       )}
 
@@ -679,62 +706,52 @@ function CoursePopup({
   onClose,
   showEmoji,
   isAdmin,
+  customTags,
+  onCustomTagsChange,
 }: {
   onAdd: (course: string, duration: number) => void;
   onClose: () => void;
   showEmoji: boolean;
   isAdmin: boolean;
+  customTags: CustomTag[];
+  onCustomTagsChange: (tags: CustomTag[]) => void;
 }) {
   const { get } = useCopy();
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(
-    getLastCourse,
-  );
-  const [selectedDuration, setSelectedDuration] = useState<number | null>(
-    getLastDuration,
-  );
+  const [tab, setTab] = useState<"all" | "mine">("all");
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(getLastCourse);
+  const [selectedDuration, setSelectedDuration] = useState<number | null>(getLastDuration);
   const [search, setSearch] = useState("");
-  const [customTags, setCustomTags] = useState<CustomTag[]>(getCustomTags);
   const [showAddForm, setShowAddForm] = useState(false);
   const [newTagName, setNewTagName] = useState("");
   const [newTagIcon, setNewTagIcon] = useState("🏷️");
   const [newTagColor, setNewTagColor] = useState(PALETTE_COLORS[0]);
 
-  const allCourses = useMemo(
-    () => [
-      ...COURSES.filter((c) => isAdmin || !(c as any).adminOnly),
-      ...customTags,
-    ],
-    [isAdmin, customTags],
+  const baseCourses = useMemo(
+    () => COURSES.filter((c) => isAdmin || !(c as any).adminOnly) as AnyTag[],
+    [isAdmin],
   );
 
   const visibleCourses = useMemo(() => {
     const q = search.trim().toLowerCase().replace(/\s+/g, "");
+    const pool: AnyTag[] = [...baseCourses, ...customTags];
     if (q.length >= 3)
-      return allCourses.filter((c) =>
-        c.name.toLowerCase().replace(/\s+/g, "").includes(q),
-      );
+      return pool.filter((c) => c.name.toLowerCase().replace(/\s+/g, "").includes(q));
     const frequent = getFrequent();
     if (frequent.length > 0) {
       const freqSet = new Set(frequent);
-      const matched = allCourses.filter((c) => freqSet.has(c.name));
+      const matched = pool.filter((c) => freqSet.has(c.name));
       if (matched.length > 0) return matched;
     }
-    return COURSES.filter((c) => FEATURED.has(c.name));
-  }, [search, allCourses]);
+    return (COURSES as AnyTag[]).filter((c) => FEATURED.has(c.name));
+  }, [search, baseCourses, customTags]);
 
   function handleSaveCustomTag() {
     const name = newTagName.trim();
     if (!name) return;
-    if (allCourses.some((c) => c.name === name)) return;
-    const tag: CustomTag = {
-      name,
-      icon: newTagIcon,
-      color: newTagColor,
-      bg: newTagColor + "20",
-    };
-    const updated = [...customTags, tag];
-    setCustomTags(updated);
-    saveCustomTagsToStorage(updated);
+    const pool: AnyTag[] = [...baseCourses, ...customTags];
+    if (pool.some((c) => c.name === name)) return;
+    const tag: CustomTag = { name, icon: newTagIcon || "🏷️", color: newTagColor, bg: newTagColor + "20" };
+    onCustomTagsChange([...customTags, tag]);
     setSelectedCourse(name);
     saveLastCourse(name);
     setShowAddForm(false);
@@ -743,73 +760,142 @@ function CoursePopup({
     setNewTagColor(PALETTE_COLORS[0]);
   }
 
-  const showAddPrompt = search.trim().length >= 3;
+  function handleDeleteCustomTag(name: string) {
+    onCustomTagsChange(customTags.filter((t) => t.name !== name));
+    if (selectedCourse === name) setSelectedCourse(null);
+  }
+
+  const showAddPrompt = search.trim().length >= 3 && visibleCourses.length === 0 && !showAddForm;
 
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
+
+        {/* Header */}
         <div className={styles.popupHeader}>
           <span>{get("home.howItWorks.popup.title")}</span>
-          <button className={styles.popupClose} onClick={onClose}>
-            &times;
-          </button>
+          <button className={styles.popupClose} onClick={onClose}>&times;</button>
         </div>
 
-        {/* Courses */}
-        <p className={styles.popupLabel}>
-          {get("home.howItWorks.popup.selectCourse")}
-        </p>
-        <div className={styles.searchBox}>
-          <Search size={16} className={styles.searchIcon} />
-          <input
-            className={styles.searchInput}
-            type="text"
-            placeholder={get("home.howItWorks.popup.searchPlaceholder")}
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-        <div className={styles.courseGrid}>
-          {visibleCourses.map((c) => (
-            <button
-              key={c.name}
-              className={`${styles.courseTag} ${selectedCourse === c.name ? styles.courseTagActive : ""}`}
-              style={{ "--tag-color": c.color } as React.CSSProperties}
-              onClick={() => {
-                setSelectedCourse(c.name);
-                saveLastCourse(c.name);
-              }}
-            >
-              {showEmoji && typeof c.icon === "string" && (
-                <span className={styles.courseIcon}>
-                  <TagIcon icon={c.icon} size={14} />
-                </span>
-              )}
-              {c.name}
-            </button>
-          ))}
-
-          {/* "+ Добавить свой курс" button — always at the end */}
+        {/* Tabs */}
+        <div className={styles.popupTabs}>
           <button
-            className={styles.addCustomTagBtn}
-            onClick={() => {
-              setShowAddForm((v) => !v);
-              if (!showAddForm && search.trim()) setNewTagName(search.trim());
-            }}
+            className={`${styles.popupTab} ${tab === "all" ? styles.popupTabActive : ""}`}
+            onClick={() => setTab("all")}
           >
-            <span className={styles.addCustomTagPlus}>+</span>
-            Свой курс
+            {get("home.howItWorks.popup.selectCourse")}
+          </button>
+          <button
+            className={`${styles.popupTab} ${tab === "mine" ? styles.popupTabActive : ""}`}
+            onClick={() => setTab("mine")}
+          >
+            Мои теги
+            {customTags.length > 0 && (
+              <span className={styles.popupTabBadge}>{customTags.length}</span>
+            )}
           </button>
         </div>
 
-        {/* Mini form to add custom tag */}
-        {showAddForm && (
+        {/* ── All courses tab ── */}
+        {tab === "all" && (
+          <>
+            <div className={styles.searchBox}>
+              <Search size={16} className={styles.searchIcon} />
+              <input
+                className={styles.searchInput}
+                type="text"
+                placeholder={get("home.howItWorks.popup.searchPlaceholder")}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+            <div className={styles.courseGrid}>
+              {visibleCourses.map((c) => (
+                <button
+                  key={c.name}
+                  className={`${styles.courseTag} ${selectedCourse === c.name ? styles.courseTagActive : ""}`}
+                  style={{ "--tag-color": c.color } as React.CSSProperties}
+                  onClick={() => { setSelectedCourse(c.name); saveLastCourse(c.name); }}
+                >
+                  {showEmoji && c.icon && (
+                    <span className={styles.courseIcon}><TagIcon icon={c.icon} size={14} /></span>
+                  )}
+                  {c.name}
+                </button>
+              ))}
+              <button
+                className={styles.addCustomTagBtn}
+                onClick={() => {
+                  setShowAddForm((v) => !v);
+                  if (!showAddForm && search.trim()) setNewTagName(search.trim());
+                }}
+              >
+                <span className={styles.addCustomTagPlus}>+</span>
+                Свой курс
+              </button>
+            </div>
+            {showAddPrompt && (
+              <p className={styles.notFoundPrompt}>
+                Не нашли нужный курс?{" "}
+                <button className={styles.notFoundBtn} onClick={() => { setShowAddForm(true); setNewTagName(search.trim()); }}>
+                  + Добавь свой тег
+                </button>
+              </p>
+            )}
+          </>
+        )}
+
+        {/* ── My tags tab ── */}
+        {tab === "mine" && (
+          <div className={styles.myTagsPanel}>
+            {customTags.length === 0 ? (
+              <p className={styles.myTagsEmpty}>
+                У вас ещё нет своих тегов.<br />
+                Нажмите «+ Свой курс» чтобы добавить.
+              </p>
+            ) : (
+              <div className={styles.courseGrid}>
+                {customTags.map((c) => (
+                  <div key={c.name} className={styles.myTagRow}>
+                    <button
+                      className={`${styles.courseTag} ${selectedCourse === c.name ? styles.courseTagActive : ""}`}
+                      style={{ "--tag-color": c.color } as React.CSSProperties}
+                      onClick={() => { setSelectedCourse(c.name); saveLastCourse(c.name); }}
+                    >
+                      {showEmoji && c.icon && (
+                        <span className={styles.courseIcon}><TagIcon icon={c.icon} size={14} /></span>
+                      )}
+                      {c.name}
+                    </button>
+                    <button
+                      className={styles.myTagDelete}
+                      onClick={() => handleDeleteCustomTag(c.name)}
+                      title="Удалить тег"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+            <button
+              className={styles.addCustomTagBtn}
+              style={{ marginTop: "var(--space-sm)" }}
+              onClick={() => { setTab("all"); setShowAddForm(true); }}
+            >
+              <span className={styles.addCustomTagPlus}>+</span>
+              Добавить тег
+            </button>
+          </div>
+        )}
+
+        {/* Add form */}
+        {showAddForm && tab === "all" && (
           <div className={styles.addTagForm}>
             <div className={styles.addTagRow}>
               <input
                 className={styles.addTagEmojiInput}
                 value={newTagIcon}
-                maxLength={4}
                 onChange={(e) => setNewTagIcon(e.target.value)}
                 placeholder="🏷️"
               />
@@ -828,7 +914,7 @@ function CoursePopup({
                   key={color}
                   className={`${styles.addTagColorSwatch} ${newTagColor === color ? styles.addTagColorActive : ""}`}
                   style={{ background: color }}
-                  onClick={() => setNewTagColor(color)}
+                  onClick={(e) => { e.stopPropagation(); setNewTagColor(color); }}
                 />
               ))}
             </div>
@@ -841,10 +927,7 @@ function CoursePopup({
               >
                 Сохранить
               </button>
-              <button
-                className={styles.addTagCancel}
-                onClick={() => setShowAddForm(false)}
-              >
+              <button className={styles.addTagCancel} onClick={() => setShowAddForm(false)}>
                 Отмена
               </button>
             </div>
@@ -852,18 +935,13 @@ function CoursePopup({
         )}
 
         {/* Duration */}
-        <p className={styles.popupLabel}>
-          {get("home.howItWorks.popup.duration")}
-        </p>
+        <p className={styles.popupLabel}>{get("home.howItWorks.popup.duration")}</p>
         <div className={styles.durationGrid}>
           {DURATIONS.map((d) => (
             <button
               key={d.value}
               className={`${styles.durationBtn} ${selectedDuration === d.value ? styles.durationActive : ""}`}
-              onClick={() => {
-                setSelectedDuration(d.value);
-                saveLastDuration(d.value);
-              }}
+              onClick={() => { setSelectedDuration(d.value); saveLastDuration(d.value); }}
             >
               {d.label}
             </button>

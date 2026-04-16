@@ -46,6 +46,7 @@ function resolveReactIcon(icon: string): React.ElementType | null {
 
 /**
  * Renders a tag icon:
+ * - "/xxx.svg" / "/xxx.png" → local image from /public
  * - "si:youtube" / "fa:heart" → react-icons SVG
  * - emoji → Apple-style image via emoji-picker-react
  * - anything else → plain <span>
@@ -58,6 +59,19 @@ export default function TagIcon({
   size?: number;
 }) {
   if (!icon) return null;
+
+  // Local public asset (e.g. "/Diroya.svg")
+  if (icon.startsWith("/")) {
+    return (
+      <img
+        src={icon}
+        alt=""
+        width={size}
+        height={size}
+        style={{ display: "inline-block", verticalAlign: "middle", objectFit: "contain" }}
+      />
+    );
+  }
 
   if (icon.includes(":")) {
     const Icon = resolveReactIcon(icon);
