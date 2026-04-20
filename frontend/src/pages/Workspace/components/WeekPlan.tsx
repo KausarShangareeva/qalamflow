@@ -64,11 +64,9 @@ const DURATIONS = [
 
 function generateTimeSlots(): string[] {
   const slots: string[] = [];
-  for (let hour = 2; hour <= 21; hour++) {
+  for (let hour = 0; hour <= 23; hour++) {
     slots.push(`${hour.toString().padStart(2, "0")}:00`);
-    if (hour < 21) {
-      slots.push(`${hour.toString().padStart(2, "0")}:30`);
-    }
+    slots.push(`${hour.toString().padStart(2, "0")}:30`);
   }
   return slots;
 }
