@@ -1,0 +1,26 @@
+{
+  "feedbackPage": {
+    "reviewsLabel": "Reviews",
+    "formLabel": "Write a review",
+    "subtitle": "Tried it already?",
+    "cta": "Share your experience",
+    "badge": "Student reviews",
+    "heroTitle": "Real experiences from",
+    "heroTitleBrand": "QalamFlow 💭",
+    "heroTitleSuffix": "users",
+    "loading": "Loading feedback...",
+    "empty": "No feedback yet 😄 Be the first one ✨",
+    "guest": "(guest)",
+    "rateTitle": "Rate your experience",
+    "namePlaceholder": "What's your name?",
+    "messagePlaceholder": "Share your thoughts...",
+    "submit": "Publish feedback",
+    "submitting": "Publishing...",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "reactionBad": "Could be better",
+    "reactionDecent": "Pretty good!",
+    "reactionLove": "Love it!"
+  }
+}

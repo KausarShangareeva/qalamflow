@@ -1,4 +1,4 @@
-import TAGS from "../json/tags.json";
+import TAGS from "../data/ru/tags.json";
 
 export type DemoTag = {
   label: string;

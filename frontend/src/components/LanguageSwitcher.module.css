@@ -1,0 +1,80 @@
+/* ===== Desktop toggle ===== */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.trigger:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-subtle);
+}
+
+.trigger:active {
+  transform: translateY(1px);
+}
+
+.triggerIcon {
+  opacity: 0.85;
+}
+
+.triggerLabel {
+  line-height: 1;
+}
+
+/* ===== Mobile toggle (inside slide-out menu) ===== */
+.mobileToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.2rem;
+  padding: 1.2rem 1.6rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast);
+}
+
+.mobileToggle:hover {
+  background: var(--color-bg-hover);
+}
+
+.mobileLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobileBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: var(--color-bg-hover);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+}

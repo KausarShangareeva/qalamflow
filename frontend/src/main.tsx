@@ -4,6 +4,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthProvider } from "./context/AuthContext";
 import { AvatarProvider } from "./context/AvatarContext";
 import "./index.css";
+import "./i18n";
 import App from "./App";
 
 createRoot(document.getElementById("root")!).render(

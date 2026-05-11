@@ -1,0 +1,145 @@
+{
+  "home": {
+    "subtitle": "Fill in the calendar — and the app will show you when you'll finish your course.",
+    "cta": {
+      "dashboard": "Back to my plan",
+      "register": "Build my plan",
+      "guestPlan": "Build a plan as a guest ✨"
+    },
+    "features": {
+      "title": "What awaits you",
+      "subtitle": "A complete toolkit for effective and enjoyable Arabic learning.",
+      "items": [
+        {
+          "title": "Choose your course",
+          "description": "We sequence the books and topics around your level and available time.",
+          "subtitle": "Personal roadmap"
+        },
+        {
+          "title": "Plan your schedule",
+          "description": "Tick off completed lessons and watch your real course progress in percentage.",
+          "subtitle": "Progress tracking"
+        },
+        {
+          "title": "Pick your format",
+          "description": "Tell us how many days a week you study — we'll spread the workload automatically.",
+          "subtitle": "Schedule planning"
+        },
+        {
+          "title": "Choose from 100+ courses",
+          "description": "Lesson and deadline reminders so you always know what's next.",
+          "subtitle": "Choose from 100+ courses"
+        },
+        {
+          "title": "PDF export",
+          "description": "Download your schedule in a convenient format to print or share with your teacher.",
+          "subtitle": "PDF export"
+        },
+        {
+          "title": "Saved weekly plans",
+          "description": "See how many months it will take to finish your course at your current pace.",
+          "subtitle": "Saved weekly plans"
+        }
+      ]
+    },
+    "notifications": {
+      "title": "Get reminders and track your progress",
+      "subtitle": "Visualise your progress as a percentage",
+      "cards": [
+        {
+          "tag": "Reminders",
+          "title": "Get lesson reminders 15 minutes ahead and stay motivated",
+          "bottom": "Pick a course, set the dates — and receive a ready lesson schedule"
+        },
+        {
+          "tag": "Progress",
+          "title": "Mark lessons done and watch your achievements grow",
+          "bottom": "Clear stats and reminders help you stay on track"
+        }
+      ],
+      "cta": "Start planning"
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "subtitle": "From profile setup to a finished study plan — in just a few minutes.",
+      "step1": {
+        "tag": "Set up your study plan",
+        "main": "Choose the courses you want to study",
+        "bottom": "Your study plan will be built around these courses"
+      },
+      "step2": {
+        "tag": "Get your plan",
+        "main": "See exactly how your schedule will look",
+        "bottom": "You'll always know what to study and when."
+      },
+      "cta": "Create my first plan",
+      "popup": {
+        "title": "Add a course",
+        "selectCourse": "Select a course",
+        "searchPlaceholder": "Can't find a course? Type the name...",
+        "duration": "Duration",
+        "duration30": "30 min",
+        "duration1h": "1 hour",
+        "duration2h": "2 hours",
+        "addButton": "Add to schedule"
+      }
+    }
+  },
+  "hero": {
+    "badge": "Your study plan",
+    "mainTitle": "Discipline is freedom",
+    "subTitle": "Design your study plan in 5 minutes and start moving towards results — without burnout",
+    "phrases": [
+      { "emoji": "🎯", "text": "finish your course." },
+      { "emoji": "✍️", "text": "build a study plan" },
+      { "emoji": "📄", "text": "download your schedule as PDF" },
+      { "emoji": "🔔", "text": "never miss a lesson" }
+    ],
+    "exploreBtn": "Explore",
+    "subMainTitle": "We'll help you"
+  },
+  "features": {
+    "animatedTags": ["Math", "English", "History"],
+    "miniSchedule": {
+      "monday": "Mon",
+      "tuesday": "Tue",
+      "wednesday": "Wed",
+      "thursday": "Thu",
+      "friday": "Fri",
+      "saturday": "Sat",
+      "sunday": "Sun"
+    },
+    "savedPlans": {
+      "delete": "Delete",
+      "open": "Open",
+      "weekOf": "Week of Feb 25",
+      "sessions": "3 sessions this week",
+      "days": "Wed – Fri",
+      "hours": "4 study hours"
+    },
+    "screenPreview": "Schedule preview",
+    "comingSoon": "coming soon",
+    "getStarted": "Get started free"
+  },
+  "finalCta": {
+    "title": "Sounds great? 😊",
+    "subtitle": "Try it yourself — it's really simple",
+    "heading": "Start planning",
+    "description": "Create your study plan from scratch in just a few minutes and work towards your goal step by step",
+    "button": "Let's start now ✨"
+  },
+  "envelopePreview": {
+    "title": "A ready lesson schedule with dates",
+    "subtitle": "Plan, schedule and deadlines — all in one place"
+  },
+  "pdfExport": {
+    "title": "Print your plan as a PDF",
+    "button": "Try it free",
+    "savePlan": "Save plan",
+    "printPDF": "Print PDF",
+    "hint": "Try to",
+    "hintSuffix": "print 😄",
+    "tabPortrait": "Portrait",
+    "tabLandscape": "Landscape"
+  }
+}

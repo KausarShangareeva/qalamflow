@@ -2,21 +2,21 @@ import { useRef, useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Printer, Save, Search } from "lucide-react";
 import { useCopy } from "../../../hooks/useCopy";
+import { useLocalizedWeekdays } from "../../../hooks/useLocalizedWeekdays";
+import { useLocalizedTags } from "../../../hooks/useLocalizedTags";
 import { useAuth } from "../../../context/AuthContext";
 import UndoToast from "../../../components/UndoToast";
 import type { ScheduleEntry } from "../types";
-import COURSES from "../../../json/tags.json";
-import WEEKDAYS from "../../../json/weekdays.json";
+import COURSES from "../../../data/ru/tags.json";
+import WEEKDAYS from "../../../data/ru/weekdays.json";
 import TagIcon from "../../../components/TagIcon";
 import styles from "./WeekPlan.module.css";
 
 /* ===== Constants ===== */
 
+// DAYS is the canonical key list (RU full names) — saved schedule entries
+// store these as identifiers, so it stays in RU regardless of UI language.
 const DAYS = WEEKDAYS.days.map((d) => d.full);
-
-const DAY_SHORT: Record<string, string> = Object.fromEntries(
-  WEEKDAYS.days.map((d) => [d.full, d.short]),
-);
 
 const STORAGE_KEY = "qalamflow_course_recent";
 
@@ -180,13 +180,22 @@ function buildScheduleMap(
   return map;
 }
 
-function pluralKurs(n: number): string {
+function pluralKurs(
+  n: number,
+  lang: string,
+  get: (path: string) => string,
+): string {
+  if (lang === "en") {
+    return n === 1
+      ? get("workspace.courseSingular")
+      : get("workspace.courseFew");
+  }
   const abs = Math.abs(n) % 100;
   const last = abs % 10;
-  if (abs >= 11 && abs <= 14) return "курсов";
-  if (last === 1) return "курс";
-  if (last >= 2 && last <= 4) return "курса";
-  return "курсов";
+  if (abs >= 11 && abs <= 14) return get("workspace.courseMany");
+  if (last === 1) return get("workspace.courseSingular");
+  if (last >= 2 && last <= 4) return get("workspace.courseFew");
+  return get("workspace.courseMany");
 }
 
 /* ===== Main component ===== */
@@ -211,6 +220,8 @@ export default function WeekPlan({
   savedScheduleLength,
 }: WeekPlanProps) {
   const { get } = useCopy();
+  const { lang } = useLocalizedWeekdays();
+  const { benefitForName } = useLocalizedTags();
   const navigate = useNavigate();
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
@@ -499,8 +510,8 @@ export default function WeekPlan({
             </div>
             <div className={styles.saveHint}>
               {showEmoji
-                ? "Эмоджи добавлены в расписание"
-                : "Эмоджи удалены из расписания"}
+                ? get("workspace.saveHints.emojiAdded")
+                : get("workspace.saveHints.emojiRemoved")}
             </div>
           </div>
           <div className={styles.saveDashedLine} />
@@ -526,18 +537,18 @@ export default function WeekPlan({
               className={`${styles.saveHint} ${canSave ? styles.saveHintActive : schedule.length > 0 ? styles.saveHintDone : ""}`}
             >
               {schedule.length === 0 ? (
-                "Вы ещё не добавили курс"
+                get("workspace.saveHints.noCourseYet")
               ) : canSave ? (
                 <>
-                  Вы добавили{" "}
+                  {get("workspace.saveHints.youAdded")}{" "}
                   <strong>
                     {schedule.length - savedScheduleLength}{" "}
-                    {pluralKurs(schedule.length - savedScheduleLength)}
+                    {pluralKurs(schedule.length - savedScheduleLength, lang, get)}
                   </strong>{" "}
-                  — сохраните план
+                  {get("workspace.saveHints.savePlanSuffix")}
                 </>
               ) : (
-                "План сохранён"
+                get("workspace.saveHints.planSaved")
               )}
             </div>
           </div>
@@ -604,11 +615,13 @@ export default function WeekPlan({
           className={styles.benefitToast}
           style={{ left: benefitToast.x, top: benefitToast.y }}
         >
-          <span className={styles.benefitToastLabel}>ПОЛЬЗА КУРСА</span>
+          <span className={styles.benefitToastLabel}>
+            {get("workspace.benefitToastLabel")}
+          </span>
           <div className={styles.benefitToastBody}>
             <TagIcon icon={benefitToast.icon} size={22} />
             <span className={styles.benefitToastText}>
-              {benefitToast.benefit}
+              {benefitForName(benefitToast.course) || benefitToast.benefit}
             </span>
           </div>
         </div>
@@ -637,11 +650,10 @@ export default function WeekPlan({
           >
             <div className={styles.guestModalEmoji}>🎉</div>
             <h3 className={styles.guestModalTitle}>
-              Ага! Вы хотите распечатать крутой план?
+              {get("workspace.guestModal.title")}
             </h3>
             <p className={styles.guestModalText}>
-              Зарегистрируйтесь, чтобы не потерять план и иметь доступ к нему с
-              любого устройства!
+              {get("workspace.guestModal.text")}
             </p>
             <button
               className={styles.guestModalRegister}
@@ -650,13 +662,13 @@ export default function WeekPlan({
                 navigate("/register");
               }}
             >
-              Зарегистрироваться
+              {get("workspace.guestModal.register")}
             </button>
             <button
               className={styles.guestModalLater}
               onClick={() => setShowGuestModal(false)}
             >
-              Позже
+              {get("workspace.guestModal.later")}
             </button>
           </div>
         </div>
@@ -715,6 +727,7 @@ function CoursePopup({
   onCustomTagsChange: (tags: CustomTag[]) => void;
 }) {
   const { get } = useCopy();
+  const { translateName } = useLocalizedTags();
   const [tab, setTab] = useState<"all" | "mine">("all");
   const [selectedCourse, setSelectedCourse] = useState<string | null>(getLastCourse);
   const [selectedDuration, setSelectedDuration] = useState<number | null>(getLastDuration);
@@ -729,11 +742,20 @@ function CoursePopup({
     [isAdmin],
   );
 
+  // Search matches both the canonical (RU) name and the localized display
+  // name, so the user can type in whichever language the UI is currently in.
+  const matchesQuery = (c: AnyTag, q: string): boolean => {
+    const norm = (s: string) => s.toLowerCase().replace(/\s+/g, "");
+    if (norm(c.name).includes(q)) return true;
+    const localized = translateName(c.name);
+    if (localized !== c.name && norm(localized).includes(q)) return true;
+    return false;
+  };
+
   const visibleCourses = useMemo(() => {
     const q = search.trim().toLowerCase().replace(/\s+/g, "");
     const pool: AnyTag[] = [...baseCourses, ...customTags];
-    if (q.length >= 3)
-      return pool.filter((c) => c.name.toLowerCase().replace(/\s+/g, "").includes(q));
+    if (q.length >= 3) return pool.filter((c) => matchesQuery(c, q));
     const frequent = getFrequent();
     if (frequent.length > 0) {
       const freqSet = new Set(frequent);
@@ -741,7 +763,8 @@ function CoursePopup({
       if (matched.length > 0) return matched;
     }
     return (COURSES as AnyTag[]).filter((c) => FEATURED.has(c.name));
-  }, [search, baseCourses, customTags]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search, baseCourses, customTags, translateName]);
 
   function handleSaveCustomTag() {
     const name = newTagName.trim();
@@ -787,7 +810,7 @@ function CoursePopup({
             className={`${styles.popupTab} ${tab === "mine" ? styles.popupTabActive : ""}`}
             onClick={() => setTab("mine")}
           >
-            Мои теги
+            {get("workspace.popupTabMyTags")}
             {customTags.length > 0 && (
               <span className={styles.popupTabBadge}>{customTags.length}</span>
             )}
@@ -818,7 +841,7 @@ function CoursePopup({
                   {showEmoji && c.icon && (
                     <span className={styles.courseIcon}><TagIcon icon={c.icon} size={14} /></span>
                   )}
-                  {c.name}
+                  {translateName(c.name)}
                 </button>
               ))}
               <button
@@ -829,14 +852,14 @@ function CoursePopup({
                 }}
               >
                 <span className={styles.addCustomTagPlus}>+</span>
-                Свой курс
+                {get("workspace.popupAddCustomBtn")}
               </button>
             </div>
             {showAddPrompt && (
               <p className={styles.notFoundPrompt}>
-                Не нашли нужный курс?{" "}
+                {get("workspace.popupNotFound")}{" "}
                 <button className={styles.notFoundBtn} onClick={() => { setShowAddForm(true); setNewTagName(search.trim()); }}>
-                  + Добавь свой тег
+                  {get("workspace.popupAddTagBtn")}
                 </button>
               </p>
             )}
@@ -848,8 +871,8 @@ function CoursePopup({
           <div className={styles.myTagsPanel}>
             {customTags.length === 0 ? (
               <p className={styles.myTagsEmpty}>
-                У вас ещё нет своих тегов.<br />
-                Нажмите «+ Свой курс» чтобы добавить.
+                {get("workspace.popupMyTagsEmpty")}<br />
+                {get("workspace.popupMyTagsHint")}
               </p>
             ) : (
               <div className={styles.courseGrid}>
@@ -868,7 +891,7 @@ function CoursePopup({
                     <button
                       className={styles.myTagDelete}
                       onClick={() => handleDeleteCustomTag(c.name)}
-                      title="Удалить тег"
+                      title={get("workspace.customTag.delete")}
                     >
                       ×
                     </button>
@@ -882,7 +905,7 @@ function CoursePopup({
               onClick={() => { setTab("all"); setShowAddForm(true); }}
             >
               <span className={styles.addCustomTagPlus}>+</span>
-              Добавить тег
+              {get("workspace.popupAddTagFooter")}
             </button>
           </div>
         )}
@@ -901,7 +924,7 @@ function CoursePopup({
                 className={styles.addTagNameInput}
                 value={newTagName}
                 onChange={(e) => setNewTagName(e.target.value)}
-                placeholder="Название курса..."
+                placeholder={get("workspace.customTag.namePlaceholder")}
                 onKeyDown={(e) => e.key === "Enter" && handleSaveCustomTag()}
                 autoFocus
               />
@@ -923,10 +946,10 @@ function CoursePopup({
                 onClick={handleSaveCustomTag}
                 disabled={!newTagName.trim()}
               >
-                Сохранить
+                {get("workspace.customTag.save")}
               </button>
               <button className={styles.addTagCancel} onClick={() => setShowAddForm(false)}>
-                Отмена
+                {get("workspace.customTag.cancel")}
               </button>
             </div>
           </div>
@@ -982,6 +1005,8 @@ function ScheduleCell({
   className: string;
   showEmoji: boolean;
 }) {
+  const { shortForRuFull: DAY_SHORT } = useLocalizedWeekdays();
+  const { translateName } = useLocalizedTags();
   const key = `${day}-${time}`;
   const info = scheduleMap.get(key);
 
@@ -1005,7 +1030,8 @@ function ScheduleCell({
         : { borderTopColor: "transparent" }),
       ...(isLast && { borderBottom: `1px solid ${lineColor}` }),
     };
-    const displayName = info.course?.name ?? info.entry?.course ?? "";
+    const rawName = info.course?.name ?? info.entry?.course ?? "";
+    const displayName = translateName(rawName);
     return (
       <td
         className={`${className} ${styles.cellBooked}`}
@@ -1056,6 +1082,8 @@ function VerticalTable({
   showEmoji: boolean;
   timeSlots: string[];
 }) {
+  const { shortForRuFull: DAY_SHORT, fullForRuFull: DAY_FULL } =
+    useLocalizedWeekdays();
   return (
     <table className={styles.table}>
       <thead>
@@ -1064,7 +1092,7 @@ function VerticalTable({
           {DAYS.map((day) => (
             <th key={day} className={styles.dayHeader}>
               <span className={styles.dayFull} data-print="day-full">
-                {day}
+                {DAY_FULL[day]}
               </span>
               <span className={styles.dayShort} data-print="day-short">
                 {DAY_SHORT[day]}
@@ -1111,6 +1139,8 @@ function HorizontalTable({
   showEmoji: boolean;
   timeSlots: string[];
 }) {
+  const { shortForRuFull: DAY_SHORT, fullForRuFull: DAY_FULL } =
+    useLocalizedWeekdays();
   return (
     <table className={`${styles.table} ${styles.tableHorizontal}`}>
       <thead>
@@ -1119,7 +1149,7 @@ function HorizontalTable({
           {DAYS.map((day) => (
             <th key={day} className={styles.dayHeader}>
               <span className={styles.dayFull} data-print="day-full">
-                {day}
+                {DAY_FULL[day]}
               </span>
               <span className={styles.dayShort} data-print="day-short">
                 {DAY_SHORT[day]}

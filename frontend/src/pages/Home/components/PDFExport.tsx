@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
 import { useCopy } from "../../../hooks/useCopy";
+import { useLocalizedWeekdays } from "../../../hooks/useLocalizedWeekdays";
 import CTAButton from "../../../components/CTAButton";
 import TagIcon from "../../../components/TagIcon";
-import WEEKDAYS from "../../../json/weekdays.json";
+import WEEKDAYS from "../../../data/ru/weekdays.json";
 import { t as demoTag } from "../../../utils/demoTags";
 import styles from "./PDFExport.module.css";
 
@@ -58,6 +59,8 @@ function MiniSchedulePreview({
 }: {
   orientation: Tab;
 }) {
+  const { weekdays } = useLocalizedWeekdays();
+  const localizedDays = weekdays.days.map((d) => d.short);
   return (
     <div className={styles.previewPaper}>
       <div className={styles.paper}>
@@ -65,7 +68,7 @@ function MiniSchedulePreview({
           {/* Day headers */}
           <div className={styles.schedHeader}>
             <div className={styles.schedCorner} />
-            {DAYS.map((day, i) => (
+            {localizedDays.map((day, i) => (
               <div key={i} className={styles.schedDayLabel}>
                 {day}
               </div>

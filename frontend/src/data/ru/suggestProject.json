@@ -1,0 +1,31 @@
+{
+  "suggestProject": {
+    "badge": "Идеи сообщества",
+    "greetingUser": "Привет,",
+    "greetingGuest": "Привет",
+    "heroTitle": "Есть идея для нового",
+    "heroTitleBrand": "проекта?",
+    "heroSubtitleUser": "Расскажи мне!",
+    "heroSubtitleGuest": "Поделись с нами!",
+    "step1Title": "Хочешь предложить идею для своего сайта?",
+    "step1Sub": "Выбери направление для проекта",
+    "step2Title": "Ты попал по адресу",
+    "step3Title": "Когда нужен готовый проект?",
+    "step3Sub": "Выбери срок",
+    "step4Title": "О чём твой проект?",
+    "step4Sub": "Можно выбрать несколько тем",
+    "step5Title": "Почти готово!",
+    "step5Sub": "Скажи, как с тобой связаться",
+    "nameLabel": "Твоё имя",
+    "namePlaceholder": "Твоё имя",
+    "contactLabel": "Email или Telegram",
+    "contactPlaceholder": "email@example.com или @username",
+    "submitBtn": "Воплотим идею в жизнь 🚀",
+    "continueBtn": "Продолжить",
+    "urgentBadge": "Срочно",
+    "loadingTitleWith": ", твоя идея проекта отличная 🙂",
+    "loadingTitleWithout": "Твоя идея проекта отличная 🙂",
+    "successTitle": "Получил! 🎉",
+    "successSub": "Рассмотрю заявку и скоро свяжусь"
+  }
+}

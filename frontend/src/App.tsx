@@ -18,7 +18,6 @@ const Register = lazy(() => import("./pages/Register"));
 const Workspace = lazy(() => import("./pages/Workspace"));
 const SuggestProject = lazy(() => import("./pages/SuggestProject"));
 const FeedbackPage = lazy(() => import("./pages/Feedback"));
-const DonatePage = lazy(() => import("./pages/Donate"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 export default function App() {
@@ -38,7 +37,6 @@ export default function App() {
               <Route index element={<Home />} />
               <Route path="suggest-project" element={<SuggestProject />} />
               <Route path="feedback" element={<FeedbackPage />} />
-              <Route path="donate" element={<DonatePage />} />
 
               {/* Protected routes */}
               <Route element={<ProtectedRoute />}>

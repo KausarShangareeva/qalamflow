@@ -21,7 +21,7 @@
       transparent 14px,
       transparent 22px
     ),
-    url("/table_3.png");
+    url("");
   background-size:
     24px 24px,
     1px 100%,
@@ -47,8 +47,37 @@
   background-repeat: no-repeat;
   background-position: top center;
   pointer-events: none;
-  z-index: 10;
-  opacity: 0.35;
+  z-index: 1;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+}
+
+/* Soft ambient glow behind the hero text — visible only in dark mode */
+.heroSection::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(16, 185, 129, 0.12) 0%,
+    rgba(13, 148, 136, 0.06) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+[data-theme="light"] .heroSection::after {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(16, 185, 129, 0.08) 0%,
+    rgba(212, 168, 83, 0.05) 35%,
+    transparent 70%
+  );
 }
 
 .heroSection > * {
@@ -113,26 +142,50 @@
 }
 
 .mainTitle {
-  font-size: 7rem;
-  font-weight: 700;
-  color: #ffedd7;
+  font-size: clamp(4.8rem, 6.5vw, 7.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   margin-bottom: var(--space-md);
   text-align: left;
   width: 100%;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #e8f5ee 45%,
+    #b0d4bf 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 2px 24px rgba(16, 185, 129, 0.15);
+}
+
+[data-theme="light"] .mainTitle {
+  background: linear-gradient(
+    135deg,
+    #0a1410 0%,
+    #1f2937 50%,
+    #065f46 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
 .animatedTitle {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
   font-weight: 500;
-  color: #ffedd7;
-  max-width: 83%;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  opacity: 0.92;
+  max-width: 56ch;
   margin-bottom: var(--space-lg);
   text-align: left;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.8rem;
+  display: block;
 }
 
 .changingPhraseWrapper {
@@ -285,13 +338,11 @@
 
   .mainTitle {
     text-align: center;
-    font-size: var(--fs-3xl);
   }
 
   .animatedTitle {
     text-align: center;
-    justify-content: center;
-    max-width: 70%;
+    max-width: 60ch;
   }
 
   .heroRight {
@@ -321,14 +372,14 @@
   }
 
   .mainTitle {
-    font-size: 3.6rem;
-    line-height: 1.2;
+    font-size: 4rem;
+    line-height: 1.1;
     width: 100%;
   }
 
   .animatedTitle {
-    font-size: 1.8rem;
-    max-width: 90%;
+    font-size: 1.7rem;
+    max-width: 100%;
   }
 
   .heroMockup {
@@ -351,11 +402,11 @@
   }
 
   .mainTitle {
-    font-size: 3rem;
+    font-size: 3.4rem;
   }
 
   .animatedTitle {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     max-width: 100%;
   }
 

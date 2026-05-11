@@ -1,0 +1,61 @@
+{
+  "workspace": {
+    "vertical": "Vertical",
+    "horizontal": "Horizontal",
+    "nothingFound": "Nothing found",
+    "createNewPlan": "Create new plan",
+    "greetingNight": "Good night",
+    "greetingMorning": "Good morning",
+    "greetingAfternoon": "Good afternoon",
+    "greetingEvening": "Good evening",
+    "subtitle": "Plan your week",
+    "planAIBtn": "🤖 Plan with AI",
+    "weekPlanTitle": "Weekly plan",
+    "hoursPerWeekShort": "{count} h/week",
+    "hoursShort": "{count}h",
+    "updatedAt": "✏️ edited {time}",
+    "relativeJustNow": "just now",
+    "relativeMinutesAgo": "{count} min ago",
+    "relativeHoursAgo": "{count} h ago",
+    "relativeYesterday": "yesterday",
+    "relativeDaysAgo": "{count} d ago",
+    "relativeWeeksAgo": "{count} w ago",
+    "moreCoursesRow": "+ {count} more {plural} · {hours}h",
+    "courseSingular": "course",
+    "courseFew": "courses",
+    "courseMany": "courses",
+    "confirmDelete": "Are you sure you want to delete this super plan?",
+    "confirmYes": "Yes, sure",
+    "confirmNo": "Oh, no!",
+    "openBtn": "Open",
+    "deletePlanAria": "Delete plan",
+    "saveHints": {
+      "emojiAdded": "Emoji added to schedule",
+      "emojiRemoved": "Emoji removed from schedule",
+      "noCourseYet": "You haven't added a course yet",
+      "youAdded": "You added",
+      "savePlanSuffix": "— save your plan",
+      "planSaved": "Plan saved"
+    },
+    "benefitToastLabel": "COURSE BENEFIT",
+    "popupTabMyTags": "My tags",
+    "popupAddCustomBtn": "Custom course",
+    "popupNotFound": "Couldn't find the course?",
+    "popupAddTagBtn": "+ Add your own tag",
+    "popupMyTagsEmpty": "You don't have any custom tags yet.",
+    "popupMyTagsHint": "Press “+ Custom course” to add one.",
+    "popupAddTagFooter": "Add a tag",
+    "customTag": {
+      "namePlaceholder": "Course name...",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete tag"
+    },
+    "guestModal": {
+      "title": "Aha! You want to print this awesome plan?",
+      "text": "Sign up so you don't lose your plan and can access it from any device!",
+      "register": "Sign up",
+      "later": "Later"
+    }
+  }
+}

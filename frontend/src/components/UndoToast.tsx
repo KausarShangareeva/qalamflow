@@ -1,3 +1,4 @@
+import { useCopy } from "../hooks/useCopy";
 import styles from "./UndoToast.module.css";
 
 interface UndoToastProps {
@@ -6,14 +7,19 @@ interface UndoToastProps {
 }
 
 export default function UndoToast({ message, onUndo }: UndoToastProps) {
+  const { get } = useCopy();
   return (
     <div className={styles.toast}>
       <span>
-        «{message}» удалён —{" "}
-        <span className={styles.ctrlHint}>нажмите <kbd className={styles.kbd}>Ctrl+Z</kbd> или </span>
+        {get("common.undoToastDeleted", { message })}{" "}
+        <span className={styles.ctrlHint}>
+          {get("common.undoToastHint")}{" "}
+          <kbd className={styles.kbd}>Ctrl+Z</kbd>{" "}
+          {get("common.undoToastOr")}{" "}
+        </span>
       </span>
       <button className={styles.btn} onClick={onUndo}>
-        ↩ Вернуть
+        {get("common.undoToastButton")}
       </button>
     </div>
   );

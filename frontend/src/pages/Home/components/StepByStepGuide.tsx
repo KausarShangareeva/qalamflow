@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useCopy } from "../../../hooks/useCopy";
+import { useLocalizedWeekdays } from "../../../hooks/useLocalizedWeekdays";
 import { useAuth } from "../../../context/AuthContext";
 import { Calendar, GraduationCap, Search, X } from "lucide-react";
 import CTAButton from "../../../components/CTAButton";
 import TagIcon from "../../../components/TagIcon";
 import SectionHeader from "../../../components/SectionHeader";
-import WEEKDAYS from "../../../json/weekdays.json";
 import { t } from "../../../utils/demoTags";
 import styles from "./StepByStepGuide.module.css";
 
-const ET_DAYS = WEEKDAYS.days.map((d) => d.short);
-const ET_TIMES = WEEKDAYS.hours
-  .filter((h) => h.value >= 8 && h.value <= 16)
-  .map((h) => h.full.split(":")[0]);
+function useDemoSchedule() {
+  const { weekdays } = useLocalizedWeekdays();
+  const days = weekdays.days.map((d) => d.short);
+  const times = weekdays.hours
+    .filter((h) => h.value >= 8 && h.value <= 16)
+    .map((h) => h.full.split(":")[0]);
+  return { days, times };
+}
 
 // Курсы для попапа — берём из tags.json по имени
 const POPUP_NAMES = [
@@ -28,7 +32,14 @@ const DEMO_COURSES = POPUP_NAMES.flatMap((name) => {
   return [{ label: tag.label, emoji: tag.icon, color: tag.color, bg: tag.bg }];
 });
 
-const DEMO_DURATIONS = ["30 мин", "1 час", "2 часа"];
+function useDemoDurations() {
+  const { get } = useCopy();
+  return [
+    get("home.howItWorks.popup.duration30"),
+    get("home.howItWorks.popup.duration1h"),
+    get("home.howItWorks.popup.duration2h"),
+  ];
+}
 
 // Row height = 2.8rem, rows: 0=08, 1=09, 2=10, 3=11, 4=12, 5=13, 6=14, 7=15, 8=16
 function getTag(name: string) {
@@ -50,18 +61,19 @@ const SHOW_AT = 2000;
 const POPUP_DURATION = 3000;
 
 function EmptyTable() {
+  const { days, times } = useDemoSchedule();
   return (
     <div className={styles.emptyTable}>
       <div className={styles.etCorner} />
-      {ET_DAYS.map((day, i) => (
+      {days.map((day, i) => (
         <div key={`d${i}`} className={styles.etDayLabel}>
           {day}
         </div>
       ))}
-      {ET_TIMES.map((time, row) => (
+      {times.map((time, row) => (
         <React.Fragment key={`row-${row}`}>
           <div className={styles.etTimeLabel}>{time}</div>
-          {ET_DAYS.map((_, col) => (
+          {days.map((_, col) => (
             <div key={`${col}-${row}`} className={styles.etCell} />
           ))}
         </React.Fragment>
@@ -71,21 +83,22 @@ function EmptyTable() {
 }
 
 function FilledTable() {
+  const { days, times } = useDemoSchedule();
   return (
     <div className={styles.filledTableWrap}>
       <div className={styles.emptyTable} style={{ margin: 0 }}>
         <div className={styles.etCorner} />
-        {ET_DAYS.map((day, i) => (
+        {days.map((day, i) => (
           <div key={`d${i}`} className={styles.etDayLabel}>
             {day}
           </div>
         ))}
-        {ET_TIMES.map((time, row) => (
+        {times.map((time, row) => (
           <>
             <div key={`t${row}`} className={styles.etTimeLabel}>
               {time}
             </div>
-            {ET_DAYS.map((_, col) => (
+            {days.map((_, col) => (
               <div key={`${col}-${row}`} className={styles.etCell} />
             ))}
           </>
@@ -169,17 +182,24 @@ function DemoPopup({
         {get("home.howItWorks.popup.duration")}
       </p>
 
-      <div className={styles.demoDurations}>
-        {DEMO_DURATIONS.map((d) => (
-          <span key={d} className={styles.demoDuration}>
-            {d}
-          </span>
-        ))}
-      </div>
+      <DemoDurations />
 
       <div className={styles.demoAddBtn}>
         {get("home.howItWorks.popup.addButton")}
       </div>
+    </div>
+  );
+}
+
+function DemoDurations() {
+  const durations = useDemoDurations();
+  return (
+    <div className={styles.demoDurations}>
+      {durations.map((d) => (
+        <span key={d} className={styles.demoDuration}>
+          {d}
+        </span>
+      ))}
     </div>
   );
 }

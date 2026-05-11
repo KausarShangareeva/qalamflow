@@ -67,7 +67,7 @@ export default function Register() {
         <div className={styles.topBar}>
           <Link to="/" className={styles.backButton}>
             <ArrowLeft size={16} />
-            <span className={styles.backText}>На главную</span>
+            <span className={styles.backText}>{get("common.backHome")}</span>
           </Link>
           <div className={styles.logoWrapper}>
             <Logo size="large" variant="light" />

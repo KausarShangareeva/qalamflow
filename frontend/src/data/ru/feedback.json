@@ -1,0 +1,26 @@
+{
+  "feedbackPage": {
+    "reviewsLabel": "Отзывы",
+    "formLabel": "Написать отзыв",
+    "subtitle": "Уже попробовал?",
+    "cta": "Поделись впечатлениями",
+    "badge": "Отзывы студентов",
+    "heroTitle": "Опыт пользователей",
+    "heroTitleBrand": "QalamFlow 💭",
+    "heroTitleSuffix": "",
+    "loading": "Загружаем отзывы...",
+    "empty": "Отзывов пока нет 😄 Будь первым ✨",
+    "guest": "(гость)",
+    "rateTitle": "Оцени свой опыт",
+    "namePlaceholder": "Как тебя зовут?",
+    "messagePlaceholder": "Твой отзыв...",
+    "submit": "Опубликовать",
+    "submitting": "Публикуем...",
+    "save": "Сохранить",
+    "saving": "Сохраняем...",
+    "cancel": "Отмена",
+    "reactionBad": "Старайся лучше",
+    "reactionDecent": "Хорошо!",
+    "reactionLove": "Ма ша Аллах!"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "app": {
+    "name": "QalamFlow",
+    "tagline": "Планируй свой путь в изучении арабского языка",
+    "copyright": "QalamFlow"
+  },
+  "nav": {
+    "contact": "Контакты"
+  },
+  "protectedRoute": {
+    "loading": "Загрузка..."
+  },
+  "common": {
+    "everyDay": "Каждый день",
+    "back": "Назад",
+    "backHome": "На главную",
+    "undoToastDeleted": "«{message}» удалён —",
+    "undoToastHint": "нажмите",
+    "undoToastOr": "или",
+    "undoToastButton": "↩ Вернуть",
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "success": "Успешно",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "close": "Закрыть",
+    "open": "Открыть",
+    "next": "Далее",
+    "previous": "Назад"
+  },
+  "authorCard": {
+    "role": "Дизайнер + Программист",
+    "telegramBtn": "Написать в ТГ",
+    "copyEmail": "Скопировать почту",
+    "emailCopied": "Почта скопирована!"
+  },
+  "navigation": {
+    "home": "Главная",
+    "myStudyPlan": "Мой план обучения",
+    "messageAuthor": "Написать автору в тг",
+    "suggestProject": "Предложить идею",
+    "feedback": "Оставить отзыв",
+    "logout": "Выйти",
+    "signUp": "Зарегистрироваться",
+    "logIn": "Войти",
+    "features": "Возможности",
+    "howItWorks": "Как это работает",
+    "pdfExport": "Экспорт в PDF",
+    "lightTheme": "Светлая тема",
+    "darkTheme": "Тёмная тема",
+    "getStarted": "Начать",
+    "telegramChannel": "Мой Telegram-канал",
+    "language": "Язык"
+  },
+  "footer": {
+    "quickLinks": "Быстрые ссылки",
+    "connect": "Контакты",
+    "madeWithLove": "Сделано с",
+    "madeWithFull": "Сделано с 🧠",
+    "home": "Главная",
+    "features": "Возможности",
+    "howItWorks": "Как это работает",
+    "envelope": "Конверт",
+    "pdfExport": "Экспорт в PDF",
+    "messageAuthor": "Написать автору",
+    "suggestProject": "Предложить идею",
+    "feedback": "Оставить отзыв",
+    "telegram": "Студент пишет код",
+    "otherProjects": "Другие проекты автора",
+    "comingSoon": "Скоро",
+    "telegramChannel": "Мой Telegram-канал",
+    "shanStudio": "ShanStudio",
+    "projects": {
+      "deenPlanner": "чек-листы для студентов",
+      "ustazFlow": "планнер преподавателя",
+      "ummaFlow": "планнер для мамы",
+      "usraFlow": "семейный планнер",
+      "hifzFlow": "трекер заучивания Корана",
+      "littleUmmah": "истории для детей",
+      "noorRoom": "комната в арабском стиле",
+      "madrasaKey": "ГДЗ по арабскому",
+      "hijabPlanner": "планировщик хиджаба",
+      "shelfMind": "твоя домашняя библиотека"
+    }
+  },
+  "googleAuth": {
+    "continueWith": "Продолжить с Google",
+    "or": "ИЛИ"
+  },
+  "pwa": {
+    "install": {
+      "banner": {
+        "title": "Установить QalamFlow",
+        "description": "Установи приложение для лучшего опыта!",
+        "installButton": "Установить",
+        "dismissButton": "×"
+      },
+      "modal": {
+        "title": "Установить QalamFlow",
+        "ios": {
+          "title": "На мобильном (iOS)",
+          "safari": "Safari",
+          "shareButton": "Поделиться",
+          "addToHomeScreen": "На экран «Домой»",
+          "tapAdd": "Добавить",
+          "step1": "Открой QalamFlow в ",
+          "step2": "Нажми кнопку ",
+          "step2b": " (квадрат со стрелкой)",
+          "step3": "Прокрути вниз и нажми ",
+          "step4": "Нажми ",
+          "step4b": " для подтверждения"
+        },
+        "android": {
+          "title": "На мобильном (Android)",
+          "chrome": "Chrome",
+          "menu": "меню",
+          "addToHome": "Добавить на главный экран",
+          "installApp": "Установить приложение",
+          "install": "Установить",
+          "step1": "Открой QalamFlow в ",
+          "step2": "Нажми ",
+          "step2b": " (три точки)",
+          "step3": "Нажми ",
+          "step3b": " или ",
+          "step4": "Нажми ",
+          "step4b": " для подтверждения"
+        },
+        "desktop": {
+          "title": "На компьютере (Chrome/Edge)",
+          "installIcon": "значок установки",
+          "menu": "меню",
+          "installQalamFlow": "Установить QalamFlow",
+          "createShortcut": "Создать ярлык",
+          "install": "Установить",
+          "step1": "Найди ",
+          "step1b": " в адресной строке",
+          "step2": "Или нажми ",
+          "step2b": " (три точки)",
+          "step3": "Выбери ",
+          "step3b": " или ",
+          "step4": "Нажми ",
+          "step4b": " для подтверждения"
+        },
+        "benefits": {
+          "title": "Преимущества установки:",
+          "fastLoading": "Быстрая загрузка",
+          "worksOffline": "Работает офлайн",
+          "nativeExperience": "Ощущение нативного приложения",
+          "quickAccess": "Быстрый доступ с главного экрана",
+          "noAppStore": "Не нужен магазин приложений"
+        }
+      }
+    }
+  }
+}

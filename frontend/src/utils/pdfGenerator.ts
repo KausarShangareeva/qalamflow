@@ -1,6 +1,6 @@
 import jsPDF from "jspdf";
 import type { ScheduleItem } from "../api/types";
-import WEEKDAYS from "../json/weekdays.json";
+import WEEKDAYS from "../data/ru/weekdays.json";
 
 const DAYS = WEEKDAYS.days.map((d) => d.lower);
 

@@ -1,0 +1,61 @@
+{
+  "workspace": {
+    "vertical": "Вертикально",
+    "horizontal": "Горизонтально",
+    "nothingFound": "Ничего не найдено",
+    "createNewPlan": "Создать новый план",
+    "greetingNight": "Доброй ночи",
+    "greetingMorning": "Доброе утро",
+    "greetingAfternoon": "Добрый день",
+    "greetingEvening": "Добрый вечер",
+    "subtitle": "Спланируй свою неделю",
+    "planAIBtn": "🤖 Спланируй с ИИ",
+    "weekPlanTitle": "План недели",
+    "hoursPerWeekShort": "{count} ч/нед",
+    "hoursShort": "{count}ч",
+    "updatedAt": "✏️ изменён {time}",
+    "relativeJustNow": "только что",
+    "relativeMinutesAgo": "{count} мин. назад",
+    "relativeHoursAgo": "{count} ч. назад",
+    "relativeYesterday": "вчера",
+    "relativeDaysAgo": "{count} дн. назад",
+    "relativeWeeksAgo": "{count} нед. назад",
+    "moreCoursesRow": "+ ещё {count} {plural} · {hours}ч",
+    "courseSingular": "курс",
+    "courseFew": "курса",
+    "courseMany": "курсов",
+    "confirmDelete": "Вы точно хотите удалить этот супер-план?",
+    "confirmYes": "Да, точно",
+    "confirmNo": "Ой, нет!",
+    "openBtn": "Открыть",
+    "deletePlanAria": "Удалить план",
+    "saveHints": {
+      "emojiAdded": "Эмоджи добавлены в расписание",
+      "emojiRemoved": "Эмоджи удалены из расписания",
+      "noCourseYet": "Вы ещё не добавили курс",
+      "youAdded": "Вы добавили",
+      "savePlanSuffix": "— сохраните план",
+      "planSaved": "План сохранён"
+    },
+    "benefitToastLabel": "ПОЛЬЗА КУРСА",
+    "popupTabMyTags": "Мои теги",
+    "popupAddCustomBtn": "Свой курс",
+    "popupNotFound": "Не нашли нужный курс?",
+    "popupAddTagBtn": "+ Добавь свой тег",
+    "popupMyTagsEmpty": "У вас ещё нет своих тегов.",
+    "popupMyTagsHint": "Нажмите «+ Свой курс» чтобы добавить.",
+    "popupAddTagFooter": "Добавить тег",
+    "customTag": {
+      "namePlaceholder": "Название курса...",
+      "save": "Сохранить",
+      "cancel": "Отмена",
+      "delete": "Удалить тег"
+    },
+    "guestModal": {
+      "title": "Ага! Вы хотите распечатать крутой план?",
+      "text": "Зарегистрируйтесь, чтобы не потерять план и иметь доступ к нему с любого устройства!",
+      "register": "Зарегистрироваться",
+      "later": "Позже"
+    }
+  }
+}

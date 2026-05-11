@@ -1,0 +1,31 @@
+{
+  "suggestProject": {
+    "badge": "Community ideas",
+    "greetingUser": "Hi,",
+    "greetingGuest": "Hi",
+    "heroTitle": "Got an idea for a new",
+    "heroTitleBrand": "project?",
+    "heroSubtitleUser": "Tell me about it!",
+    "heroSubtitleGuest": "Share it with us!",
+    "step1Title": "Want to suggest an idea for your own site?",
+    "step1Sub": "Pick a project direction",
+    "step2Title": "You're in the right place",
+    "step3Title": "When do you need the project ready?",
+    "step3Sub": "Pick a timeframe",
+    "step4Title": "What is your project about?",
+    "step4Sub": "You can pick several topics",
+    "step5Title": "Almost there!",
+    "step5Sub": "Tell us how to reach you",
+    "nameLabel": "Your name",
+    "namePlaceholder": "Your name",
+    "contactLabel": "Email or Telegram",
+    "contactPlaceholder": "email@example.com or @username",
+    "submitBtn": "Bring the idea to life 🚀",
+    "continueBtn": "Continue",
+    "urgentBadge": "Urgent",
+    "loadingTitleWith": ", your project idea is awesome 🙂",
+    "loadingTitleWithout": "Your project idea is awesome 🙂",
+    "successTitle": "Got it! 🎉",
+    "successSub": "I'll review your request and get in touch soon"
+  }
+}

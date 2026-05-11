@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { Save, Printer } from "lucide-react";
 import { useCopy } from "../../../hooks/useCopy";
-import WEEKDAYS from "../../../json/weekdays.json";
+import { useLocalizedWeekdays } from "../../../hooks/useLocalizedWeekdays";
+import WEEKDAYS from "../../../data/ru/weekdays.json";
 import { t as demoTag } from "../../../utils/demoTags";
 import TagIcon from "../../../components/TagIcon";
 import styles from "./ScreenPreview.module.css";
@@ -81,6 +82,7 @@ function getSpan(day: string, time: string, times: string[]): number {
 
 export default function ScreenPreview() {
   const { get } = useCopy();
+  const { shortForRuShort } = useLocalizedWeekdays();
   const tableRef = useRef<HTMLDivElement>(null);
 
   function buildPrintTable(): string {
@@ -253,7 +255,7 @@ export default function ScreenPreview() {
                 <th className={styles.timeHeader} />
                 {DAYS.map((day) => (
                   <th key={day} className={styles.dayHeader}>
-                    {day}
+                    {shortForRuShort[day] ?? day}
                   </th>
                 ))}
               </tr>

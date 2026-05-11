@@ -16,8 +16,8 @@ import {
   Printer,
 } from "lucide-react";
 
-import WEEKDAYS from "../../../json/weekdays.json";
-import ALL_TAGS from "../../../json/tags.json";
+import ALL_TAGS from "../../../data/ru/tags.json";
+import { useLocalizedWeekdays } from "../../../hooks/useLocalizedWeekdays";
 import TagIcon from "../../../components/TagIcon";
 import { t as demoTag } from "../../../utils/demoTags";
 import styles from "./FeaturesSection.module.css";
@@ -63,9 +63,6 @@ function HighlightedCourses() {
   );
 }
 
-const MINI_DAYS = WEEKDAYS.days.map((d) => d.short);
-const MINI_HOURS = WEEKDAYS.hours.filter((h) => h.value >= 8 && h.value <= 16);
-
 const MINI_SCHEDULE: Record<string, string> = {
   "0-1": "#6366f1",
   "0-2": "#6366f1", // Mon: Math
@@ -85,21 +82,24 @@ const MINI_SCHEDULE: Record<string, string> = {
 };
 
 function MiniSchedule() {
+  const { weekdays } = useLocalizedWeekdays();
+  const miniDays = weekdays.days.map((d) => d.short);
+  const miniHours = weekdays.hours.filter((h) => h.value >= 8 && h.value <= 16);
   return (
     <div className={styles.miniSchedule}>
       {/* Corner */}
       <div className={styles.miniCorner} />
       {/* Day headers */}
-      {MINI_DAYS.map((day, i) => (
+      {miniDays.map((day, i) => (
         <div key={`d${i}`} className={styles.miniDayLabel}>
           {day}
         </div>
       ))}
       {/* Rows */}
-      {MINI_HOURS.map((hour, row) => (
+      {miniHours.map((hour, row) => (
         <React.Fragment key={row}>
           <div className={styles.miniTimeLabel}>{hour.full.split(":")[0]}</div>
-          {MINI_DAYS.map((_, col) => {
+          {miniDays.map((_, col) => {
             const color = MINI_SCHEDULE[`${col}-${row}`];
             return (
               <div

@@ -1,0 +1,2083 @@
+[
+  {
+    "name": "Math",
+    "color": "var(--tag-math)",
+    "bg": "var(--tag-math-bg)",
+    "icon": "📐",
+    "benefit": "Builds logic and reasoning"
+  },
+  {
+    "name": "Algebra",
+    "color": "var(--tag-algebra)",
+    "bg": "var(--tag-algebra-bg)",
+    "icon": "🔢",
+    "benefit": "Teaches equations and problem solving"
+  },
+  {
+    "name": "Geometry",
+    "color": "var(--tag-geometry)",
+    "bg": "var(--tag-geometry-bg)",
+    "icon": "📏",
+    "benefit": "Builds spatial thinking"
+  },
+  {
+    "name": "Calculus",
+    "color": "var(--tag-calculus)",
+    "bg": "var(--tag-calculus-bg)",
+    "icon": "∫",
+    "benefit": "Foundation of science and engineering"
+  },
+  {
+    "name": "Statistics",
+    "color": "var(--tag-statistics)",
+    "bg": "var(--tag-statistics-bg)",
+    "icon": "📊",
+    "benefit": "Helps you analyse data"
+  },
+  {
+    "name": "Biology",
+    "color": "var(--tag-biology)",
+    "bg": "var(--tag-biology-bg)",
+    "icon": "🧬",
+    "benefit": "Understand life and nature"
+  },
+  {
+    "name": "Chemistry",
+    "color": "var(--tag-chemistry)",
+    "bg": "var(--tag-chemistry-bg)",
+    "icon": "🧪",
+    "benefit": "Reveals the secrets of matter"
+  },
+  {
+    "name": "Physics",
+    "color": "var(--tag-physics)",
+    "bg": "var(--tag-physics-bg)",
+    "icon": "🔬",
+    "benefit": "Explains the laws of nature"
+  },
+  {
+    "name": "Astronomy",
+    "color": "var(--tag-astronomy)",
+    "bg": "var(--tag-astronomy-bg)",
+    "icon": "🔭",
+    "benefit": "Unveils the mysteries of the universe"
+  },
+  {
+    "name": "Earth Sciences",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "🌍",
+    "benefit": "Understanding our planet"
+  },
+  {
+    "name": "Reading",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "📚",
+    "benefit": ""
+  },
+  {
+    "name": "History",
+    "color": "var(--tag-history)",
+    "bg": "var(--tag-history-bg)",
+    "icon": "📜",
+    "benefit": "Learn from the past"
+  },
+  {
+    "name": "World History",
+    "color": "var(--tag-world-history)",
+    "bg": "var(--tag-world-history-bg)",
+    "icon": "🌐",
+    "benefit": "Broadens your view of the world"
+  },
+  {
+    "name": "Geography",
+    "color": "var(--tag-geography)",
+    "bg": "var(--tag-geography-bg)",
+    "icon": "🗺️",
+    "benefit": "Know countries and peoples"
+  },
+  {
+    "name": "Literature",
+    "color": "var(--tag-literature)",
+    "bg": "var(--tag-literature-bg)",
+    "icon": "📚",
+    "benefit": "Enriches speech and soul"
+  },
+  {
+    "name": "Essay Writing",
+    "color": "var(--tag-writing)",
+    "bg": "var(--tag-writing-bg)",
+    "icon": "✍️",
+    "benefit": "Builds your written voice"
+  },
+  {
+    "name": "Grammar",
+    "color": "var(--tag-grammar)",
+    "bg": "var(--tag-grammar-bg)",
+    "icon": "📝",
+    "benefit": "Literacy and precision"
+  },
+  {
+    "name": "English",
+    "color": "var(--tag-english)",
+    "bg": "var(--tag-english-bg)",
+    "icon": "🇬🇧",
+    "benefit": "The language of global opportunity"
+  },
+  {
+    "name": "Computer Science",
+    "color": "var(--tag-computer-science)",
+    "bg": "var(--tag-computer-science-bg)",
+    "icon": "💻",
+    "benefit": "Foundation of the digital world"
+  },
+  {
+    "name": "Programming",
+    "color": "var(--tag-programming)",
+    "bg": "var(--tag-programming-bg)",
+    "icon": "👨‍💻",
+    "benefit": "Build products with your own hands"
+  },
+  {
+    "name": "Art",
+    "color": "var(--tag-art)",
+    "bg": "var(--tag-art-bg)",
+    "icon": "🎨",
+    "benefit": "Builds creativity and taste"
+  },
+  {
+    "name": "Music",
+    "color": "var(--tag-music)",
+    "bg": "var(--tag-music-bg)",
+    "icon": "🎵",
+    "benefit": "Trains hearing and memory"
+  },
+  {
+    "name": "Physical Education",
+    "color": "var(--tag-physical-education)",
+    "bg": "var(--tag-physical-education-bg)",
+    "icon": "⚽",
+    "benefit": "Healthy body, healthy spirit"
+  },
+  {
+    "name": "Psychology",
+    "color": "var(--tag-psychology)",
+    "bg": "var(--tag-psychology-bg)",
+    "icon": "🧠",
+    "benefit": "Understand yourself and others"
+  },
+  {
+    "name": "Economics",
+    "color": "var(--tag-economics)",
+    "bg": "var(--tag-economics-bg)",
+    "icon": "💰",
+    "benefit": "Manage money and resources"
+  },
+  {
+    "name": "Philosophy",
+    "color": "var(--tag-philosophy)",
+    "bg": "var(--tag-philosophy-bg)",
+    "icon": "🤔",
+    "benefit": "Teaches deep thinking"
+  },
+  {
+    "name": "Social Studies",
+    "color": "var(--tag-social-studies)",
+    "bg": "var(--tag-social-studies-bg)",
+    "icon": "🏛️",
+    "benefit": "Understand society and the state"
+  },
+  {
+    "name": "Drama",
+    "color": "var(--tag-drama)",
+    "bg": "var(--tag-drama-bg)",
+    "icon": "🎭",
+    "benefit": "Unlocks your acting potential"
+  },
+  {
+    "name": "Spanish",
+    "color": "var(--tag-spanish)",
+    "bg": "var(--tag-spanish-bg)",
+    "icon": "🇪🇸",
+    "benefit": "Spoken by 500M people"
+  },
+  {
+    "name": "French",
+    "color": "var(--tag-french)",
+    "bg": "var(--tag-french-bg)",
+    "icon": "🇫🇷",
+    "benefit": "Language of culture and diplomacy"
+  },
+  {
+    "name": "German",
+    "color": "var(--tag-german)",
+    "bg": "var(--tag-german-bg)",
+    "icon": "🇩🇪",
+    "benefit": "Language of science and engineering"
+  },
+  {
+    "name": "Japanese",
+    "color": "var(--tag-japanese)",
+    "bg": "var(--tag-japanese-bg)",
+    "icon": "🇯🇵",
+    "benefit": "Opens up a unique culture"
+  },
+  {
+    "name": "Arabic",
+    "color": "var(--tag-arabic)",
+    "bg": "var(--tag-arabic-bg)",
+    "icon": "🇸🇦",
+    "benefit": "Language of the Quran and Islamic sciences"
+  },
+  {
+    "name": "Chinese",
+    "color": "var(--tag-chinese)",
+    "bg": "var(--tag-chinese-bg)",
+    "icon": "🇨🇳",
+    "benefit": "Language of the future economy"
+  },
+  {
+    "name": "Ecology",
+    "color": "var(--tag-environmental-science)",
+    "bg": "var(--tag-environmental-science-bg)",
+    "icon": "🌱",
+    "benefit": "Care for our planet"
+  },
+  {
+    "name": "Anatomy",
+    "color": "var(--tag-anatomy)",
+    "bg": "var(--tag-anatomy-bg)",
+    "icon": "🫀",
+    "benefit": "Understand human anatomy"
+  },
+  {
+    "name": "Trigonometry",
+    "color": "var(--tag-trigonometry)",
+    "bg": "var(--tag-trigonometry-bg)",
+    "icon": "△",
+    "benefit": "Foundation of physics and engineering"
+  },
+  {
+    "name": "Probability Theory",
+    "color": "var(--tag-probability)",
+    "bg": "var(--tag-probability-bg)",
+    "icon": "🎲",
+    "benefit": "Understand chance and risk"
+  },
+  {
+    "name": "Sociology",
+    "color": "var(--tag-sociology)",
+    "bg": "var(--tag-sociology-bg)",
+    "icon": "👥",
+    "benefit": "Study society and groups"
+  },
+  {
+    "name": "Political Science",
+    "color": "var(--tag-political-science)",
+    "bg": "var(--tag-political-science-bg)",
+    "icon": "🗳️",
+    "benefit": "Understand power and politics"
+  },
+  {
+    "name": "Law",
+    "color": "var(--tag-law)",
+    "bg": "var(--tag-law-bg)",
+    "icon": "⚖️",
+    "benefit": "Know your rights"
+  },
+  {
+    "name": "Data Science",
+    "color": "var(--tag-data-science)",
+    "bg": "var(--tag-data-science-bg)",
+    "icon": "📈",
+    "benefit": "Tomorrow's career in IT"
+  },
+  {
+    "name": "Cybersecurity",
+    "color": "var(--tag-cybersecurity)",
+    "bg": "var(--tag-cybersecurity-bg)",
+    "icon": "🔐",
+    "benefit": "Protect data and systems"
+  },
+  {
+    "name": "Web Development",
+    "color": "var(--tag-web-development)",
+    "bg": "var(--tag-web-development-bg)",
+    "icon": "🖥️",
+    "benefit": "Build sites and apps"
+  },
+  {
+    "name": "UI/UX Design",
+    "color": "var(--tag-ui-ux-design)",
+    "bg": "var(--tag-ui-ux-design-bg)",
+    "icon": "🎯",
+    "benefit": "Design usable interfaces"
+  },
+  {
+    "name": "Marketing",
+    "color": "var(--tag-marketing)",
+    "bg": "var(--tag-marketing-bg)",
+    "icon": "📣",
+    "benefit": "Promote products and ideas"
+  },
+  {
+    "name": "Finance",
+    "color": "var(--tag-finance)",
+    "bg": "var(--tag-finance-bg)",
+    "icon": "💳",
+    "benefit": "Manage money wisely"
+  },
+  {
+    "name": "Accounting",
+    "color": "var(--tag-accounting)",
+    "bg": "var(--tag-accounting-bg)",
+    "icon": "🧾",
+    "benefit": "Track and control finances"
+  },
+  {
+    "name": "Entrepreneurship",
+    "color": "var(--tag-entrepreneurship)",
+    "bg": "var(--tag-entrepreneurship-bg)",
+    "icon": "🚀",
+    "benefit": "Build a business from scratch"
+  },
+  {
+    "name": "Productivity",
+    "color": "var(--tag-productivity)",
+    "bg": "var(--tag-productivity-bg)",
+    "icon": "⏱️",
+    "benefit": "Get more done in less time"
+  },
+  {
+    "name": "Public Speaking",
+    "color": "var(--tag-public-speaking)",
+    "bg": "var(--tag-public-speaking-bg)",
+    "icon": "🎤",
+    "benefit": "Speak with clarity and conviction"
+  },
+  {
+    "name": "Leadership",
+    "color": "var(--tag-leadership)",
+    "bg": "var(--tag-leadership-bg)",
+    "icon": "👑",
+    "benefit": "Lead people forward"
+  },
+  {
+    "name": "Critical Thinking",
+    "color": "var(--tag-critical-thinking)",
+    "bg": "var(--tag-critical-thinking-bg)",
+    "icon": "🔍",
+    "benefit": "Analyse, don't take things on faith"
+  },
+  {
+    "name": "Mindfulness",
+    "color": "var(--tag-mindfulness)",
+    "bg": "var(--tag-mindfulness-bg)",
+    "icon": "🧘",
+    "benefit": "Calm and a clear mind"
+  },
+  {
+    "name": "Differential Equations",
+    "color": "var(--tag-calculus)",
+    "bg": "var(--tag-calculus-bg)",
+    "icon": "📉",
+    "benefit": "Model real-world processes"
+  },
+  {
+    "name": "Discrete Math",
+    "color": "var(--tag-math)",
+    "bg": "var(--tag-math-bg)",
+    "icon": "🔣",
+    "benefit": "Foundation of programming and logic"
+  },
+  {
+    "name": "Data Structures",
+    "color": "var(--tag-computer-science)",
+    "bg": "var(--tag-computer-science-bg)",
+    "icon": "🗂️",
+    "benefit": "Efficient storage of information"
+  },
+  {
+    "name": "Algorithms",
+    "color": "var(--tag-programming)",
+    "bg": "var(--tag-programming-bg)",
+    "icon": "⚙️",
+    "benefit": "Solve problems fast and elegantly"
+  },
+  {
+    "name": "Machine Learning",
+    "color": "var(--tag-astronomy)",
+    "bg": "var(--tag-astronomy-bg)",
+    "icon": "🤖",
+    "benefit": "Teach machines to think"
+  },
+  {
+    "name": "Databases",
+    "color": "var(--tag-computer-science)",
+    "bg": "var(--tag-computer-science-bg)",
+    "icon": "🗄️",
+    "benefit": "Store and search data"
+  },
+  {
+    "name": "Operating Systems",
+    "color": "var(--tag-geography)",
+    "bg": "var(--tag-geography-bg)",
+    "icon": "🖥️",
+    "benefit": "Understand how computers work"
+  },
+  {
+    "name": "Computer Networks",
+    "color": "var(--tag-programming)",
+    "bg": "var(--tag-programming-bg)",
+    "icon": "📡",
+    "benefit": "How the internet works"
+  },
+  {
+    "name": "Artificial Intelligence",
+    "color": "var(--tag-physics)",
+    "bg": "var(--tag-physics-bg)",
+    "icon": "🧠",
+    "benefit": "Tomorrow's tech today"
+  },
+  {
+    "name": "Number Theory",
+    "color": "var(--tag-math)",
+    "bg": "var(--tag-math-bg)",
+    "icon": "∞",
+    "benefit": "The beauty and mysteries of numbers"
+  },
+  {
+    "name": "Calculus II",
+    "color": "var(--tag-algebra)",
+    "bg": "var(--tag-algebra-bg)",
+    "icon": "📊",
+    "benefit": "Advanced analysis and integrals"
+  },
+  {
+    "name": "Quantum Mechanics",
+    "color": "var(--tag-physics)",
+    "bg": "var(--tag-physics-bg)",
+    "icon": "⚡",
+    "benefit": "Physics at the atomic level"
+  },
+  {
+    "name": "Thermodynamics",
+    "color": "var(--tag-chemistry)",
+    "bg": "var(--tag-chemistry-bg)",
+    "icon": "🌡️",
+    "benefit": "Laws of heat and energy"
+  },
+  {
+    "name": "Organic Chemistry",
+    "color": "var(--tag-chemistry)",
+    "bg": "var(--tag-chemistry-bg)",
+    "icon": "🧪",
+    "benefit": "Chemistry of life and materials"
+  },
+  {
+    "name": "Biochemistry",
+    "color": "var(--tag-biology)",
+    "bg": "var(--tag-biology-bg)",
+    "icon": "🧬",
+    "benefit": "Chemistry of living organisms"
+  },
+  {
+    "name": "Molecular Biology",
+    "color": "var(--tag-biology)",
+    "bg": "var(--tag-biology-bg)",
+    "icon": "🔬",
+    "benefit": "The secrets of DNA and cells"
+  },
+  {
+    "name": "Genetics",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "🧫",
+    "benefit": "Heredity and genes"
+  },
+  {
+    "name": "Neuroscience",
+    "color": "var(--tag-psychology)",
+    "bg": "var(--tag-psychology-bg)",
+    "icon": "🧠",
+    "benefit": "How the brain works"
+  },
+  {
+    "name": "Cognitive Science",
+    "color": "var(--tag-psychology)",
+    "bg": "var(--tag-psychology-bg)",
+    "icon": "💭",
+    "benefit": "The science of thought and consciousness"
+  },
+  {
+    "name": "International Relations",
+    "color": "var(--tag-world-history)",
+    "bg": "var(--tag-world-history-bg)",
+    "icon": "🌍",
+    "benefit": "Diplomacy and world politics"
+  },
+  {
+    "name": "Anthropology",
+    "color": "var(--tag-history)",
+    "bg": "var(--tag-history-bg)",
+    "icon": "🏺",
+    "benefit": "Study people and cultures"
+  },
+  {
+    "name": "Linguistics",
+    "color": "var(--tag-grammar)",
+    "bg": "var(--tag-grammar-bg)",
+    "icon": "🔤",
+    "benefit": "The science of language and speech"
+  },
+  {
+    "name": "Financial Math",
+    "color": "var(--tag-economics)",
+    "bg": "var(--tag-economics-bg)",
+    "icon": "📈",
+    "benefit": "Math for investing"
+  },
+  {
+    "name": "Game Theory",
+    "color": "var(--tag-philosophy)",
+    "bg": "var(--tag-philosophy-bg)",
+    "icon": "♟️",
+    "benefit": "Strategies in competitive settings"
+  },
+  {
+    "name": "Quran Tashih",
+    "color": "var(--tag-quran-reading)",
+    "bg": "var(--tag-quran-reading-bg)",
+    "icon": "📣",
+    "benefit": "Correct recitation of the Quran"
+  },
+  {
+    "name": "Quran",
+    "color": "var(--tag-quran-reading)",
+    "bg": "var(--tag-quran-reading-bg)",
+    "icon": "📗",
+    "benefit": "The Word of Allah — light of the heart"
+  },
+  {
+    "name": "Quran Hifz",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "📿",
+    "benefit": "Memorising the Quran by heart"
+  },
+  {
+    "name": "Quran Hifz (1.5h)",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "📿",
+    "benefit": "Memorising the Quran by heart"
+  },
+  {
+    "name": "Quran Memorisation",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "📿",
+    "benefit": "Keep the Quran in your heart"
+  },
+  {
+    "name": "Quran Preparation",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "💚",
+    "benefit": "Prepare for your Quran session"
+  },
+  {
+    "name": "Quran Preparation (1h)",
+    "color": "var(--tag-quran-memorization)",
+    "bg": "var(--tag-quran-memorization-bg)",
+    "icon": "💚",
+    "benefit": "Prepare for your Quran session"
+  },
+  {
+    "name": "Quran Murajaah",
+    "color": "var(--tag-murajaah)",
+    "bg": "var(--tag-murajaah-bg)",
+    "icon": "🔄",
+    "benefit": "Repetition to consolidate"
+  },
+  {
+    "name": "Quran Review",
+    "color": "var(--tag-murajaah)",
+    "bg": "var(--tag-murajaah-bg)",
+    "icon": "🔄",
+    "benefit": "Repetition strengthens memory",
+    "adminOnly": true
+  },
+  {
+    "name": "Quran Reading",
+    "color": "var(--tag-murajaah)",
+    "bg": "var(--tag-murajaah-bg)",
+    "icon": "📖",
+    "benefit": "Repetition strengthens memory"
+  },
+  {
+    "name": "Quran Khatm",
+    "color": "var(--tag-khatm)",
+    "bg": "var(--tag-khatm-bg)",
+    "icon": "🌟",
+    "benefit": "Completing a full reading"
+  },
+  {
+    "name": "Tahajjud + Wird (90 pp.)",
+    "color": "var(--tag-wird)",
+    "bg": "var(--tag-wird-bg)",
+    "icon": "🌙",
+    "benefit": "Night prayer and remembrance",
+    "adminOnly": true
+  },
+  {
+    "name": "Tahajjud",
+    "color": "var(--tag-wird)",
+    "bg": "var(--tag-wird-bg)",
+    "icon": "🌙",
+    "benefit": "Night prayer and remembrance"
+  },
+  {
+    "name": "Anat (student)",
+    "color": "var(--tag-wird)",
+    "bg": "var(--tag-wird-bg)",
+    "icon": "💛",
+    "adminOnly": true
+  },
+  {
+    "name": "Quran Wird",
+    "color": "var(--tag-wird)",
+    "bg": "var(--tag-wird-bg)",
+    "icon": "🌙",
+    "benefit": "Daily Quran reading"
+  },
+  {
+    "name": "Tajweed",
+    "color": "var(--tag-tajweed)",
+    "bg": "var(--tag-tajweed-bg)",
+    "icon": "🫀",
+    "benefit": "The rules of beautiful recitation"
+  },
+  {
+    "name": "Tafsir",
+    "color": "var(--tag-quran-tafsir)",
+    "bg": "var(--tag-quran-tafsir-bg)",
+    "icon": "📜",
+    "benefit": "Exegesis of the Quran"
+  },
+  {
+    "name": "Quranic Sciences",
+    "color": "var(--tag-quran-sciences)",
+    "bg": "var(--tag-quran-sciences-bg)",
+    "icon": "✨",
+    "benefit": "In-depth study of the Quran"
+  },
+  {
+    "name": "Medina Course (MK)",
+    "color": "var(--tag-medina-course)",
+    "bg": "var(--tag-medina-course-bg)",
+    "icon": "📚",
+    "benefit": "Arabic by the Medina method"
+  },
+  {
+    "name": "MK Volume 1",
+    "color": "var(--tag-mk-1)",
+    "bg": "var(--tag-mk-1-bg)",
+    "icon": "📔",
+    "benefit": "First steps in Arabic"
+  },
+  {
+    "name": "MK Volume 2",
+    "color": "var(--tag-mk-2)",
+    "bg": "var(--tag-mk-2-bg)",
+    "icon": "📗",
+    "benefit": "Growing your Arabic"
+  },
+  {
+    "name": "MK Volume 3",
+    "color": "var(--tag-mk-3)",
+    "bg": "var(--tag-mk-3-bg)",
+    "icon": "📘",
+    "benefit": "Advanced Arabic"
+  },
+  {
+    "name": "MK Volume 4",
+    "color": "var(--tag-mk-4)",
+    "bg": "var(--tag-mk-4-bg)",
+    "icon": "📕",
+    "benefit": "Mastery of Arabic"
+  },
+  {
+    "name": "Bayna Yadayk (BY)",
+    "color": "var(--tag-bayna-yadayk)",
+    "bg": "var(--tag-bayna-yadayk-bg)",
+    "icon": "📚",
+    "benefit": "Conversational Arabic"
+  },
+  {
+    "name": "BY Volume 1",
+    "color": "var(--tag-bya-1)",
+    "bg": "var(--tag-bya-1-bg)",
+    "icon": "📙",
+    "benefit": "Conversational Arabic basics"
+  },
+  {
+    "name": "BY Volume 2",
+    "color": "var(--tag-bya-2)",
+    "bg": "var(--tag-bya-2-bg)",
+    "icon": "📗",
+    "benefit": "Expand your vocabulary"
+  },
+  {
+    "name": "BY Volume 3",
+    "color": "var(--tag-bya-3)",
+    "bg": "var(--tag-bya-3-bg)",
+    "icon": "📘",
+    "benefit": "Speak Arabic fluently"
+  },
+  {
+    "name": "BY Volume 4",
+    "color": "var(--tag-bya-4)",
+    "bg": "var(--tag-bya-4-bg)",
+    "icon": "📕",
+    "benefit": "High-level Arabic"
+  },
+  {
+    "name": "Ajrumiyya",
+    "color": "var(--tag-ajrumiyya)",
+    "bg": "var(--tag-ajrumiyya-bg)",
+    "icon": "📓",
+    "benefit": "Classical Arabic grammar"
+  },
+  {
+    "name": "Qatr an-Nada",
+    "color": "var(--tag-qatrun-nada)",
+    "bg": "var(--tag-qatrun-nada-bg)",
+    "icon": "💧",
+    "benefit": "Advanced Arabic grammar"
+  },
+  {
+    "name": "Alfiyya Ibn Malik",
+    "color": "var(--tag-alfiyya)",
+    "bg": "var(--tag-alfiyya-bg)",
+    "icon": "📓",
+    "benefit": "The peak of Arabic grammar"
+  },
+  {
+    "name": "ZAD Academy",
+    "color": "var(--tag-academy-zad)",
+    "bg": "var(--tag-academy-zad-bg)",
+    "icon": "🎓",
+    "benefit": "Structured Islamic education"
+  },
+  {
+    "name": "DIRAYA",
+    "color": "var(--tag-diraya)",
+    "bg": "var(--tag-diraya-bg)",
+    "icon": "📡",
+    "benefit": "Knowledge and understanding of Islam"
+  },
+  {
+    "name": "Pedagogy",
+    "color": "var(--tag-pedagogy)",
+    "bg": "var(--tag-pedagogy-bg)",
+    "icon": "🍎",
+    "benefit": "The art of teaching others"
+  },
+  {
+    "name": "Internship + ShanGroup",
+    "color": "var(--tag-internship)",
+    "bg": "var(--tag-internship-bg)",
+    "icon": "💼",
+    "benefit": "Hands-on real-world experience"
+  },
+  {
+    "name": "Eloquence (Balagha)",
+    "color": "var(--tag-balagha)",
+    "bg": "var(--tag-balagha-bg)",
+    "icon": "💎",
+    "benefit": "The beauty of Arabic speech"
+  },
+  {
+    "name": "Silsilat Ibn Saud",
+    "color": "var(--tag-silsila)",
+    "bg": "var(--tag-silsila-bg)",
+    "icon": "🔗",
+    "benefit": "Structured Arabic course"
+  },
+  {
+    "name": "Qira'a Rashidi",
+    "color": "var(--tag-qiraa-rashidi)",
+    "bg": "var(--tag-qiraa-rashidi-bg)",
+    "icon": "📖",
+    "benefit": "Reading by the Rashidi method"
+  },
+  {
+    "name": "Grammar (Nahw)",
+    "color": "var(--tag-arabic-grammar)",
+    "bg": "var(--tag-arabic-grammar-bg)",
+    "icon": "📝",
+    "benefit": "Rules of Arabic grammar"
+  },
+  {
+    "name": "Morphology",
+    "color": "var(--tag-grammar)",
+    "bg": "var(--tag-grammar-bg)",
+    "icon": "🔤",
+    "benefit": "Word and form structure"
+  },
+  {
+    "name": "Eloquence",
+    "color": "var(--tag-writing)",
+    "bg": "var(--tag-writing-bg)",
+    "icon": "✍️",
+    "benefit": "Speak beautifully and precisely"
+  },
+  {
+    "name": "Morphology (Sarf)",
+    "color": "var(--tag-arabic-morphology)",
+    "bg": "var(--tag-arabic-morphology-bg)",
+    "icon": "🔤",
+    "benefit": "Arabic word formation"
+  },
+  {
+    "name": "Aqidah",
+    "color": "var(--tag-aqeedah)",
+    "bg": "var(--tag-aqeedah-bg)",
+    "icon": "🌟",
+    "benefit": "Correct Islamic creed"
+  },
+  {
+    "name": "Hadith",
+    "color": "var(--tag-hadith-studies)",
+    "bg": "var(--tag-hadith-studies-bg)",
+    "icon": "📜",
+    "benefit": "Words and actions of the Prophet"
+  },
+  {
+    "name": "Fiqh",
+    "color": "var(--tag-fiqh)",
+    "bg": "var(--tag-fiqh-bg)",
+    "icon": "⚖️",
+    "benefit": "Islamic law in daily life"
+  },
+  {
+    "name": "Fiqh of Worship",
+    "color": "var(--tag-fiqh-worship)",
+    "bg": "var(--tag-fiqh-worship-bg)",
+    "icon": "🕌",
+    "benefit": "Rules for worshipping Allah"
+  },
+  {
+    "name": "Fiqh of Transactions",
+    "color": "var(--tag-fiqh-transactions)",
+    "bg": "var(--tag-fiqh-transactions-bg)",
+    "icon": "💼",
+    "benefit": "Islamic rules for transactions"
+  },
+  {
+    "name": "Usul al-Fiqh",
+    "color": "var(--tag-usul-al-fiqh)",
+    "bg": "var(--tag-usul-al-fiqh-bg)",
+    "icon": "📖",
+    "benefit": "Foundations of Islamic law"
+  },
+  {
+    "name": "Seerah",
+    "color": "var(--tag-seerah)",
+    "bg": "var(--tag-seerah-bg)",
+    "icon": "🌙",
+    "benefit": "Life of Prophet Muhammad"
+  },
+  {
+    "name": "Islamic History",
+    "color": "var(--tag-islamic-history)",
+    "bg": "var(--tag-islamic-history-bg)",
+    "icon": "🏛️",
+    "benefit": "Great pages of Islamic history"
+  },
+  {
+    "name": "Companions",
+    "color": "var(--tag-companions)",
+    "bg": "var(--tag-companions-bg)",
+    "icon": "👥",
+    "benefit": "Lives of the Prophet's Companions"
+  },
+  {
+    "name": "Akhlaq",
+    "color": "var(--tag-akhlaq)",
+    "bg": "var(--tag-akhlaq-bg)",
+    "icon": "💎",
+    "benefit": "Islamic ethics and character"
+  },
+  {
+    "name": "Adab",
+    "color": "var(--tag-adab)",
+    "bg": "var(--tag-adab-bg)",
+    "icon": "🌺",
+    "benefit": "Islamic etiquette and upbringing"
+  },
+  {
+    "name": "Tazkiyah",
+    "color": "var(--tag-tazkiyah)",
+    "bg": "var(--tag-tazkiyah-bg)",
+    "icon": "🕊️",
+    "benefit": "Purification and growth of the soul"
+  },
+  {
+    "name": "Daawah",
+    "color": "var(--tag-dawah)",
+    "bg": "var(--tag-dawah-bg)",
+    "icon": "📢",
+    "benefit": "Calling to Islam"
+  },
+  {
+    "name": "Comparative Religion",
+    "color": "var(--tag-comparative-religion)",
+    "bg": "var(--tag-comparative-religion-bg)",
+    "icon": "🌍",
+    "benefit": "Comparing world religions"
+  },
+  {
+    "name": "Family Happiness",
+    "color": "var(--tag-islamic-family)",
+    "bg": "var(--tag-islamic-family-bg)",
+    "icon": "👨‍👩‍👧",
+    "benefit": "Harmony at home"
+  },
+  {
+    "name": "Islamic Finance",
+    "color": "var(--tag-islamic-finance)",
+    "bg": "var(--tag-islamic-finance-bg)",
+    "icon": "💰",
+    "benefit": "Halal money management"
+  },
+  {
+    "name": "Islamic Leadership",
+    "color": "var(--tag-islamic-leadership)",
+    "bg": "var(--tag-islamic-leadership-bg)",
+    "icon": "👑",
+    "benefit": "Leadership by Islamic principles"
+  },
+  {
+    "name": "Islamic Upbringing",
+    "color": "var(--tag-islamic-education)",
+    "bg": "var(--tag-islamic-education-bg)",
+    "icon": "🌱",
+    "benefit": "Islamic upbringing"
+  },
+  {
+    "name": "Sign Language",
+    "color": "var(--tag-sign-language)",
+    "bg": "var(--tag-sign-language-bg)",
+    "icon": "🤟",
+    "benefit": "Wordless communication"
+  },
+  {
+    "name": "Braille",
+    "color": "var(--tag-braille)",
+    "bg": "var(--tag-braille-bg)",
+    "icon": "👆",
+    "benefit": "Writing for the visually impaired"
+  },
+  {
+    "name": "Left-hand writing 10 min 🇷🇺",
+    "color": "var(--tag-writing-russia)",
+    "bg": "var(--tag-writing-russia-bg)",
+    "icon": "🇷🇺",
+    "benefit": "Train both hands",
+    "adminOnly": true
+  },
+  {
+    "name": "Left-hand writing 10 min 🇸🇦",
+    "color": "var(--tag-writing-saudi)",
+    "bg": "var(--tag-writing-saudi-bg)",
+    "icon": "🇸🇦",
+    "benefit": "Train both hands",
+    "adminOnly": true
+  },
+  {
+    "name": "Left-hand writing 10 min 🇺🇸",
+    "color": "var(--tag-writing-usa)",
+    "bg": "var(--tag-writing-usa-bg)",
+    "icon": "🇺🇸",
+    "benefit": "Train both hands",
+    "adminOnly": true
+  },
+  {
+    "name": "Left-hand writing 10 min ☪️",
+    "color": "var(--tag-writing-tatarstan)",
+    "bg": "var(--tag-writing-tatarstan-bg)",
+    "icon": "☪️",
+    "benefit": "Train both hands",
+    "adminOnly": true
+  },
+  {
+    "name": "English (1h) 📖🔉💻",
+    "color": "var(--tag-writing-usa)",
+    "bg": "var(--tag-writing-usa-bg)",
+    "icon": "🇺🇸",
+    "benefit": "The language of global opportunity",
+    "adminOnly": true
+  },
+  {
+    "name": "Tatar (1h) 📖🔉",
+    "color": "var(--tag-writing-tatarstan)",
+    "bg": "var(--tag-writing-tatarstan-bg)",
+    "icon": "☪️",
+    "benefit": "Mother tongue — living memory",
+    "adminOnly": true
+  },
+  {
+    "name": "Russian 📖💻 30 min",
+    "color": "var(--tag-writing-russia)",
+    "bg": "var(--tag-writing-russia-bg)",
+    "icon": "🇷🇺",
+    "benefit": "Literacy and rich speech",
+    "adminOnly": true
+  },
+  {
+    "name": "Arabic reading (50 min)",
+    "color": "var(--tag-reading)",
+    "bg": "var(--tag-reading-bg)",
+    "icon": "📖",
+    "benefit": "Fluent reading in Arabic",
+    "adminOnly": true
+  },
+  {
+    "name": "Touch typing Arabic (20 min)",
+    "color": "var(--tag-reading)",
+    "bg": "var(--tag-reading-bg)",
+    "icon": "🇸🇦",
+    "benefit": "Fast Arabic touch typing",
+    "adminOnly": true
+  },
+  {
+    "name": "Arabic reading (1h)",
+    "color": "var(--tag-reading)",
+    "bg": "var(--tag-reading-bg)",
+    "icon": "📖",
+    "benefit": "Fluent reading in Arabic",
+    "adminOnly": true
+  },
+  {
+    "name": "Horse riding",
+    "color": "var(--tag-horse-riding)",
+    "bg": "var(--tag-horse-riding-bg)",
+    "icon": "🐴",
+    "benefit": "Strength, balance and courage"
+  },
+  {
+    "name": "Archery",
+    "color": "var(--tag-archery)",
+    "bg": "var(--tag-archery-bg)",
+    "icon": "🏹",
+    "benefit": "Precision and focus"
+  },
+  {
+    "name": "Swimming",
+    "color": "var(--tag-swimming)",
+    "bg": "var(--tag-swimming-bg)",
+    "icon": "🏊",
+    "benefit": "Stamina and physical health"
+  },
+  {
+    "name": "Wrestling",
+    "color": "var(--tag-wrestling)",
+    "bg": "var(--tag-wrestling-bg)",
+    "icon": "🤼",
+    "benefit": "Strength and self-defence"
+  },
+  {
+    "name": "Running",
+    "color": "var(--tag-running)",
+    "bg": "var(--tag-running-bg)",
+    "icon": "🏃",
+    "benefit": "Stamina and a clear mind"
+  },
+  {
+    "name": "Rubik's Cube",
+    "color": "var(--tag-rubiks-cube)",
+    "bg": "var(--tag-rubiks-cube-bg)",
+    "icon": "🧩",
+    "benefit": "Trains memory and logic"
+  },
+  {
+    "name": "Chess",
+    "color": "var(--tag-chess-hobby)",
+    "bg": "var(--tag-chess-hobby-bg)",
+    "icon": "♟️",
+    "benefit": "Strategy and deep thinking"
+  },
+  {
+    "name": "Calligraphy",
+    "color": "var(--tag-calligraphy)",
+    "bg": "var(--tag-calligraphy-bg)",
+    "icon": "🖊️",
+    "benefit": "Beauty of writing and patience"
+  },
+  {
+    "name": "Embroidery",
+    "color": "var(--tag-embroidery)",
+    "bg": "var(--tag-embroidery-bg)",
+    "icon": "🧵",
+    "benefit": "Creativity and persistence"
+  },
+  {
+    "name": "Knitting",
+    "color": "var(--tag-knitting)",
+    "bg": "var(--tag-knitting-bg)",
+    "icon": "🧶",
+    "benefit": "Calms you and trains your hands"
+  },
+  {
+    "name": "Sewing",
+    "color": "var(--tag-sewing)",
+    "bg": "var(--tag-sewing-bg)",
+    "icon": "✂️",
+    "benefit": "Make your own clothes"
+  },
+  {
+    "name": "Drawing",
+    "color": "var(--tag-drawing)",
+    "bg": "var(--tag-drawing-bg)",
+    "icon": "✏️",
+    "benefit": "Express thoughts through images"
+  },
+  {
+    "name": "Origami",
+    "color": "var(--tag-origami)",
+    "bg": "var(--tag-origami-bg)",
+    "icon": "🦢",
+    "benefit": "Concentration and precise movement"
+  },
+  {
+    "name": "Russian",
+    "color": "var(--tag-russian)",
+    "bg": "var(--tag-russian-bg)",
+    "icon": "🇷🇺",
+    "benefit": "Literacy and rich speech"
+  },
+  {
+    "name": "Portuguese",
+    "color": "var(--tag-portuguese)",
+    "bg": "var(--tag-portuguese-bg)",
+    "icon": "🇵🇹",
+    "benefit": "Language of two continents"
+  },
+  {
+    "name": "Italian",
+    "color": "var(--tag-italian)",
+    "bg": "var(--tag-italian-bg)",
+    "icon": "🇮🇹",
+    "benefit": "Language of art and culture"
+  },
+  {
+    "name": "Korean",
+    "color": "var(--tag-korean)",
+    "bg": "var(--tag-korean-bg)",
+    "icon": "🇰🇷",
+    "benefit": "Language of tech and culture"
+  },
+  {
+    "name": "Hindi",
+    "color": "var(--tag-hindi)",
+    "bg": "var(--tag-hindi-bg)",
+    "icon": "🇮🇳",
+    "benefit": "Spoken by a billion people"
+  },
+  {
+    "name": "Turkish",
+    "color": "var(--tag-turkish)",
+    "bg": "var(--tag-turkish-bg)",
+    "icon": "🇹🇷",
+    "benefit": "A bridge between Europe and Asia"
+  },
+  {
+    "name": "Dutch",
+    "color": "var(--tag-dutch)",
+    "bg": "var(--tag-dutch-bg)",
+    "icon": "🇳🇱",
+    "benefit": "Language of science and trade"
+  },
+  {
+    "name": "Polish",
+    "color": "var(--tag-polish)",
+    "bg": "var(--tag-polish-bg)",
+    "icon": "🇵🇱",
+    "benefit": "Language of Central Europe"
+  },
+  {
+    "name": "Ukrainian",
+    "color": "var(--tag-ukrainian)",
+    "bg": "var(--tag-ukrainian-bg)",
+    "icon": "🇺🇦",
+    "benefit": "A beautiful Slavic language"
+  },
+  {
+    "name": "Swedish",
+    "color": "var(--tag-swedish)",
+    "bg": "var(--tag-swedish-bg)",
+    "icon": "🇸🇪",
+    "benefit": "Language of Scandinavia and innovation"
+  },
+  {
+    "name": "Greek",
+    "color": "var(--tag-greek)",
+    "bg": "var(--tag-greek-bg)",
+    "icon": "🇬🇷",
+    "benefit": "Language of philosophy and science"
+  },
+  {
+    "name": "Hebrew",
+    "color": "var(--tag-hebrew)",
+    "bg": "var(--tag-hebrew-bg)",
+    "icon": "🇮🇱",
+    "benefit": "One of the oldest languages"
+  },
+  {
+    "name": "Persian",
+    "color": "var(--tag-persian)",
+    "bg": "var(--tag-persian-bg)",
+    "icon": "🇮🇷",
+    "benefit": "Language of poetry and wisdom"
+  },
+  {
+    "name": "Indonesian",
+    "color": "var(--tag-indonesian)",
+    "bg": "var(--tag-indonesian-bg)",
+    "icon": "🇮🇩",
+    "benefit": "Language of the largest Muslim country"
+  },
+  {
+    "name": "Thai",
+    "color": "var(--tag-thai)",
+    "bg": "var(--tag-thai-bg)",
+    "icon": "🇹🇭",
+    "benefit": "A unique Southeast Asian language"
+  },
+  {
+    "name": "Vietnamese",
+    "color": "var(--tag-vietnamese)",
+    "bg": "var(--tag-vietnamese-bg)",
+    "icon": "🇻🇳",
+    "benefit": "Language of a fast-growing economy"
+  },
+  {
+    "name": "Poetry",
+    "color": "var(--tag-poetry)",
+    "bg": "var(--tag-poetry-bg)",
+    "icon": "🪶",
+    "benefit": "Beauty of word and feeling"
+  },
+  {
+    "name": "Life Safety",
+    "color": "var(--tag-obzh)",
+    "bg": "var(--tag-obzh-bg)",
+    "icon": "⛑️",
+    "benefit": "Safety in any situation"
+  },
+  {
+    "name": "Technology",
+    "color": "var(--tag-technology)",
+    "bg": "var(--tag-technology-bg)",
+    "icon": "🔧",
+    "benefit": "Practical hands-on skills"
+  },
+  {
+    "name": "Technical Drawing",
+    "color": "var(--tag-drafting)",
+    "bg": "var(--tag-drafting-bg)",
+    "icon": "📐",
+    "benefit": "Precision and technical thinking"
+  },
+  {
+    "name": "World Art Culture",
+    "color": "var(--tag-mhk)",
+    "bg": "var(--tag-mhk-bg)",
+    "icon": "🎭",
+    "benefit": "World culture and art"
+  },
+  {
+    "name": "Python",
+    "color": "var(--tag-python)",
+    "bg": "var(--tag-python-bg)",
+    "icon": "🐍",
+    "benefit": "A language for science and automation"
+  },
+  {
+    "name": "JavaScript",
+    "color": "var(--tag-javascript)",
+    "bg": "var(--tag-javascript-bg)",
+    "icon": "🟨",
+    "benefit": "Bring web pages to life with code"
+  },
+  {
+    "name": "React.js",
+    "color": "var(--tag-javascript)",
+    "bg": "var(--tag-javascript-bg)",
+    "icon": "⚛️",
+    "benefit": "Modern interfaces, fast"
+  },
+  {
+    "name": "C++",
+    "color": "var(--tag-cpp)",
+    "bg": "var(--tag-cpp-bg)",
+    "icon": "⚙️",
+    "benefit": "Speed and power in programming"
+  },
+  {
+    "name": "Java",
+    "color": "var(--tag-java)",
+    "bg": "var(--tag-java-bg)",
+    "icon": "☕",
+    "benefit": "Reliability and scale"
+  },
+  {
+    "name": "TypeScript",
+    "color": "var(--tag-typescript)",
+    "bg": "var(--tag-typescript-bg)",
+    "icon": "🔷",
+    "benefit": "JavaScript with types and structure"
+  },
+  {
+    "name": "HTML/CSS",
+    "color": "var(--tag-html-css)",
+    "bg": "var(--tag-html-css-bg)",
+    "icon": "🌐",
+    "benefit": "The foundation of any website"
+  },
+  {
+    "name": "Swift",
+    "color": "var(--tag-swift)",
+    "bg": "var(--tag-swift-bg)",
+    "icon": "🍎",
+    "benefit": "Build iPhone apps"
+  },
+  {
+    "name": "Kotlin",
+    "color": "var(--tag-kotlin)",
+    "bg": "var(--tag-kotlin-bg)",
+    "icon": "🤖",
+    "benefit": "A modern language for Android"
+  },
+  {
+    "name": "PHP",
+    "color": "var(--tag-php)",
+    "bg": "var(--tag-php-bg)",
+    "icon": "🐘",
+    "benefit": "Server-side web development"
+  },
+  {
+    "name": "C#",
+    "color": "var(--tag-csharp)",
+    "bg": "var(--tag-csharp-bg)",
+    "icon": "💚",
+    "benefit": "Games and enterprise apps"
+  },
+  {
+    "name": "Ustaza Asma",
+    "color": "var(--tag-ustaza-asma)",
+    "bg": "var(--tag-ustaza-asma-bg)",
+    "icon": "❤️",
+    "benefit": "A session with your favourite teacher",
+    "adminOnly": true
+  },
+  {
+    "name": "Arabic with Iskhakh",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "🐻",
+    "benefit": "A session with your favourite teacher",
+    "adminOnly": true
+  },
+  {
+    "name": "Suleyman",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "🧸",
+    "benefit": "A session with your favourite teacher",
+    "adminOnly": true
+  },
+  {
+    "name": "Prayer + Cooking",
+    "color": "var(--tag-statistics)",
+    "bg": "var(--tag-statistics-bg)",
+    "icon": "🥗",
+    "benefit": "A session with your favourite teacher",
+    "adminOnly": true
+  },
+  {
+    "name": "Cleaning",
+    "color": "var(--tag-statistics)",
+    "bg": "var(--tag-statistics-bg)",
+    "icon": "🧹",
+    "benefit": "A session with your favourite teacher",
+    "adminOnly": true
+  },
+  {
+    "name": "Arabic with Khalil Qayyum",
+    "color": "var(--tag-earth-science)",
+    "bg": "var(--tag-earth-science-bg)",
+    "icon": "🐯",
+    "benefit": "A session with your favourite teacher",
+    "adminOnly": true
+  },
+  {
+    "name": "Abacus",
+    "color": "var(--tag-abacus)",
+    "bg": "var(--tag-abacus-bg)",
+    "icon": "🧮",
+    "benefit": "Lightning-fast mental math"
+  },
+  {
+    "name": "Sleep",
+    "color": "var(--tag-sleep)",
+    "bg": "var(--tag-sleep-bg)",
+    "icon": "🛏️",
+    "benefit": "Recovery of energy and memory"
+  },
+  {
+    "name": "Sleep (2h)",
+    "color": "var(--tag-sleep)",
+    "bg": "var(--tag-sleep-bg)",
+    "icon": "🛏️",
+    "benefit": "Recovery of energy and memory",
+    "adminOnly": true
+  },
+  {
+    "name": "Arabic Khasu (YouTube 1h)",
+    "color": "var(--tag-arabic-khasu)",
+    "bg": "var(--tag-arabic-khasu-bg)",
+    "icon": "🇸🇦",
+    "benefit": "Arabic through live video",
+    "adminOnly": true
+  },
+  {
+    "name": "IQ tests (10 min)",
+    "color": "var(--tag-iq)",
+    "bg": "var(--tag-iq-bg)",
+    "icon": "🧠",
+    "benefit": "Train intellect and speed"
+  },
+  {
+    "name": "Qayyum",
+    "color": "var(--tag-iq)",
+    "bg": "var(--tag-iq-bg)",
+    "icon": "💣",
+    "benefit": "A session with Qayyum",
+    "adminOnly": true
+  },
+  {
+    "name": "Kausar coffee",
+    "color": "var(--tag-algebra)",
+    "bg": "var(--tag-algebra-bg)",
+    "icon": "☕",
+    "benefit": "A break with coffee and a quick workout",
+    "adminOnly": true
+  },
+  {
+    "name": "Feed Kausar",
+    "color": "var(--tag-ustaza-asma)",
+    "bg": "var(--tag-ustaza-asma-bg)",
+    "icon": "🍲",
+    "benefit": "Caring for loved ones",
+    "adminOnly": true
+  },
+  {
+    "name": "Tafsir as-Sa'di",
+    "color": "var(--tag-quran-tafsir)",
+    "bg": "var(--tag-quran-tafsir-bg)",
+    "icon": "📜",
+    "benefit": "Exegesis of the Quran"
+  },
+  {
+    "name": "Kuliev's Tafsir",
+    "color": "var(--tag-quran-tafsir)",
+    "bg": "var(--tag-quran-tafsir-bg)",
+    "icon": "📜",
+    "benefit": "Exegesis of the Quran"
+  },
+  {
+    "name": "Gym (Legs)",
+    "color": "var(--tag-legs)",
+    "bg": "var(--tag-legs-bg)",
+    "icon": "🦵",
+    "benefit": "Leg muscle workout"
+  },
+  {
+    "name": "Gym (Arms)",
+    "color": "var(--tag-arms)",
+    "bg": "var(--tag-arms-bg)",
+    "icon": "💪",
+    "benefit": "Arm workout"
+  },
+  {
+    "name": "Gym (Chest)",
+    "color": "var(--tag-chest)",
+    "bg": "var(--tag-chest-bg)",
+    "icon": "🏋️",
+    "benefit": "Chest workout"
+  },
+  {
+    "name": "Gym (Back)",
+    "color": "var(--tag-back)",
+    "bg": "var(--tag-back-bg)",
+    "icon": "🔙",
+    "benefit": "Back workout"
+  },
+  {
+    "name": "Gym (Shoulders)",
+    "color": "var(--tag-shoulders)",
+    "bg": "var(--tag-shoulders-bg)",
+    "icon": "🤸",
+    "benefit": "Shoulder workout"
+  },
+  {
+    "name": "Gym (Abs)",
+    "color": "var(--tag-abs)",
+    "bg": "var(--tag-abs-bg)",
+    "icon": "🔥",
+    "benefit": "Core workout"
+  },
+  {
+    "name": "Cardio",
+    "color": "var(--tag-cardio)",
+    "bg": "var(--tag-cardio-bg)",
+    "icon": "❤️",
+    "benefit": "Cardio and stamina training"
+  },
+  {
+    "name": "Running",
+    "color": "var(--tag-running)",
+    "bg": "var(--tag-running-bg)",
+    "icon": "🏃",
+    "benefit": "Running and stamina"
+  },
+  {
+    "name": "Swimming",
+    "color": "var(--tag-swimming)",
+    "bg": "var(--tag-swimming-bg)",
+    "icon": "🏊",
+    "benefit": "Swimming"
+  },
+  {
+    "name": "Cycling",
+    "color": "var(--tag-cycling)",
+    "bg": "var(--tag-cycling-bg)",
+    "icon": "🚴",
+    "benefit": "Cycling"
+  },
+  {
+    "name": "Stretching",
+    "color": "var(--tag-stretching)",
+    "bg": "var(--tag-stretching-bg)",
+    "icon": "🧘",
+    "benefit": "Flexibility and stretching"
+  },
+  {
+    "name": "Nutrition",
+    "color": "var(--tag-nutrition)",
+    "bg": "var(--tag-nutrition-bg)",
+    "icon": "🥗",
+    "benefit": "Healthy eating"
+  },
+  {
+    "name": "Protein",
+    "color": "var(--tag-protein)",
+    "bg": "var(--tag-protein-bg)",
+    "icon": "🥩",
+    "benefit": "Protein for muscle"
+  },
+  {
+    "name": "Rest",
+    "color": "var(--tag-recovery)",
+    "bg": "var(--tag-recovery-bg)",
+    "icon": "😴",
+    "benefit": "Recovery and sleep"
+  },
+  {
+    "name": "Strength",
+    "color": "var(--tag-strength)",
+    "bg": "var(--tag-strength-bg)",
+    "icon": "🏆",
+    "benefit": "Strength exercises"
+  },
+  {
+    "name": "Reading",
+    "color": "var(--tag-reading)",
+    "bg": "var(--tag-reading-bg)",
+    "icon": "📖",
+    "benefit": "Broaden your horizons and thinking"
+  },
+  {
+    "name": "Book",
+    "color": "var(--tag-book)",
+    "bg": "var(--tag-book-bg)",
+    "icon": "📚",
+    "benefit": "In-depth study of a topic"
+  },
+  {
+    "name": "Notes",
+    "color": "var(--tag-notes)",
+    "bg": "var(--tag-notes-bg)",
+    "icon": "📝",
+    "benefit": "Capture the essentials"
+  },
+  {
+    "name": "Non-fiction",
+    "color": "var(--tag-nonfiction)",
+    "bg": "var(--tag-nonfiction-bg)",
+    "icon": "🧠",
+    "benefit": "Real knowledge and facts"
+  },
+  {
+    "name": "Fiction",
+    "color": "var(--tag-fiction)",
+    "bg": "var(--tag-fiction-bg)",
+    "icon": "✍️",
+    "benefit": "Build your imagination"
+  },
+  {
+    "name": "Audiobook",
+    "color": "var(--tag-audiobook)",
+    "bg": "var(--tag-audiobook-bg)",
+    "icon": "🎧",
+    "benefit": "Listen and learn"
+  },
+  {
+    "name": "Article",
+    "color": "var(--tag-article)",
+    "bg": "var(--tag-article-bg)",
+    "icon": "📰",
+    "benefit": "Fast article reading"
+  },
+  {
+    "name": "Retell",
+    "color": "var(--tag-retell)",
+    "bg": "var(--tag-retell-bg)",
+    "icon": "🗣️",
+    "benefit": "Reinforce what you read"
+  },
+  {
+    "name": "Boxing",
+    "color": "var(--tag-boxing)",
+    "bg": "var(--tag-boxing-bg)",
+    "icon": "🥊",
+    "benefit": "Speed, strength and stamina"
+  },
+  {
+    "name": "Wrestling",
+    "color": "var(--tag-wrestling)",
+    "bg": "var(--tag-wrestling-bg)",
+    "icon": "🤼",
+    "benefit": "Technique and body control"
+  },
+  {
+    "name": "MMA",
+    "color": "var(--tag-mma)",
+    "bg": "var(--tag-mma-bg)",
+    "icon": "🥋",
+    "benefit": "Mixed martial arts"
+  },
+  {
+    "name": "Judo",
+    "color": "var(--tag-judo)",
+    "bg": "var(--tag-judo-bg)",
+    "icon": "🥋",
+    "benefit": "Throws and falling technique"
+  },
+  {
+    "name": "Karate",
+    "color": "var(--tag-karate)",
+    "bg": "var(--tag-karate-bg)",
+    "icon": "🥋",
+    "benefit": "Strikes and discipline"
+  },
+  {
+    "name": "Taekwondo",
+    "color": "var(--tag-taekwondo)",
+    "bg": "var(--tag-taekwondo-bg)",
+    "icon": "🦵",
+    "benefit": "Kicks and flexibility"
+  },
+  {
+    "name": "Kickboxing",
+    "color": "var(--tag-kickboxing)",
+    "bg": "var(--tag-kickboxing-bg)",
+    "icon": "🥊",
+    "benefit": "Boxing meets kicks"
+  },
+  {
+    "name": "Muay Thai",
+    "color": "var(--tag-muaythai)",
+    "bg": "var(--tag-muaythai-bg)",
+    "icon": "🥊",
+    "benefit": "Thai boxing — 8 limbs"
+  },
+  {
+    "name": "Sambo",
+    "color": "var(--tag-sambo)",
+    "bg": "var(--tag-sambo-bg)",
+    "icon": "🤼",
+    "benefit": "A Russian martial art"
+  },
+  {
+    "name": "Grappling",
+    "color": "var(--tag-grappling)",
+    "bg": "var(--tag-grappling-bg)",
+    "icon": "🤼",
+    "benefit": "Ground grappling"
+  },
+  {
+    "name": "Weightlifting",
+    "color": "var(--tag-weightlifting)",
+    "bg": "var(--tag-weightlifting-bg)",
+    "icon": "🏋️",
+    "benefit": "Snatch and clean & jerk"
+  },
+  {
+    "name": "CrossFit",
+    "color": "var(--tag-crossfit)",
+    "bg": "var(--tag-crossfit-bg)",
+    "icon": "⚡",
+    "benefit": "High-intensity training"
+  },
+  {
+    "name": "Gymnastics",
+    "color": "var(--tag-gymnastics)",
+    "bg": "var(--tag-gymnastics-bg)",
+    "icon": "🤸",
+    "benefit": "Flexibility and coordination"
+  },
+  {
+    "name": "Football",
+    "color": "var(--tag-football)",
+    "bg": "var(--tag-football-bg)",
+    "icon": "⚽",
+    "benefit": "Team sport and stamina"
+  },
+  {
+    "name": "Basketball",
+    "color": "var(--tag-basketball)",
+    "bg": "var(--tag-basketball-bg)",
+    "icon": "🏀",
+    "benefit": "Jumps and team play"
+  },
+  {
+    "name": "Workout",
+    "color": "var(--tag-workout)",
+    "bg": "var(--tag-workout-bg)",
+    "icon": "💪",
+    "benefit": "General workout"
+  },
+  {
+    "name": "Volleyball",
+    "color": "var(--tag-volleyball)",
+    "bg": "var(--tag-volleyball-bg)",
+    "icon": "🏐",
+    "benefit": "Team play and jumps"
+  },
+  {
+    "name": "Tennis",
+    "color": "var(--tag-tennis)",
+    "bg": "var(--tag-tennis-bg)",
+    "icon": "🎾",
+    "benefit": "Reflexes and coordination"
+  },
+  {
+    "name": "Table Tennis",
+    "color": "var(--tag-tabletennis)",
+    "bg": "var(--tag-tabletennis-bg)",
+    "icon": "🏓",
+    "benefit": "Reflex speed"
+  },
+  {
+    "name": "Hockey",
+    "color": "var(--tag-hockey)",
+    "bg": "var(--tag-hockey-bg)",
+    "icon": "🏒",
+    "benefit": "Speed and team play"
+  },
+  {
+    "name": "Rugby",
+    "color": "var(--tag-rugby)",
+    "bg": "var(--tag-rugby-bg)",
+    "icon": "🏉",
+    "benefit": "Strength and team play"
+  },
+  {
+    "name": "Badminton",
+    "color": "var(--tag-badminton)",
+    "bg": "var(--tag-badminton-bg)",
+    "icon": "🏸",
+    "benefit": "Speed and agility"
+  },
+  {
+    "name": "Athletics",
+    "color": "var(--tag-athletics)",
+    "bg": "var(--tag-athletics-bg)",
+    "icon": "🏃",
+    "benefit": "Running, jumps, throws"
+  },
+  {
+    "name": "Yoga",
+    "color": "var(--tag-yoga)",
+    "bg": "var(--tag-yoga-bg)",
+    "icon": "🧘",
+    "benefit": "Flexibility and calm"
+  },
+  {
+    "name": "Climbing",
+    "color": "var(--tag-climbing)",
+    "bg": "var(--tag-climbing-bg)",
+    "icon": "🧗",
+    "benefit": "Strength and agility"
+  },
+  {
+    "name": "Skiing",
+    "color": "var(--tag-skiing)",
+    "bg": "var(--tag-skiing-bg)",
+    "icon": "⛷️",
+    "benefit": "Balance and stamina"
+  },
+  {
+    "name": "Golf",
+    "color": "var(--tag-golf)",
+    "bg": "var(--tag-golf-bg)",
+    "icon": "⛳",
+    "benefit": "Precision and focus"
+  },
+  {
+    "name": "Wake up",
+    "color": "var(--tag-wakeup)",
+    "bg": "var(--tag-wakeup-bg)",
+    "icon": "🌅",
+    "benefit": "Start of a new day"
+  },
+  {
+    "name": "Nap",
+    "color": "var(--tag-nap)",
+    "bg": "var(--tag-nap-bg)",
+    "icon": "🛌",
+    "benefit": "Recovery"
+  },
+  {
+    "name": "Cold shower",
+    "color": "var(--tag-cold-shower)",
+    "bg": "var(--tag-cold-shower-bg)",
+    "icon": "🧊",
+    "benefit": "Energy and immunity"
+  },
+  {
+    "name": "Shower",
+    "color": "var(--tag-shower)",
+    "bg": "var(--tag-shower-bg)",
+    "icon": "🚿",
+    "benefit": "Hygiene and freshness"
+  },
+  {
+    "name": "Wash up",
+    "color": "var(--tag-wash)",
+    "bg": "var(--tag-wash-bg)",
+    "icon": "🫧",
+    "benefit": "Morning hygiene"
+  },
+  {
+    "name": "Ghusl",
+    "color": "var(--tag-ghusl)",
+    "bg": "var(--tag-ghusl-bg)",
+    "icon": "🌊",
+    "benefit": "Full ablution"
+  },
+  {
+    "name": "Sauna",
+    "color": "var(--tag-sauna)",
+    "bg": "var(--tag-sauna-bg)",
+    "icon": "🔥",
+    "benefit": "Wellness and relaxation"
+  },
+  {
+    "name": "Walk",
+    "color": "var(--tag-walk)",
+    "bg": "var(--tag-walk-bg)",
+    "icon": "🚶",
+    "benefit": "Fresh air and movement"
+  },
+  {
+    "name": "Running",
+    "color": "var(--tag-run)",
+    "bg": "var(--tag-run-bg)",
+    "icon": "🏃",
+    "benefit": "Stamina and health"
+  },
+  {
+    "name": "Swimming",
+    "color": "var(--tag-swim)",
+    "bg": "var(--tag-swim-bg)",
+    "icon": "🏊",
+    "benefit": "Full-body workout"
+  },
+  {
+    "name": "Pool",
+    "color": "var(--tag-pool)",
+    "bg": "var(--tag-pool-bg)",
+    "icon": "🏊‍♂️",
+    "benefit": "Training in the water"
+  },
+  {
+    "name": "Rest",
+    "color": "var(--tag-rest)",
+    "bg": "var(--tag-rest-bg)",
+    "icon": "😌",
+    "benefit": "Recovery and rest"
+  },
+  {
+    "name": "Breakfast",
+    "color": "var(--tag-breakfast)",
+    "bg": "var(--tag-breakfast-bg)",
+    "icon": "🍳",
+    "benefit": "Energy for the whole day"
+  },
+  {
+    "name": "Lunch",
+    "color": "var(--tag-lunch)",
+    "bg": "var(--tag-lunch-bg)",
+    "icon": "🍽️",
+    "benefit": "Main meal of the day"
+  },
+  {
+    "name": "Dinner",
+    "color": "var(--tag-dinner)",
+    "bg": "var(--tag-dinner-bg)",
+    "icon": "🥘",
+    "benefit": "Evening meal"
+  },
+  {
+    "name": "Snack",
+    "color": "var(--tag-snack)",
+    "bg": "var(--tag-snack-bg)",
+    "icon": "🍎",
+    "benefit": "Light snack"
+  },
+  {
+    "name": "Suhoor",
+    "color": "var(--tag-suhoor)",
+    "bg": "var(--tag-suhoor-bg)",
+    "icon": "🌙",
+    "benefit": "Pre-dawn meal"
+  },
+  {
+    "name": "Iftar",
+    "color": "var(--tag-iftar)",
+    "bg": "var(--tag-iftar-bg)",
+    "icon": "🌇",
+    "benefit": "Breaking the fast"
+  },
+  {
+    "name": "Salah",
+    "color": "var(--tag-salah)",
+    "bg": "var(--tag-salah-bg)",
+    "icon": "🕌",
+    "benefit": "Connection with Allah"
+  },
+  {
+    "name": "Fajr",
+    "color": "var(--tag-fajr)",
+    "bg": "var(--tag-fajr-bg)",
+    "icon": "🌄",
+    "benefit": "Morning prayer"
+  },
+  {
+    "name": "Duha",
+    "color": "var(--tag-duha)",
+    "bg": "var(--tag-duha-bg)",
+    "icon": "☀️",
+    "benefit": "Voluntary Duha prayer"
+  },
+  {
+    "name": "Dhuhr",
+    "color": "var(--tag-dhuhr)",
+    "bg": "var(--tag-dhuhr-bg)",
+    "icon": "🕛",
+    "benefit": "Midday prayer"
+  },
+  {
+    "name": "Asr",
+    "color": "var(--tag-asr)",
+    "bg": "var(--tag-asr-bg)",
+    "icon": "🌤️",
+    "benefit": "Afternoon prayer"
+  },
+  {
+    "name": "Maghrib",
+    "color": "var(--tag-maghrib)",
+    "bg": "var(--tag-maghrib-bg)",
+    "icon": "🌆",
+    "benefit": "Prayer after sunset"
+  },
+  {
+    "name": "Isha",
+    "color": "var(--tag-isha)",
+    "bg": "var(--tag-isha-bg)",
+    "icon": "🌙",
+    "benefit": "Night prayer"
+  },
+  {
+    "name": "Tahajjud",
+    "color": "var(--tag-tahajjud)",
+    "bg": "var(--tag-tahajjud-bg)",
+    "icon": "⭐",
+    "benefit": "Voluntary night prayer"
+  },
+  {
+    "name": "Witr",
+    "color": "var(--tag-witr)",
+    "bg": "var(--tag-witr-bg)",
+    "icon": "🌙",
+    "benefit": "Witr prayer"
+  },
+  {
+    "name": "Morning adhkar",
+    "color": "var(--tag-morning-adhkar)",
+    "bg": "var(--tag-morning-adhkar-bg)",
+    "icon": "🌸",
+    "benefit": "Morning adhkar — protection and barakah"
+  },
+  {
+    "name": "Evening adhkar",
+    "color": "var(--tag-evening-adhkar)",
+    "bg": "var(--tag-evening-adhkar-bg)",
+    "icon": "🌺",
+    "benefit": "Evening adhkar — protection through the night"
+  },
+  {
+    "name": "Dua",
+    "color": "var(--tag-dua)",
+    "bg": "var(--tag-dua-bg)",
+    "icon": "🤲",
+    "benefit": "Calling on Allah"
+  },
+  {
+    "name": "Sadaqah",
+    "color": "var(--tag-sadaqah)",
+    "bg": "var(--tag-sadaqah-bg)",
+    "icon": "🪙",
+    "benefit": "Purifying wealth and soul"
+  },
+  {
+    "name": "Donation",
+    "color": "var(--tag-donation)",
+    "bg": "var(--tag-donation-bg)",
+    "icon": "🪙",
+    "benefit": "Helping those in need"
+  },
+  {
+    "name": "Dirayah",
+    "color": "var(--tag-diroya)",
+    "bg": "var(--tag-diroya-bg)",
+    "icon": "/Diroya.svg",
+    "benefit": "Studying the Islamic sciences"
+  }
+]

@@ -5,12 +5,12 @@ import TagIcon from "../../components/TagIcon";
 import { useAvatar } from "../../hooks/useAvatar";
 import UserAvatar from "../../components/UserAvatar";
 import { usePlans } from "./hooks/usePlans";
-import type { ScheduleEntry, SavedPlan } from "./types";
+import type { SavedPlan } from "./types";
+import type { ScheduleEntry } from "./types";
 import styles from "./Workspace.module.css";
 import PDFPlanList from "./components/PDFPlanList";
 import UndoToast from "../../components/UndoToast";
 import WeekPlan from "./components/WeekPlan";
-import AIPlannerChat from "./components/AIPlannerChat";
 
 type Orientation = "vertical" | "horizontal";
 
@@ -74,8 +74,6 @@ export default function Workspace() {
   const deletedPlanTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
     null,
   );
-  const [aiChatOpen, setAiChatOpen] = useState(false);
-  const [aiGreeting, setAiGreeting] = useState<string | null>(null);
   const aiPlanTitleRef = useRef<string | undefined>(undefined);
 
   // Ctrl+Z to undo plan deletion
@@ -210,19 +208,6 @@ export default function Workspace() {
     [deletePlan, activePlanId, setActivePlanId, plans],
   );
 
-  const handleAIPlanApplied = useCallback(
-    (newSchedule: ScheduleEntry[], greeting: string, planTitle: string) => {
-      setActivePlanId(null);
-      setSchedule(newSchedule);
-      setHasUnsavedChanges(true);
-      if (greeting) setAiGreeting(greeting);
-      aiPlanTitleRef.current = planTitle;
-      setAiChatOpen(false);
-      pageRef.current?.scrollIntoView({ behavior: "smooth" });
-    },
-    [setActivePlanId],
-  );
-
   return (
     <div className={styles.page} ref={pageRef}>
       <header className={styles.hero}>
@@ -247,24 +232,12 @@ export default function Workspace() {
           />
           <div className={styles.heroText}>
             <p className={styles.greeting}>
-              {aiGreeting ? (
-                <span className={styles.name}>{aiGreeting}</span>
-              ) : (
-                <>
-                  <TagIcon icon={getGreetingEmoji()} size={22} />{" "}
-                  {get(getGreetingKey())},{" "}
-                  <span className={styles.name}>{firstName}</span>
-                </>
-              )}
+              <TagIcon icon={getGreetingEmoji()} size={22} />{" "}
+              {get(getGreetingKey())},{" "}
+              <span className={styles.name}>{firstName}</span>
             </p>
             <div className={styles.subtitleRow}>
               <p className={styles.subtitle}>{get("workspace.subtitle")}</p>
-              <button
-                className={styles.aiInlineBtn}
-                onClick={() => setAiChatOpen(true)}
-              >
-                🤖 Спланируй с ИИ
-              </button>
             </div>
           </div>
         </div>
@@ -301,13 +274,6 @@ export default function Workspace() {
         />
       )}
 
-      {aiChatOpen && (
-        <AIPlannerChat
-          userName={firstName}
-          onClose={() => setAiChatOpen(false)}
-          onApplyPlan={handleAIPlanApplied}
-        />
-      )}
     </div>
   );
 }

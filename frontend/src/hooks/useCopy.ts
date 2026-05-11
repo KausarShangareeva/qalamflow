@@ -1,91 +1,46 @@
-import copy from "../json/ru.json";
+import { useTranslation } from "react-i18next";
 
 type ReplacementValues = Record<string, string | number>;
 
 /**
- * Replace placeholders in a string with values
- * Example: "Hello {name}" with {name: "World"} => "Hello World"
- */
-function interpolate(template: string, values?: ReplacementValues): string {
-  if (!values) return template;
-
-  return template.replace(/\{(\w+)\}/g, (match, key) => {
-    return values[key] !== undefined ? String(values[key]) : match;
-  });
-}
-
-/**
- * Get a random item from an array
- */
-function getRandomItem<T>(items: T[]): T {
-  return items[Math.floor(Math.random() * items.length)];
-}
-
-/**
- * Hook to access copy text with interpolation support
+ * Same API as the previous useCopy() — but now reads from i18next so callers
+ * automatically re-render when the active language changes. The translations
+ * live in src/data/{ru,en}/*.json and are loaded by src/i18n/index.ts.
  */
 export function useCopy() {
-  /**
-   * Get copy text by path with optional interpolation
-   * @param path - Dot-notation path to the copy text (e.g., "dashboard.greeting")
-   * @param values - Optional values to interpolate into the text
-   */
+  const { t, i18n } = useTranslation();
+
   const get = (path: string, values?: ReplacementValues): string => {
-    const keys = path.split(".");
-    let result: any = copy;
-
-    for (const key of keys) {
-      if (result && typeof result === "object" && key in result) {
-        result = result[key as keyof typeof result];
-      } else {
-        console.warn(`Copy path not found: ${path}`);
-        return path;
-      }
-    }
-
-    if (typeof result !== "string") {
-      console.warn(`Copy path does not point to a string: ${path}`);
-      return path;
-    }
-
-    return interpolate(result, values);
+    const result = t(path, { ...(values ?? {}), defaultValue: path });
+    return typeof result === "string" ? result : path;
   };
 
-  /**
-   * Get a random motivation message
-   */
-  const getRandomMotivation = (): string => {
-    return getRandomItem(copy.dashboard.motivations);
-  };
-
-  /**
-   * Get all items from an array path
-   */
-  const getArray = (path: string): any[] => {
-    const keys = path.split(".");
-    let result: any = copy;
-
-    for (const key of keys) {
-      if (result && typeof result === "object" && key in result) {
-        result = result[key as keyof typeof result];
-      } else {
-        console.warn(`Copy path not found: ${path}`);
-        return [];
-      }
-    }
-
+  const getArray = <T = unknown>(path: string): T[] => {
+    const result = t(path, { returnObjects: true, defaultValue: [] });
     if (!Array.isArray(result)) {
       console.warn(`Copy path does not point to an array: ${path}`);
       return [];
     }
+    return result as T[];
+  };
 
-    return result;
+  const getRandomMotivation = (): string => {
+    const list = getArray<string>("dashboard.motivations");
+    if (!list.length) return "";
+    return list[Math.floor(Math.random() * list.length)];
   };
 
   return {
     get,
-    getRandomMotivation,
     getArray,
-    copy, // Direct access to the copy object if needed
+    getRandomMotivation,
+    // Back-compat: a snapshot of the current language's resource bundle.
+    // Callers that destructure `copy` get the same nested object shape as
+    // before. Prefer `get(path)` in new code so re-renders happen on language
+    // switch.
+    copy: i18n.getResourceBundle(i18n.language, "translation") as Record<
+      string,
+      unknown
+    >,
   };
 }

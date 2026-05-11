@@ -1,6 +1,6 @@
 import type { ScheduleEntry } from "../types";
-import TAGS from "../../../json/tags.json";
-import WEEKDAYS from "../../../json/weekdays.json";
+import TAGS from "../../../data/ru/tags.json";
+import WEEKDAYS from "../../../data/ru/weekdays.json";
 
 const COURSE_COLORS: Record<string, string> = Object.fromEntries(
   TAGS.map((t) => [t.name, t.color])

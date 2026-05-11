@@ -5,6 +5,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useCopy } from "../hooks/useCopy";
 import Logo from "./Logo";
 import CTAButton from "./CTAButton";
+import LanguageSwitcher from "./LanguageSwitcher";
 import {
   LogOut,
   Sun,
@@ -19,46 +20,14 @@ import {
   BookOpen,
   Zap,
   Printer,
-  Coins,
   Sparkles,
   Pencil,
 } from "lucide-react";
 import styles from "./Navigation.module.css";
 
-const SPARKLES = [
-  { top: "18%",  left: "6%",    delay: "0s",    size: "0.65rem" },
-  { top: "62%",  left: "14%",   delay: "1.4s",  size: "0.5rem"  },
-  { top: "20%",  left: "28%",   delay: "0.7s",  size: "0.55rem" },
-  { top: "72%",  left: "40%",   delay: "2.2s",  size: "0.45rem" },
-  { top: "15%",  left: "55%",   delay: "1.0s",  size: "0.6rem"  },
-  { top: "70%",  left: "65%",   delay: "1.8s",  size: "0.5rem"  },
-  { top: "18%",  left: "80%",   delay: "0.3s",  size: "0.65rem" },
-  { top: "65%",  left: "90%",   delay: "2.5s",  size: "0.45rem" },
-  { top: "-22%", left: "25%",   delay: "1.2s",  size: "0.45rem" },
-  { top: "110%", left: "60%",   delay: "0.6s",  size: "0.4rem"  },
-  { top: "40%",  left: "-10%",  delay: "1.9s",  size: "0.4rem"  },
-  { top: "30%",  left: "108%",  delay: "0.9s",  size: "0.45rem" },
-];
-
-function DonateSparkles() {
-  return (
-    <>
-      {SPARKLES.map((s, i) => (
-        <span
-          key={i}
-          aria-hidden="true"
-          className={styles.donateSparkle}
-          style={{ top: s.top, left: s.left, animationDelay: s.delay, fontSize: s.size }}
-        >
-          ✦
-        </span>
-      ))}
-    </>
-  );
-}
-
 function AuthorCard() {
   const [copied, setCopied] = useState(false);
+  const { get } = useCopy();
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -74,7 +43,9 @@ function AuthorCard() {
           <img src="/avatar_logo.png" alt="" className={styles.authorAvatar} />
           <div className={styles.authorMeta}>
             <span className={styles.authorName}>Kausar S.</span>
-            <span className={styles.authorRole}>Дизайнер + Программист</span>
+            <span className={styles.authorRole}>
+              {get("authorCard.role")}
+            </span>
           </div>
         </div>
         <div className={styles.authorActions}>
@@ -85,11 +56,13 @@ function AuthorCard() {
             className={styles.authorBtn}
           >
             <Send size={14} />
-            Написать в ТГ
+            {get("authorCard.telegramBtn")}
           </a>
           <button className={styles.authorBtn} onClick={handleCopyEmail}>
             <Copy size={14} />
-            {copied ? "Почта скопирована!" : "Скопировать почту"}
+            {copied
+              ? get("authorCard.emailCopied")
+              : get("authorCard.copyEmail")}
           </button>
         </div>
       </div>
@@ -156,11 +129,6 @@ export default function Navigation() {
                     </button>
                     <div className={styles.dropdown}>
                       <AuthorCard />
-                      <Link to="/donate" className={`${styles.dropdownItem} ${styles.donateItem}`}>
-                        <DonateSparkles />
-                        <Coins size={16} className={styles.dropdownIcon} />
-                        {get("navigation.buyMeCoffee")}
-                      </Link>
                       <Link
                         to="/suggest-project"
                         className={styles.dropdownItem}
@@ -208,11 +176,6 @@ export default function Navigation() {
                     </button>
                     <div className={styles.dropdown}>
                       <AuthorCard />
-                      <Link to="/donate" className={`${styles.dropdownItem} ${styles.donateItem}`}>
-                        <DonateSparkles />
-                        <Coins size={16} className={styles.dropdownIcon} />
-                        {get("navigation.buyMeCoffee")}
-                      </Link>
                       <Link
                         to="/suggest-project"
                         className={styles.dropdownItem}
@@ -251,6 +214,8 @@ export default function Navigation() {
                 </CTAButton>
               </div>
             )}
+
+            <LanguageSwitcher />
 
             <button
               onClick={toggleTheme}
@@ -316,15 +281,6 @@ export default function Navigation() {
               {get("navigation.messageAuthor")}
             </a>
             <Link
-              to="/donate"
-              className={`${styles.mobileNavLink} ${styles.donateItem}`}
-              onClick={closeMenu}
-            >
-              <DonateSparkles />
-              <Coins size={16} className={styles.dropdownIcon} />
-              {get("navigation.buyMeCoffee")}
-            </Link>
-            <Link
               to="/suggest-project"
               className={styles.mobileNavLink}
               onClick={closeMenu}
@@ -342,6 +298,8 @@ export default function Navigation() {
             </Link>
 
             <div className={styles.mobileDivider} />
+
+            <LanguageSwitcher variant="mobile" />
 
             <button
               className={styles.mobileNavLink}
@@ -408,15 +366,6 @@ export default function Navigation() {
               {get("navigation.messageAuthor")}
             </a>
             <Link
-              to="/donate"
-              className={`${styles.mobileNavLink} ${styles.donateItem}`}
-              onClick={closeMenu}
-            >
-              <DonateSparkles />
-              <Coins size={16} className={styles.dropdownIcon} />
-              {get("navigation.buyMeCoffee")}
-            </Link>
-            <Link
               to="/suggest-project"
               className={styles.mobileNavLink}
               onClick={closeMenu}
@@ -434,6 +383,8 @@ export default function Navigation() {
             </Link>
 
             <div className={styles.mobileDivider} />
+
+            <LanguageSwitcher variant="mobile" />
 
             <button
               className={styles.mobileNavLink}

@@ -2,15 +2,10 @@ import { Link } from "react-router-dom";
 import { useCopy } from "../hooks/useCopy";
 import Logo from "./Logo";
 import {
-  GithubIcon,
-  LinkedinIcon,
   Sparkles,
   Pencil,
-  Coins,
   ClipboardList,
   GraduationCap,
-  Heart,
-  Users,
   BookMarked,
   Baby,
   Lightbulb,
@@ -76,10 +71,6 @@ export default function Footer() {
                 />
                 {get("footer.messageAuthor")}
               </a>
-              <Link to="/donate">
-                <Coins size={15} />
-                {get("footer.buyMeCoffee")}
-              </Link>
               <Link to="/suggest-project">
                 <Sparkles size={15} />
                 {get("footer.suggestProject")}
@@ -121,72 +112,68 @@ export default function Footer() {
           <div className={styles.column}>
             <div className={styles.projectsHeader}>
               <h4 className={styles.columnTitle}>
-                Другие проекты автора{" "}
+                {get("footer.otherProjects")}{" "}
                 <span className={styles.hourglass}>⏳</span>
               </h4>
-              <span className={styles.soonBadge}>Скоро</span>
+              <span className={styles.soonBadge}>
+                {get("footer.comingSoon")}
+              </span>
             </div>
             <nav className={`${styles.links} ${styles.projectsLinks}`}>
               <span className={styles.projectItem}>
                 <ClipboardList size={15} style={{ color: "#22c55e" }} />
                 <span className={styles.projectName}>DeenPlanner</span>
                 <span className={styles.projectDesc}>
-                  – чек-листы для студентов
+                  – {get("footer.projects.deenPlanner")}
                 </span>
               </span>
               <span className={styles.projectItem}>
                 <GraduationCap size={15} style={{ color: "#3b82f6" }} />
                 <span className={styles.projectName}>UstazFlow</span>
                 <span className={styles.projectDesc}>
-                  – планнер преподавателя
+                  – {get("footer.projects.ustazFlow")}
                 </span>
-              </span>
-              <span className={styles.projectItem}>
-                <Heart size={15} style={{ color: "#f43f5e" }} />
-                <span className={styles.projectName}>UmmaFlow</span>
-                <span className={styles.projectDesc}>– планнер для мамы</span>
-              </span>
-              <span className={styles.projectItem}>
-                <Users size={15} style={{ color: "#10b981" }} />
-                <span className={styles.projectName}>UsraFlow</span>
-                <span className={styles.projectDesc}>– семейный планнер</span>
               </span>
               <span className={styles.projectItem}>
                 <BookMarked size={15} style={{ color: "#14b8a6" }} />
                 <span className={styles.projectName}>HifzFlow</span>
                 <span className={styles.projectDesc}>
-                  – трекер заучивания Корана
+                  – {get("footer.projects.hifzFlow")}
                 </span>
               </span>
               <span className={styles.projectItem}>
                 <Baby size={15} style={{ color: "#f59e0b" }} />
                 <span className={styles.projectName}>LittleUmmah</span>
-                <span className={styles.projectDesc}>– истории для детей</span>
+                <span className={styles.projectDesc}>
+                  – {get("footer.projects.littleUmmah")}
+                </span>
               </span>
               <span className={styles.projectItem}>
                 <Lightbulb size={15} style={{ color: "#f97316" }} />
                 <span className={styles.projectName}>NoorRoom</span>
                 <span className={styles.projectDesc}>
-                  – комната в арабском стиле
+                  – {get("footer.projects.noorRoom")}
                 </span>
               </span>
               <span className={styles.projectItem}>
                 <Key size={15} style={{ color: "#06b6d4" }} />
-                <span className={styles.projectName}>Madrasa Key</span>
-                <span className={styles.projectDesc}>– ГДЗ по арабскому</span>
+                <span className={styles.projectName}>MadrasaKey</span>
+                <span className={styles.projectDesc}>
+                  – {get("footer.projects.madrasaKey")}
+                </span>
               </span>
               <span className={styles.projectItem}>
                 <Shirt size={15} style={{ color: "#d4a853" }} />
-                <span className={styles.projectName}>HijabPlanner</span>
+                <span className={styles.projectName}>HiHijab</span>
                 <span className={styles.projectDesc}>
-                  – планировщик гардероба
+                  – {get("footer.projects.hijabPlanner")}
                 </span>
               </span>
               <span className={styles.projectItem}>
                 <Library size={15} style={{ color: "#84cc16" }} />
                 <span className={styles.projectName}>ShelfMind</span>
                 <span className={styles.projectDesc}>
-                  – твоя домашняя библиотека
+                  – {get("footer.projects.shelfMind")}
                 </span>
               </span>
             </nav>

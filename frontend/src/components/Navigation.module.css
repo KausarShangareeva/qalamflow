@@ -181,64 +181,6 @@
   background: var(--color-bg-hover);
 }
 
-/* ===== Donate button ===== */
-.donateItem {
-  position: relative;
-  overflow: visible;
-  background: rgba(74, 222, 128, 0.06);
-  border: none !important;
-  transition:
-    background 0.4s ease,
-    box-shadow 0.4s ease,
-    color 0.4s ease;
-}
-
-.donateItem:hover {
-  background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%);
-  color: #fff;
-  --donate-icon-color: #fff;
-  box-shadow:
-    0 0 22px rgba(74, 222, 128, 0.55),
-    0 0 55px rgba(74, 222, 128, 0.2);
-  /* border-color: rgba(255, 255, 255, 0.35) !important; */
-}
-
-.donateItem > :not(.donateSparkle) {
-  position: relative;
-  z-index: 1;
-}
-
-.donateItem:hover .dropdownIcon {
-  color: #fff;
-}
-
-.donateSparkle {
-  position: absolute;
-  color: rgba(255, 255, 255, 0.18);
-  pointer-events: none;
-  animation: starTwinkle 2.8s ease-in-out infinite;
-  z-index: 0;
-  line-height: 1;
-  transition: color 0.4s ease;
-}
-
-.donateItem:hover .donateSparkle {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-@keyframes starTwinkle {
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-  40%,
-  60% {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-}
-
 /* ===== Author card ===== */
 .authorCard {
   border-radius: 1.2rem;

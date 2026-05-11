@@ -1,0 +1,157 @@
+{
+  "app": {
+    "name": "QalamFlow",
+    "tagline": "Plan your Arabic-learning journey",
+    "copyright": "QalamFlow"
+  },
+  "nav": {
+    "contact": "Contact"
+  },
+  "protectedRoute": {
+    "loading": "Loading..."
+  },
+  "common": {
+    "everyDay": "Every day",
+    "back": "Back",
+    "backHome": "Back home",
+    "undoToastDeleted": "“{message}” deleted —",
+    "undoToastHint": "press",
+    "undoToastOr": "or",
+    "undoToastButton": "↩ Undo",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "open": "Open",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "authorCard": {
+    "role": "Designer + Engineer",
+    "telegramBtn": "Message on Telegram",
+    "copyEmail": "Copy email",
+    "emailCopied": "Email copied!"
+  },
+  "navigation": {
+    "home": "Home",
+    "myStudyPlan": "My study plan",
+    "messageAuthor": "Message the author",
+    "suggestProject": "Suggest a project",
+    "feedback": "Leave feedback",
+    "logout": "Log out",
+    "signUp": "Sign up",
+    "logIn": "Log in",
+    "features": "Features",
+    "howItWorks": "How it works",
+    "pdfExport": "PDF export",
+    "lightTheme": "Light theme",
+    "darkTheme": "Dark theme",
+    "getStarted": "Get started",
+    "telegramChannel": "My Telegram channel",
+    "language": "Language"
+  },
+  "footer": {
+    "quickLinks": "Quick links",
+    "connect": "Connect",
+    "madeWithLove": "Made with",
+    "madeWithFull": "Made with 🧠 by",
+    "home": "Home",
+    "features": "Features",
+    "howItWorks": "How it works",
+    "envelope": "Envelope",
+    "pdfExport": "PDF export",
+    "messageAuthor": "Message the author",
+    "suggestProject": "Suggest a project",
+    "feedback": "Leave feedback",
+    "telegram": "The student writes code",
+    "otherProjects": "Other projects by the author",
+    "comingSoon": "Soon",
+    "telegramChannel": "My Telegram channel",
+    "shanStudio": "ShanStudio",
+    "projects": {
+      "deenPlanner": "checklists for students",
+      "ustazFlow": "teacher planner",
+      "ummaFlow": "planner for moms",
+      "usraFlow": "family planner",
+      "hifzFlow": "Quran memorisation tracker",
+      "littleUmmah": "stories for kids",
+      "noorRoom": "an Arabic-style room",
+      "madrasaKey": "Arabic answer keys",
+      "hijabPlanner": "wardrobe planner",
+      "shelfMind": "your home library"
+    }
+  },
+  "googleAuth": {
+    "continueWith": "Continue with Google",
+    "or": "OR"
+  },
+  "pwa": {
+    "install": {
+      "banner": {
+        "title": "Install QalamFlow",
+        "description": "Install our app for a better experience!",
+        "installButton": "Install",
+        "dismissButton": "×"
+      },
+      "modal": {
+        "title": "Install QalamFlow",
+        "ios": {
+          "title": "On Mobile (iOS)",
+          "safari": "Safari",
+          "shareButton": "Share",
+          "addToHomeScreen": "Add to Home Screen",
+          "tapAdd": "Add",
+          "step1": "Open QalamFlow in ",
+          "step2": "Tap the ",
+          "step2b": " button (square with arrow)",
+          "step3": "Scroll down and tap ",
+          "step4": "Tap ",
+          "step4b": " to confirm"
+        },
+        "android": {
+          "title": "On Mobile (Android)",
+          "chrome": "Chrome",
+          "menu": "menu",
+          "addToHome": "Add to Home Screen",
+          "installApp": "Install App",
+          "install": "Install",
+          "step1": "Open QalamFlow in ",
+          "step2": "Tap ",
+          "step2b": " (three dots)",
+          "step3": "Tap ",
+          "step3b": " or ",
+          "step4": "Tap ",
+          "step4b": " to confirm"
+        },
+        "desktop": {
+          "title": "On Desktop (Chrome/Edge)",
+          "installIcon": "install icon",
+          "menu": "menu",
+          "installQalamFlow": "Install QalamFlow",
+          "createShortcut": "Create Shortcut",
+          "install": "Install",
+          "step1": "Look for the ",
+          "step1b": " in the address bar",
+          "step2": "Or click ",
+          "step2b": " (three dots)",
+          "step3": "Select ",
+          "step3b": " or ",
+          "step4": "Click ",
+          "step4b": " to confirm"
+        },
+        "benefits": {
+          "title": "Benefits of installing:",
+          "fastLoading": "Fast loading",
+          "worksOffline": "Works offline",
+          "nativeExperience": "Native app experience",
+          "quickAccess": "Quick access from home screen",
+          "noAppStore": "No app store required"
+        }
+      }
+    }
+  }
+}

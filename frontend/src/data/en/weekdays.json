@@ -1,0 +1,30 @@
+{
+  "days": [
+    { "full": "Monday", "short": "Mon", "letter": "M", "lower": "monday" },
+    { "full": "Tuesday", "short": "Tue", "letter": "T", "lower": "tuesday" },
+    { "full": "Wednesday", "short": "Wed", "letter": "W", "lower": "wednesday" },
+    { "full": "Thursday", "short": "Thu", "letter": "T", "lower": "thursday" },
+    { "full": "Friday", "short": "Fri", "letter": "F", "lower": "friday" },
+    { "full": "Saturday", "short": "Sat", "letter": "S", "lower": "saturday" },
+    { "full": "Sunday", "short": "Sun", "letter": "S", "lower": "sunday" }
+  ],
+  "hours": [
+    { "full": "06:00", "short": "6:00", "value": 6 },
+    { "full": "07:00", "short": "7:00", "value": 7 },
+    { "full": "08:00", "short": "8:00", "value": 8 },
+    { "full": "09:00", "short": "9:00", "value": 9 },
+    { "full": "10:00", "short": "10:00", "value": 10 },
+    { "full": "11:00", "short": "11:00", "value": 11 },
+    { "full": "12:00", "short": "12:00", "value": 12 },
+    { "full": "13:00", "short": "13:00", "value": 13 },
+    { "full": "14:00", "short": "14:00", "value": 14 },
+    { "full": "15:00", "short": "15:00", "value": 15 },
+    { "full": "16:00", "short": "16:00", "value": 16 },
+    { "full": "17:00", "short": "17:00", "value": 17 },
+    { "full": "18:00", "short": "18:00", "value": 18 },
+    { "full": "19:00", "short": "19:00", "value": 19 },
+    { "full": "20:00", "short": "20:00", "value": 20 },
+    { "full": "21:00", "short": "21:00", "value": 21 },
+    { "full": "22:00", "short": "22:00", "value": 22 }
+  ]
+}
